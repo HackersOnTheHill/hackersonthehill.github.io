@@ -1,0 +1,40 @@
+- agenda: arrival
+  start_time: "12:30"
+  end_time: "13:00"
+  description: "Arrive and register"
+- agenda: welcome
+  start_time: "13:00"
+  end_time: "13:15"
+  description: "Welcome and introduction"
+- agenda: day-in-the-life
+  start_time: "13:05"
+  end_time: "13:45"
+  description: "A day in the life of a staffer"
+- agenda: current-cyber-policy
+  start_time: "13:45"
+  end_time: "14:30"
+  description: "Current events in cyber policy"
+- agenda: travel_1
+  start_time: "14:30"
+  end_time: "15:00"
+  description: "Travel to Congressional Committee Briefing #1"
+- agenda: briefing_1
+  start_time: "15:00"
+  end_time: "15:55"
+  description: "Congressional Committee Briefing #1"
+- agenda: travel_2
+  start_time: "15:55"
+  end_time: "16:05"
+  description: "Travel to Congressional Committee Briefing #2"
+- agenda: briefing_2
+  start_time: "16:05"
+  end_time: "17:00"
+  description: "Congressional Committee Briefing #2"
+- agenda: travel_3
+  start_time: "17:00"
+  end_time: "17:30"
+  description: "Travel to Happy Hour"
+- agenda: happy_hour
+  start_time: "17:30"
+  end_time: "19:00"
+  description: "Happy Hour (Location TBD)"

@@ -1,0 +1,94 @@
+---
+title: Hackers on the Hill
+start_datetime: 2020-01-30 12:00:00
+end_datetime: 2020-01-30 18:00:00
+timezone: America/New_York
+description: A semi-regular US Capitol tour with irregulars from the security research community.
+arrival_note: "Arrive 15-20 minutes early for airport-style security screening."
+background_image: /images/us-capitol.jpg
+map:
+  address: Library of Congress, Washington, DC
+  zoom: 16
+  latitude: 38.8887
+  longitude: -77.0047
+  title: "Hackers on the Hill"
+_options:
+  label_image:
+    width: 400
+    height: 400
+  image:
+    width: 600
+    height: 1200
+---
+
+<p class="dates">
+	{{ page.start_datetime | date: "%A, %B %-d, %Y %-I%P" }} - {{ page.end_datetime | date: "%-I%P" }}
+	<span class="addtocalendar atc-style-button-icon atc-style-menu-wb">
+		<a class="atcb-link">{% include icons/date.svg %}</a>
+		<var class="atc_event">
+			<var class="atc_date_start">{{ page.start_datetime | date: "%Y-%m-%d %H:%M:%S" }}</var>
+			<var class="atc_date_end">{{ page.end_datetime | date: "%Y-%m-%d %H:%M:%S" }}</var>
+			<var class="atc_timezone">{{ page.timezone }}</var>
+			<var class="atc_title">{{ page.title }}</var>
+			<var class="atc_description">
+        {{ page.description }}
+        {%- for agenda in site.data.agenda -%}
+          \n{{agenda.start_time}}-{{agenda.end_time}} {{agenda.description}}
+        {%- endfor -%}
+        \n\n{{page.arrival_note}}
+      </var>
+			<var class="atc_location">{{ page.map.address }}</var>
+		</var>
+	</span>
+</p>
+<h4 class="editable">{{page.description}}
+<p class="editable">For the fourth time, <u><a href="https://iatc.me">I Am The Cavalry</a></u> is arranging a visit to the US Capitol for members of the security research community. This time will be very different. If you've attended before, you're welcome to come back and participate in the interactive sessions with our live, tame Congressional staffers.</p>
+
+<h3 class="editable">Agenda</h3>
+{%- for agenda in site.data.agenda -%}
+  <p>{{agenda.start_time}}-{{agenda.end_time}} {{agenda.description}}</p>
+{%- endfor -%}
+
+<!-- Sharing Links -->
+<h3 class="editable">Tell your friends</h3>
+<div class="sharing">
+	{% assign share_url = page.url | absolute_url | cgi_escape %}
+	<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">{% include icons/social-icon.html icon="Facebook" %}</a>
+	<a class="twitter" href="https://twitter.com/intent/tweet?url={{ share_url }}&amp;text=Join me at {{page.title}}! {{page.description}} on {{ page.start_datetime | date: "%A, %B %-d, %Y" }} at {{page.address}}.">{% include icons/social-icon.html icon="Twitter" %}</a>
+	<a class="instagram" href="https://instagram.com">{% include icons/social-icon.html icon="Instagram" %}</a>
+	<a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ share_url }}">{% include icons/social-icon.html icon="LinkedIn" %}</a>
+	<a class="email" href="mailto:?subject=Join me at {{page.title}}?&amp;body=I'm going to {{page.title}} on {{ page.start_datetime | date: "%A, %B %-d, %Y" }}. Want to join me? {{ share_url }}">{% include icons/social-icon.html icon="Email" %}</a>
+</div>
+
+<!-- Embed Twitter #HackerOnTheHill tweets -->
+<a class="twitter-timeline" href="https://twitter.com/HillHackers?ref_src=twsrc%5Etfw">Tweets by HillHackers</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!-- Google Map location -->
+<h3 class="editable">Initial Location</h3>
+<div class="map" id="gmap_canvas"></div>
+<address><a href="https://www.google.com/maps/embed/v1/undefined?origin={{page.map.address}}&zoom={{page.map.zoom}}&key={{site.google_maps_javascript_api_key}}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
+
+<!-- Google Maps JavaScript -->
+<script type="text/javascript">
+	window.mapData = {{ page.map | jsonify }};
+
+	function initMap() {
+		var myOptions = {
+			zoom: window.mapData.zoom,
+			center: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude)
+		};
+		var map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
+		var marker = new google.maps.Marker({
+			map: map,
+			position: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude),
+		});
+
+		google.maps.event.addDomListener(window, "resize", function () {
+			map.setCenter(myOptions.center);
+		});
+	}
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_javascript_api_key }}&callback=initMap"></script>
+<hr>
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@angelvela?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Louis Velazquez"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Background photo by Louis Velazquez</span></a>
