@@ -4,7 +4,7 @@
 title: Hackers on the Hill
 url: "https://hackersonthehill.org"
 baseurl:
-google_analytics_key:
+google_analytics_key: UA-154554887-1
 google_maps_javascript_api_key: AIzaSyCTNQaPLcTx2q3YbOIS49HVB6aaqwNTiAI
 eventbrite_embed:
 timezone: Etc/UTC
@@ -12,7 +12,7 @@ timezone: Etc/UTC
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
 description: Event marketing template for Jekyll.
-author: 
+author:
   name:
   email:
   twitter: beauwoods # twitter username without the @ symbol
