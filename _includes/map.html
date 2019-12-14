@@ -3,7 +3,7 @@
 
 <!-- Google Maps JavaScript -->
 <script type="text/javascript">
-	window.mapData = {{ page.map | jsonify }};
+	window.mapData = {{ site.data.map.location | jsonify }};
 
 	function initMap() {
 		var myOptions = {
@@ -22,4 +22,4 @@
 	}
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_javascript_api_key }}&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.data.map.google_maps_javascript_api_key }}&callback=initMap"></script>

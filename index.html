@@ -6,12 +6,6 @@ timezone: America/New_York
 description: A semi-regular US Capitol tour with irregulars from the security research community.
 arrival_note: "Arrive 15-20 minutes early for airport-style security screening."
 background_image: /images/us-capitol.jpg
-map:
-  address: Library of Congress, Washington, DC
-  zoom: 16
-  latitude: 38.8887
-  longitude: -77.0047
-  title: "Hackers on the Hill"
 _options:
   label_image:
     width: 400
@@ -21,21 +15,52 @@ _options:
     height: 1200
 ---
 
-{% include calendar.html %}
-<center>{{page.map.address}}</center>
+<div align="center"><h2>{{ page.title }}</h2></div>
+<div class="mb-md-3">
+  <div class="row">
+    <div class="col-md-8 col-sm-12 text-md-right text-center">
+      <div>{{ page.start_datetime | date: "%A, %B %-d, %Y %-I%P" }} - {{ page.end_datetime | date: "%-I%P" }}</div>
+      <div>{{site.data.map.location.address}}</div>
+    </div>
+    <div class="col-md-4 col-sm-12 text-md-left text-center">{% include calendar.html %}</div>
+  </div>
+</div>
 
-<div align="center" class="mb-3 mt-3"><b>{{page.description}}</b></div>
-<div class="mb-5">For the fourth time, <u><a href="https://iatc.me">I Am The Cavalry</a></u> is arranging a visit to the US Capitol for members of the security research community. This time will be very different. If you've attended before, you're welcome to come back and participate in the interactive sessions with our live, tame Congressional staffers.</div>
+<div align="center" class="m-3"><b>{{page.description}}</b></div>
 
-{% include agenda.html %}
+<div class="container-flex">
+<div class="mb-3">
+  <p>For the fourth time, <u><a href="https://iatc.me">I Am The Cavalry</a></u> is arranging a visit to the US Capitol for members of the security research community. This time will be very different. If you've attended before, you're welcome to come back and participate in the interactive sessions with our live, tame Congressional staffers.</p>
+  <p>The event starts with briefings at the Library of Congress. We then split into groups and go to the House and Senate to brief Congressional Staffers on a variety of topics. We conclude with a Happy Hour nearby.</p>
+  <p>Do you have what it takes to cyber all the cybers?</p>
+</div>
+
+<!-- An attempt to insert a webform.
+<div class="container-fluid">
+  <div class="row d-flex align-items-stretch">
+    <div class="col-md-8 col-sm-12 p-3">
+      <div align="center" class="m-3"><b>{{page.description}}</b></div>
+      <p>For the fourth time, <u><a href="https://iatc.me">I Am The Cavalry</a></u> is arranging a visit to the US Capitol for members of the security research community. This time will be very different. If you've attended before, you're welcome to come back and participate in the interactive sessions with our live, tame Congressional staffers.</p>
+      <p>The event starts with briefings at the Library of Congress. We then split into groups and go to the House and Senate to brief Congressional Staffers on a variety of topics. We conclude with a Happy Hour nearby.</p>
+      <p>Do you have what it takes to cyber all the cybers?</p>
+    </div>
+    <div class="col-md-4 col-sm-12 p-3 embed-responsive">
+      <iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/1FAIpQLScEdboB49eUZIQ8iSsWKqA_0c2FISddfEC2j2hyWXokymZIuw/viewform?embedded=true" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
+</div> -->
+
+
 {% include sharing.html %}
 
-<div class="container">
+{% include agenda.html %}
+
+<div class="container-fluid">
   <div class="row">
-    <div class="col-8">
+    <div class="col-md-8 col-sm-12 p-3">
       {% include map.html %}
     </div>
-    <div class="col-4">
+    <div class="col-md-4 col-sm-12 p-3">
       <a class="twitter-timeline" data-height="440" href="https://twitter.com/HillHackers?ref_src=twsrc%5Etfw">Tweets by HillHackers</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
   </div>

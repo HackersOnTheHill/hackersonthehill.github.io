@@ -11,10 +11,8 @@ window.addeventasync = function(){
 };
 </script>
 
-<center>
-{{ page.start_datetime | date: "%A, %B %-d, %Y %-I%P" }} - {{ page.end_datetime | date: "%-I%P" }}
 <div title="Add to Calendar" class="addeventatc">
-    +
+    Add to Calendar
     <span class="start">{{ page.start_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
     <span class="end">{{ page.end_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
     <span class="timezone">{{ page.timezone }}</span>
@@ -24,7 +22,6 @@ window.addeventasync = function(){
     \n{{agenda.start_time}}-{{agenda.end_time}} {{agenda.description}}
     {%- endfor -%}
     \n\n{{page.arrival_note}}
-  </span>
+    </span>
     <span class="location">{{ page.map.address }}</span>
 </div>
-</center>
