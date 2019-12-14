@@ -1,21 +1,28 @@
 ---
 title: Hackers on the Hill
 timezone: America/New_York
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
 defaults:
 - scope:
     path: ''
   values:
     layout: page
 url: https://hackersonthehill.org
-baseurl:
+baseurl: 
 google_analytics_key: UA-154554887-1
 google_maps_javascript_api_key: AIzaSyCTNQaPLcTx2q3YbOIS49HVB6aaqwNTiAI
-eventbrite_embed:
+eventbrite_embed: 
 logo: "/siteicon.png"
 description: Event marketing template for Jekyll.
 author:
   name: Beau Woods
-  email:
+  email: 
   twitter: beauwoods
 social:
   name: Hackers on the Hill
