@@ -1,51 +1,42 @@
-# ----
-# Site
-
+---
 title: Hackers on the Hill
-url: "https://hackersonthehill.org"
-baseurl:
+timezone: Etc/UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: ''
+  values:
+    layout: page
+url: https://hackersonthehill.org
+baseurl: 
 google_analytics_key: UA-154554887-1
 google_maps_javascript_api_key: AIzaSyCTNQaPLcTx2q3YbOIS49HVB6aaqwNTiAI
-eventbrite_embed:
-timezone: Etc/UTC
-
-# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
-logo: /siteicon.png
+eventbrite_embed: 
+logo: "/siteicon.png"
 description: Event marketing template for Jekyll.
 author:
-  name:
-  email:
-  twitter: beauwoods # twitter username without the @ symbol
+  name: 
+  email: 
+  twitter: beauwoods
 social:
   name: Hackers on the Hill
   links:
-    - https://hackersonthehill.org
-
-# -----
-# Build
-
+  - https://hackersonthehill.org
 permalink: pretty
-
 plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
+- jekyll-sitemap
+- jekyll-seo-tag
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - LICENCE
-
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: page
-
-# -----------
-# CloudCannon
-
+- Gemfile
+- Gemfile.lock
+- README.md
+- LICENCE
 _comments:
   background_image: Image shown behind the content.
   map: Update the map location and display settings.
