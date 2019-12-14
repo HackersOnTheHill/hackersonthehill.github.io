@@ -1,0 +1,10 @@
+<!-- Sharing Links -->
+<center><h3>Tell your friends</h3></center>
+<div class="sharing">
+	{% assign share_url = page.url | absolute_url | cgi_escape %}
+	<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">{% include icons/social-icon.html icon="Facebook" %}</a>
+	<a class="twitter" href="https://twitter.com/intent/tweet?url={{ share_url }}&amp;text=Join me at {{page.title}}! {{page.description}} on {{ page.start_datetime | date: "%A, %B %-d, %Y" }} at {{page.address}}.">{% include icons/social-icon.html icon="Twitter" %}</a>
+	<a class="instagram" href="https://instagram.com">{% include icons/social-icon.html icon="Instagram" %}</a>
+	<a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ share_url }}">{% include icons/social-icon.html icon="LinkedIn" %}</a>
+	<a class="email" href="mailto:?subject=Join me at {{page.title}}?&amp;body=I'm going to {{page.title}} on {{ page.start_datetime | date: "%A, %B %-d, %Y" }}. Want to join me? {{ share_url }}">{% include icons/social-icon.html icon="Email" %}</a>
+</div>

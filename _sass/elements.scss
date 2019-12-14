@@ -24,40 +24,7 @@ body {
 	text-shadow: 1px 1px 1px rgba(64, 64, 64, 0.5);
 	color: #fff;
 	min-height: 100vh;
-}
-
-h1,
-h2,
-h3,
-.dates {
-	text-align: center;
-}
-
-p {
-	font-size: 1.4em;
-}
-
-h1 {
-	font-size: 3.5em;
-	margin: 0;
-}
-
-h2 {
-	font-size: 3em;
-	margin-bottom: 0;
-}
-
-h3 {
-	margin: 100px 0 20px 0;
-	font-size: 2.5em;
-}
-
-address {
-	margin: 0;
-
-	a svg {
-		fill: #ffacac;
-	}
+	background-color: transparent;
 }
 
 a {

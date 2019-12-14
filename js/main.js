@@ -10,10 +10,6 @@ function getQueryStringParams(sParam) {
 	}
 }
 
-$(document).ready(function () {
-	$(".fancybox").fancybox();
-});
-
 $(window).on("load", function () {
 	var msnry = new Masonry( ".grid", {
 		itemSelector: ".grid-item",

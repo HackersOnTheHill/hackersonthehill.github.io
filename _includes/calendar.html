@@ -1,0 +1,30 @@
+<!-- AddEvent Settings -->
+<script type="text/javascript">
+window.addeventasync = function(){
+    addeventatc.settings({
+        appleical  : {show:true, text:"Apple Calendar"},
+        google     : {show:true, text:"Google <em>(online)</em>"},
+        outlook    : {show:true, text:"Outlook"},
+        outlookcom : {show:true, text:"Outlook.com <em>(online)</em>"},
+        yahoo      : {show:true, text:"Yahoo <em>(online)</em>"}
+    });
+};
+</script>
+
+<center>
+{{ page.start_datetime | date: "%A, %B %-d, %Y %-I%P" }} - {{ page.end_datetime | date: "%-I%P" }}
+<div title="Add to Calendar" class="addeventatc">
+    +
+    <span class="start">{{ page.start_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
+    <span class="end">{{ page.end_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
+    <span class="timezone">{{ page.timezone }}</span>
+    <span class="title">{{ page.title }}</span>
+    <span class="description">{{ page.description }}
+    {%- for agenda in site.data.agenda -%}
+    \n{{agenda.start_time}}-{{agenda.end_time}} {{agenda.description}}
+    {%- endfor -%}
+    \n\n{{page.arrival_note}}
+  </span>
+    <span class="location">{{ page.map.address }}</span>
+</div>
+</center>
