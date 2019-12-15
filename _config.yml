@@ -1,6 +1,5 @@
 ---
 title: Hackers on the Hill
-event_name: Hackers on the Hill
 timezone: America/New_York
 collections:
   posts:
@@ -9,39 +8,34 @@ collections:
   uploads:
     title: Uploads
     output: true
-defaults:
+event_name: Hackers on the Hill
 url: https://hackersonthehill.org
 baseurl: 
 google_analytics_key: UA-154554887-1
 google_maps_javascript_api_key: AIzaSyCTNQaPLcTx2q3YbOIS49HVB6aaqwNTiAI
 eventbrite_embed: 
 logo: "/siteicon.png"
-description: A semi-regular US Capitol tour with irregulars from the security research community.
-
+description: A semi-regular US Capitol tour with irregulars from the security research
+  community.
 author:
   name: Beau Woods
   email: 
   twitter: beauwoods
-
 social:
   name: Hackers on the Hill
   twitter: HillHackers
   hashtag: HackersOnTheHill
   links:
   - https://hackersonthehill.org
-
 permalink: pretty
-
 plugins:
 - jekyll-sitemap
 - jekyll-seo-tag
-
 exclude:
 - Gemfile
 - Gemfile.lock
 - README.md
 - LICENCE
-
 _comments:
   background_image: Image shown behind the content.
   map: Update the map location and display settings.
