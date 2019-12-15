@@ -13,15 +13,15 @@ window.addeventasync = function(){
 
 <div title="Add to Calendar" class="addeventatc">
     Add to Calendar
-    <span class="start">{{ page.start_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
-    <span class="end">{{ page.end_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
-    <span class="timezone">{{ page.timezone }}</span>
-    <span class="title">{{ page.title }}</span>
-    <span class="description">{{ page.description }}
+    <span class="start">{{ site.data.event.start_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
+    <span class="end">{{ site.data.event.end_datetime | date: "%Y-%m-%d %H:%M:%S" }}</span>
+    <span class="timezone">{{ site.data.event.timezone }}</span>
+    <span class="title">{{ site.data.title }}</span>
+    <span class="description">{{ site.data.event.description }}
     {%- for agenda in site.data.agenda -%}
     \n{{agenda.start_time}}-{{agenda.end_time}} {{agenda.description}}
     {%- endfor -%}
-    \n\n{{page.arrival_note}}
+    \n\n{{site.data.event.arrival_note}}
     </span>
-    <span class="location">{{ page.map.address }}</span>
+    <span class="location">{{ site.data.map.location.address }}</span>
 </div>
