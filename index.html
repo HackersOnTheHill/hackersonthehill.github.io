@@ -1,59 +1,16 @@
 ---
 title: Hackers on the Hill
-start_datetime: 2020-01-30 07:30:00 -05:00
-end_datetime: 2020-01-30 14:00:00 -05:00
-timezone: America/New_York
-arrival_note: Arrive 15-20 minutes early for airport-style security screening.
 background_image: "/images/us-capitol.jpg"
-_options:
-  label_image:
-    width: 400
-    height: 400
-  image:
-    width: 600
-    height: 1200
 layout: default
 ---
 
-<!-- Page head -->
-<div align="center" class="mb-5"><h2>{{site.event_name}}: {{site.data.event.subtitle}}</h2></div>
-<div>
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto col-sm-12 text-md-right text-center mb-2 mt-2">
-      <div>{{ page.start_datetime | date: "%A, %B %-d, %Y %-I%P" }} - {{ page.end_datetime | date: "%-I%P" }}</div>
-      <div>{{site.data.map.location.address}}</div>
-    </div>
-    <div class="col-md-auto col-sm-12 text-md-left text-center mt-2 mb-2">{% include calendar.html %}</div>
-    <div class="col-md-auto col-sm-12 text-center mt-2 mb-2">
-      <a class="typeform-share button" href="https://beau982764.typeform.com/to/vYfmKw" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#FFFFFF;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:5px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-headers=true data-hide-footer=true target="_blank">Register </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
-    </div>
-  </div>
-</div>
+{% include header.html %}
 
-<!-- Event overview -->
-<div class="container-flex">
-<div class="mb-5 mt-5">
-  <p>For the fourth time, <u><a href="https://iatc.me">I Am The Cavalry</a></u> is arranging a visit to the US Capitol for members of the security research community. This time will be very different. If you've attended before, you're welcome to come back and participate in the interactive sessions with our live, tame Congressional staffers.</p>
-  <p>The event starts with briefings at the Library of Congress. We then split into groups and go to the House and Senate to brief Congressional Staffers on a variety of topics. We conclude with a Happy Hour nearby.</p>
-  <p>Do you have what it takes to cyber all the cybers? Space will be limited and we cannot accomodate last-minute guests this time. So <a href="https://docs.google.com/forms/d/1SAI0ci54F75EGu54wNMtixk7EiD01gsvRPQ9d8P9SQA/edit"><b>register now</b></a>!</p>
-</div>
-
-
-<!-- An attempt to insert a webform, with jotform. First half.
-<div class="v-100 row">
+<!-- Event overview and registration form -->
+<div class="v-100 row mb-5 mt-5">
   <div class="col-md-8">
-    <div class="">
-      <div class="row justify-content-md-center">
-        <div class="col-md-auto col-sm-12 text-md-right text-center mb-2 mt-2">
-          <div>{{ page.start_datetime | date: "%A, %B %-d, %Y %-I%P" }} - {{ page.end_datetime | date: "%-I%P" }}</div>
-          <div>{{site.data.map.location.address}}</div>
-        </div>
-        <div class="col-md-auto col-sm-12 text-md-left text-center mt-2 mb-2">{% include calendar.html %}</div>
-      </div>
-    </div> -->
-<!-- An attempt to insert a webform, with jotform. Second half.
     <div class="container-flex">
-      <div class="mb-5 mt-5">
+      <div >
         <p>For the fourth time, <u><a href="https://iatc.me">I Am The Cavalry</a></u> is arranging a visit to the US Capitol for members of the security research community. This time will be very different. If you've attended before, you're welcome to come back and participate in the interactive sessions with our live, tame Congressional staffers.</p>
         <p>The event starts with briefings at the Library of Congress. We then split into groups and go to the House and Senate to brief Congressional Staffers on a variety of topics. We conclude with a Happy Hour nearby.</p>
         <p>Do you have what it takes to cyber all the cybers? Space is limited and pre-registration is required. Due to tour rules, we will have to start as a group so be prompt - stragglers will be fed to the lobbyists!</p>
@@ -61,25 +18,10 @@ layout: default
     </div>
   </div>
   <div class="col-md-4">
-    <script type="text/javascript" src="https://form.jotform.com/jsform/193480444747163"></script>
+    {% include registration.html %}
   </div>
 </div>
--->
 
-<!-- An attempt to insert a webform with embedded Google Form.
-<div class="container-fluid">
-  <div class="row d-flex align-items-stretch">
-    <div class="col-md-8 col-sm-12 p-3">
-      <div align="center" class="m-3"><b>{{site.event_title}}</b></div>
-      <p>For the fourth time, <u><a href="https://iatc.me">I Am The Cavalry</a></u> is arranging a visit to the US Capitol for members of the security research community. This time will be very different. If you've attended before, you're welcome to come back and participate in the interactive sessions with our live, tame Congressional staffers.</p>
-      <p>The event starts with briefings at the Library of Congress. We then split into groups and go to the House and Senate to brief Congressional Staffers on a variety of topics. We conclude with a Happy Hour nearby.</p>
-      <p>Do you have what it takes to cyber all the cybers?</p>
-    </div>
-    <div class="col-md-4 col-sm-12 p-3 embed-responsive">
-      <iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/1FAIpQLScEdboB49eUZIQ8iSsWKqA_0c2FISddfEC2j2hyWXokymZIuw/viewform?embedded=true" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-  </div>
-</div> -->
 
 <!-- Agenda and Twitter feed -->
 <!-- Note that you have to manually adjust the data-height field to get vertical alignment. Sorry. :( -->
@@ -103,6 +45,3 @@ layout: default
 <div class="pt-3 pb-3">
   {% include sharing.html %}
 </div>
-
-<hr>
-<center><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@angelvela?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Louis Velazquez"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Background photo by Louis Velazquez</span></a></center>

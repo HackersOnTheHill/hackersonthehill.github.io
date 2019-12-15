@@ -1,0 +1,11 @@
+<!-- Page head -->
+<div align="center" class="mb-5"><h2>{{site.event_name}}: {{site.data.event.subtitle}}</h2></div>
+<div class="mb-5">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto col-sm-12 text-md-right text-center mb-2 mt-2">
+      <div>{{ site.data.event.start_datetime | date: "%A, %B %-d, %Y %-I:%M%P" }} - {{ site.data.event.end_datetime | date: "%-I:%M%P" }}</div>
+      <div>{{site.data.map.location.address}}</div>
+    </div>
+    <div class="col-md-auto col-sm-12 text-md-left text-center mt-2 mb-2">{% include calendar.html %}</div>
+  </div>
+</div>
