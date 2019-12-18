@@ -17,12 +17,24 @@
 - agenda: travel_1
   start_time: "14:30"
   end_time: "15:00"
-  description: "Travel to Briefing"
+  description: "Travel to Congressional Committee Briefing #1"
 - agenda: briefing_1
   start_time: "15:00"
-  end_time: "16:00"
-  description: "Briefing"
+  end_time: "15:55"
+  description: "Congressional Committee Briefing #1"
+- agenda: travel_2
+  start_time: "15:55"
+  end_time: "16:05"
+  description: "Travel to Congressional Committee Briefing #2"
+- agenda: briefing_2
+  start_time: "16:05"
+  end_time: "17:00"
+  description: "Congressional Committee Briefing #2"
+- agenda: travel_3
+  start_time: "17:00"
+  end_time: "17:30"
+  description: "Travel to Happy Hour"
 - agenda: happy_hour
-  start_time: "16:00"
-  end_time: "18:00"
+  start_time: "17:30"
+  end_time: "19:00"
   description: "Happy Hour (Location TBD)"
