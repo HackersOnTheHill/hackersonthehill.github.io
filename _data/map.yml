@@ -1,8 +1,8 @@
 location:
-  address: Library of Congress, Washington, DC
+  address: Cannon House Office Building, Washington, DC
   zoom: 16
-  latitude: 38.8887
-  longitude: -77.0047
+  latitude: 38.8869
+  longitude: -77.0064
   title: "Hackers on the Hill"
 
 google_maps_javascript_api_key: AIzaSyCTNQaPLcTx2q3YbOIS49HVB6aaqwNTiAI
