@@ -1,7 +1,7 @@
 - agenda: arrival
   start_time: "12:30"
   end_time: "13:00"
-  description: "Arrive and clear security"
+  description: "Arrive and clear security (Cannon House Office Building, room 310)"
 - agenda: welcome
   start_time: "13:00"
   end_time: "13:05"
@@ -25,4 +25,4 @@
 - agenda: happy_hour
   start_time: "16:00"
   end_time: "18:00"
-  description: "Happy Hour (Location TBD)"
+  description: "Happy Hour (Capitol Lounge)"
