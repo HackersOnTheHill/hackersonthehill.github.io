@@ -8,6 +8,6 @@
       <div style="margin-bottom: 10px; font-family: 'Montserrat', sans-serif; font-size: 1.2em">{{ site.data.event.start_datetime | date: "%A, %B %-d, %Y %-I:%M%P" }} - {{ site.data.event.end_datetime | date: "%-I:%M%P" }}</div>
       <div style="font-family: 'Montserrat', sans-serif;">{{site.data.map.location.address}}</div>
     </div>
-    <!--  insert calender.html call here  -->
+    <div class="col-md-auto col-sm-12 text-md-left text-center mt-2 mb-2">{% include calendar.html %}</div>
   </div>
 </div>
