@@ -19,9 +19,9 @@ window.addeventasync = function(){
     <span class="title">{{ site.data.title }}</span>
     <span class="description">{{ site.data.event.description }}
     {%- for agenda in site.data.agenda -%}
-    \n{{agenda.start_time}}-{{agenda.end_time}} {{agenda.description}}
+      \n{{agenda.start_time}}-{{agenda.end_time}} {{agenda.description}}
     {%- endfor -%}
-    \n\n{{site.data.event.arrival_note}}
+      \n\n{{site.data.event.arrival_note}}
     </span>
     <span class="location">{{ site.data.map.location.address }}</span>
 </div>
