@@ -1,26 +1,26 @@
 - agenda: arrival
-  start_time: "12:30"
-  end_time: "13:00"
+  start_time: "09:00"
+  end_time: "09:30"
   description: "Arrive and clear security"
 - agenda: welcome
-  start_time: "13:00"
-  end_time: "13:05"
+  start_time: "09:30"
+  end_time: "09:35"
   description: "Welcome and introduction"
 - agenda: day-in-the-life
-  start_time: "13:05"
-  end_time: "13:45"
+  start_time: "09:35"
+  end_time: "10:10"
   description: "A day in the life of a staffer"
 - agenda: current-cyber-policy
-  start_time: "13:45"
-  end_time: "14:30"
+  start_time: "10:10"
+  end_time: "10:45"
   description: "Current events in cyber policy"
-- agenda: travel_1
-  start_time: "14:30"
-  end_time: "15:00"
+- agenda: travel
+  start_time: "10:45"
+  end_time: "11:00"
   description: "Travel to Briefing"
-- agenda: briefing_1
-  start_time: "15:00"
-  end_time: "16:00"
+- agenda: briefing
+  start_time: "11:00"
+  end_time: "12:00"
   description: "Briefing"
 - agenda: happy_hour
   start_time: "16:00"

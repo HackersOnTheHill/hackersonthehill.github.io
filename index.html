@@ -4,80 +4,83 @@ background_image: "/images/us-capitol.jpg"
 layout: default
 ---
 
-
-
 {% include header.html %}
 
 <!-- Event overview and registration form -->
-<div class="v-100 row mb-5 mt-5">
-  <div class="col-md-12">
-    <h4 style="margin-top: 20px; color: #FFC000; font-family: 'Montserrat', sans-serif;">Sign Up to Join!</h4>
-    <p>Hackers on the Hill is a semi-regular gathering for irregulars from the security research community to engage with and Congressional staffers interested in cyber policy. Run by <u><a href="https://iatc.me">I Am The Cavalry</a></u>, the program
-      has been bridging the gap between the hacker and public policy communities since 2017, and we are excited to bring it back for the fifth time in March 2022.</p>
 
-    <p>The event begins with briefings for the hackers on the policymaking process and current events. Afterwards, our Hacker Ambassadors lead small groups to brief House and Senate Congressional staffers on a variety of topics. The event concludes
+    <h4 style="margin-top: 20px; color: #FFC000; font-family: 'Montserrat', sans-serif;">Sign Up to Join!</h4>
+    <p>Hackers on the Hill is a semi-regular gathering for irregulars from the security research community to engage
+      with Congressional staffers. Run by <u><a href="https://iatc.me">I Am The Cavalry</a></u>, the program
+      has been bridging the gap between the hacker and public policy communities since 2017, and we are excited to bring
+      it back for the sixth time on January 19, 2023.</p>
+
+    <p>The event begins with briefings for the hackers on the policymaking process and current events. Afterwards, our
+      Hacker Ambassadors lead small groups to brief House and Senate Congressional staffers on a variety of topics. The
+      event concludes
       with a Happy Hour nearby where we encourage candid conversations.</p>
-    <p>Do you have what it takes to cyber all the cybers? <a style="color: #FFC000;">Sign up below via our interest form by March 11 - space is extremely limited this year so we expect to have a waiting list for others to participate!</a></p>
+    <p>Do you have what it takes to cyber all the cybers? <a style="color: #FFC000;">Sign up below via our interest form
+        by <b>January 4</b> - space is extremely limited this year so we expect to have a waiting list for others to
+        participate!</a></p>
     <p></p>
 
+    <!-- Registration link OR display that registration is closed. -->
     <div class="center">
-      <!-- BUTTON that opens doc in separate window: <button style="margin: 20px;" onclick="window.open('https://docs.google.com/forms/d/1VstbLKw1KC6u9eIR3Fbd6a-yFLyD9GBmPC7cyP4ubRE', '_blank')">HotH 2022 Interest Form</button> -->
-      <!-- Button that opens html page with embedded form:-->
-      <button style="margin: 20px;" onclick="location.href='signup'">HotH 2022 Interest Form</button>
+      <button style="margin: 20px;" onclick="location.href='signup'">HotH 2023 Interest Form</button>
     </div>
-
-
+    <!-- When registration is closed, uncomment this line
+    <p>Unfortunately registration is CLOSED for this year.</p>
+    -->
     <h4 style="margin-top: 20px; color: #FFC000; font-family: 'Montserrat', sans-serif;">Hosting a Safe Event</h4>
-    <p>I Am The Cavalry is committed to keeping hackers and staffers safe during Hackers on the Hill. As with all planned in-person events held within the past couple of years, we are are taking prudent COVID precautions.</p>
-    <ul>
-      <li>First, regardless of Capitol policies, we expect that all of the hackers in attendance will be fully vaccinated and boosted. However, we also recognize that others present in the Capitol that day may not take the same precautions.</li>
-      <li>Second, while in-person briefings create the best experience for hackers and for staffers, we are working out details on alternate arrangements, including virtual briefings and the potential for an outdoor gathering.</li>
-      <li>Finally, we are monitoring COVID and hospitalization trends, as well as Capitol visitor requirements, and will provide more information closer to the event.</li>
-    </ul>
+    <p>I Am The Cavalry is committed to keeping hackers and staffers safe during Hackers on the Hill. As with all
+      planned in-person events held within the past couple of years, we are are taking prudent COVID precautions.
+      Regardless of Capitol policies, we expect that all of the hackers in attendance will be fully vaccinated and
+      boosted. However, we also recognize that others present in the Capitol that day may not take the same precautions.
+      And we are monitoring COVID and hospitalization trends, as well as Capitol visitor requirements, and will provide
+      more information closer to the event.</p>
 
     <h4 style="margin-top: 20px; color: #FFC000; font-family: 'Montserrat', sans-serif;">Additional Resources</h4>
-    <p>Harley Geiger from Rapid7 published some helpful resources for the 2020 edition of Hackers on the Hill. These documents are still great resources and we encourage you to check them out ahead of the 2022 event, even if you won't be attending.
+    <p>Harley Geiger from Venable published some helpful resources for the 2020 edition of Hackers on the Hill. These
+      documents are still great resources and we encourage you to check them out ahead of the 2022 event, even if you
+      won't be attending.
     </p>
     <ul>
-      <li><u><a href="https://blog.rapid7.com/2020/02/14/hackers-on-the-hill-slides-and-recap-on-cybersecurity-policy/">Summary of Hackers on the Hill 2020</a></u></li>
+      <li><u><a
+            href="https://blog.rapid7.com/2020/02/14/hackers-on-the-hill-slides-and-recap-on-cybersecurity-policy/">Summary
+            of Hackers on the Hill 2020</a></u></li>
       <li><u><a href="https://www.rapid7.com/globalassets/_pdfs/policy/hoth-2020.pdf">Hacking Policy Slides</a></u></li>
-      <li><u><a href="https://www.rapid7.com/globalassets/_pdfs/policy/an-unofficial-guide-to-meeting-with-congressional-offices---jan.-14-2020.pdf">Unofficial Guide to Meeting With Congressional Offices</a></u></li>
+      <li><u><a
+            href="https://www.rapid7.com/globalassets/_pdfs/policy/an-unofficial-guide-to-meeting-with-congressional-offices---jan.-14-2020.pdf">Unofficial
+            Guide to Meeting With Congressional Offices</a></u></li>
     </ul>
 
-    <!-- <div class="col-md-4 align-self-center">
-    {% include registration_closed.html %}
-  </div> -->
- 
+    <!-- Agenda and Twitter feed -->
+    <!-- Note that you have to manually adjust the data-height field to get vertical alignment. Sorry. :( -->
+    <div class="align-items-stretch">
+      <div class="row vh-50">
+        <div class="col-md-8 col-sm-12 pt-3 pb-3">
+          {% include agenda.html %}
+        </div>
+        <div class="d-none d-sm-block col-md-4 pt-3 pb-3">
+          <a class="twitter-timeline" data-height="480" data-theme="dark"
+            href="https://twitter.com/HillHackers?ref_src=twsrc%5Etfw">Tweets by HillHackers</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div align="center" class="d-block d-sm-none col-sm-12 pt-3 pb-3">
+          <a href="https://twitter.com/hillhackers?ref_src=twsrc%5Etfw" class="twitter-follow-button"
+            data-show-count="false">Follow @hillhackers</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </div>
+
+      <!-- Location map -->
+      <div class="pt-5 pb-5">
+        {% include map.html %}
+      </div>
+
+      <!-- Sharing links -->
+      <div class="pt-3 pb-3">
+        {% include sharing.html %}
+      </div>
 
 
-  <!-- Agenda and Twitter feed -->
-  <!-- Note that you have to manually adjust the data-height field to get vertical alignment. Sorry. :( -->
-  <div class="align-items-stretch">
-    <div class="row vh-50">
-      <div class="col-md-8 col-sm-12 pt-3 pb-3">
-        {% include agenda.html %}
-      </div>
-      <div class="d-none d-sm-block col-md-4 pt-3 pb-3">
-        <a class="twitter-timeline" data-height="480" data-theme="dark" href="https://twitter.com/HillHackers?ref_src=twsrc%5Etfw">Tweets by HillHackers</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-      <div align="center" class="d-block d-sm-none col-sm-12 pt-3 pb-3">
-        <a href="https://twitter.com/hillhackers?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @hillhackers</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
     </div>
-
-  <!-- Location map -->
-  <div class="pt-5 pb-5">
-    {% include map.html %}
-  </div>
-
-  <!-- Sharing links -->
-  <div class="pt-3 pb-3">
-    {% include sharing.html %}
-  </div>
-
-    
-  </div>
- </div>
-
