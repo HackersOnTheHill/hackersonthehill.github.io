@@ -1,13 +1,13 @@
 - agenda: arrival
   start_time: "09:00"
-  end_time: "09:30"
+  end_time: "09:15"
   description: "Arrive and clear security"
 - agenda: welcome
-  start_time: "09:30"
-  end_time: "09:35"
+  start_time: "09:15"
+  end_time: "09:25"
   description: "Welcome and introduction"
 - agenda: day-in-the-life
-  start_time: "09:35"
+  start_time: "09:25"
   end_time: "10:10"
   description: "A day in the life of a staffer"
 - agenda: current-cyber-policy
@@ -17,12 +17,12 @@
 - agenda: travel
   start_time: "10:45"
   end_time: "11:00"
-  description: "Travel to Briefing"
+  description: "Travel to briefings"
 - agenda: briefing
   start_time: "11:00"
   end_time: "12:00"
-  description: "Briefing"
+  description: "Briefings"
 - agenda: happy_hour
   start_time: "16:00"
   end_time: "18:00"
-  description: "Happy Hour"
+  description: "Happy Hour at The Hamilton (https://https://www.thehamiltondc.com)"
