@@ -1,7 +1,7 @@
 - agenda: arrival
   start_time: "09:00"
   end_time: "09:15"
-  description: "Arrive and clear security"
+  description: "Arrive at Capitol Visitor's Center and clear security"
 - agenda: welcome
   start_time: "09:15"
   end_time: "09:25"
