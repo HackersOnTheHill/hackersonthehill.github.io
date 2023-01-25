@@ -7,13 +7,9 @@ layout: default
 {% comment %}
 <!-- 
   The include 'active.html' should be edited to reflect the current year's page. The include 'interest.html' should be used when we're gathering interest. Comment out with special Jekyll formatted commenting when not actively running an event. 
+  {% include active.html %}
+  {% include interest.html %}
+  {% endcomment %}
 -->
-{% include active.html %}
-{% include interest.html %}
-{% endcomment %}
-{% include interest.html %}
 
-<!-- Sharing links -->
-<div class="pt-3 pb-3">
-  {% include sharing.html %}
-</div>
+{% include interest.html %}
