@@ -1,8 +1,8 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-docker-compose.yml
-Gemfile.lock
-.DS_Store
-.prettierrc
+**/_site/
+**/.sass-cache/
+**/.jekyll-cache/
+**/.jekyll-metadata
+**/docker-compose.yml
+**/Gemfile.lock
+**/.DS_Store
+**/.prettierrc
