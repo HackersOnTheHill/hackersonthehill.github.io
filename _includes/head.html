@@ -23,7 +23,6 @@
     <!-- Custom CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
   
-    {% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
     <script>
       window.ga = window.ga || function() {
         (ga.q = ga.q || []).push(arguments)
@@ -33,6 +32,5 @@
       ga('send', 'pageview');
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
-    {% endif %}
 
   </head>
