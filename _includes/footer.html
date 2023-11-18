@@ -1,9 +1,44 @@
-<script src="{{ site.baseurl }}/vendor/jquery/jquery-3.4.1.min.js"></script>
-<script src="{{ site.baseurl }}/vendor/atc/js/atc.min.js"></script>
-<script src="{{ site.baseurl }}/vendor/fontawesome/js/28933268a3.js"></script>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row justify-content-center">
 
-<div class="text-center">
-  <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@angelvela?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Louis Velazquez"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Background photo by Louis Velazquez</span></a>
-</div>
+          <div class="col-lg-6 footer-info">
+            <div class="row justify-content-center">
+              <div class="col-3 col-lg-2 text-center"><img src="assets/img/logo.png" class="img-fluid" alt="Hackers on the Hill"></div>
+              <div class="col-9 col-lg-10"><p>Hackers on the Hill 2024 takes place Thursday, January 11, at the US Capitol Visitor Center. We look forward to seeing you there!</p></div>
+            </div>
+          </div>
 
-<p class="text-center">Site by <a href="https://iatc.me"><u>I Am The Cavalry</u></a> and <a href="https://github.com/spoww"><u>Sarah Powazek</u></a></p>
+          <div class="col-md-6 col-lg-3 footer-contact">
+            <h4 class="d-flex justify-content-center">Share with Others</h4>
+            <div class="social-links d-flex justify-content-center">
+              <a href="https://twitter.com/intent/tweet?url={{ site.url }}&amp;text=Join me at {{site.title}}! {{site.description}} {{page.start_datetime | date: "%A, %B %-d, %Y"}} at {{site.data.map.address}}. @{{site.social.twitter}}&hashtags={{ site.social.hashtag }}" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://instagram.com" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ site.url }}" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="mailto:?subject=Join me at {{page.title}}?&amp;body=I'm going to {{page.title}} on {{ page.start_datetime | date: "%A, %B %-d, %Y" }}. Want to join me? {{ site.url }}" class="email"><i class="bi bi-envelope"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Hackers on the Hill</strong>. All Rights Reserved.
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
+      -->
+        Original design, <a href="https://bootstrapmade.com/theevent-conference-event-bootstrap-template/">TheEvent</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
