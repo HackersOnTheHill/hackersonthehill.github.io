@@ -153,7 +153,7 @@ h6 {
 #header.header-scrolled,
 #header.header-inner {
   background: rgba(6, 12, 34, 0.98);
-  height: 70px;
+  height: 50px;
 }
 
 #header #logo h1 {
@@ -370,7 +370,7 @@ h6 {
   transition: 0.5s;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .mobile-nav-toggle {
     display: block;
   }
