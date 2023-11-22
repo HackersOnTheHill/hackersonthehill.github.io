@@ -47,9 +47,10 @@
 
     {% include location.html %}
 
-    {% include faq.html %}
+    {% comment %}
+      {% include faq.html %}
+    { % endcomment % }
 
-    <!-- Jekyll uses special comment style. Uncomment or move the include statements to include these sections. -->
     {% comment %}
       {% include about.html %}
       {% include speakers.html %}
