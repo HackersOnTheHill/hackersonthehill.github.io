@@ -17,7 +17,7 @@
 
       {% include navbar.html %}
       
-      <a class="register mx-md-3" href="https://docs.google.com/forms/d/e/1FAIpQLSdxRcsA1QYJmclJ7H38uHAdPAELrf5h9fEw2fHkM3ZBqaSwsA/viewform?usp=sf_link">Register</a>
+      <button type="button" class="btn register mx-md-3" data-bs-toggle="modal" data-bs-target="#register-modal">Register</button>
 
     </div>
   </header><!-- End Header -->
@@ -27,7 +27,7 @@
     <div class="hero-container" data-aos="fade-in" data-aos-delay="100">
       <div class="row justify-content-center align-items-center">
         <div class="col-6 col-md-3 col-xl-2"><img src="assets/img/logo.png" class="img-fluid" alt="" title="">
-          <h6 class="mt-2">Thursday, January 11, 2024</h6>
+          <h6 class="mt-2" style="color: #fff;">Thursday, January 11, 2024</h6>
         </div>
          <div class="col-10 col-md-6 col-xl-4 my-2">
           <p>Hackers on the Hill is a semi-regular gathering for irregulars from the security research community to engage with Congressional staffers, since 2017.</p>
@@ -50,6 +50,8 @@
     {% include location.html %}
 
     {% include faq.html %}
+
+    {% include register.html %}
 
     {% comment %}
       {% include about.html %}
