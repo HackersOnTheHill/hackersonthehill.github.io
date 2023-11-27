@@ -12,7 +12,7 @@
 body {
   background: #fff;
   color: #2f3138;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 a {
@@ -46,10 +46,6 @@ h6 {
   margin: 0 0 20px 0;
   padding: 0;
   color: #331e38;
-}
-
-.main-page {
-  margin-top: 70px;
 }
 
 /* Prelaoder */
@@ -203,10 +199,6 @@ figcaption {
   font-size: 14px;
 }
 
-#header .button-mobile {
-  font-size: 20px;
-}
-
 /*--------------------------------------------------------------
 # Register
 --------------------------------------------------------------*/
@@ -237,7 +229,7 @@ figcaption {
 
 @media (max-width: 992px) {
   .register {
-    margin: 0 15px 0 0;
+    margin: 0 25px;
   }
 }
 
@@ -390,11 +382,12 @@ figcaption {
 */
 .mobile-nav-toggle {
   color: #fff;
-  font-size: 40px;
+  font-size: 28px;
   cursor: pointer;
   display: none;
   line-height: 0;
   transition: all 0.5s;
+  margin: 0 25px;
 }
 
 @media (max-width: 767px) {
@@ -414,19 +407,19 @@ figcaption {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: #060c22;
   z-index: 999;
 }
 
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
-  top: 25px;
+  top: 31px;
   right: 20px;
 }
 
 .navbar-mobile .mobile-nav-register {
   position: absolute;
-  top: 28px;
+  top: 31px;
   right: auto;
   left: 20px;
 }
@@ -525,7 +518,8 @@ figcaption {
 
 #hero:before {
   content: "";
-  background: rgba(6, 12, 34, 0.8);
+  background: #060c22;
+  opacity: 0.8;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -537,7 +531,7 @@ figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
-  top: 90px;
+  top: 0px;
   right: 0;
   display: flex;
   justify-content: center;
@@ -546,12 +540,6 @@ figcaption {
   text-align: center;
   padding: 0 15px;
   color: #e6e6fa;
-}
-
-@media (max-width: 991px) {
-  #hero .hero-container {
-    top: 70px;
-  }
 }
 
 #hero h1 {
@@ -985,10 +973,6 @@ figcaption {
 /*--------------------------------------------------------------
 # Register Section
 --------------------------------------------------------------*/
-#register {
-  padding: 60px 0;
-}
-
 #register .modal-header h1,h2,h3,h4,h5,h6 {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
