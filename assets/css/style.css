@@ -195,11 +195,18 @@ figcaption {
 }
 
 
-#header button {
+#header .button {
   font-family: "Raleway", sans-serif;
   color: #fff;
-  border: 2px solid #c8a2c8;
+  border: none;
+  background:#c8a2c8; 
+  font-size: 14px;
 }
+
+#header .button-mobile {
+  font-size: 20px;
+}
+
 /*--------------------------------------------------------------
 # Register
 --------------------------------------------------------------*/
@@ -242,6 +249,11 @@ figcaption {
 */
 .navbar {
   padding: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
 }
 
 .navbar ul {
@@ -268,7 +280,6 @@ figcaption {
   justify-content: space-between;
   color: rgba(202, 206, 221, 0.8);
   font-family: "Raleway", sans-serif;
-  font-weight: 600;
   font-size: 14px;
   white-space: nowrap;
   transition: 0.3s;
@@ -379,11 +390,11 @@ figcaption {
 */
 .mobile-nav-toggle {
   color: #fff;
-  font-size: 28px;
+  font-size: 40px;
   cursor: pointer;
   display: none;
   line-height: 0;
-  transition: 0.5s;
+  transition: all 0.5s;
 }
 
 @media (max-width: 767px) {
@@ -404,20 +415,26 @@ figcaption {
   left: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
   z-index: 999;
 }
 
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
-  top: 30px;
+  top: 25px;
   right: 20px;
+}
+
+.navbar-mobile .mobile-nav-register {
+  position: absolute;
+  top: 28px;
+  right: auto;
+  left: 20px;
 }
 
 .navbar-mobile ul {
   display: block;
   position: absolute;
-  top: 70px;
+  top: 90px;
   right: 15px;
   bottom: 15px;
   left: 15px;
@@ -440,7 +457,7 @@ figcaption {
 .navbar-mobile a,
 .navbar-mobile a:focus {
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 20px;
   color: #060c22;
 }
 
@@ -541,7 +558,6 @@ figcaption {
   color: #fff;
   font-family: "Raleway", sans-serif;
   font-size: 56px;
-  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -694,110 +710,6 @@ figcaption {
 }
 
 /*--------------------------------------------------------------
-# Speakers Section
---------------------------------------------------------------*/
-#speakers {
-  padding: 60px 0 30px 0;
-}
-
-#speakers .speaker {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-#speakers .speaker .details {
-  background: rgba(6, 12, 34, 0.76);
-  position: absolute;
-  left: 0;
-  bottom: -40px;
-  right: 0;
-  text-align: center;
-  padding-top: 10px;
-  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-#speakers .speaker .details h3 {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-#speakers .speaker .details p {
-  color: #fff;
-  font-size: 15px;
-  margin-bottom: 10px;
-  font-style: italic;
-}
-
-#speakers .speaker .details .social {
-  height: 40px;
-}
-
-#speakers .speaker .details .social i {
-  line-height: 0;
-  margin: 0 2px;
-}
-
-#speakers .speaker .details a {
-  color: #c8a2c8;
-}
-
-#speakers .speaker .details a:hover {
-  color: #c8a2c8;
-}
-
-#speakers .speaker:hover .details {
-  bottom: 0;
-}
-
-#speakers-details {
-  padding: 60px 0;
-}
-
-#speakers-details .details h2 {
-  color: #112363;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-#speakers-details .details .social {
-  margin-bottom: 15px;
-}
-
-#speakers-details .details .social a {
-  background: #e9edfb;
-  color: #112363;
-  line-height: 1;
-  display: inline-block;
-  text-align: center;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#speakers-details .details .social a:hover {
-  background: #c8a2c8;
-  color: #fff;
-}
-
-#speakers-details .details .social a i {
-  font-size: 16px;
-  line-height: 0;
-}
-
-#speakers-details .details p {
-  color: #112363;
-  font-size: 15px;
-  margin-bottom: 10px;
-}
-
-/*--------------------------------------------------------------
 # Schedule Section
 --------------------------------------------------------------*/
 #schedule {
@@ -820,7 +732,6 @@ figcaption {
 #schedule .nav-tabs a {
   border: none;
   border-radius: 50px;
-  font-weight: 600;
   background-color: #331e38;
   color: #c8a2c8;
   padding: 10px 100px;
@@ -907,7 +818,6 @@ figcaption {
 
 #schedule .schedule-item h4 {
   font-size: 18px;
-  font-weight: 600;
   margin-bottom: 5px;
   color: #331e38;
 }
@@ -969,7 +879,7 @@ figcaption {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   padding: 0;
-  color: #fff;
+  color: #331e38;
   margin-bottom: 0;
 }
 
@@ -1001,141 +911,6 @@ figcaption {
 
 #location .location-gallery:hover img {
   transform: scale(1.1);
-}
-
-/*--------------------------------------------------------------
-# Hotels Section
---------------------------------------------------------------*/
-#hotels {
-  padding: 60px 0;
-}
-
-#hotels .hotel {
-  border: 1px solid #e0e5fa;
-  background: #fff;
-  margin-bottom: 30px;
-}
-
-#hotels .hotel:hover .hotel-img img {
-  transform: scale(1.1);
-}
-
-#hotels .hotel-img {
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-#hotels .hotel-img img {
-  transition: 0.3s ease-in-out;
-}
-
-#hotels h3 {
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 5px;
-  padding: 0 20px;
-}
-
-#hotels a {
-  color: #c8a2c8;
-}
-
-#hotels a:hover {
-  color: #c8a2c8;
-}
-
-#hotels .stars {
-  padding: 0 20px;
-  margin-bottom: 5px;
-}
-
-#hotels .stars i {
-  color: rgb(255, 195, 29);
-}
-
-#hotels p {
-  padding: 0 20px;
-  margin-bottom: 20px;
-  color: #060c22;
-  font-style: italic;
-  font-size: 15px;
-}
-
-/*--------------------------------------------------------------
-# Gallery Section
---------------------------------------------------------------*/
-#gallery {
-  padding: 60px;
-  overflow: hidden;
-}
-
-#gallery .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-#gallery .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #c8a2c8;
-}
-
-#gallery .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #e6e6fa;
-}
-
-#gallery .swiper-slide-active {
-  text-align: center;
-}
-
-@media (min-width: 992px) {
-  #gallery .swiper-wrapper {
-    padding: 40px 0;
-  }
-
-  #gallery .swiper-slide-active {
-    border: 5px solid #c8a2c8;
-    padding: 4px;
-    background: #fff;
-    z-index: 1;
-    transform: scale(1.15);
-    margin-top: 6px;
-  }
-}
-
-/*--------------------------------------------------------------
-# Sponsors Section
---------------------------------------------------------------*/
-#supporters {
-  padding: 60px 0;
-}
-
-#supporters .supporters-wrap {
-  border-top: 1px solid #e0e5fa;
-  border-left: 1px solid #e0e5fa;
-  margin-bottom: 30px;
-}
-
-#supporters .supporter-logo {
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 1px solid #e0e5fa;
-  border-bottom: 1px solid #e0e5fa;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.5);
-  height: 160px;
-}
-
-#supporters .supporter-logo:hover img {
-  transform: scale(1.2);
-}
-
-#supporters img {
-  transition: all 0.4s ease-in-out;
 }
 
 /*--------------------------------------------------------------
@@ -1205,76 +980,6 @@ figcaption {
 #faq .faq-list .collapsed .icon-close {
   display: none;
   transition: 0.6s;
-}
-
-/*--------------------------------------------------------------
-# Subscribe Section
---------------------------------------------------------------*/
-#subscribe {
-  padding: 60px;
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-}
-
-#subscribe:before {
-  content: "";
-  background: rgba(6, 12, 34, 0.6);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-@media (min-width: 1024px) {
-  #subscribe {
-    background-attachment: fixed;
-  }
-}
-
-#subscribe .section-header h2,
-#subscribe p {
-  color: #fff;
-}
-
-#subscribe input {
-  background: #fff;
-  color: #060c22;
-  border: 0;
-  outline: none;
-  margin: 0;
-  padding: 9px 20px;
-  border-radius: 50px;
-  font-size: 14px;
-}
-
-@media (min-width: 767px) {
-  #subscribe input {
-    min-width: 400px;
-  }
-}
-
-#subscribe button {
-  border: 0;
-  padding: 9px 25px;
-  cursor: pointer;
-  background: #c8a2c8;
-  color: #fff;
-  transition: all 0.3s ease;
-  outline: none;
-  font-size: 14px;
-  border-radius: 50px;
-}
-
-#subscribe button:hover {
-  background: #c8a2c8;
-}
-
-@media (max-width: 460px) {
-  #subscribe button {
-    margin-top: 10px;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -1360,154 +1065,6 @@ figcaption {
 
 #register #register-modal .btn:hover {
   background-color: #c8a2c8;
-}
-
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-#contact {
-  padding: 60px 0;
-}
-
-#contact .contact-info {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-#contact .contact-info i {
-  font-size: 48px;
-  display: inline-block;
-  margin-bottom: 10px;
-  color: #e6e6fa;
-}
-
-#contact .contact-info address,
-#contact .contact-info p {
-  margin-bottom: 0;
-  color: #112363;
-}
-
-#contact .contact-info h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #112363;
-}
-
-#contact .contact-info a {
-  color: #c8a2c8;
-}
-
-#contact .contact-info a:hover {
-  color: #c8a2c8;
-}
-
-#contact .contact-address,
-#contact .contact-phone,
-#contact .contact-email {
-  margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-
-  #contact .contact-address,
-  #contact .contact-phone,
-  #contact .contact-email {
-    padding: 20px 0;
-  }
-}
-
-@media (min-width: 768px) {
-  #contact .contact-phone {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-  }
-}
-
-#contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #e6e6fa;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-#contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-#contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #def6cA;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-#contact .php-email-form input,
-#contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-#contact .php-email-form input:focus,
-#contact .php-email-form textarea:focus {
-  border-color: #e6e6fa;
-}
-
-#contact .php-email-form input {
-  padding: 10px 15px;
-}
-
-#contact .php-email-form textarea {
-  padding: 12px 15px;
-}
-
-#contact .php-email-form button[type=submit] {
-  background: #c8a2c8;
-  border: 0;
-  padding: 10px 40px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-#contact .php-email-form button[type=submit]:hover {
-  background: #c8a2c8;
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /*--------------------------------------------------------------
