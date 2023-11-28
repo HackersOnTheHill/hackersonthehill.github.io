@@ -16,13 +16,24 @@
     --english-violet: #41334f;
     --space-cadet: #33334f;
     --rose-ebony: #4f3333;
+
+    --light-text: var(--light-lavender);
+    --dark-text: var(--dark-charcoal);
+    --dark-background: var(--dark-charcoal);
+    --light-background: var(--light-lavender);
+    --button-background: var(--dusty-purple);
+    --button-text: var(--light-lavender);
+    --link-color: var(--dusty-purple);
+    --link-highlight: var(--gold-highlight);
+    --dark-accent: var(--english-violet);
+    --light-accent: var(--soft-gold);
 }
 
 /*--------------------------------------------------------------
 ## Default and common element definitions
 -------------------------------------------------------------- */
 body {
-    background-color: var(--light-lavender);
+    background-color: var(--dark-charcoal); /* This makes boundaries outside the body blend with the header and hero */
     color: var(--dark-charcoal);
     font-family: 'Noto Sans', sans-serif;
     font-weight: 300;
@@ -46,7 +57,7 @@ h6 {
 }
 
 a {
-    color: var(--soft-gold);
+    color: var(--link-color);
     transition: 0.2s;
     text-decoration: none;
 }
@@ -54,34 +65,34 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: var(--soft-gold);
+    color: var(--link-highlight);
     text-decoration: underline;
 }
 
 .button {
-    background-color: var(--soft-gold);
-    color: var(--pure-white);
+    background-color: var(--button-background);
+    color: var(--button-text);
     border: none;
     border-radius: 50px;
     padding: 5px 20px;
     text-align: center;
     transition: 0.3s;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .button:hover {
-    background-color: var(--gold-highlight);
-    box-shadow: var(--dusty-purple) 0px 0px 2px 2px;
+    background-color: var(--link-highlight);
+    box-shadow: var(--dark-charcoal) 0px 0px 2px 2px;
 }
 
 .divider {
-  border-color: var(--english-violet);
+  border-color: var(--dark-accent);
 }
 
 .subdivider {
     text-decoration: underline;
-    text-decoration-color: var(--english-violet);
+    text-decoration-color: var(--light-accent);
     text-underline-offset: 0.3em;
     margin-bottom: .75em;
 }
@@ -91,7 +102,7 @@ a:focus {
 ## Sections that have a dark (default) background color, with light (default) text. Each section should have its own styling, this is an easy catch-all for quickly framing a new section.
 -------------------------------------------------------------- */
 .dark-bg {
-    background-color: var(--dark-charcoal);
+    background-color: var(--dark-background);
     color: var(--pure-white);
 }
 
@@ -102,16 +113,12 @@ a:focus {
 }
 
 .dark-bg .divider {
-    border-color: var(--soft-gold);
-}
-
-.dark-bg .divider {
-border-color: var(--light-lavender);
+    border-color: var(--light-accent);
 }
 
 .dark-bg .subdivider {
   text-decoration: underline;
-  text-decoration-color: var(--light-lavender);
+  text-decoration-color: var(--dark-accent);
   text-underline-offset: 0.3em;
   margin-bottom: .75em;
 }
@@ -123,7 +130,7 @@ border-color: var(--light-lavender);
 -------------------------------------------------------------- */
 #header {
     background-color: transparent;
-    color: var(--light-lavender);
+    color: var(--light-text);
     height: 90px;
     position: fixed;
     left: 0;
@@ -134,15 +141,15 @@ border-color: var(--light-lavender);
   }
 
 #header.header-scrolled {
-    background-color: var(--dark-charcoal);
-    color: var(--light-lavender);
+    background-color: var(--dark-background);
+    color: var(--light-text);
     height: 50px;
 }
 
 #footer {
     padding: 0 0 25px 0;
-    background-color: var(--dark-charcoal);
-    color: var(--light-lavender);
+    background-color: var(--dark-background);
+    color: var(--light-text);
     font-size: 14px;
     text-align: center;
 }
@@ -153,8 +160,8 @@ border-color: var(--light-lavender);
 
   #footer .footer-top .social-links a {
     display: inline-block;
-    background: var(--dark-charcoal);
-    color: var(--soft-gold);
+    background: var(--dark-background);
+    color: var(--button-background);
     line-height: 1;
     margin-right: 4px;
     border-radius: 50%;
@@ -171,12 +178,12 @@ border-color: var(--light-lavender);
     font-size: 16px;
   }
 
-  #footer .footer-top .social-title {
-    padding-bottom: 12px;
-    color: var(--light-lavender);
-    border-bottom: 2px solid var(--dusty-purple);
+  #footer .attribution p {
+    font-size: 10px;
+    margin: 0px 0px 0px 0px;
   }
 
+  
 /*--------------------------------------------------------------
 ## Navbar
 -------------------------------------------------------------- */
@@ -213,14 +220,14 @@ border-color: var(--light-lavender);
     width: 0;
     height: 2px;
     bottom: 0px;
-    left: 6px;
-    background-color: var(--soft-gold);
+    left: auto;
+    background-color: var(--link-color);
     visibility: hidden;
     transition: all 0.3s ease-in-out 0s;
   }
 
 .navbar a {
-    color: var(--light-lavender);
+    color: var(--light-text);
     text-decoration: none;
 }
 
@@ -228,7 +235,7 @@ border-color: var(--light-lavender);
 .navbar li:hover>a:before,
 .navbar .active:before {
   visibility: visible;
-  width: 100%;
+  width: 80%;
 }
 
 .navbar a:hover,
@@ -236,7 +243,7 @@ border-color: var(--light-lavender);
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-    color: var(--soft-gold);
+    color: var(--link-color);
     text-decoration: none;
 }
 
@@ -245,8 +252,8 @@ border-color: var(--light-lavender);
 ## Hero Section
 --------------------------------------------------------------*/
 #hero {
-    background-color: var(--english-violet);
-    color: var(--pure-white);
+    background-color: var(--dark-background);
+    color: var(--light-text);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -284,9 +291,9 @@ border-color: var(--light-lavender);
     display: block;
     width: 60px;
     height: 5px;
-    background: var(--soft-gold);
+    background: var(--dark-accent);
     bottom: 0;
-    left: calc(50% - 25px);
+    left: calc(50% - 32px);
 }
 
 
@@ -294,8 +301,8 @@ border-color: var(--light-lavender);
 ## About Section
 --------------------------------------------------------------*/
 #about {
-    background-color: var(--light-lavender);
-    color: var(--dark-charcoal);
+    background-color: var(--light-background);
+    color: var(--dark-text);
     padding: 60px 0;
 }
 
@@ -316,8 +323,8 @@ border-color: var(--light-lavender);
   }
 
 #logistics {
-    background-color: var(--light-lavender);
-    color: var(--dark-charcoal);
+    background-color: var(--light-background);
+    color: var(--dark-text);
 }
 
 #location .container-fluid {
@@ -462,8 +469,8 @@ border-color: var(--light-lavender);
 ## Registration Section
 --------------------------------------------------------------*/
 #register {
-    background-color: var(--light-lavender);
-    color: var(--dark-charcoal);
+    background-color: var(--light-background);
+    color: var(--dark-text);
 }
 
 #register .card {
@@ -486,8 +493,8 @@ border-color: var(--light-lavender);
 ## FAQ Section
 --------------------------------------------------------------*/
 #faq {
-    background-color: var(--light-lavender);
-    color: var(--dark-charcoal);
+    background-color: var(--light-background);
+    color: var(--dark-text);
     padding: 60px 0;
 }
 
@@ -497,7 +504,7 @@ border-color: var(--light-lavender);
   }
   
   #faq .faq-list li {
-    border-bottom: 1px solid var(--dusty-purple);
+    border-bottom: 1px solid var(--link-color);
     margin-bottom: 20px;
     padding-bottom: 20px;
   }
@@ -509,7 +516,7 @@ border-color: var(--light-lavender);
     line-height: 24px;
     padding-left: 25px;
     cursor: pointer;
-    color: var(--dark-charcoal);
+    color: var(--dark-text);
     transition: 0.3s;
   }
   
@@ -525,11 +532,11 @@ border-color: var(--light-lavender);
   }
   
   #faq .faq-list .collapsed {
-    color: var(--dark-charcoal);
+    color: var(--dark-text);
   }
   
   #faq .faq-list .collapsed:hover {
-    color: var(--soft-gold);
+    color: var(--link-color);
   }
   
   #faq .faq-list .collapsed .icon-show {
@@ -559,7 +566,7 @@ border-color: var(--light-lavender);
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: var(--soft-gold);
+    background: var(--link-color);
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -569,7 +576,7 @@ border-color: var(--light-lavender);
   .back-to-top i,
   .back-to-top a {
     font-size: 28px;
-    color: var(--pure-white);
+    color: var(--button-text);
     line-height: 0;
   }
   
