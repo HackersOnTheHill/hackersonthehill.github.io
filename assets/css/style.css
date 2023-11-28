@@ -83,7 +83,7 @@ a:focus {
 
 .button:hover {
     background-color: var(--link-highlight);
-    box-shadow: var(--dark-charcoal) 0px 0px 2px 2px;
+    box-shadow: var(--link-highlight) 0px 0px 2px 2px;
 }
 
 .divider {
