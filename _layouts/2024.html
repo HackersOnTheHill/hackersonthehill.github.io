@@ -6,20 +6,22 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center justify-content-center">
-    <div class="container-fluid container-xxl col-md-10 col-lg-8 d-flex align-items-center justify-content-between mx-2 mx-lg-5">
+  <header id="header" class="d-flex align-items-center">
+    <div class="container-fluid container-xxl  col-md-10 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-between">
    
-      <button type="button" class="button mx-md-3 register d-none d-md-block" data-bs-toggle="modal" data-bs-target="#register-modal">Register</button>
+      <button type="button" class="button mx-3" data-bs-toggle="modal" data-bs-target="#register-modal">Register</button>
 
       {% include navbar.html %}
       
     </div>
   </header><!-- End Header -->
 
+<section id="top">
+
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="fade-in" data-aos-delay="100">
-      <div class="row justify-content-center align-items-center col-md-10 col-lg-8">
+      <div class="row justify-content-center align-items-center col-md-10 col-lg-9 col-xl-8 col-xxl-7">
         <div class="col-8 col-sm-6 col-md-5"><img src="assets/img/logo.png" class="img-fluid" alt="" title="">
           <h6 class="mt-2" style="color: #fff;">Thursday, January 11, 2024</h6>
         </div>
@@ -31,14 +33,20 @@
     </div>
   </section><!-- End Hero Section -->
 
-  <main id="main">
-
     {% include about.html %}
 
-    {% include schedule.html %}
+  </section><!-- End #top -->
 
-    {% include location.html %}
-
+    <!-- ======= Logistics = location + schedule ======= -->
+    <section id="logistics">
+      <div class="container-fluid col-md-10 col-lg-9 col-xl-8 col-xxl-7" data-aos="fade-up">
+      {% include location.html %}
+      <div class="m-5"></div>
+      {% include schedule.html %}
+      </div>
+    </section>
+    <!-- ======= Logistics = location + schedule ======= -->
+    
     {% include faq.html %}
 
     {% include register.html %}
@@ -54,11 +62,9 @@
       {% include subscribe.html %}
     {% endcomment %}
 
-  </main><!-- End #main -->
-
   {% include footer.html %}
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="button back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
