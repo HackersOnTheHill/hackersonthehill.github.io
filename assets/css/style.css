@@ -23,7 +23,7 @@
     --light-background: var(--light-lavender);
     --button-background: var(--dusty-purple);
     --button-text: var(--light-lavender);
-    --link-color: var(--dusty-purple);
+    --link-color: var(--soft-gold);
     --link-highlight: var(--gold-highlight);
     --dark-accent: var(--english-violet);
     --light-accent: var(--soft-gold);
@@ -504,7 +504,7 @@ a:focus {
   }
   
   #faq .faq-list li {
-    border-bottom: 1px solid var(--link-color);
+    border-bottom: 1px solid var(--dark-accent);
     margin-bottom: 20px;
     padding-bottom: 20px;
   }
