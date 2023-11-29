@@ -16,15 +16,19 @@
     --english-violet: #41334f;
     --space-cadet: #33334f;
     --rose-ebony: #4f3333;
+    --bright-teal: #00B5AD;
+    --red-coral: #FF6B6B;
+    --deep-orchid: #9B5DE5;
+    --bold-gold: #D4AF37;
 
     --light-text: var(--light-lavender);
     --dark-text: var(--dark-charcoal);
     --dark-background: var(--dark-charcoal);
     --light-background: var(--light-lavender);
-    --button-background: var(--dusty-purple);
+    --button-background: var(--deep-orchid);
     --button-text: var(--light-lavender);
-    --link-color: var(--soft-gold);
-    --link-highlight: var(--gold-highlight);
+    --link-color: var(--deep-orchid);
+    --link-highlight: var(--bold-gold);
     --dark-accent: var(--english-violet);
     --light-accent: var(--soft-gold);
 }
@@ -60,13 +64,13 @@ a {
     color: var(--link-color);
     transition: 0.2s;
     text-decoration: none;
+    font-weight: normal;
 }
 
 a:hover,
 a:active,
 a:focus {
     color: var(--link-highlight);
-    text-decoration: underline;
 }
 
 .button {
@@ -214,21 +218,10 @@ a:focus {
     padding: 10px 0 10px 12px;
   }
 
-.navbar>ul>li>a:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0px;
-    left: auto;
-    background-color: var(--link-color);
-    visibility: hidden;
-    transition: all 0.3s ease-in-out 0s;
-  }
-
 .navbar a {
-    color: var(--light-text);
+    color: var(--link-color);
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .navbar a:hover:before,
@@ -243,8 +236,10 @@ a:focus {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-    color: var(--link-color);
-    text-decoration: none;
+    color: var(--link-highlight);
+    text-decoration: underline;
+    text-underline-offset: 0.5em;
+    text-decoration-thickness: 0.2em;
 }
 
 
@@ -283,17 +278,10 @@ a:focus {
     position: relative;
     padding-bottom: 20px;
     text-align: center;
-}
-
-.section-header::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 60px;
-    height: 5px;
-    background: var(--dark-accent);
-    bottom: 0;
-    left: calc(50% - 32px);
+    color: var(--dark-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.75em;
+    text-decoration-thickness: 0.2em;
 }
 
 
