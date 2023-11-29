@@ -5,11 +5,16 @@
 
 <body>
 
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SWT2G3G"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center dark-bg">
     <div class="container-fluid container-xxl  col-md-10 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-between">
    
-      <button type="button" class="button mx-3" data-bs-toggle="modal" data-bs-target="#register-modal">Register</button>
+      <button type="button" class="button mx-3" data-bs-toggle="modal" data-bs-target="#register-modal" id="registration-modal">Register</button>
 
       {% include navbar.html %}
       
@@ -27,7 +32,7 @@
         </div>
          <div class="col-10 col-md-7 my-2">
           <h4 class="p-2" style="color:#fff;">Hackers on the Hill is a semi-regular gathering of irregulars from the cybersecurity research community engaging with Congressional staffers.</h4>
-          <p>Run by <a href="https://iamthecavalry.org">I Am The Cavalry</a>, since 2017.</p>
+          <p>Run by <a href="https://iamthecavalry.org" target="_blank" id="cavalry_link">I Am The Cavalry</a>, since 2017.</p>
         </div>
       </div>
     </div>
