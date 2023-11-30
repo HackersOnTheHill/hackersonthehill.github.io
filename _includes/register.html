@@ -5,11 +5,11 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content p-3">
           <div class="modal-header p-1">
-            <h5 class="modal-title" style="color: #331e38;">Registration Form</h5>
+            <h5 class="modal-title">Registration Form</h5>
             <button type="button" class="btn-close pe-3" data-bs-dismiss="modal" aria-label="Close" id="close-registration"></button>
           </div>
 
-          <form class="row g-3 pt-1 px-1 modal-body" action="https://docs.google.com/forms/d/e/1FAIpQLSdxRcsA1QYJmclJ7H38uHAdPAELrf5h9fEw2fHkM3ZBqaSwsA/formResponse" method="POST">
+          <form class="row g-3 pt-1 px-1 modal-body" action="https://docs.google.com/forms/d/e/1FAIpQLSdxRcsA1QYJmclJ7H38uHAdPAELrf5h9fEw2fHkM3ZBqaSwsA/formResponse" method="POST" target="null_frame">
             <label>Join us on Capitol Hill on Thursday, January 11th (the day before Shmoocon) to brief Congressional staffers on cybersecurity issues.</label>
             <label>Note that Hackers on the Hill is a non-commercial event with a strict <b><em>no shilling</em></b> policy. It doesn't matter where you work or what your role is, we welcome all to a technically literate, good faith conversation.</label>
           
@@ -23,7 +23,7 @@
           
                 <!-- Email address -->
                 <div class="col-md-6">
-                  <label for="emailAddress">Email address</label>
+                  <label for="emailAddress">Email address (for confirmation and coordination)</label>
                   <input type="email" class="form-control form-control-sm" id="emailAddress" name="entry.1927443135" required>
                 </div>
               </div>
@@ -240,11 +240,28 @@
               </div>
           
               <div class="text-center p-2">
-                <button class="button" type="submit" id="submit-registration">Submit Registration</button>
+                <button class="button" type="submit" data-bs-toggle="modal" data-bs-target="#confirmation-modal" id="submit-registration">Submit Registration</button>
               </div>
           </form>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+    <div id="confirmation-modal" class="modal fade">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content p-3">
+          <div class="modal-header p-1">
+            <h5 class="modal-title">Registration Confirmation</h5>
+            <button type="button" class="btn-close pe-3" data-bs-dismiss="modal" aria-label="Close" id="close-registration"></button>
+          </div>
+          <p>Congratulations! You're registered for Hackers on the Hill 2024. Check your email for a confirmation message with more details.</p>
+          <p><b>NOTE</b> that this is a space-limited event, with attendance levels set by Congressional rules. In the event we exceed that capacity, we will put you on the waitlist and notify you about in person attendance.</p>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+<iframe name="null_frame" style="display: none;"></iframe> <!-- This is a hack to prevent the form from redirecting to a new page -->
 
   </section><!-- End Register Section -->
