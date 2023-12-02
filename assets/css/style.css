@@ -6,31 +6,39 @@
 * License: MIT
 */
 :root {
-    --light-lavender: #e6e6fa;
-    --dusty-purple: #967bb6;
-    --soft-gold: #d4af37;
-    --gold-highlight: #d7b45b;
-    --dark-charcoal: #333333;
-    --cream: #fffdd0;
-    --pure-white: #ffffff;
-    --english-violet: #41334f;
-    --space-cadet: #33334f;
-    --rose-ebony: #4f3333;
-    --bright-teal: #00B5AD;
-    --red-coral: #FF6B6B;
-    --deep-orchid: #9B5DE5;
-    --bold-gold: #D4AF37;
+  --light-lavender: #e6e6fa;
+  --dusty-purple: #967bb6;
+  --soft-gold: #d4af37;
+  --gold-highlight: #d7b45b;
+  --dark-charcoal: #333333;
+  --cream: #fffdd0;
+  --pure-white: #ffffff;
+  --english-violet: #41334f;
+  --space-cadet: #33334f;
+  --rose-ebony: #4f3333;
+  --bright-teal: #00B5AD;
+  --red-coral: #FF6B6B;
+  --deep-orchid: #9B5DE5;
+  --bold-gold: #D4AF37;
+  --pale-indigo: #A890D3;
+  --anti-white-grey: #F0F0F0;
+  --jet-grey: #2B2B2B;
+  --pomp-and-power: #8866aa;
+  --indigo: #4B0082;
+  --magnolia: #F6EFFB;
+  --eerie-black: #222222;
 
-    --light-text: var(--light-lavender);
-    --dark-text: var(--dark-charcoal);
-    --dark-background: var(--dark-charcoal);
-    --light-background: var(--light-lavender);
-    --button-background: var(--deep-orchid);
-    --button-text: var(--light-lavender);
-    --link-color: var(--deep-orchid);
-    --link-highlight: var(--bold-gold);
-    --dark-accent: var(--english-violet);
-    --light-accent: var(--soft-gold);
+  --light-text: var(--pure-white);
+  --dark-text: var(--eerie-black);
+  --dark-background: var(--eerie-black);
+  --light-background: var(--magnolia);
+  --button-background: var(--deep-orchid);
+  --button-text: var(--pure-white);
+  --link-color: var(--deep-orchid);
+  --link-highlight: var(--bold-gold);
+  --dark-accent: var(--english-violet);
+  --light-accent: var(--soft-gold);
+  --shadow-on-light: color-mix(in srgb, var(--dark-charcoal) 25%, var(--light-background));
 }
 
 /*--------------------------------------------------------------
@@ -332,6 +340,7 @@ a:focus {
     padding-bottom: 20px;
 }
 
+
 /*--------------------------------------------------------------
 ## Old Schedule Section - not yet parsed
 --------------------------------------------------------------*/
@@ -356,8 +365,8 @@ a:focus {
 #schedule .nav-tabs a {
   border: none;
   border-radius: 50px;
-  background-color: #331e38;
-  color: #c8a2c8;
+  background-color: var(--dark-accent);
+  color: var(--light-text);
   padding: 10px 100px;
 }
 
@@ -380,8 +389,8 @@ a:focus {
 }
 
 #schedule .nav-tabs a.active {
-  background-color: #c8a2c8;
-  color: #fff;
+  background-color: var(--light-background);
+  color: var(--dark-text);
 }
 
 #schedule .sub-heading {
@@ -402,14 +411,16 @@ a:focus {
 }
 
 #schedule .schedule-item {
-  border-bottom: 1px solid #cad4f6;
+  border-bottom: 1px solid var(--shadow-on-light);
   padding-top: 15px;
   padding-bottom: 15px;
   transition: background-color ease-in-out 0.3s;
 }
 
 #schedule .schedule-item:hover {
-  background-color: #fff;
+  background-color: var(--pure-white);
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 2px 5px 0 var(--shadow-on-light);
 }
 
 #schedule .schedule-item time {
