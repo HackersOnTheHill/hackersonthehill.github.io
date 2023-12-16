@@ -34,7 +34,7 @@ exclude:
 - Gemfile
 - Gemfile.lock
 - README.md
-- LICENCE
+- LICENSE
 _comments:
   background_image: Image shown behind the content.
   map: Update the map location and display settings.
