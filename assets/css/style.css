@@ -342,11 +342,11 @@ a:focus {
 
 
 /*--------------------------------------------------------------
-## Old Schedule Section - not yet parsed
+## Schedule Section
 --------------------------------------------------------------*/
 
 #schedule {
-  padding: 60px 0 60px 0;
+  padding: 60px 0 0 0;
 }
 
 #schedule .nav-tabs {
@@ -393,13 +393,6 @@ a:focus {
   color: var(--dark-text);
 }
 
-#schedule .sub-heading {
-  text-align: center;
-  font-size: 18px;
-  font-style: italic;
-  margin: 0 auto 30px auto;
-}
-
 @media (min-width: 991px) {
   #schedule .sub-heading {
     width: 75%;
@@ -434,7 +427,7 @@ a:focus {
   overflow: hidden;
   border-radius: 50%;
   float: left;
-  margin: 0 10px 10px 0;
+  margin: 0 10px 0 0;
 }
 
 #schedule .schedule-item .speaker img {
@@ -444,22 +437,18 @@ a:focus {
   transition: all ease-in-out 0.3s;
 }
 
-#schedule .schedule-item h4 {
-  font-size: 18px;
-  margin-bottom: 5px;
-  color: #331e38;
+#schedule .schedule-item span {
+  font-weight: 300;
 }
 
-#schedule .schedule-item h4 span {
-  font-style: italic;
-  color: #19328e;
-  font-size: 16px;
+#schedule .schedule-item h5 {
+  vertical-align: middle !important;
+  display: inline;
 }
 
 #schedule .schedule-item p {
-  font-style: italic;
-  color: #152b79;
   margin-bottom: 0;
+  margin-top: 10px;
 }
 
 
@@ -546,6 +535,10 @@ a:focus {
   #faq .faq-list .collapsed .icon-close {
     display: none;
     transition: 0.6s;
+  }
+
+  #faq .faq-list .question.show {
+    padding-bottom: 10px;
   }
 
   #faq .faq-list li ul li {
