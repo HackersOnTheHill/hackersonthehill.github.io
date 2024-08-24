@@ -14,7 +14,7 @@ baseurl:
 google_analytics_key: UA-154554887-1
 google_maps_javascript_api_key: AIzaSyCTNQaPLcTx2q3YbOIS49HVB6aaqwNTiAI
 eventbrite_embed: 
-logo: "/siteicon.png"
+logo: "/assets/img/logo.png"
 description: A semi-regular US Capitol tour with irregulars from the security research
   community.
 author:
