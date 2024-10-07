@@ -1,0 +1,594 @@
+/**
+* Style Name: Hackers on the Hill 2024
+* Updated: November 27, 2023 with Bootstrap v5.3.2
+* Author: Beau Woods
+* Based On: TheEvent, by BootstrapMade https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+* License: MIT
+*/
+:root {
+  --light-lavender: #e6e6fa;
+  --dusty-purple: #967bb6;
+  --soft-gold: #d4af37;
+  --gold-highlight: #d7b45b;
+  --dark-charcoal: #333333;
+  --cream: #fffdd0;
+  --pure-white: #ffffff;
+  --english-violet: #41334f;
+  --space-cadet: #33334f;
+  --rose-ebony: #4f3333;
+  --bright-teal: #00B5AD;
+  --red-coral: #FF6B6B;
+  --deep-orchid: #9B5DE5;
+  --bold-gold: #D4AF37;
+  --pale-indigo: #A890D3;
+  --anti-white-grey: #F0F0F0;
+  --jet-grey: #2B2B2B;
+  --pomp-and-power: #8866aa;
+  --indigo: #4B0082;
+  --magnolia: #F6EFFB;
+  --eerie-black: #222222;
+
+  --light-text: var(--pure-white);
+  --dark-text: var(--eerie-black);
+  --dark-background: var(--eerie-black);
+  --light-background: var(--magnolia);
+  --button-background: var(--deep-orchid);
+  --button-text: var(--pure-white);
+  --link-color: var(--deep-orchid);
+  --link-highlight: var(--bold-gold);
+  --dark-accent: var(--english-violet);
+  --light-accent: var(--soft-gold);
+  --shadow-on-light: color-mix(in srgb, var(--dark-charcoal) 25%, var(--light-background));
+}
+
+/*--------------------------------------------------------------
+## Default and common element definitions
+-------------------------------------------------------------- */
+.navbar a.dropdown-item,
+body {
+    background-color: var(--dark-charcoal); /* This makes boundaries outside the body blend with the header and hero */
+    color: var(--dark-charcoal);
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+}
+
+p {
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    padding: 0;
+}
+
+.navbar a.dropdown-item,
+a {
+    color: var(--link-color);
+    transition: 0.2s;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: var(--link-highlight);
+}
+
+.button {
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: none;
+    border-radius: 50px;
+    padding: 5px 20px;
+    text-align: center;
+    transition: 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: var(--link-highlight);
+    box-shadow: var(--link-highlight) 0px 0px 2px 2px;
+}
+
+.divider {
+  border-color: var(--dark-accent);
+}
+
+.subdivider {
+    text-decoration: underline;
+    text-decoration-color: var(--light-accent);
+    text-underline-offset: 0.3em;
+    margin-bottom: .75em;
+}
+
+/*--------------------------------------------------------------
+## Dark default 
+## Sections that have a dark (default) background color, with light (default) text. Each section should have its own styling, this is an easy catch-all for quickly framing a new section.
+-------------------------------------------------------------- */
+.dark-bg {
+    background-color: var(--dark-background);
+    color: var(--pure-white);
+}
+
+.dark-bg .highlight-section {
+    background-color: var(--dusty-purple);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.dark-bg .divider {
+    border-color: var(--light-accent);
+}
+
+.dark-bg .subdivider {
+  text-decoration: underline;
+  text-decoration-color: var(--dark-accent);
+  text-underline-offset: 0.3em;
+  margin-bottom: .75em;
+}
+
+
+/*--------------------------------------------------------------
+## Header and Footer 
+## The header will initially be transparent, with the dark background of the #hero coming through, then will fade to a different color dark background with light text. 
+-------------------------------------------------------------- */
+#header {
+    background-color: transparent;
+    color: var(--light-text);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.3s;
+    z-index: 997;
+  }
+
+#header.header-scrolled {
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    height: 50px;
+}
+
+#footer {
+    padding: 0 0 25px 0;
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    font-size: 14px;
+    text-align: center;
+}
+  
+  #footer .footer-top {
+    padding: 60px 0 0 0;
+  }
+
+  #footer .footer-top .social-links a {
+    display: inline-block;
+    background: var(--dark-background);
+    color: var(--button-background);
+    line-height: 1;
+    margin-right: 4px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #footer .footer-top .social-links a i {
+    line-height: 0;
+    font-size: 16px;
+  }
+
+  #footer .attribution p {
+    font-size: 10px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  
+/*--------------------------------------------------------------
+## Navbar
+-------------------------------------------------------------- */
+.navbar {
+    padding: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    font-size: 14px;
+  }
+  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar>ul>li {
+    white-space: nowrap;
+    padding: 10px 0 10px 12px;
+  }
+
+.navbar a,
+.navbar a.dropdown-item {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar a:hover:before,
+.navbar li:hover>a:before,
+.navbar .active:before {
+  visibility: visible;
+  width: 80%;
+}
+
+.navbar a:hover,
+.navbar a:active,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a, 
+.navbar ul li:hover>a,
+.navbar a.dropdown-item:hover {
+    color: var(--link-highlight);
+    text-decoration: underline;
+    text-underline-offset: 0.5em;
+    text-decoration-thickness: 0.2em;
+}
+
+/* Navbar Dropdown */
+.navbar .navbar-dropdown-hoth {
+  display: none;
+}
+.dropdown-menu.show {
+  display: block;
+}
+
+.navbar a.dropdown-item {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+## Hero Section
+--------------------------------------------------------------*/
+#hero {
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    width: 100%;
+    min-height: 85vh;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #hero .hero-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+/*--------------------------------------------------------------
+## Sections Header
+--------------------------------------------------------------*/
+.section-header {
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 20px;
+    text-align: center;
+    color: var(--dark-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.75em;
+    text-decoration-thickness: 0.2em;
+}
+
+
+/*--------------------------------------------------------------
+## About Section
+--------------------------------------------------------------*/
+#about {
+    background-color: var(--light-background);
+    color: var(--dark-text);
+    padding: 60px 0;
+}
+
+#about figcaption {
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+
+/*--------------------------------------------------------------
+## Logistics Section
+## The logistics section is made of two sections, for Location and Schedule.
+--------------------------------------------------------------*/
+#logistics {
+    padding: 60px 0;
+  }
+
+#logistics {
+    background-color: var(--light-background);
+    color: var(--dark-text);
+}
+
+#location .container-fluid {
+    margin-bottom: 3px;
+}
+  
+#location .location-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}
+  
+#location .location-info {
+    background-size: cover;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/*--------------------------------------------------------------
+## Schedule Section
+--------------------------------------------------------------*/
+
+#schedule {
+  padding: 60px 0 0 0;
+}
+
+#schedule .nav-tabs {
+  text-align: center;
+  margin: auto;
+  display: block;
+  border-bottom: 0;
+  margin-bottom: 30px;
+}
+
+#schedule .nav-tabs li {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+#schedule .nav-tabs a {
+  border: none;
+  border-radius: 50px;
+  background-color: var(--dark-accent);
+  color: var(--light-text);
+  padding: 10px 100px;
+}
+
+@media (max-width: 991px) {
+  #schedule .nav-tabs a {
+    padding: 8px 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  #schedule .nav-tabs a {
+    padding: 8px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  #schedule .nav-tabs a {
+    padding: 8px 30px;
+  }
+}
+
+#schedule .nav-tabs a.active {
+  background-color: var(--light-background);
+  color: var(--dark-text);
+}
+
+@media (min-width: 991px) {
+  #schedule .sub-heading {
+    width: 75%;
+  }
+}
+
+#schedule .tab-pane {
+  transition: ease-in-out 0.2s;
+}
+
+#schedule .schedule-item {
+  border-bottom: 1px solid var(--shadow-on-light);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transition: background-color ease-in-out 0.3s;
+}
+
+#schedule .schedule-item:hover {
+  background-color: var(--pure-white);
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 2px 5px 0 var(--shadow-on-light);
+}
+
+#schedule .schedule-item time {
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+#schedule .schedule-item .speaker {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+#schedule .schedule-item .speaker img {
+  height: 100%;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  transition: all ease-in-out 0.3s;
+}
+
+#schedule .schedule-item span {
+  font-weight: 300;
+}
+
+#schedule .schedule-item h5 {
+  vertical-align: middle !important;
+  display: inline;
+}
+
+#schedule .schedule-item p {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+
+
+/*--------------------------------------------------------------
+## Registration Section
+--------------------------------------------------------------*/
+#register {
+    background-color: var(--light-background);
+    color: var(--dark-text);
+}
+
+#register .card {
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 25px 0 rgba(6, 12, 34, 0.1);
+  }
+  
+  #register .card:hover {
+    box-shadow: 0 10px 35px 0 rgba(6, 12, 34, 0.2);
+  }
+
+  #register .form-control {
+    font-weight: 300;
+  }
+
+
+/*--------------------------------------------------------------
+## FAQ Section
+--------------------------------------------------------------*/
+#faq {
+    background-color: var(--light-background);
+    color: var(--dark-text);
+    padding: 60px 0;
+}
+
+#faq .faq-list {
+    padding: 0;
+    list-style: none;
+  }
+  
+  #faq .faq-list li {
+    border-bottom: 1px solid var(--dark-accent);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  
+  #faq .faq-list .question {
+    display: block;
+    position: relative;
+    font-size: 18px;
+    line-height: 24px;
+    padding-left: 25px;
+    cursor: pointer;
+    color: var(--dark-text);
+    transition: 0.3s;
+  }
+  
+  #faq .faq-list i {
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+  }
+    
+  #faq .faq-list .icon-show {
+    display: none;
+  }
+  
+  #faq .faq-list .collapsed {
+    color: var(--dark-text);
+  }
+  
+  #faq .faq-list .collapsed:hover {
+    color: var(--link-color);
+  }
+  
+  #faq .faq-list .collapsed .icon-show {
+    display: inline-block;
+    transition: 0.6s;
+  }
+  
+  #faq .faq-list .collapsed .icon-close {
+    display: none;
+    transition: 0.6s;
+  }
+
+  #faq .faq-list .question.show {
+    padding-bottom: 10px;
+  }
+
+  #faq .faq-list li ul li {
+    border-bottom: none;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+  }
+
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: var(--link-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transition: all 0.4s;
+  }
+  
+  .back-to-top i,
+  .back-to-top a {
+    font-size: 28px;
+    color: var(--button-text);
+    line-height: 0;
+  }
+  
+  .back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+  }
