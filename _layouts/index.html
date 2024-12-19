@@ -11,9 +11,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header id="header" class="d-flex align-items-center dark-bg">
-    <div class="container-fluid container-xxl col-md-10 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-between">
-      <!-- <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank"><button type="button" class="button mx-3">Notify Me!</button></a> -->
-      <a href="https://www.eventbrite.com/e/hackers-on-the-hill-tickets-1116238602709" target="_blank"><button type="button" class="button mx-3">Waitlist</button></a>
+    <div class="container-fluid container-xxl col-md-10 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-end">
       {% include navbar.html %}
     </div>
   </header><!-- End Header -->
@@ -21,7 +19,7 @@
   <section id="top">
   
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="dark-bg">
+    <section id="hero" class="dark-bg" style="min-height: 100vh;">
       <div class="hero-container" data-aos="fade-in" data-aos-delay="100">
         <div class="row justify-content-center align-items-center col-md-10 col-lg-9 col-xl-8 col-xxl-7">
           <div class="col-8 col-sm-6 col-md-5"><img src="assets/img/hoth-logo-2025.svg" class="img-fluid mb-4" alt="" title="">
@@ -30,11 +28,14 @@
           <div class="col-10 col-md-7 my-2">
             <h4 class="p-2" style="color:#fff;">Hackers on the Hill is a semi-regular gathering of irregulars from the cybersecurity research community engaging with public policy leaders.</h4>
             <p>Run by <a href="https://iamthecavalry.org" target="_blank" id="cavalry_link">I Am The Cavalry</a>, since 2017; global since 2024.</p>
-            <br>
-            <div>
-              <p>Registration is <a href="https://www.eventbrite.com/e/hackers-on-the-hill-tickets-1116238602709" target="_blank"><b>waitlist only</b></a> for our event at the US Capitol, Thursday, January 9, 2025 - we will be opening more spots as we go, starting with the first to join the <a href="https://www.eventbrite.com/e/hackers-on-the-hill-tickets-1116238602709" target="_blank"><b>waitlist</b></a>.
-              <p>Sign up for our notification list and follow us on Bluesky to be among the first to learn about new events, volunteering opportunities, and other updates.</p>
-              <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank"><button type="button" class="button mx-3">Notify Me!</button></a>
+            <div class="row justify-content-evenly">
+              <div class="d-flex col-10 col-sm-6 flex-column py-3">
+                <div class="mb-auto"><p>Registration is <b>waitlist only</b> for our DC event, Thursday, January 9, 2025. We hope to open more spots soon.</p><p></p></div>
+                <div class="mt-auto"><a href="https://www.eventbrite.com/e/hackers-on-the-hill-tickets-1116238602709" target="_blank"><button type="button" class="button mx-3">Join the Waitlist</button></a></div>
+              </div>
+              <div class="d-flex col-10 col-sm-6 flex-column py-3"><div class="mb-auto"><p>Join our notification list and follow us on <a href="https://bsky.app/profile/hackersonthehill.org" target="_blank">Bluesky</a> to be among the first to learn what's new with us.</p></div>
+                <div class="mt-auto"><a href="https://subscribepage.io/hackers-on-the-hill" target="_blank"><button type="button" class="button mx-3">Notify Me!</button></a></div>
+              </div>
             </div>
           </div>
         </div>
