@@ -11,27 +11,54 @@
   --dark-grey: #222222;
   --off-white: #F5F5F5;
   --light-purple: #E6DCEF;
-  --medium-purple: #9B7FBE;
   --dark-purple: #7B5FA3;
   --pure-white: #FFFFFF;
+  --pure-black: #121212;
 
-  /* Semantic Color Assignments */
+  /* Semantic Hierarchy (Light Mode) */
   --text-primary: var(--dark-grey);
+  --text-secondary: rgba(34, 34, 34, 0.6);  /* dark-grey at 60% */
   --text-inverse: var(--pure-white);
-  --dark-text: var(--dark-grey);
-  --light-text: var(--pure-white);
-  --background-light: var(--off-white);
-  --background-white: var(--pure-white);
-  --light-background: var(--off-white);
-  --accent-primary: var(--medium-purple);
-  --accent-dark: var(--dark-purple);
-  --accent-light: var(--light-purple);
-  --dark-accent: var(--dark-purple);
-  --link-color: var(--medium-purple);
-  --button-text: var(--pure-white);
-  --shadow-color: rgba(34, 34, 34, 0.1);
-  --shadow-hover: rgba(34, 34, 34, 0.15);
-  --shadow-on-light: rgba(34, 34, 34, 0.08);
+  --bg-primary: var(--pure-white);
+  --bg-secondary: var(--off-white);
+  --accent-primary: var(--dark-purple);
+  --accent-secondary: var(--light-purple);
+  --shadow-color: rgba(34, 34, 34, 0.1);  /* dark-grey at 10% */
+  --shadow-hover: rgba(34, 34, 34, 0.15);  /* dark-grey at 15% */
+  --shadow-on-light: rgba(34, 34, 34, 0.08);  /* dark-grey at 8% */
+  --shadow-accent: rgba(123, 95, 163, 0.3);  /* dark-purple at 30% */
+  --border-accent: rgba(123, 95, 163, 0.15);  /* dark-purple at 15% */
+
+  /* Smooth theme transitions */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*--------------------------------------------------------------
+# Dark Mode
+# Flipped color palette for dark theme
+--------------------------------------------------------------*/
+[data-theme="dark"] {
+  /* Semantic Hierarchy (Dark Mode) */
+  --text-primary: var(--off-white);
+  --text-secondary: rgba(245, 245, 245, 0.6);  /* off-white at 60% */
+  --text-inverse: var(--pure-black);
+  --bg-primary: var(--pure-black);
+  --bg-secondary: var(--dark-grey);
+  --accent-primary: var(--light-purple);
+  --accent-secondary: var(--dark-purple);
+  --shadow-color: rgba(230, 220, 239, 0.1);  /* light-purple at 10% */
+  --shadow-hover: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
+  --shadow-on-light: rgba(230, 220, 239, 0.08);  /* light-purple at 8% */
+  --shadow-accent: rgba(230, 220, 239, 0.3);  /* light-purple at 30% */
+  --border-accent: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
+}
+
+/* Invert logo colors for dark mode */
+[data-theme="dark"] #header .logo img,
+[data-theme="dark"] #hero img,
+[data-theme="dark"] #footer img,
+[data-theme="dark"] .location-card .card-logo img {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 /*--------------------------------------------------------------
@@ -39,7 +66,7 @@
 -------------------------------------------------------------- */
 .navbar a.dropdown-item,
 body {
-    background-color: var(--background-white);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: 'Noto Sans', sans-serif;
     font-weight: 400;
@@ -99,7 +126,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: var(--accent-dark);
+    color: var(--accent-primary);
     text-decoration: underline;
 }
 
@@ -118,7 +145,7 @@ a:focus {
 }
 
 .button:hover {
-    background-color: var(--accent-dark);
+    background-color: var(--accent-primary);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px var(--shadow-hover);
 }
@@ -134,7 +161,7 @@ a:focus {
 # Header
 --------------------------------------------------------------*/
 #header {
-    background-color: var(--background-white);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
     position: fixed;
     left: 0;
@@ -156,7 +183,7 @@ a:focus {
 # margin-top must equal header height (50px) to prevent overlap
 --------------------------------------------------------------*/
 .event-banner {
-    background-color: var(--background-white);  /* #FFFFFF - matches header/hero */
+    background-color: var(--bg-primary);  /* #FFFFFF - matches header/hero */
     border: none;
     border-radius: 0;
     margin-top: 50px !important;  /* Must match #header height */
@@ -178,22 +205,15 @@ a:focus {
 }
 
 /* Pulsing glow effect for banner
-   Pulses from 10% to 66% opacity of medium purple (#9B7FBE) over white */
+   Pulses from 33% to 66% opacity of dark purple over white/black */
 @keyframes banner-glow {
     0%, 100% {
-        box-shadow: 0 0 10px rgba(155, 127, 190, 0.3);
-        background-color: rgba(155, 127, 190, 0.33);  /* 33% medium purple */
+        box-shadow: 0 0 10px var(--shadow-accent);
+        background-color: rgba(123, 95, 163, 0.33);  /* 33% dark purple */
     }
     50% {
-        box-shadow: 0 0 30px rgba(155, 127, 190, 1), 0 0 50px rgba(155, 127, 190, 0.4);
-        background-color: rgba(155, 127, 190, 0.66);  /* 66% medium purple */
-    }
-}
-
-/* Respect user's motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    .event-banner {
-        animation: none;
+        box-shadow: 0 0 30px rgba(123, 95, 163, 1), 0 0 50px rgba(123, 95, 163, 0.4);
+        background-color: rgba(123, 95, 163, 0.66);  /* 66% dark purple */
     }
 }
 
@@ -212,12 +232,19 @@ a:focus {
 # Bootstrap modal overrides for event announcements and info popups
 # Typography inherits from global styles for consistency
 --------------------------------------------------------------*/
+.modal-content,
+.modal-header,
+.modal-body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
 .modal-header {
-    border-bottom: 2px solid var(--accent-light);
+    border-bottom: 2px solid var(--accent-secondary);
 }
 
 .modal-title {
-    color: var(--accent-dark);
+    color: var(--text-primary);
     font-size: 32px;  /* Larger than body h3 (28px) but not overwhelming */
     font-weight: 600;
 }
@@ -236,11 +263,11 @@ a:focus {
 --------------------------------------------------------------*/
 #footer {
     padding: 12px 0 16px 0;
-    background-color: var(--background-light);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
     font-size: 14px;
     text-align: center;
-    border-top: 1px solid rgba(34, 34, 34, 0.1);
+    border-top: 1px solid var(--shadow-color);
 }
 
   #footer .social-links {
@@ -263,7 +290,15 @@ a:focus {
   }
 
   #footer .social-links a:hover {
-    color: var(--accent-dark);
+    color: var(--accent-primary);
+  }
+
+  #footer .logo img {
+    height: 40px;
+  }
+
+  #footer .tagline {
+    font-size: 14px;
   }
 
   #footer .attribution p {
@@ -278,8 +313,8 @@ a:focus {
 # Cards use flexbox to ensure consistent heights across the row
 --------------------------------------------------------------*/
 .location-card {
-    border: 1px solid rgba(123, 95, 163, 0.15);
-    background: var(--background-white);
+    border: 1px solid var(--border-accent);
+    background: var(--bg-primary);
     border-radius: 12px;
     box-shadow: 0 2px 8px var(--shadow-color);
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
@@ -294,14 +329,14 @@ a:focus {
 .location-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px var(--shadow-hover);
-    border-color: var(--medium-purple);
+    border-color: var(--accent-primary);
     text-decoration: none;
 }
 
 .location-card .card-logo {
     width: 100%;
     height: 140px;
-    background: linear-gradient(135deg, var(--background-light) 0%, var(--accent-light) 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-secondary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -316,7 +351,7 @@ a:focus {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--medium-purple), var(--accent-light));
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
 }
 
 .location-card .card-logo img {
@@ -328,7 +363,7 @@ a:focus {
 
 .location-card .card-body {
     padding: 24px;
-    background: var(--background-white);
+    background: var(--bg-primary);
 }
 
 .location-card .card-title {
@@ -347,17 +382,17 @@ a:focus {
 
 .location-card .card-detail {
     font-size: 14px;
-    color: rgba(34, 34, 34, 0.6);
+    color: var(--text-secondary);
     margin-bottom: 0;
 }
 
 .location-card .card-date {
     font-size: 13px;
-    color: var(--medium-purple);
+    color: var(--accent-primary);
     font-weight: 500;
     margin-top: 8px;
     padding-top: 8px;
-    border-top: 1px solid var(--accent-light);
+    border-top: 1px solid var(--accent-secondary);
 }
 
   
@@ -412,11 +447,11 @@ a:focus {
 .navbar li:hover>a, 
 .navbar ul li:hover>a,
 .navbar a.dropdown-item:hover {
-    color: var(--accent-dark);
+    color: var(--accent-primary);
     text-decoration: underline;
     text-underline-offset: 0.5em;
     text-decoration-thickness: 0.2em;
-    text-decoration-color: var(--accent-dark);
+    text-decoration-color: var(--accent-primary);
 }
 
 /* Navbar Dropdown */
@@ -429,8 +464,8 @@ a:focus {
 
 /* Improved dropdown visibility with light purple background */
 .navbar .dropdown-menu {
-  background-color: var(--light-purple) !important;
-  border: 1px solid rgba(123, 95, 163, 0.2);
+  background-color: var(--accent-secondary) !important;
+  border: 1px solid var(--border-accent);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 0;
@@ -449,17 +484,44 @@ a:focus {
 }
 
 .navbar a.dropdown-item:hover {
-  background-color: var(--medium-purple) !important;
+  background-color: var(--accent-primary) !important;
   color: var(--pure-white);
   text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+## Theme Toggle
+--------------------------------------------------------------*/
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-primary);
+  transform: scale(1.1);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /*--------------------------------------------------------------
 ## Hero Section
 --------------------------------------------------------------*/
 #hero {
-    background-color: var(--pure-white);
-    color: var(--dark-text);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     width: 100%;
     background-size: cover;
     overflow: hidden;
@@ -483,7 +545,7 @@ a:focus {
     position: relative;
     padding-bottom: 20px;
     text-align: center;
-    color: var(--dark-accent);
+    color: var(--accent-primary);
     text-decoration: underline;
     text-underline-offset: 0.75em;
     text-decoration-thickness: 0.2em;
@@ -493,9 +555,17 @@ a:focus {
 /*--------------------------------------------------------------
 ## About Section
 --------------------------------------------------------------*/
+#hero,
+#about,
+#events,
+#logistics,
+#register,
+#faq {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
 #about {
-    background-color: var(--light-background);
-    color: var(--dark-text);
     padding: 60px 0;
 }
 
@@ -506,34 +576,19 @@ a:focus {
     margin: 0;
 }
 
-/* Narrative Flow Design for 'The Problem We're Solving' Section
-   Three-column layout with icons explaining hacker-policymaker connection */
-.narrative-section {
-    margin-bottom: 0;
-    text-align: center;
-}
-
-.narrative-icon {
-    margin: 0 auto 24px;
-}
-
-.narrative-icon i {
+/* Icon styling for about section - unified 48px for all icons */
+#about i {
     font-size: 48px;
     color: var(--accent-primary);
+    margin-bottom: 12px;
 }
 
-.narrative-section h4 {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 16px;
-}
 
-.narrative-section p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-primary);
-    margin-bottom: 0;
+/*--------------------------------------------------------------
+## Events Section
+--------------------------------------------------------------*/
+#events {
+    padding: 60px 0;
 }
 
 
@@ -543,11 +598,6 @@ a:focus {
 --------------------------------------------------------------*/
 #logistics {
     padding: 60px 0;
-  }
-
-#logistics {
-    background-color: var(--light-background);
-    color: var(--dark-text);
 }
 
 #location .container-fluid {
@@ -592,8 +642,8 @@ a:focus {
 #schedule .nav-tabs a {
   border: none;
   border-radius: 50px;
-  background-color: var(--dark-accent);
-  color: var(--light-text);
+  background-color: var(--accent-primary);
+  color: var(--text-inverse);
   padding: 10px 100px;
 }
 
@@ -616,8 +666,8 @@ a:focus {
 }
 
 #schedule .nav-tabs a.active {
-  background-color: var(--light-background);
-  color: var(--dark-text);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 @media (min-width: 991px) {
@@ -683,14 +733,9 @@ a:focus {
 /*--------------------------------------------------------------
 ## Registration Section
 --------------------------------------------------------------*/
-#register {
-    background-color: var(--light-background);
-    color: var(--dark-text);
-}
-
 #register .card {
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 10px 25px 0 rgba(6, 12, 34, 0.1);
   }
@@ -708,8 +753,6 @@ a:focus {
 ## FAQ Section
 --------------------------------------------------------------*/
 #faq {
-    background-color: var(--light-background);
-    color: var(--dark-text);
     padding: 60px 0;
 }
 
@@ -719,7 +762,7 @@ a:focus {
   }
   
   #faq .faq-list li {
-    border-bottom: 1px solid var(--dark-accent);
+    border-bottom: 1px solid var(--accent-primary);
     margin-bottom: 20px;
     padding-bottom: 20px;
   }
@@ -731,7 +774,7 @@ a:focus {
     line-height: 24px;
     padding-left: 25px;
     cursor: pointer;
-    color: var(--dark-text);
+    color: var(--text-primary);
     transition: 0.3s;
   }
   
@@ -747,21 +790,21 @@ a:focus {
   }
   
   #faq .faq-list .collapsed {
-    color: var(--dark-text);
+    color: var(--text-primary);
   }
   
   #faq .faq-list .collapsed:hover {
-    color: var(--link-color);
+    color: var(--accent-primary);
   }
   
   #faq .faq-list .collapsed .icon-show {
     display: inline-block;
-    transition: 0.6s;
+    transition: 0.3s;
   }
   
   #faq .faq-list .collapsed .icon-close {
     display: none;
-    transition: 0.6s;
+    transition: 0.3s;
   }
 
   #faq .faq-list .question.show {
@@ -785,17 +828,17 @@ a:focus {
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: var(--link-color);
+    background: var(--accent-primary);
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    transition: all 0.4s;
+    transition: all 0.3s;
   }
   
   .back-to-top i,
   .back-to-top a {
     font-size: 28px;
-    color: var(--button-text);
+    color: var(--text-inverse);
     line-height: 0;
   }
   
@@ -933,9 +976,11 @@ a:focus {
 .fa-key::before { content: "\f084"; }
 .fa-landmark::before { content: "\f66f"; }
 .fa-lightbulb::before { content: "\f0eb"; }
+.fa-moon::before { content: "\f186"; }
 .fa-network-wired::before { content: "\f6ff"; }
 .fa-puzzle-piece::before { content: "\f12e"; }
 .fa-sack-dollar::before { content: "\f81d"; }
+.fa-sun::before { content: "\f185"; }
 .fa-truck-fast::before { content: "\f48b"; }
 
 /* Brand icons */

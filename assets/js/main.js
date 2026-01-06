@@ -229,4 +229,57 @@
     });
   }
 
+  /**
+   * Dark Mode Toggle
+   */
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+  
+  // Check for saved theme preference or default to system preference
+  const getPreferredTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+  
+  // Apply theme to document
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeIcon) {
+      if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        themeToggle.setAttribute('aria-label', 'Switch to light mode');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+      }
+    }
+  };
+  
+  // Toggle theme
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+  
+  // Initialize theme on page load
+  if (themeToggle) {
+    setTheme(getPreferredTheme());
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    // Only apply if user hasn't set a preference
+    if (!localStorage.getItem('theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
 })()
