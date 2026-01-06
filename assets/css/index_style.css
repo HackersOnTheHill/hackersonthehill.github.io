@@ -131,14 +131,8 @@ a:focus {
 .section-padding-lg { padding: 120px 0; }
 
 /*--------------------------------------------------------------
-## Light default (removed dark-bg in favor of light theme)
-## Sections now have a light background by default
--------------------------------------------------------------- */
-
-
-/*--------------------------------------------------------------
-## Header and Footer 
--------------------------------------------------------------- */
+# Header
+--------------------------------------------------------------*/
 #header {
     background-color: var(--background-white);
     color: var(--text-primary);
@@ -158,15 +152,18 @@ a:focus {
 
 /*--------------------------------------------------------------
 # Event Banner
+# Appears below fixed header for time-sensitive announcements
+# margin-top must equal header height (50px) to prevent overlap
 --------------------------------------------------------------*/
 .event-banner {
-    background-color: #F0F4FF;
+    background-color: var(--background-white);  /* #FFFFFF - matches header/hero */
     border: none;
     border-radius: 0;
-    margin-top: 50px !important;
+    margin-top: 50px !important;  /* Must match #header height */
     margin-bottom: 0 !important;
     padding: 12px 0 !important;
     text-align: center;
+    animation: banner-glow 3s ease-in-out infinite;
 }
 
 .event-banner p {
@@ -177,8 +174,66 @@ a:focus {
 .event-banner a {
     color: var(--accent-primary);
     text-decoration: underline;
+    font-weight: 500;
 }
 
+/* Pulsing glow effect for banner
+   Pulses from 10% to 66% opacity of medium purple (#9B7FBE) over white */
+@keyframes banner-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(155, 127, 190, 0.3);
+        background-color: rgba(155, 127, 190, 0.33);  /* 33% medium purple */
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(155, 127, 190, 1), 0 0 50px rgba(155, 127, 190, 0.4);
+        background-color: rgba(155, 127, 190, 0.66);  /* 66% medium purple */
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .event-banner {
+        animation: none;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .event-banner {
+        animation: none;
+    }
+    .event-banner a::after {
+        animation: none;
+    }
+}
+
+/*--------------------------------------------------------------
+# Modal Styling
+# Bootstrap modal overrides for event announcements and info popups
+# Typography inherits from global styles for consistency
+--------------------------------------------------------------*/
+.modal-header {
+    border-bottom: 2px solid var(--accent-light);
+}
+
+.modal-title {
+    color: var(--accent-dark);
+    font-size: 32px;  /* Larger than body h3 (28px) but not overwhelming */
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 32px;
+}
+
+/* Add top margin to subsequent headings for visual separation */
+.modal-body h3:not(:first-child) {
+    margin-top: 32px;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
 #footer {
     padding: 12px 0 16px 0;
     background-color: var(--background-light);
@@ -219,6 +274,8 @@ a:focus {
 
 /*--------------------------------------------------------------
 # Event Location Cards
+# Display global event locations (US, Canada, UK) with logos and dates
+# Cards use flexbox to ensure consistent heights across the row
 --------------------------------------------------------------*/
 .location-card {
     border: 1px solid rgba(123, 95, 163, 0.15);
@@ -449,7 +506,8 @@ a:focus {
     margin: 0;
 }
 
-/* Narrative Flow Design for Problem Section */
+/* Narrative Flow Design for 'The Problem We're Solving' Section
+   Three-column layout with icons explaining hacker-policymaker connection */
 .narrative-section {
     margin-bottom: 0;
     text-align: center;

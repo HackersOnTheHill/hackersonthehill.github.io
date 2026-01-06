@@ -209,4 +209,24 @@
     })
   });
 
+  /**
+   * Pause banner animation when modal opens, resume when closed
+   */
+  const modal2026 = document.getElementById('updates2026Modal');
+  if (modal2026) {
+    modal2026.addEventListener('show.bs.modal', function () {
+      const banner = document.querySelector('.event-banner');
+      if (banner) {
+        banner.style.animationPlayState = 'paused';
+      }
+    });
+    
+    modal2026.addEventListener('hidden.bs.modal', function () {
+      const banner = document.querySelector('.event-banner');
+      if (banner) {
+        banner.style.animationPlayState = 'running';
+      }
+    });
+  }
+
 })()
