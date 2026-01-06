@@ -10,130 +10,207 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <header id="header" class="d-flex align-items-center dark-bg">
-    <div class="container-fluid container-xxl col-md-10 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-end">
+  <header id="header" class="d-flex align-items-center">
+    <div class="container-fluid container-xxl col-md-10 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="/assets/img/hoth-logo_dark.svg" alt="Hackers on the Hill">
+      </a>
       {% include navbar.html %}
     </div>
   </header><!-- End Header -->
   
+  {% include denver_banner.html %}
+  
   <section id="top">
   
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="dark-bg" style="min-height: 100vh;">
-      <div class="hero-container" data-aos="fade-in" data-aos-delay="100">
+    <section id="hero" class="section-padding-lg">
+      <div class="hero-container" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
         <div class="row justify-content-center align-items-center col-md-10 col-lg-9 col-xl-8 col-xxl-7">
-          <div class="col-8 col-sm-6 col-md-5"><img src="assets/img/hoth-logo-2025.svg" class="img-fluid mb-4" alt="" title="">
-            <h6 class="mt-2" style="color: #fff;"> </h6>
+          <div class="col-8 col-sm-6 col-md-5"><img src="assets/img/hoth-logo_dark.svg" class="img-fluid" alt="Hackers on the Hill Logo" title="Hackers on the Hill">
           </div>
-          <div class="col-10 col-md-7 my-2">
-            <h4 class="p-2" style="color:#fff;">Hackers on the Hill is a semi-regular gathering of irregulars from the cybersecurity research community engaging with public policy leaders.</h4>
-            <p>Run by <a href="https://iamthecavalry.org" target="_blank" id="cavalry_link">I Am The Cavalry</a>, since 2017; global since 2024.</p>
-            <div class="row justify-content-evenly">
-              <div class="d-flex col-10 col-sm-6 flex-column py-3">
-                <div class="mb-auto"><p>Join us for <a href="https://hackersonthehill.org/critical-effect">Cyber Policy Shark Tank at Critical Effect 2025</a>.</p></div>
-                </div>
-              <div class="d-flex col-10 col-sm-6 flex-column py-3"><div class="mb-auto"><p>Join our notification list and follow us on <a href="https://bsky.app/profile/hackersonthehill.org" target="_blank">Bluesky</a> to be among the first to learn what's new with us.</p></div>
-                <div class="mt-auto"><a href="https://subscribepage.io/hackers-on-the-hill" target="_blank"><button type="button" class="button mx-3">Notify Me!</button></a></div>
-              </div>
-            </div>
+          <div class="col-10 col-md-7 mt-4">
+            <h1 class="mb-4">Where technical truth meets policy power</h1>
+            <p>Run by <a href="https://iamthecavalry.org" target="_blank" rel="noopener" id="cavalry_link">I Am The Cavalry</a> since 2017; global since 2024.</p>
+            <p>Be among the first to know about our next event.</p>
+            <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank" rel="noopener"><button type="button" class="button">Get Notified</button></a>
           </div>
         </div>
       </div>
     </section><!-- End Hero Section -->
 
     <!-- ======= About Section ======= -->
-    <section id="about">
-        <div class="container position-relative" data-aos="fade-up">
+    <section id="about" class="section-padding" style="background-color: var(--background-light);">
+        <div class="container position-relative" data-aos="fade-up" data-aos-once="true">
           <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8 text-center">
-              <p>Hackers on the Hill connects cybersecurity experts with policymakers to discuss timely and relevant topics - no commercial agendas, no talking points, just candid conversations.</p>
-              <p>Building long-term relationships between technical and public policy communities, as well as follow up conversations, member briefings, letters, and legislative language on topics such as:</p>
-              <div class="row justify-content-center text-center pt-4">
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-robot fa-2xl"></i> 
-                  <figcaption>Internet of Things</figcaption>
+              <h2 class="mb-4">What We Do</h2>
+              <p class="mb-4">Hackers on the Hill puts hackers and policymakers in the same room to talk about cyber policy. We're an all-volunteer initiative from <a href="https://iamthecavalry.org" target="_blank" rel="noopener" id="cavalry_link">I Am The Cavalry</a>. No one gets paid. No one's selling anything. We just think policy works better when the people writing it talk to the people who know how things break.</p>
+              <div class="row justify-content-center text-center pt-3">
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-network-wired" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Internet of Things</figcaption>
                 </figure>
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-microchip fa-2xl"></i> 
-                  <figcaption>Artificial Intelligence</figcaption>
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-brain" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Artificial Intelligence</figcaption>
                 </figure>
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-industry fa-2xl"></i> 
-                  <figcaption>Critical Infrastructure</figcaption>
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-industry" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Critical Infrastructure</figcaption>
                 </figure>
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-user-lock fa-2xl"></i> 
-                  <figcaption>Encryption</figcaption>
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-key" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Encryption</figcaption>
                 </figure>
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-mask fa-2xl"></i> 
-                  <figcaption>Privacy</figcaption>
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-eye-slash" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Privacy</figcaption>
                 </figure>
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-sack-dollar fa-2xl"></i> 
-                  <figcaption>Ransomware</figcaption>
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-sack-dollar" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Ransomware</figcaption>
                 </figure>
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-bug fa-2xl"></i> 
-                  <figcaption>Vulnerability Disclosure</figcaption>
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-bug" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Vulnerability Disclosure</figcaption>
                 </figure>
-                <figure class="col-4 col-md-3">
-                  <i class="fa-solid fa-gears fa-2xl"></i> 
-                  <figcaption>Supply Chain Security</figcaption>
+                <figure class="col-6 col-md-3 mb-4">
+                  <i class="fa-solid fa-truck-fast" style="font-size: 2em; color: var(--accent-primary); margin-bottom: 12px;"></i> 
+                  <figcaption style="font-size: 14px;">Supply Chain Security</figcaption>
                 </figure>
               </div>
+            </div>
+          </div>
+          
+          <!-- Problem We're Solving Subsection -->
+          <div class="row justify-content-center mt-5 pt-5">
+            <div class="col-md-10 col-lg-9">
+              <h3 class="text-center mb-5">The Problem We're Solving</h3>
+              
+              <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                  <div class="narrative-section">
+                    <div class="narrative-icon">
+                      <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h4>Hackers</h4>
+                    <p>Hackers are early adopters. We poke, ask questions, and see possibilities. We spot trends and see where things can go wrong — often years before others.</p>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                  <div class="narrative-section">
+                    <div class="narrative-icon">
+                      <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <h4>Policymakers</h4>
+                    <p>Policymakers steer society toward its values and away from harm. To do that well, they need to see far enough ahead to avoid unintended consequences.</p>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                  <div class="narrative-section">
+                    <div class="narrative-icon">
+                      <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h4>The Bridge</h4>
+                    <p>But hackers and policymakers don't usually run in the same circles or speak the same language. So we introduce them.</p>
+                  </div>
+                </div>
+              </div>
+              
             </div>
           </div>
         </div>
       </section><!-- End About Section -->
 
+    <!-- ======= Global Events Section ======= -->
+    <section id="events" class="section-padding" style="background-color: var(--background-white);">
+        <div class="container position-relative" data-aos="fade-up" data-aos-once="true">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-9 text-center">
+              <h2 class="mb-4">A Global Movement</h2>
+              <p class="mb-4">What started in Washington, DC has grown worldwide. Each event is organized by local cybersecurity professionals who bridge the gap between technical expertise and public policy in their region.</p> 
+              <p class="mb-4">More locations in planning, <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank" rel="noopener">join our notification list</a> to hear when that happens.</p>
+              
+              <!-- Events Cards -->
+              <div class="row justify-content-center mt-5 mb-4">
+                <div class="col-12 col-md-4 mb-4">
+                  <a href="https://hackersonthehill.org" target="_blank" rel="noopener" class="location-card">
+                    <div class="card-logo">
+                      <img src="/assets/img/hoth-logo_dark.svg" alt="United States Hackers on the Hill logo">
+                    </div>
+                    <div class="card-body text-center">
+                      <h3 class="card-title">United States</h3>
+                      <p class="card-location">Washington, DC</p>
+                      <p class="card-detail">US Capitol</p>
+                      <p class="card-date">Next: May 2026</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                  <a href="https://ca-2024.hackersonthehill.org/ca" target="_blank" rel="noopener" class="location-card">
+                    <div class="card-logo">
+                      <img src="/assets/img/hoth-ca_dark.svg" alt="Canada Hackers on the Hill logo">
+                    </div>
+                    <div class="card-body text-center">
+                      <h3 class="card-title">Canada</h3>
+                      <p class="card-location">Ottawa</p>
+                      <p class="card-detail">Parliament Hill</p>
+                      <p class="card-date">Last: November 2025</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                  <a href="https://uk-2025.hackersonthehill.org/uk" target="_blank" rel="noopener" class="location-card">
+                    <div class="card-logo">
+                      <img src="/assets/img/hith-uk_dark.svg" alt="United Kingdom Hackers in the House logo">
+                    </div>
+                    <div class="card-body text-center">
+                      <h3 class="card-title">United Kingdom</h3>
+                      <p class="card-location">London</p>
+                      <p class="card-detail">Westminster</p>
+                      <p class="card-date">Last: December 2025</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section><!-- End Global Events Section -->
+
   </section><!-- End #top -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="dark-bg">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row justify-content-center">
-
-          <div class="row col-md-10 col-lg-9 col-xl-8 col-xxl-7 footer-info align-items-center">
-            <div class="col-3 col-lg-2 text-center g-0 ps-2"><img src="/assets/img/logo.png" class="img-fluid" alt="Hackers on the Hill"></div><div class="row col col-sm-9 justify-content-center align-items-center">
-              
-                
-              <p class="col-sm-7 col-lg-6 my-0 px-2">Hackers on the Hill is a non-commercial event with a strict <em><b>no shilling</b></em> policy.</p>
-
-              <div class="col-9 col-sm-5 footer-contact p-1">
-                <div class="social-links d-flex justify-content-center align-items-center">
-                  <a href="https://twitter.com/intent/tweet?url=https://hackersonthehill.org&amp;text=Join me at Hackers on the Hill! January 11, 2024. Sign up for more details or register for the event https://hackersonthehill.org" class="twitter" id="twitter" target="_blank"><i class="bi bi-twitter" alt="Post to Twitter"></i></a>
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://hackersonthehill.org" class="facebook" id="facebook" target="_blank"><i class="bi bi-facebook" alt="Post to Facebook"></i></a>
-                  <a href="https://instagram.com" class="instagram" id="instagram" target="_blank"><i class="bi bi-instagram" alt="Post to Instagram"></i></a>
-                  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://hackersonthehill.org" class="linkedin" id="linkedin" target="_blank"><i class="bi bi-linkedin" alt="Post to LinkedIn"></i></a>
-                  <a href="mailto:?subject=Join me at Hackers on the Hill?&amp;body=I'm going to Hackers on the Hhill on January 11, 2024. Want to join me? https://hackersonthehill.org" class="email" id="email" target="_blank"><i class="bi bi-envelope" alt="Send an email"></i></a>
-                </div>
+  <footer id="footer">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-10 col-lg-9">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-md-4 text-center text-md-start mb-3 mb-md-0">
+              <img src="/assets/img/hoth-logo_dark.svg" alt="Hackers on the Hill" style="height: 40px;">
+            </div>
+            <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+              <p class="mb-0" style="font-size: 14px;"><strong>Non-commercial · No shilling</strong></p>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="social-links d-flex justify-content-center justify-content-md-end">
+                <a href="https://bsky.app/profile/hackersonthehill.org" class="bluesky" target="_blank" rel="noopener" aria-label="Follow us on Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+                <a href="https://www.instagram.com/hillhackers?igsh=emJ3b29zbGhrOGRn" class="instagram" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/hackers-on-the-hill" class="linkedin" target="_blank" rel="noopener" aria-label="Follow us on LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
               </div>
-                
             </div>
-
-            <div class="container p-4 attribution">
-              <p>© Copyright <strong>Hackers on the Hill</strong>. All Rights Reserved.</p>
-              <p>
-                <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-              -->
-                Original design, <a href="https://bootstrapmade.com/theevent-conference-event-bootstrap-template/" target="_blank">TheEvent</a> by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
-            </p>
-            </div>
-
           </div>
-
+          <div class="row">
+            <div class="col-12 text-center attribution">
+              <p>© <strong>Hackers on the Hill</strong>. Original design <a href="https://bootstrapmade.com/theevent-conference-event-bootstrap-template/" target="_blank" rel="noopener">TheEvent</a> by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a>.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    
-  <a href="#" class="button back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  </footer><!-- End Footer -->
 
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/aos/aos.js"></script>
