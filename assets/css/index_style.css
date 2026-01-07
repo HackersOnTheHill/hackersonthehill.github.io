@@ -68,7 +68,7 @@
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Inter', 'Noto Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
@@ -76,9 +76,17 @@ body {
 
 p {
     padding: 0;
-    margin: 0 0 16px 0;
+    margin: 0 auto 16px auto;
     font-weight: 400;
     letter-spacing: -0.025em;
+    max-width: 65ch;
+}
+
+/* Exclude UI components from max-width constraint */
+.location-card p,
+.modal-body p,
+#footer p {
+    max-width: none;
 }
 
 h1 {
@@ -157,6 +165,10 @@ a:focus {
 .section-padding-sm { padding: 60px 0; }
 .section-padding-lg { padding: 120px 0; }
 
+/*--------------------------------------------------------------
+# Announcement Bars
+# Shared styles for info-bar and event-banner components
+--------------------------------------------------------------*/
 .info-bar,
 .event-banner {
     background: var(--accent-primary);
@@ -193,6 +205,18 @@ a:focus {
     color: var(--pure-white);
 }
 
+.info-bar a,
+.event-banner a {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.15em;
+}
+
+.info-bar a:hover,
+.event-banner a:hover {
+    text-decoration-thickness: 2.5px;
+}
+
 .info-bar .info-detail {
     font-weight: 700;
 }
@@ -225,7 +249,10 @@ a:focus {
 .event-banner {
     margin-top: 50px !important;  /* Must match #header height */
     margin-bottom: 0 !important;
-    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    position: sticky;
+    top: 50px;
+    z-index: 995;
+    transition: opacity 1s ease, transform 1s ease, box-shadow 1s ease;
 }
 
 .event-banner .banner-icon {
@@ -239,11 +266,12 @@ a:focus {
 }
 
 .event-banner.is-sticky {
-    position: sticky;
-    top: 50px;
-    z-index: 995;
     box-shadow: 0 6px 16px var(--shadow-hover);
-    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-banner.is-hidden {
+    opacity: 0;
+    transform: translateY(-8px);
 }
 
 @media (max-width: 575px) {
@@ -338,9 +366,9 @@ a:focus {
   }
 
   #footer .attribution p {
-    font-size: 11px;
+    font-size: 10px;
     margin: 8px 0;
-    opacity: 0.7;
+    opacity: 0.5;
   }
 
 /*--------------------------------------------------------------
@@ -350,6 +378,7 @@ a:focus {
 --------------------------------------------------------------*/
 .location-card {
     background: var(--bg-primary);
+    border: 1px solid var(--shadow-color);
     border-radius: 12px;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     overflow: hidden;
@@ -361,8 +390,8 @@ a:focus {
 }
 
 .location-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px var(--shadow-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px var(--shadow-hover);
     border-color: var(--accent-primary);
     text-decoration: none;
 }
@@ -477,6 +506,12 @@ a:focus {
     transition: 0.3s;
 }
 
+/* Ensure buttons in navbar keep their proper styling */
+.navbar a.button {
+    color: var(--text-inverse);
+    text-decoration: none;
+}
+
 .navbar a:hover:before,
 .navbar li:hover>a:before,
 .navbar .active:before {
@@ -484,12 +519,12 @@ a:focus {
   width: 80%;
 }
 
-.navbar a:hover,
-.navbar a:active,
-.navbar .active,
-.navbar .active:focus,
-.navbar li:hover>a, 
-.navbar ul li:hover>a,
+.navbar a:not(.button):hover,
+.navbar a:not(.button):active,
+.navbar .active:not(.button),
+.navbar .active:not(.button):focus,
+.navbar li:hover>a:not(.button), 
+.navbar ul li:hover>a:not(.button),
 .navbar a.dropdown-item:hover {
     color: var(--accent-primary);
     text-decoration: underline;
@@ -497,6 +532,13 @@ a:focus {
     text-decoration-thickness: 0.2em;
     text-decoration-color: var(--accent-primary);
     transform: none;
+}
+
+/* Buttons in navbar should maintain button hover behavior */
+.navbar a.button:hover {
+    color: var(--text-inverse);
+    text-decoration: none;
+    transform: translateY(-1px);
 }
 
 .navbar a:focus-visible,
@@ -523,7 +565,7 @@ a:focus {
   background-color: var(--bg-primary) !important;
   border: 1px solid var(--border-accent);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--shadow-hover);
   padding: 0;
   margin-top: 4px;
   overflow: hidden;
@@ -636,6 +678,12 @@ a:focus {
     font-size: 48px;
     color: var(--accent-primary);
     margin-bottom: 12px;
+    transition: transform 0.2s ease;
+}
+
+#about figure:hover i,
+#problem .col-md-4:hover i {
+    transform: scale(1.1);
 }
 
 
@@ -762,4 +810,31 @@ a:focus {
 .fa-bluesky {
   font-size: 0.85em;
   vertical-align: 0.05em;
+}
+
+/*--------------------------------------------------------------
+# Print Styles
+--------------------------------------------------------------*/
+@media print {
+  #header,
+  .event-banner,
+  .info-bar,
+  #footer .social-links,
+  .theme-toggle {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .location-card {
+    page-break-inside: avoid;
+  }
 }

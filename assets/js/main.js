@@ -40,29 +40,23 @@
 
     // Make banner sticky on load and release after initial scroll
     const banner = document.querySelector('.event-banner');
-    const header = document.getElementById('header');
     if (banner) {
-      const stickyOffset = Math.max(window.innerHeight * 0.5, 320);
-      const updateBannerSticky = () => {
-        const topOffset = header ? header.offsetHeight : 0;
-        if (window.scrollY < stickyOffset) {
-          banner.classList.add('is-sticky');
-          banner.style.top = `${topOffset}px`;
-          banner.style.opacity = '1';
-          banner.style.transform = 'translateY(0)';
-        } else {
-          banner.style.opacity = '0';
-          banner.style.transform = 'translateY(-8px)';
-          // Allow fade/slide to finish before releasing stickiness
-          setTimeout(() => {
-            banner.classList.remove('is-sticky');
-            banner.style.top = '';
-          }, 200);
+      const releaseThreshold = Math.max(window.innerHeight * 0.5, 320);
+      const header = document.getElementById('header');
+      const headerHeight = header?.offsetHeight || 0;
+      
+      const updateBanner = () => {
+        const scrolled = window.scrollY >= releaseThreshold;
+        banner.classList.toggle('is-hidden', scrolled);
+        banner.classList.toggle('is-sticky', !scrolled);
+        if (!scrolled) {
+          banner.style.top = `${headerHeight}px`;
         }
       };
-      updateBannerSticky();
-      window.addEventListener('scroll', updateBannerSticky);
-      window.addEventListener('resize', updateBannerSticky);
+      
+      updateBanner();
+      window.addEventListener('scroll', updateBanner, { passive: true });
+      window.addEventListener('resize', updateBanner);
     }
 
     // Dark Mode Toggle
