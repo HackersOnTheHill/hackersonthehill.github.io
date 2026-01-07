@@ -9,18 +9,18 @@
 :root {
   /* Core Colors - Fun purple palette with WCAG AA compliance */
   --dark-grey: #222222;
-  --off-white: #F5F5F5;
+  --shmoo-white: #F5F5F5;
   --light-purple: #B59ADB;
   --dark-purple: #6A4B9A;
   --pure-white: #FFFFFF;
-  --pure-black: #121212;
+  --dark-black: #121212;
 
   /* Semantic Hierarchy (Light Mode) */
   --text-primary: var(--dark-grey);
   --text-secondary: rgba(34, 34, 34, 0.6);  /* dark-grey at 60% */
   --text-inverse: var(--pure-white);
   --bg-primary: var(--pure-white);
-  --bg-secondary: var(--off-white);
+  --bg-secondary: var(--shmoo-white);
   --accent-primary: var(--dark-purple);
   --accent-secondary: var(--light-purple);
   --shadow-color: rgba(34, 34, 34, 0.1);  /* dark-grey at 10% */
@@ -39,10 +39,10 @@
 --------------------------------------------------------------*/
 [data-theme="dark"] {
   /* Semantic Hierarchy (Dark Mode) */
-  --text-primary: var(--off-white);
-  --text-secondary: rgba(245, 245, 245, 0.6);  /* off-white at 60% */
-  --text-inverse: var(--pure-black);
-  --bg-primary: var(--pure-black);
+  --text-primary: var(--shmoo-white);
+  --text-secondary: rgba(245, 245, 245, 0.6);  /* shmoo-white at 60% */
+  --text-inverse: var(--dark-black);
+  --bg-primary: var(--dark-black);
   --bg-secondary: var(--dark-grey);
   --accent-primary: var(--light-purple);
   --accent-secondary: var(--dark-purple);
@@ -314,21 +314,14 @@ a:focus {
 @media (max-width: 575px) {
     .event-banner .banner-content,
     .info-bar .info-bar-content {
-        justify-content: flex-start;
-        align-items: flex-start;
-        text-align: left;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         gap: 8px;
     }
     .event-banner .banner-icon {
         width: 26px;
         height: 26px;
-    }
-    .event-banner .banner-label,
-    .event-banner .banner-text,
-    .info-bar .info-label,
-    .info-bar .info-detail {
-        text-align: center;
-        width: 100%;
     }
 }
 
@@ -381,6 +374,9 @@ a:focus {
 }
 
   #footer .social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 16px;
   }
 
@@ -522,6 +518,31 @@ a:focus {
 /*--------------------------------------------------------------
 ## Navbar
 -------------------------------------------------------------- */
+/* Hamburger menu button */
+.navbar-toggler {
+  border: 2px solid var(--accent-primary);
+  padding: 4px 8px;
+  background: transparent;
+  border-radius: 4px;
+  display: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem var(--accent-secondary);
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%236A4B9A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23B59ADB' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 .navbar {
     padding: 0;
     top: 0;
@@ -530,6 +551,20 @@ a:focus {
     bottom: 0;
     z-index: 0;
     font-size: 14px;
+  }
+
+  /* Override Bootstrap collapse - show navbar on desktop */
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+  
+  .navbar-collapse .navbar {
+    display: block;
+  }
+  
+  .navbar-collapse .navbar ul {
+    display: flex;
   }
   
   .navbar ul {
@@ -603,11 +638,15 @@ a:focus {
 }
 
 /* Navbar Dropdown */
+/* Hide dropdowns by default - using !important to override Bootstrap */
+.navbar .dropdown-menu,
 .navbar .navbar-dropdown-hoth {
-  display: none;
+  display: none !important;
 }
-.dropdown-menu.show {
-  display: block;
+
+/* Show dropdown when Bootstrap adds .show class */
+.navbar .dropdown-menu.show {
+  display: block !important;
 }
 
 /* Improved dropdown visibility with light purple background */
@@ -777,6 +816,64 @@ a:focus {
   
   .location-card {
     margin: 0 10px;
+  }
+  
+  /* Add vertical spacing between footer sections on mobile */
+  #footer .row.align-items-center > .col-12:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  /* Show hamburger menu on mobile */
+  .navbar-toggler {
+    display: block;
+  }
+  
+  /* Hide menu by default on mobile */
+  .navbar-collapse:not(.show) {
+    display: none !important;
+  }
+  
+  /* Mobile menu dropdown styles */
+  .navbar-collapse.show {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background: var(--bg-primary);
+    border: 1px solid var(--shadow-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-hover);
+    padding: 12px 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: block !important;
+    justify-content: normal;
+  }
+  
+  .navbar-collapse.show #navbar ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navbar-collapse.show #navbar li {
+    padding: 8px 16px;
+  }
+  
+  .navbar-collapse.show #navbar a {
+    display: block;
+    width: 100%;
+  }
+  
+  .navbar-collapse.show .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    margin-top: 8px;
+    padding-left: 0;
+    background: transparent;
+  }
+  
+  .navbar-collapse.show .dropdown-menu .dropdown-item {
+    padding: 6px 16px 6px 32px;
   }
 }
 
