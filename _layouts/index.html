@@ -11,7 +11,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header id="header" class="d-flex align-items-center">
-    <div class="container-fluid container-xxl col-md-10 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-between">
+    <div class="container-fluid container-xxl col-md-12 col-lg-9 col-xl-8 col-xxl-6 d-flex align-items-center justify-content-between">
       <a href="/" class="logo d-flex align-items-center">
         <img src="/assets/img/hoth-logo_dark.svg" alt="Hackers on the Hill">
       </a>
@@ -21,23 +21,59 @@
   
   {% include 2026_banner.html %}
   
-  <section id="top">
+  <main id="top">
   
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="section-padding-lg">
       <div class="hero-container" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-        <div class="row justify-content-center align-items-center col-md-10 col-lg-9 col-xl-8 col-xxl-7">
+        <div class="row justify-content-center align-items-center col-md-12 col-lg-9 col-xl-8 col-xxl-6">
           <div class="col-8 col-sm-6 col-md-5"><img src="assets/img/hoth-logo_dark.svg" class="img-fluid" alt="Hackers on the Hill Logo" title="Hackers on the Hill">
           </div>
           <div class="col-10 col-md-7 mt-4">
             <h1 class="mb-4">Where technical truth meets policy power</h1>
-            <p>Run by <a href="https://iamthecavalry.org" target="_blank" rel="noopener" id="cavalry_link">I Am The Cavalry</a> since 2017; global since 2024.</p>
-            <p>Stay up to date on news and upcoming events.</p>
+            <h5 class="mb-4">Run by <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a> since 2017; global since 2024.</h5>
+            <h6 class="mb-3">Stay up to date on news and upcoming events.</h6>
             <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank" rel="noopener"><button type="button" class="button">Get Notified</button></a>
           </div>
         </div>
       </div>
     </section><!-- End Hero Section -->
+
+    <!-- Slim info bar between hero and about -->
+    <section class="info-bar">
+      <div class="container">
+        <div class="info-bar-content">
+          <div class="info-bar-text">
+            <span class="info-label"><a href="https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform" target="_blank" rel="noopener">Upcoming: Denver · February 10, 2026</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Problem Section ======= -->
+    <section id="problem" class="section-padding-sm">
+      <div class="container position-relative" data-aos="fade-up" data-aos-once="true">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-9 text-center">
+            <h2 class="mb-4">The Problem We're Solving</h2>
+            <div class="row">
+              <div class="col-md-4 mb-4 mb-md-0">
+                <i class="fa-solid fa-lightbulb d-block mb-3"></i>
+                <p class="mb-0">Hackers are early adopters. They poke, ask questions, and see possibilities. They spot trends and see where things can go wrong — often years before others.</p>
+              </div>
+              <div class="col-md-4 mb-4 mb-md-0">
+                <i class="fa-solid fa-landmark d-block mb-3"></i>
+                <p class="mb-0">Policymakers steer society toward its values and away from harm. To do that well, they need to see far enough ahead to avoid unintended consequences.</p>
+              </div>
+              <div class="col-md-4 mb-4 mb-md-0">
+                <i class="fa-solid fa-puzzle-piece d-block mb-3"></i>
+                <p class="mb-0">But hackers and policymakers don't often have the same social circles or speak the same language. Hackers on the Hill connects them.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ======= About Section ======= -->
     <section id="about" class="section-padding">
@@ -45,7 +81,7 @@
           <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8 text-center">
               <h2 class="mb-4">What We Do</h2>
-              <p class="mb-4">Hackers on the Hill puts hackers and policymakers in the same room to talk about cyber policy. We're an all-volunteer initiative from <a href="https://iamthecavalry.org" target="_blank" rel="noopener" id="cavalry_link">I Am The Cavalry</a>. No one gets paid. No one's selling anything. We just think policy works better when the people writing it talk to the people who know how things break.</p>
+              <p class="mb-4">Hackers on the Hill puts cybersecurity researchers and policymakers in the same room to talk about cyber policy. We're an all-volunteer initiative from <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a>. No one gets paid. No one's selling anything. We just think policy works better when the people writing it talk to the people who know how things break.</p>
               <div class="row justify-content-center text-center pt-3">
                 <figure class="col-6 col-md-3 mb-4">
                   <i class="fa-solid fa-network-wired"></i> 
@@ -82,46 +118,33 @@
               </div>
             </div>
           </div>
-          
-          <!-- Problem We're Solving Subsection -->
-          <div class="row justify-content-center mt-5 pt-5">
-            <div class="col-md-10 col-lg-9">
-              <h3 class="text-center mb-5">The Problem We're Solving</h3>
-              
-              <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0 text-center">
-                  <i class="fa-solid fa-lightbulb d-block mb-4"></i>
-                  <h4>Hackers</h4>
-                  <p class="mb-0">Hackers are early adopters. We poke, ask questions, and see possibilities. We spot trends and see where things can go wrong — often years before others.</p>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0 text-center">
-                  <i class="fa-solid fa-landmark d-block mb-4"></i>
-                  <h4>Policymakers</h4>
-                  <p class="mb-0">Policymakers steer society toward its values and away from harm. To do that well, they need to see far enough ahead to avoid unintended consequences.</p>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0 text-center">
-                  <i class="fa-solid fa-puzzle-piece d-block mb-4"></i>
-                  <h4>The Bridge</h4>
-                  <p class="mb-0">But hackers and policymakers don't usually run in the same circles or speak the same language. So we introduce them.</p>
-                </div>
-              </div>
-              
-            </div>
-          </div>
         </div>
       </section><!-- End About Section -->
 
     <!-- ======= Global Events Section ======= -->
     <section id="events" class="section-padding">
-        <div class="container position-relative" data-aos="fade-up" data-aos-once="true">
+        <div class="container position-relative">
           <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-9 text-center">
+            <div class="col-md-12 col-lg-9 text-center">
               <h2 class="mb-4">A Global Movement</h2>
               <p class="mb-4">What started in Washington, DC has grown worldwide. Each event is organized by local cybersecurity professionals who bridge the gap between technical expertise and public policy in their region.</p> 
-              <p class="mb-4">More locations in planning, <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank" rel="noopener">join our notification list</a> to hear when that happens.</p>
+              <p class="mb-4">We're planning even more locations. <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank" rel="noopener">Join our notification list</a> to hear when that happens.</p>
               
               <!-- Events Cards -->
               <div class="row justify-content-center mt-5 mb-4">
+                <div class="col-12 col-md-4 mb-4">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform" target="_blank" rel="noopener" class="location-card">
+                    <div class="card-logo">
+                      <img src="/assets/img/hoth-denver-custom-circle.svg" alt="Hackers on the Hill logo">
+                    </div>
+                    <div class="card-body text-center">
+                      <h3 class="card-title">Colorado</h3>
+                      <p class="card-location">Denver</p>
+                      <p class="card-detail">Colorado State Capitol</p>
+                      <p class="card-date">Next: February 10, 2026</p>
+                    </div>
+                  </a>
+                </div>
                 <div class="col-12 col-md-4 mb-4">
                   <a href="https://hackersonthehill.org" target="_blank" rel="noopener" class="location-card">
                     <div class="card-logo">
@@ -168,13 +191,13 @@
         </div>
       </section><!-- End Global Events Section -->
 
-  </section><!-- End #top -->
+  </main><!-- End #top -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <div class="row justify-content-center align-items-center">
-        <div class="col-md-10 col-lg-9">
+        <div class="col-md-12 col-lg-9">
           <div class="row align-items-center justify-content-between">
             <div class="col-12 col-md-4 text-center text-md-start mb-3 mb-md-0 logo">
               <img src="/assets/img/hoth-logo_dark.svg" alt="Hackers on the Hill">
@@ -203,14 +226,9 @@
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/aos/aos.js"></script>
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
-
-
-  </footer><!-- End Footer -->
 
 </body>
 
