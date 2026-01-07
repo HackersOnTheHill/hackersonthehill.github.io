@@ -34,7 +34,7 @@
             <h1 class="mb-4">Where technical truth meets policy power</h1>
             <h4 class="mb-4">Run by <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a> since 2017; global since 2024.</h4>
             <h6 class="mb-3">Stay up to date on news and upcoming events.</h6>
-            <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank" rel="noopener"><button type="button" class="button">Get Notified</button></a>
+            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#newsletterModal">Get Notified</button>
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@
             <div class="col-md-12 col-lg-9 text-center">
               <h2 class="mb-4">A Global Movement</h2>
               <p class="mb-4">What started in Washington, DC has grown worldwide. Each event is organized by local cybersecurity professionals who bridge the gap between technical expertise and public policy in their region.</p> 
-              <p class="mb-4">We're planning even more events in more places. <a href="https://subscribepage.io/hackers-on-the-hill" target="_blank" rel="noopener">Join our notification list</a> to hear when that happens.</p>
+              <p class="mb-4">We're planning even more events in more places. <a href="#" data-bs-toggle="modal" data-bs-target="#newsletterModal">Join our notification list</a> to hear when that happens.</p>
               
               <!-- Events Cards -->
               <div class="row justify-content-center mt-5 mb-4">
@@ -215,6 +215,25 @@
       </div>
     </div>
   </footer><!-- End Footer -->
+
+  <!-- Newsletter Modal -->
+  <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="newsletterModalLabel">Stay Informed</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <iframe src="https://subscribepage.io/hackers-on-the-hill" 
+                  frameborder="0" 
+                  scrolling="yes" 
+                  style="width: 100%; height: 600px; border: none;"
+                  title="Newsletter signup form"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/aos/aos.js"></script>

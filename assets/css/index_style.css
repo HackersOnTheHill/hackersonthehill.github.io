@@ -321,6 +321,11 @@ a:focus {
     padding: 32px;
 }
 
+/* Newsletter modal has no padding for iframe */
+#newsletterModal .modal-body {
+    padding: 0;
+}
+
 /* Add top margin to subsequent headings for visual separation */
 .modal-body h3:not(:first-child) {
     margin-top: 32px;
