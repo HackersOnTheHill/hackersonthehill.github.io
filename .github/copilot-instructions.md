@@ -84,6 +84,20 @@ Purpose: help AI coding agents be immediately productive in this Jekyll static-s
   - **CSS units:** Use `px` consistently (not `rem`). This is the established convention throughout the codebase.
   - **Bootstrap overrides:** Bootstrap utility classes can be overridden but often require `!important` flag. For instance, `.alert` class has default margins/padding with `!important` that must be explicitly overridden.
   - **Reusable components:** Create CSS classes (like `.event-banner`) for components that will be reused, rather than inline styles. Document these in the CSS file with section comments.
+  - **Responsive layout patterns:** All sections follow proper Bootstrap structure: `container → row → col-*`. Two consistent patterns:
+    - **Wide sections** (Hero, Events, Footer): `.container > .row > .col-12.col-lg-9` → 75% width on large screens (900px of 1200px)
+    - **Standard sections** (Problem, About): `.container > .row > .col-12.col-md-10.col-lg-8` → 83% on medium (800px of 960px), 66% on large (800px of 1200px). Narrower for better text readability.
+    - **Never mix** `container`/`container-fluid` with column classes on the same element
+    - Each section has HTML comment documenting its layout pattern and spacing class
+  - **Vertical spacing:** Three spacing classes for consistency:
+    - `.section-padding-lg` = 160px (Hero, major entry points)
+    - `.section-padding` = 80px (Standard content sections - Problem, About, Events)
+    - `.section-padding-sm` = 60px (Compact areas, transitions)
+  - **Hover system:** Three consistent types across the site:
+    - **Text links (highlight effect):** Default purple text with transparent background. On hover, background becomes purple with white text and subtle padding (2px 6px), creating a "highlighter pen" effect. Uses `border-radius: 4px` for modern feel.
+    - **Interactive elements (lift):** Buttons and location cards use `transform: translateY(-2px)` with enhanced shadow on hover.
+    - **Icons (subtle scale):** Icons scale to 1.05 with `transform-origin: center` to prevent layout shift.
+    - **Exclusions:** Social links (scale only), navbar links (no hover effect), dropdown items (purple background fill), location cards (use card-specific hover), banner links (inverse highlight: purple text on white background).
   - **Design system standards:**
     - Border-radius: 8px for UI elements (buttons, dropdowns, cards), 12px for larger cards (location cards), 50px/50% for pills/circles
     - Transition timing: 0.2s for micro-interactions (button hovers), 0.3s for standard UI changes (dropdowns, theme toggle)

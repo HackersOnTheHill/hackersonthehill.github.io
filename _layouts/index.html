@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+  LAYOUT GUIDE
+  ============
+  
+  Wide Sections (Hero, Events, Footer):
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+  
+  Standard Sections (About, Problem):
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+  
+  Spacing Classes:
+    .section-padding-lg = 120px (Hero, major entry points)
+    .section-padding    = 80px  (Standard content sections)
+    .section-padding-sm = 60px  (Compact areas, transitions)
+-->
+
 {% include head.html %}
 
 <body>
@@ -10,12 +30,20 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  <!--============================================
+      HEADER
+      Layout: Wide (col-lg-9)
+  ============================================-->
   <header id="header" class="d-flex align-items-center">
-    <div class="container-fluid container-xxl col-md-12 col-lg-9 col-xl-8 col-xxl-7 d-flex align-items-center justify-content-between">
-      <a href="/" class="logo d-flex align-items-center">
-        <img src="/assets/img/hoth-logo_dark.svg" alt="Hackers on the Hill">
-      </a>
-      {% include navbar.html %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9 d-flex align-items-center justify-content-between">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="/assets/img/hoth-logo_dark.svg" alt="Hackers on the Hill">
+          </a>
+          {% include navbar.html %}
+        </div>
+      </div>
     </div>
   </header><!-- End Header -->
   
@@ -23,18 +51,28 @@
   
   <main id="top">
   
-    <!-- ======= Hero Section ======= -->
+    <!--============================================
+        HERO SECTION
+        Layout: Wide (col-lg-9)
+        Spacing: Extra Large (120px)
+    ============================================-->
     <section id="hero" class="section-padding-lg">
-      <div class="hero-container" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-        <div class="row justify-content-center align-items-center col-md-12 col-lg-9 col-xl-8 col-xxl-7">
-          <div class="col-12 col-md-5 text-center mb-4 mb-md-0">
-            <img src="/assets/img/hoth-logo_dark.svg" class="img-fluid" alt="Hackers on the Hill">
-          </div>
-          <div class="col-12 col-md-7">
-            <h1 class="mb-4">Where technical truth meets policy power</h1>
-            <h4 class="mb-4">Run by <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a> since 2017; global since 2024.</h4>
-            <h6 class="mb-3">Stay up to date on news and upcoming events.</h6>
-            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#newsletterModal">Get Notified</button>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-9">
+            <div class="hero-container" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-5 text-center mb-4 mb-md-0">
+                  <img src="/assets/img/hoth-logo_dark.svg" class="img-fluid" alt="Hackers on the Hill">
+                </div>
+                <div class="col-12 col-md-7">
+                  <h1 class="mb-4">Where technical truth meets policy power</h1>
+                  <p class="mb-4">Run by <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a> since 2017; global since 2024.</p>
+                  <p class="mb-4">Stay up to date on news and upcoming events.</p>
+                  <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#newsletterModal">Get Notified</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -51,23 +89,27 @@
       </div>
     </aside>
 
-    <!-- ======= Problem Section ======= -->
-    <section id="problem" class="section-padding-sm">
+    <!--============================================
+        PROBLEM SECTION
+        Layout: Standard (col-md-10 col-lg-8)
+        Spacing: Standard (80px)
+    ============================================-->
+    <section id="problem" class="section-padding">
       <div class="container position-relative" data-aos="fade-up" data-aos-once="true">
         <div class="row justify-content-center">
-          <div class="col-md-10 col-lg-9 text-center">
+          <div class="col-12 col-md-10 col-lg-8 text-center">
             <h2 class="mb-4">The Problem We're Solving</h2>
             <div class="row">
               <div class="col-md-4 mb-4 mb-md-0">
-                <i class="fa-solid fa-lightbulb d-block mb-3"></i>
+                <i class="fa-solid fa-lightbulb d-block mb-4"></i>
                 <p class="mb-0">Hackers are early adopters. They explore, ask questions, and see possibilities. They spot trends and see where things can go wrong — often years before others.</p>
               </div>
               <div class="col-md-4 mb-4 mb-md-0">
-                <i class="fa-solid fa-landmark d-block mb-3"></i>
+                <i class="fa-solid fa-landmark d-block mb-4"></i>
                 <p class="mb-0">Policymakers steer society toward its values and away from harm. To do that, they need forward-looking awareness to avoid unintended consequences.</p>
               </div>
               <div class="col-md-4 mb-4 mb-md-0">
-                <i class="fa-solid fa-puzzle-piece d-block mb-3"></i>
+                <i class="fa-solid fa-puzzle-piece d-block mb-4"></i>
                 <p class="mb-0">But hackers and policymakers don't often have the same social circles or speak the same language. Hackers on the Hill connects them.</p>
               </div>
             </div>
@@ -76,14 +118,18 @@
       </div>
     </section>
 
-    <!-- ======= About Section ======= -->
+    <!--============================================
+        ABOUT SECTION
+        Layout: Standard (col-md-10 col-lg-8)
+        Spacing: Standard (80px)
+    ============================================-->
     <section id="about" class="section-padding">
         <div class="container position-relative" data-aos="fade-up" data-aos-once="true">
           <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8 text-center">
+            <div class="col-12 col-md-10 col-lg-8 text-center">
               <h2 class="mb-4">What We Do</h2>
-              <p class="mb-4">Hackers on the Hill puts cybersecurity researchers and policymakers in the same room to talk about cyber policy. We're an all-volunteer initiative from <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a>. No one gets paid and no one's selling anything. We just think policy works better when the people writing it talk to the people who know how things break.</p>
-              <div class="row justify-content-center text-center pt-3">
+              <p class="mb-5">Hackers on the Hill puts cybersecurity researchers and policymakers in the same room to talk about cyber policy. We're an all-volunteer initiative from <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a>. No one gets paid and no one's selling anything. We just think policy works better when the people writing it talk to the people who know how things break.</p>
+              <div class="row justify-content-center text-center">
                 <figure class="col-6 col-md-4 mb-4">
                   <i class="fa-solid fa-brain"></i> 
                   <figcaption>Artificial Intelligence</figcaption>
@@ -91,6 +137,10 @@
                 <figure class="col-6 col-md-4 mb-4">
                   <i class="fa-solid fa-industry"></i> 
                   <figcaption>Critical Infrastructure</figcaption>
+                </figure>
+                <figure class="col-6 col-md-4 mb-4">
+                  <i class="fa-solid fa-network-wired"></i> 
+                  <figcaption>Internet of Things</figcaption>
                 </figure>
                 <figure class="col-6 col-md-4 mb-4">
                   <i class="fa-solid fa-key"></i> 
@@ -101,10 +151,14 @@
                   <figcaption>Privacy</figcaption>
                 </figure>
                 <figure class="col-6 col-md-4 mb-4">
+                  <i class="fa-solid fa-sack-dollar"></i> 
+                  <figcaption>Ransomware</figcaption>
+                </figure>
+                <figure class="col-6 col-md-4 mb-4">
                   <i class="fa-solid fa-bug"></i> 
                   <figcaption>Vulnerability Disclosure</figcaption>
                 </figure>
-                <figure class="col-6 col-md-4 mb-4">
+                <figure class="col-6 col-md-4">
                   <i class="fa-solid fa-truck-fast"></i> 
                   <figcaption>Supply Chain Security</figcaption>
                 </figure>
@@ -114,17 +168,21 @@
         </div>
       </section><!-- End About Section -->
 
-    <!-- ======= Global Events Section ======= -->
+    <!--============================================
+        EVENTS SECTION
+        Layout: Wide (col-lg-9)
+        Spacing: Standard (80px)
+    ============================================-->
     <section id="events" class="section-padding">
         <div class="container position-relative">
           <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-9 text-center">
+            <div class="col-12 col-lg-9 text-center">
               <h2 class="mb-4">A Global Movement</h2>
               <p class="mb-4">What started in Washington, DC has grown worldwide. Each event is organized by local cybersecurity professionals who bridge the gap between technical expertise and public policy in their region.</p> 
-              <p class="mb-4">We're planning even more events in more places. <a href="#" data-bs-toggle="modal" data-bs-target="#newsletterModal">Join our notification list</a> to hear when that happens.</p>
+              <p class="mb-5">We're planning even more events in more places. <a href="#" data-bs-toggle="modal" data-bs-target="#newsletterModal">Join our notification list</a> to hear when that happens.</p>
               
               <!-- Events Cards -->
-              <div class="row justify-content-center mt-5 mb-4">
+              <div class="row justify-content-center">
                 <div class="col-12 col-md-4 mb-4">
                   <a href="https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform" target="_blank" rel="noopener" class="location-card" aria-label="Register for Hackers on the Hill Denver 2026">
                     <div class="card-logo">
@@ -137,6 +195,32 @@
                       <p class="card-date">Next: February 10, 2026</p>
                     </div>
                   </a>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                  <div class="location-card" style="cursor: default;" aria-label="Coming soon: A national capitol">
+                    <div class="card-logo">
+                      <i class="fa-solid fa-landmark" style="font-size: 72px; color: var(--accent-secondary);"></i>
+                    </div>
+                    <div class="card-body text-center">
+                      <h3 class="card-title">Coming Soon</h3>
+                      <p class="card-location">A National Capitol</p>
+                      <p class="card-detail">Somewhere in the world</p>
+                      <p class="card-date">Stay tuned...</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                  <div class="location-card" style="cursor: default;" aria-label="Coming soon: A US state">
+                    <div class="card-logo">
+                      <i class="fa-solid fa-landmark" style="font-size: 72px; color: var(--accent-secondary);"></i>
+                    </div>
+                    <div class="card-body text-center">
+                      <h3 class="card-title">Coming Soon</h3>
+                      <p class="card-location">A US State Capitol</p>
+                      <p class="card-detail">United States</p>
+                      <p class="card-date">Stay tuned...</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                   <a href="https://hackersonthehill.org" target="_blank" rel="noopener" class="location-card" aria-label="Learn about Hackers on the Hill Washington DC 2026">
@@ -186,16 +270,19 @@
 
   </main><!-- End #top -->
 
-  <!-- ======= Footer ======= -->
+  <!--============================================
+      FOOTER
+      Layout: Wide (col-lg-9)
+  ============================================-->
   <footer id="footer">
     <div class="container">
       <div class="row justify-content-center align-items-center">
-        <div class="col-md-12 col-lg-9">
-          <div class="row align-items-center justify-content-between">
-            <div class="col-12 col-md-4 text-center text-md-start mb-3 mb-md-0 logo">
+        <div class="col-12 col-lg-9">
+          <div class="row align-items-center justify-content-between mb-3">
+            <div class="col-12 col-md-4 text-center text-md-start logo">
               <img src="/assets/img/hoth-logo_dark.svg" alt="Hackers on the Hill">
             </div>
-            <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+            <div class="col-12 col-md-4 text-center">
               <p class="mb-0 tagline"><strong>Non-commercial · No shilling</strong></p>
             </div>
             <div class="col-12 col-md-4">

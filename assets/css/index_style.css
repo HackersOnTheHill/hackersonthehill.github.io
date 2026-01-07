@@ -68,7 +68,7 @@
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', 'Roboto Flex', 'Montserrat', 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
@@ -78,7 +78,7 @@ p {
     padding: 0;
     margin: 0 auto 16px auto;
     font-weight: 400;
-    letter-spacing: -0.025em;
+    /* letter-spacing: -0.025em; */
     max-width: 65ch;
 }
 
@@ -90,28 +90,28 @@ p {
 }
 
 h1 {
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: 33px;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 24px;
 }
 
 h2 {
-    font-size: clamp(28px, 3.6vw, 40px);
+    font-size: 28px;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 20px;
 }
 
 h3 {
-    font-size: clamp(22px, 2.8vw, 28px);
+    font-size: 23px;
     font-weight: 500;
     line-height: 1.3;
     margin-bottom: 16px;
 }
 
 h4 {
-    font-size: clamp(18px, 2.2vw, 22px);
+    font-size: 19px;
     font-weight: 500;
     line-height: 1.4;
     margin-bottom: 12px;
@@ -123,20 +123,32 @@ h6 {
     padding: 0;
 }
 
-.navbar a.dropdown-item,
 a {
     color: var(--accent-primary);
-    transition: color 0.2s;
-    text-decoration: underline;
-    text-decoration-thickness: 0.08em;
-    text-underline-offset: 0.15em;
-    font-weight: 500;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 1px 1px;
+    background-color: transparent;
 }
 
 a:hover,
 a:active,
 a:focus {
-    text-decoration-thickness: 0.14em;
+    color: var(--text-inverse);
+    background-color: var(--accent-primary);
+    text-decoration: none;
+}
+
+/* Exclude social links and location cards from general link hover styling */
+#footer .social-links a:hover,
+#footer .social-links a:active,
+#footer .social-links a:focus,
+.location-card:hover,
+.location-card:active,
+.location-card:focus {
+    color: var(--accent-primary);
+    background-color: transparent;
 }
 
 .button {
@@ -154,16 +166,34 @@ a:focus {
 
 .button:hover {
     background-color: var(--accent-primary);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px var(--shadow-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--shadow-hover);
 }
 
 /*--------------------------------------------------------------
-# Spacing Utilities
+# Spacing System & Layout Patterns
 --------------------------------------------------------------*/
+/* 
+  Section Padding Scale:
+  - .section-padding-lg  = 120px (Hero, major entry points)
+  - .section-padding     = 80px  (Standard content sections)
+  - .section-padding-sm  = 60px  (Compact areas, transitions)
+  
+  Content Width Patterns:
+  All sections use proper Bootstrap structure: container → row → col-*
+  
+  Wide sections (Hero, Events, Footer):
+    .container > .row > .col-12.col-lg-9
+    → 100% on mobile/tablet, 75% on large screens (900px of 1200px)
+  
+  Standard sections (Problem, About):
+    .container > .row > .col-12.col-md-10.col-lg-8
+    → 100% on mobile, 83% on medium (800px of 960px), 66% on large (800px of 1200px)
+    → Narrower for better readability of body text
+*/
 .section-padding { padding: 80px 0; }
 .section-padding-sm { padding: 60px 0; }
-.section-padding-lg { padding: 120px 0; }
+.section-padding-lg { padding: 160px 0; }
 
 /*--------------------------------------------------------------
 # Announcement Bars
@@ -173,9 +203,16 @@ a:focus {
 .event-banner {
     background: var(--accent-primary);
     border: none;
+    border-left: 6px solid var(--accent-secondary);
     border-radius: 0;
-    padding: 12px 0 !important;
+    padding: 16px 0;
     text-align: center;
+}
+
+/* Override Bootstrap .alert borders */
+.event-banner.alert {
+    border: none;
+    border-left: 6px solid var(--accent-secondary);
 }
 
 .info-bar .info-bar-content,
@@ -185,7 +222,7 @@ a:focus {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    color: var(--pure-white);
+    color: var(--text-inverse);
 }
 
 .info-bar .info-bar-text {
@@ -193,28 +230,28 @@ a:focus {
     align-items: center;
     gap: 8px;
     font-weight: 600;
-    color: var(--pure-white);
+    color: var(--text-inverse);
 }
 
 .info-bar .info-label,
 .event-banner .banner-label,
 .info-bar a {
-    text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 16px;
-    color: var(--pure-white);
+    color: var(--text-inverse);
 }
 
 .info-bar a,
 .event-banner a {
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 0.15em;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    background-color: transparent;
 }
 
 .info-bar a:hover,
 .event-banner a:hover {
-    text-decoration-thickness: 2.5px;
+    color: var(--accent-primary);
+    background-color: var(--text-inverse);
 }
 
 .info-bar .info-detail {
@@ -335,7 +372,7 @@ a:focus {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    padding: 12px 0 16px 0;
+    padding: 40px 0;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-size: 14px;
@@ -351,10 +388,19 @@ a:focus {
     display: inline-flex;
     color: var(--accent-primary);
     line-height: 1;
-    transition: 0.3s;
+    transition: transform 0.2s ease;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transform-origin: center;
+  }
+  
+  #footer .social-links a:hover,
+  #footer .social-links a:active,
+  #footer .social-links a:focus {
+    transform: scale(1.05);
+    color: var(--accent-primary);
+    background-color: transparent;
   }
   
   #footer .social-links a i {
@@ -385,7 +431,7 @@ a:focus {
     background: var(--bg-primary);
     border: 1px solid var(--shadow-color);
     border-radius: 12px;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     overflow: hidden;
     text-decoration: none;
     display: flex;
@@ -395,9 +441,8 @@ a:focus {
 }
 
 .location-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: 0 12px 28px var(--shadow-hover);
-    border-color: var(--accent-primary);
     text-decoration: none;
 }
 
@@ -504,17 +549,19 @@ a:focus {
     padding: 10px 0 10px 12px;
   }
 
-.navbar a,
-.navbar a.dropdown-item {
+.navbar a {
     color: var(--accent-primary);
     text-decoration: none;
     transition: 0.3s;
+    padding: 0;
+    background-color: transparent;
 }
 
 /* Ensure buttons in navbar keep their proper styling */
 .navbar a.button {
     color: var(--text-inverse);
     text-decoration: none;
+    padding: 10px 14px;
 }
 
 .navbar a:hover:before,
@@ -524,18 +571,16 @@ a:focus {
   width: 80%;
 }
 
-.navbar a:not(.button):hover,
-.navbar a:not(.button):active,
-.navbar .active:not(.button),
-.navbar .active:not(.button):focus,
-.navbar li:hover>a:not(.button), 
-.navbar ul li:hover>a:not(.button),
-.navbar a.dropdown-item:hover {
+/* No special hover styling for navbar links (Upcoming, Archive text) */
+.navbar a:not(.button):not(.dropdown-item):hover,
+.navbar a:not(.button):not(.dropdown-item):active,
+.navbar .active:not(.button):not(.dropdown-item),
+.navbar .active:not(.button):not(.dropdown-item):focus,
+.navbar li:hover>a:not(.button):not(.dropdown-item), 
+.navbar ul li:hover>a:not(.button):not(.dropdown-item) {
     color: var(--accent-primary);
-    text-decoration: underline;
-    text-underline-offset: 0.5em;
-    text-decoration-thickness: 0.2em;
-    text-decoration-color: var(--accent-primary);
+    background-color: transparent;
+    text-decoration: none;
     transform: none;
 }
 
@@ -543,7 +588,7 @@ a:focus {
 .navbar a.button:hover {
     color: var(--text-inverse);
     text-decoration: none;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .navbar a:focus-visible,
@@ -588,7 +633,7 @@ a:focus {
 
 .navbar a.dropdown-item:hover {
   background-color: var(--accent-primary) !important;
-  color: var(--pure-white);
+  color: var(--text-inverse);
   text-decoration: none;
 }
 
@@ -606,11 +651,12 @@ a:focus {
   color: var(--accent-primary);
   transition: color 0.3s ease, transform 0.2s ease;
   font-size: 16px;
+  transform-origin: center;
 }
 
 .theme-toggle:hover {
   color: var(--accent-primary);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .theme-toggle:focus {
@@ -666,10 +712,6 @@ a:focus {
     color: var(--text-primary);
 }
 
-#about {
-    padding: 60px 0;
-}
-
 #about figcaption {
     font-size: 14px;
     text-align: center;
@@ -684,11 +726,12 @@ a:focus {
     color: var(--accent-primary);
     margin-bottom: 12px;
     transition: transform 0.2s ease;
+    transform-origin: center;
 }
 
 #about figure:hover i,
 #problem .col-md-4:hover i {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 
