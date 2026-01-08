@@ -140,6 +140,26 @@ a:focus {
     text-decoration: none;
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    padding: 8px 12px;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    border-radius: 6px;
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+    z-index: 2000;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
 /* Exclude social links and location cards from general link hover styling */
 #footer .social-links a:hover,
 #footer .social-links a:active,
@@ -194,6 +214,26 @@ a:focus {
 .section-padding { padding: 80px 0; }
 .section-padding-sm { padding: 60px 0; }
 .section-padding-lg { padding: 160px 0; }
+
+/*--------------------------------------------------------------
+# Impact Strip
+--------------------------------------------------------------*/
+.impact-strip {
+    background: var(--bg-secondary);
+}
+
+.impact-number {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.impact-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
 
 /*--------------------------------------------------------------
 # Announcement Bars
@@ -439,6 +479,14 @@ a:focus {
 .location-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 28px var(--shadow-hover);
+    text-decoration: none;
+}
+
+.location-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px var(--shadow-hover);
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 4px;
     text-decoration: none;
 }
 

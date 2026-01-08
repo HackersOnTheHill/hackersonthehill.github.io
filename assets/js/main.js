@@ -20,6 +20,66 @@
       });
     }
 
+    // Impact strip count-up
+    const countupEls = document.querySelectorAll('[data-countup]');
+    if (countupEls.length) {
+      const setFinalCount = (el) => {
+        const target = Number.parseInt(el.dataset.target, 10);
+        if (!Number.isFinite(target)) {
+          return;
+        }
+        const suffix = el.dataset.suffix || '';
+        el.textContent = `${target}${suffix}`;
+        el.dataset.counted = 'true';
+      };
+
+      const animateCount = (el) => {
+        if (el.dataset.counted === 'true') {
+          return;
+        }
+        const target = Number.parseInt(el.dataset.target, 10);
+        if (!Number.isFinite(target)) {
+          return;
+        }
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const startTime = performance.now();
+
+        const step = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = Math.round(eased * target);
+          el.textContent = `${value}${suffix}`;
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            el.dataset.counted = 'true';
+          }
+        };
+
+        window.requestAnimationFrame(step);
+      };
+
+      if (prefersReducedMotion.matches) {
+        countupEls.forEach(setFinalCount);
+      } else if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+
+        countupEls.forEach((el) => observer.observe(el));
+      } else {
+        countupEls.forEach(animateCount);
+      }
+    }
+
     // Pause banner animation when modal opens, resume when closed
     const modal2026 = document.getElementById('updates2026Modal');
     if (modal2026) {
@@ -103,5 +163,22 @@
         setTheme(e.matches ? 'dark' : 'light');
       }
     });
+
+    // Close mobile nav when tapping outside the menu
+    const navbarCollapse = document.getElementById('navbarNav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    if (navbarCollapse && window.bootstrap && window.bootstrap.Collapse) {
+      const collapseInstance = window.bootstrap.Collapse.getOrCreateInstance(navbarCollapse, { toggle: false });
+      document.addEventListener('click', (event) => {
+        if (!navbarCollapse.classList.contains('show')) {
+          return;
+        }
+        const target = event.target;
+        if (navbarCollapse.contains(target) || navbarToggler?.contains(target)) {
+          return;
+        }
+        collapseInstance.hide();
+      });
+    }
   });
 })();
