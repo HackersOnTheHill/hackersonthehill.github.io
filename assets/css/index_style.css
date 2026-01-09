@@ -46,8 +46,8 @@
   --bg-secondary: var(--dark-grey);
   --accent-primary: var(--light-purple);
   --accent-secondary: var(--dark-purple);
-  --shadow-color: rgba(230, 220, 239, 0.1);  /* light-purple at 10% */
-  --shadow-hover: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
+  --shadow-color: rgba(18, 18, 18, 1);  /* dark black at 100% */
+  --shadow-hover: rgba(18, 18, 18, 0.66);  /* dark black at 66% */
   --shadow-on-light: rgba(230, 220, 239, 0.08);  /* light-purple at 8% */
   --shadow-accent: rgba(230, 220, 239, 0.3);  /* light-purple at 30% */
   --border-accent: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
@@ -57,7 +57,7 @@
 [data-theme="dark"] #header .logo img,
 [data-theme="dark"] #hero img,
 [data-theme="dark"] #footer img,
-[data-theme="dark"] .location-card .card-logo img {
+[data-theme="dark"] .location-card .card-logo img:not(.event-logo) {
   filter: invert(1) hue-rotate(180deg);
 }
 
@@ -164,10 +164,18 @@ a:focus {
 #footer .social-links a:hover,
 #footer .social-links a:active,
 #footer .social-links a:focus,
+#header .logo:hover,
+#header .logo:active,
+#header .logo:focus,
 .location-card:hover,
 .location-card:active,
 .location-card:focus {
     color: var(--accent-primary);
+    background-color: var(--bg-primary);
+}
+
+#header .logo {
+    padding: 0;
     background-color: transparent;
 }
 
@@ -175,19 +183,19 @@ a:focus {
     background-color: var(--accent-primary);
     color: var(--text-inverse);
     border: none;
-    border-radius: 8px;
-    padding: 10px 14px;
+    border-radius: 1337px;
+    padding: 8px 16px;
     text-align: center;
     transition: all 0.2s ease;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
 }
 
 .button:hover {
-    background-color: var(--accent-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px var(--shadow-hover);
+    background-color: transparent;
+    color: var(--accent-primary);
+    outline: 2px solid var(--accent-primary);
 }
 
 /*--------------------------------------------------------------
@@ -239,23 +247,29 @@ a:focus {
 # Announcement Bars
 # Shared styles for info-bar and event-banner components
 --------------------------------------------------------------*/
-.info-bar,
 .event-banner {
     background: var(--accent-primary);
     border: none;
-    border-left: 6px solid var(--accent-secondary);
     border-radius: 0;
     padding: 16px 0;
     text-align: center;
 }
 
-/* Override Bootstrap .alert borders */
-.event-banner.alert {
-    border: none;
-    border-left: 6px solid var(--accent-secondary);
+/* Make this one thinner than event banner */
+.info-bar {
+  padding: 8px 0;
+  border-bottom: 1px var(--accent-primary) solid;
+  border-top: 1px var(--accent-primary) solid;
+  background-color: var(--bg-secondary);
+  color: var(--text-inverse);
 }
 
-.info-bar .info-bar-content,
+.info-bar .info-bar-content {
+    display: flex;
+    justify-content: center;
+}
+
+.event-banner .banner-label,
 .event-banner .banner-content {
     display: flex;
     align-items: center;
@@ -270,32 +284,21 @@ a:focus {
     align-items: center;
     gap: 8px;
     font-weight: 600;
-    color: var(--text-inverse);
 }
 
 .info-bar .info-label,
-.event-banner .banner-label,
 .info-bar a {
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--text-inverse);
+    color: var(--accent-primary);
 }
 
-.info-bar a,
-.event-banner a {
-    text-decoration: none;
-    transition: color 0.2s ease, background-color 0.2s ease;
-    background-color: transparent;
-}
-
-.info-bar a:hover,
 .event-banner a:hover {
     color: var(--accent-primary);
     background-color: var(--text-inverse);
 }
 
-.info-bar .info-detail {
-    font-weight: 700;
+.info-bar a:hover {
+    color: var(--text-inverse);
+    background-color: var(--accent-primary);
 }
 
 /*--------------------------------------------------------------
@@ -434,7 +437,7 @@ a:focus {
   #footer .social-links a:hover,
   #footer .social-links a:active,
   #footer .social-links a:focus {
-    transform: scale(1.05);
+    transform: scale(1.15);
     color: var(--accent-primary);
     background-color: transparent;
   }
@@ -480,6 +483,22 @@ a:focus {
     transform: translateY(-2px);
     box-shadow: 0 12px 28px var(--shadow-hover);
     text-decoration: none;
+}
+
+.location-card .event-logo {
+    display: block;
+}
+
+.location-card .logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .location-card .logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .location-card .logo-dark {
+    display: block;
 }
 
 .location-card:focus-visible {
@@ -542,7 +561,7 @@ a:focus {
     margin-bottom: 0;
 }
 
-.location-card .card-date {
+.location-card .card-date-next {
     font-size: 13px;
     color: var(--accent-primary);
     font-weight: 500;
@@ -551,15 +570,20 @@ a:focus {
     border-top: 1px solid var(--accent-secondary);
 }
 
-.location-card .badge-next {
+.location-card .card-date-last {
+    font-size: 13px;
+    color: var(--accent-secondary);
+    font-weight: 500;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--accent-secondary);
+}
+
+/* The badge for upcoming events and archives should always be paired with the "button" attribute first */
+.location-card .card-badge {
     display: inline-block;
-    margin-top: 10px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: var(--accent-secondary);
-    color: var(--accent-primary);
-    font-weight: 700;
-    letter-spacing: 0.01em;
+    padding: 2px 10px;
+    border-radius: 1337px;
 }
 
   
@@ -668,11 +692,6 @@ a:focus {
 }
 
 /* Buttons in navbar should maintain button hover behavior */
-.navbar a.button:hover {
-    color: var(--text-inverse);
-    text-decoration: none;
-    transform: translateY(-2px);
-}
 
 .navbar a:focus-visible,
 .navbar a.dropdown-item:focus-visible {
@@ -743,7 +762,7 @@ a:focus {
 
 .theme-toggle:hover {
   color: var(--accent-primary);
-  transform: scale(1.05);
+  transform: scale(1.15);
 }
 
 .theme-toggle:focus {
@@ -818,7 +837,7 @@ a:focus {
 
 #about figure:hover i,
 #problem .col-md-4:hover i {
-    transform: scale(1.05);
+    transform: scale(1.15);
 }
 
 
@@ -870,7 +889,7 @@ a:focus {
   #footer .row.align-items-center > .col-12:not(:last-child) {
     margin-bottom: 20px;
   }
-  
+
   /* Show hamburger menu on mobile */
   .navbar-toggler {
     display: block;
@@ -930,26 +949,44 @@ a:focus {
 --------------------------------------------------------------*/
 /* Font Awesome Free 7.1.0 - https://fontawesome.com/license/free */
 @font-face {
-  font-family: 'Font Awesome 6 Free';
-  font-style: normal;
-  font-weight: 900;
-  font-display: block;
-  src: url("../vendor/fontawesome/webfonts/fa-solid-900.woff2") format("woff2"), 
-       url("../vendor/fontawesome/webfonts/fa-solid-900.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'Font Awesome 6 Brands';
+  font-family: 'Font Awesome 7 Regular Free';
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("../vendor/fontawesome/webfonts/fa-brands-400.woff2") format("woff2"), 
-       url("../vendor/fontawesome/webfonts/fa-brands-400.ttf") format("truetype");
+  src: url("../vendor/fontawesome/webfonts/fa-regular-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 7 Solid Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 7 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-brands-400.woff2") format("woff2");
 }
 
 
+.fa, .fa-regular {
+  font-family: 'Font Awesome 7 Regular Free';
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
 .fa, .fa-solid {
-  font-family: 'Font Awesome 6 Free';
+  font-family: 'Font Awesome 7 Solid Free';
   font-weight: 900;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -961,7 +998,7 @@ a:focus {
 }
 
 .fa-brands {
-  font-family: 'Font Awesome 6 Brands';
+  font-family: 'Font Awesome 7 Brands';
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
