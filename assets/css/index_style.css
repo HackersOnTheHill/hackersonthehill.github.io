@@ -25,8 +25,6 @@
   --accent-secondary: var(--light-purple);
   --shadow-color: rgba(34, 34, 34, 0.1);  /* dark-grey at 10% */
   --shadow-hover: rgba(34, 34, 34, 0.15);  /* dark-grey at 15% */
-  --shadow-on-light: rgba(34, 34, 34, 0.08);  /* dark-grey at 8% */
-  --shadow-accent: rgba(123, 95, 163, 0.3);  /* dark-purple at 30% */
   --border-accent: rgba(123, 95, 163, 0.15);  /* dark-purple at 15% */
 
   /* Smooth theme transitions */
@@ -46,10 +44,8 @@
   --bg-secondary: var(--dark-grey);
   --accent-primary: var(--light-purple);
   --accent-secondary: var(--dark-purple);
-  --shadow-color: rgba(18, 18, 18, 1);  /* dark black at 100% */
-  --shadow-hover: rgba(18, 18, 18, 0.66);  /* dark black at 66% */
-  --shadow-on-light: rgba(230, 220, 239, 0.08);  /* light-purple at 8% */
-  --shadow-accent: rgba(230, 220, 239, 0.3);  /* light-purple at 30% */
+  --shadow-color: rgba(18, 18, 18, 0.1);  /* dark black at 10% */
+  --shadow-hover: rgba(18, 18, 18, 0.15);  /* dark black at 15% */
   --border-accent: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
 }
 
@@ -70,7 +66,7 @@ body {
     color: var(--text-primary);
     font-family: 'Manrope', 'Roboto Flex', 'Montserrat', 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -90,28 +86,28 @@ p {
 }
 
 h1 {
-    font-size: 33px;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 24px;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 20px;
 }
 
 h3 {
-    font-size: 23px;
+    font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.3;
     margin-bottom: 16px;
 }
 
 h4 {
-    font-size: 19px;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.4;
     margin-bottom: 12px;
@@ -187,7 +183,7 @@ a:focus {
     padding: 8px 16px;
     text-align: center;
     transition: all 0.2s ease;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 500;
     cursor: pointer;
 }
@@ -231,7 +227,7 @@ a:focus {
 }
 
 .impact-number {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--accent-primary);
     line-height: 1;
@@ -251,17 +247,17 @@ a:focus {
     background: var(--accent-primary);
     border: none;
     border-radius: 0;
-    padding: 16px 0;
+    padding: 18px 0;
     text-align: center;
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 /* Make this one thinner than event banner */
 .info-bar {
-  padding: 8px 0;
-  border-bottom: 1px var(--accent-primary) solid;
-  border-top: 1px var(--accent-primary) solid;
-  background-color: var(--bg-secondary);
-  color: var(--text-inverse);
+  padding: 6px 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .info-bar .info-bar-content {
@@ -276,14 +272,15 @@ a:focus {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    color: var(--text-inverse);
+    color: var(--pure-white);
 }
 
 .info-bar .info-bar-text {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 0.875rem;
 }
 
 .info-bar .info-label,
@@ -380,23 +377,100 @@ a:focus {
     color: var(--text-primary);
 }
 
+.modal-content {
+    border: 0;
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
 .modal-header {
-    border-bottom: 2px solid var(--accent-secondary);
+    border-bottom: 0;
+    padding: 28px 32px 12px;
 }
 
 .modal-title {
     color: var(--text-primary);
-    font-size: 32px;  /* Larger than body h3 (28px) but not overwhelming */
+    font-size: 2rem;  /* Larger than body h3 (28px) but not overwhelming */
     font-weight: 600;
 }
 
 .modal-body {
-    padding: 32px;
+    padding: 20px 32px 32px;
 }
 
-/* Newsletter modal has no padding for iframe */
+/* Improve close-button visibility in dark mode */
+.btn-close {
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+    opacity: 1;
+}
+
+[data-theme="dark"] .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+/* Close button positioning for headerless modals */
+.modal--headerless .modal-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.modal--headerless .btn-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    opacity: 1;
+}
+
+.modal--headerless .modal-body {
+    padding-top: 52px;
+}
+
+/* Newsletter modal layout adjustments */
+#newsletterModal .modal-dialog {
+    max-width: 760px;
+}
+
 #newsletterModal .modal-body {
-    padding: 0;
+    padding: 52px 24px 28px;
+}
+
+#newsletterModal .modal-body p {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 575px) {
+    #newsletterModal .modal-dialog {
+        margin: 8px;
+    }
+
+    #newsletterModal .modal-body {
+        padding: 44px 8px 8px;
+    }
+
+    .modal--headerless .modal-body {
+        padding-top: 44px;
+    }
+
+    #newsletterModal .modal-body .row {
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 12px;
+    }
+
+    .modal-header {
+        padding: 22px 20px 10px;
+    }
+
+    .modal-body {
+        padding: 18px 20px 24px;
+    }
 }
 
 /* Add top margin to subsequent headings for visual separation */
@@ -408,10 +482,10 @@ a:focus {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    padding: 40px 0;
+    padding: 20px 0;
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-size: 14px;
+    font-size: 0.875rem;
     text-align: center;
     border-top: 1px solid var(--shadow-color);
 }
@@ -421,6 +495,7 @@ a:focus {
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
+    margin-bottom: 16px;
   }
 
   #footer .social-links a {
@@ -444,7 +519,7 @@ a:focus {
   
   #footer .social-links a i {
     line-height: 0;
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   #footer .logo img {
@@ -452,11 +527,11 @@ a:focus {
   }
 
   #footer .tagline {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   #footer .attribution p {
-    font-size: 10px;
+    font-size: 0.625rem;
     margin: 8px 0;
     opacity: 0.5;
   }
@@ -542,27 +617,27 @@ a:focus {
 }
 
 .location-card .card-title {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 8px;
     color: var(--text-primary);
 }
 
 .location-card .card-location {
-    font-size: 16px;
+    font-size: 1rem;
     margin-bottom: 4px;
     color: var(--text-primary);
     font-weight: 500;
 }
 
 .location-card .card-detail {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--text-secondary);
     margin-bottom: 0;
 }
 
 .location-card .card-date-next {
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: var(--accent-primary);
     font-weight: 500;
     margin-top: 8px;
@@ -571,7 +646,7 @@ a:focus {
 }
 
 .location-card .card-date-last {
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: var(--accent-secondary);
     font-weight: 500;
     margin-top: 8px;
@@ -622,7 +697,7 @@ a:focus {
     left: 0;
     bottom: 0;
     z-index: 0;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   /* Override Bootstrap collapse - show navbar on desktop */
@@ -729,7 +804,7 @@ a:focus {
 
 .navbar a.dropdown-item {
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-primary);
   padding: 6px 16px;
   transition: background-color 0.2s ease;
@@ -756,7 +831,7 @@ a:focus {
   justify-content: center;
   color: var(--accent-primary);
   transition: color 0.3s ease, transform 0.2s ease;
-  font-size: 16px;
+  font-size: 1rem;
   transform-origin: center;
 }
 
@@ -796,14 +871,10 @@ a:focus {
 ## Sections Header
 --------------------------------------------------------------*/
 .section-header {
-    margin-bottom: 60px;
-    position: relative;
-    padding-bottom: 20px;
+    margin-bottom: 24px;
     text-align: center;
-    color: var(--accent-primary);
-    text-decoration: underline;
-    text-underline-offset: 0.75em;
-    text-decoration-thickness: 0.2em;
+    color: var(--text-primary);
+    text-decoration: none;
 }
 
 
@@ -819,7 +890,7 @@ a:focus {
 }
 
 #about figcaption {
-    font-size: 14px;
+    font-size: 0.875rem;
     text-align: center;
     padding: 10px;
     margin: 0;
@@ -828,7 +899,7 @@ a:focus {
 /* Icon styling for about section - unified 48px for all icons */
 #about i,
 #problem i {
-    font-size: 48px;
+    font-size: 3rem;
     color: var(--accent-primary);
     margin-bottom: 12px;
     transition: transform 0.2s ease;
@@ -852,7 +923,7 @@ a:focus {
   }
 
   #footer p {
-    font-size: 12px !important;
+    font-size: 0.75rem !important;
   }
 
   #footer .social-links {
@@ -865,7 +936,7 @@ a:focus {
   }
 
   #footer .social-links a i {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
@@ -879,6 +950,10 @@ a:focus {
   
   #hero .hero-container {
     padding: 0 20px;
+  }
+
+  #hero.section-padding-lg {
+    padding: 60px 0;
   }
   
   .location-card {
@@ -899,7 +974,12 @@ a:focus {
   .navbar-collapse:not(.show) {
     display: none !important;
   }
-  
+
+  /* Remove Bootstrap collapse animation delay on mobile */
+  .navbar-collapse.collapsing {
+    transition: none;
+  }
+
   /* Mobile menu dropdown styles */
   .navbar-collapse.show {
     position: absolute;
@@ -1067,4 +1147,8 @@ a:focus {
   .location-card {
     page-break-inside: avoid;
   }
+}
+
+.sender-form-field {
+    text-align: center;
 }

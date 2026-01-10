@@ -1,23 +1,22 @@
 # Copilot instructions for Hackers on the Hill
 
-Purpose: make LLM designers/developers productive in this Jekyll static-site repo with minimal re-learning.
+Purpose: Make LLM designers/developers productive in this Jekyll static-site repo with minimal re-learning, low maintenance, and a focus on simplicity so that human designers/developers/maintainers can easily understand and modify the code.
 
 ## Principles
 - Simple > clever. Reuse existing patterns; avoid new frameworks.
 - Modern, clean, minimal: fewer elements, ample whitespace, consistent accents (`--accent-primary #6A4B9A`, `--accent-secondary #B59ADB`), body in Noto Sans.
 - Favor docker-compose; avoid local Ruby wrestling.
 - Small, well-explained changes; keep motion low and respect `prefers-reduced-motion`.
-
-## Current state (last few days)
-- Landing page uses a Problem section above What We Do (icon grid), info bar + announcement banner share styling, events grid includes Denver interest card.
-- Palette recently darkened; links use default underline (thicker on hover/focus). Buttons/cards use lift/shadow hover.
-- JS trimmed to essentials: AOS init, banner pause on modal, theme toggle, banner sticky fade (no nav scroll state/gallery/ticket code).
-- Ruby constraint loosened (`>=3.1 <3.3`) for Docker image compatibility.
+- Do not revert or overwrite user-made changes; preserve manual edits and ask before modifying anything that looks recently changed.
+- Pre-change check: review files for manual fixes and examine conversational statements to verify any proposed edits (even hypothetical) do not undo them; if unsure, ask before suggesting alternatives.
+- When proposing design refactors, provide counts/impact summary first (e.g., how many rules/lines are affected) before applying edits.
+- When adding new features, propose minimal viable options that align with existing patterns and the goal of modern, clean, minimal design; avoid introducing large new systems or dependencies.
+- When asked to provide recommendations, suggestions, or guidance, draw from common patterns in sites with the same simple, modern, clean, minimal aesthetic.
 
 ## Run/Test
 - Preferred: `docker-compose up` → http://localhost:4000 (uses `jekyll/jekyll:latest`).
-- Alternative (not preferred): `bundle exec jekyll serve --livereload --host 0.0.0.0`.
-- Netlify auto-deploys on push to main.
+- Never: `bundle exec jekyll serve --livereload --host 0.0.0.0`.
+- Netlify auto-deploys on push to main and branches.
 
 ## Layout & spacing patterns
 - Fixed header (~50px). Sections start below it; banners use margin-top to clear header.
