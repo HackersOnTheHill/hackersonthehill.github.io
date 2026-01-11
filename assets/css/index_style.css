@@ -42,6 +42,110 @@
 }
 
 /*--------------------------------------------------------------
+# Font Awesome Icons
+--------------------------------------------------------------*/
+/* Font Awesome Free 7.1.0 - https://fontawesome.com/license/free */
+@font-face {
+  font-family: 'Font Awesome 7 Regular Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-regular-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 7 Solid Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 7 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-brands-400.woff2") format("woff2");
+}
+
+.fa, .fa-regular {
+  font-family: 'Font Awesome 7 Regular Free';
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fa, .fa-solid {
+  font-family: 'Font Awesome 7 Solid Free';
+  font-weight: 900;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fa-brands {
+  font-family: 'Font Awesome 7 Brands';
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+/* Solid icons */
+.fa-brain::before { content: "\f5dc"; }
+.fa-bug::before { content: "\f188"; }
+.fa-eye-slash::before { content: "\f070"; }
+.fa-industry::before { content: "\f275"; }
+.fa-key::before { content: "\f084"; }
+.fa-landmark::before { content: "\f66f"; }
+.fa-lightbulb::before { content: "\f0eb"; }
+.fa-moon::before { content: "\f186"; }
+.fa-network-wired::before { content: "\f6ff"; }
+.fa-puzzle-piece::before { content: "\f12e"; }
+.fa-sack-dollar::before { content: "\f81d"; }
+.fa-bullhorn::before { content: "\f0a1"; }
+.fa-sun::before { content: "\f185"; }
+.fa-truck-fast::before { content: "\f48b"; }
+.fa-robot::before { content: "\f544"; }
+.fa-microchip::before { content: "\f2db"; }
+.fa-user-lock::before { content: "\f502"; }
+.fa-mask::before { content: "\f6fa"; }
+.fa-gears::before { content: "\f085"; }
+.fa-check::before { content: "\f00c"; }
+.fa-times::before { content: "\f00d"; }
+
+/* Brand icons */
+.fa-bluesky::before { content: "\e671"; }
+.fa-instagram::before { content: "\f16d"; }
+.fa-linkedin::before { content: "\f08c"; }
+
+/* Bluesky icon size adjustment (wider viewBox than other icons) */
+.fa-bluesky {
+  font-size: 0.85em;
+  vertical-align: 0.05em;
+}
+
+/*--------------------------------------------------------------
 ## Default and common element definitions
 -------------------------------------------------------------- */
 .navbar a.dropdown-item,
