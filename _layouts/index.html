@@ -144,8 +144,42 @@
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
 
+  <!-- Sender.net Newsletter Form -->
+  <script>
+    (function (s, e, n, d, er) {
+      s['Sender'] = er;
+      s[er] = s[er] || function () {
+        (s[er].q = s[er].q || []).push(arguments)
+      }, s[er].l = 1 * new Date();
+      var a = e.createElement(n),
+          m = e.getElementsByTagName(n)[0];
+      a.async = 1;
+      a.src = d;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+    sender('e73kNA')
+  </script>
 
   </footer><!-- End Footer -->
+
+  <!-- Newsletter Modal -->
+  <div class="modal fade modal--headerless" id="newsletterModal" tabindex="-1" aria-label="Newsletter signup" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-body">
+          <div class="row g-3 align-items-start">
+            <div class="col-12 col-md-auto">
+              <div class="sender-form-field" data-sender-form-id="e73kNA"></div>
+            </div>
+            <div class="col-12 col-md text-start">
+              <p class="m-3">We use your info to send occasional updates about Hackers on the Hill events, registration windows, and related announcements (through <a href="https://sender.net" target="_blank" rel="noopener">Sender.net</a>). No spam, no ads, no selling, no unrelated junk, and you can unsubscribe anytime.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
