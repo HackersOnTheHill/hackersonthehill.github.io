@@ -20,6 +20,116 @@
       });
     }
 
+    const pushAnalytics = (payload) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(payload);
+    };
+
+    // Usage insights: CTA clicks, modal opens/closes, and outbound links
+    document.addEventListener('click', (event) => {
+      const target = event.target.closest('a, button');
+      if (!target) {
+        return;
+      }
+
+      const analyticsTarget = target.closest('[data-analytics-event]');
+      if (analyticsTarget) {
+        const { analyticsEvent, analyticsLocation, analyticsLabel } = analyticsTarget.dataset;
+        if (analyticsEvent) {
+          const payload = { event: analyticsEvent };
+          if (analyticsLocation) {
+            payload.location = analyticsLocation;
+          }
+          if (analyticsLabel) {
+            payload.label = analyticsLabel;
+          }
+          pushAnalytics(payload);
+        }
+      }
+
+      if (target.closest('.info-bar') && target.tagName === 'A') {
+        pushAnalytics({ event: 'info_bar_click', link_url: target.href });
+      }
+
+      if (target.tagName === 'A') {
+        const href = target.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+          return;
+        }
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) {
+          const label = (target.textContent || '').trim().slice(0, 100);
+          pushAnalytics({ event: 'outbound_click', link_url: url.href, link_text: label });
+        }
+      }
+    });
+
+    // Newsletter modal open/close tracking
+    const newsletterModal = document.getElementById('newsletterModal');
+    if (newsletterModal) {
+      newsletterModal.addEventListener('show.bs.modal', () => {
+        pushAnalytics({ event: 'newsletter_modal_open' });
+      });
+      newsletterModal.addEventListener('hidden.bs.modal', () => {
+        pushAnalytics({ event: 'newsletter_modal_close' });
+      });
+    }
+
+    // Scroll depth tracking
+    const scrollThresholds = [25, 50, 75, 100];
+    const seenScrollDepth = new Set();
+    let scrollTicking = false;
+    const reportScrollDepth = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) {
+        if (!seenScrollDepth.has(100)) {
+          pushAnalytics({ event: 'scroll_depth', percent: 100 });
+          seenScrollDepth.add(100);
+        }
+        return;
+      }
+      const percent = Math.round((window.scrollY / scrollable) * 100);
+      scrollThresholds.forEach((threshold) => {
+        if (percent >= threshold && !seenScrollDepth.has(threshold)) {
+          pushAnalytics({ event: 'scroll_depth', percent: threshold });
+          seenScrollDepth.add(threshold);
+        }
+      });
+    };
+    const onScroll = () => {
+      if (scrollTicking) {
+        return;
+      }
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        reportScrollDepth();
+        scrollTicking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    reportScrollDepth();
+
+    // Section visibility tracking
+    const seenSections = new Set();
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionName = entry.target.dataset.analyticsSection || entry.target.id;
+            if (sectionName && !seenSections.has(sectionName)) {
+              pushAnalytics({ event: 'section_view', section: sectionName });
+              seenSections.add(sectionName);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('main section[id], main aside[id]').forEach((section) => {
+        sectionObserver.observe(section);
+      });
+    }
+
     // Impact strip count-up
     const countupEls = document.querySelectorAll('[data-countup]');
     if (countupEls.length) {
