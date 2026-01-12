@@ -209,8 +209,11 @@
     }
 
     // Make banner sticky on load and release after initial scroll
+    // Skip fade behavior on archive pages (keeps banner visible)
     const banner = document.querySelector('.event-banner');
-    if (banner) {
+    const isArchivePage = document.querySelector('.archive-container');
+    
+    if (banner && !isArchivePage) {
       const releaseThreshold = Math.max(window.innerHeight * 0.5, 320);
       const header = document.getElementById('header');
       const headerHeight = header?.offsetHeight || 0;

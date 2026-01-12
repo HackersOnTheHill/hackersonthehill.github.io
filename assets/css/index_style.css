@@ -366,6 +366,45 @@ a:focus {
 }
 
 /*--------------------------------------------------------------
+# Archive Warning Banner
+# Danger-styled banner for archive pages indicating historical content
+# Follows same pattern as event-banner with red danger color
+--------------------------------------------------------------*/
+body.archive-page {
+    overflow: hidden;
+    height: 100vh;
+}
+
+body.archive-page #main,
+body.archive-page .archive-container {
+    height: calc(100vh - 32px);
+}
+
+.archive-warning-banner {
+    background: #dc3545;
+    padding: 5px 0;
+    position: sticky;
+    top: 50px;
+    z-index: 995;
+}
+
+.archive-warning-banner .banner-content {
+    display: flex;
+    justify-content: center;
+    color: var(--pure-white);
+    font-size: 0.875rem;
+}
+
+.archive-warning-banner .archive-home-link {
+    color: var(--pure-white);
+}
+
+.archive-warning-banner .archive-home-link:hover {
+    color: #dc3545;
+    background-color: var(--pure-white);
+}
+
+/*--------------------------------------------------------------
 # Modal Styling
 # Bootstrap modal overrides for event announcements and info popups
 # Typography inherits from global styles for consistency
@@ -1110,6 +1149,8 @@ a:focus {
 .fa-bullhorn::before { content: "\f0a1"; }
 .fa-sun::before { content: "\f185"; }
 .fa-truck-fast::before { content: "\f48b"; }
+.fa-box-archive::before { content: "\f187"; }
+.fa-arrow-right::before { content: "\f061"; }
 
 /* Brand icons */
 .fa-bluesky::before { content: "\e671"; }

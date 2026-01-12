@@ -21,25 +21,28 @@
           Archive
         </a>
         <ul class="dropdown-menu navbar-dropdown-hoth">
-          <li><a class="dropdown-item" href="https://us-2025.hackersonthehill.org">US · DC 2025</a></li>
-          <li><a class="dropdown-item" href="https://us-2025.hackersonthehill.org/critical-effect">US · DC 2025 · Critical Effect</a></li>
-          <li><a class="dropdown-item" href="https://uk-2025.hackersonthehill.org/uk">UK · London 2025</a></li>
-          <li><a class="dropdown-item" href="https://uk-2024.hackersonthehill.org/uk">UK · London 2024</a></li>
-          <li><a class="dropdown-item" href="https://ca-2024.hackersonthehill.org/ca">Canada · Ottawa 2024</a></li>
-          <li><a class="dropdown-item" href="https://2024.hackersonthehill.org">US · DC 2024</a></li>
-          <li><a class="dropdown-item" href="https://2023.hackersonthehill.org">US · DC 2023</a></li>
-          <li><a class="dropdown-item" href="https://2022.hackersonthehill.org">US · DC 2022</a></li>
-          <li><a class="dropdown-item" href="https://2020.hackersonthehill.org">US · DC 2020</a></li>
+          <li><a class="dropdown-item" href="/archives/us-2025/">US · DC 2025</a></li>
+          <li><a class="dropdown-item" href="/archives/us-2025-critical-effect/">US · DC 2025 · Critical Effect</a></li>
+          <li><a class="dropdown-item" href="/archives/ca-2025/">Canada · Ottawa 2025</a></li>
+          <li><a class="dropdown-item" href="/archives/uk-2025/">UK · London 2025</a></li>
+          <li><a class="dropdown-item" href="/archives/uk-2024/">UK · London 2024</a></li>
+          <li><a class="dropdown-item" href="/archives/ca-2024/">Canada · Ottawa 2024</a></li>
+          <li><a class="dropdown-item" href="/archives/us-2024/">US · DC 2024</a></li>
+          <li><a class="dropdown-item" href="/archives/us-2023/">US · DC 2023</a></li>
+          <li><a class="dropdown-item" href="/archives/us-2022/">US · DC 2022</a></li>
+          <li><a class="dropdown-item" href="/archives/us-2020/">US · DC 2020</a></li>
         </ul>
       </li>
       <li class="nav-item">
         <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#newsletterModal" data-analytics-event="newsletter_cta_click" data-analytics-location="header">Get Notified</button>
       </li>
+      {% if page.layout != 'archive' %}
       <li class="nav-item">
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
           <i class="fa-regular fa-moon" aria-hidden="true"></i>
         </button>
       </li>
+      {% endif %}
     </ul>
   </nav>
 </div>
