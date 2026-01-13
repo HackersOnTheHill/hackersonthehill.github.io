@@ -17,7 +17,7 @@
 
   /* Semantic Hierarchy (Light Mode) */
   --text-primary: var(--dark-grey);
-  --text-secondary: rgba(34, 34, 34, 0.6);  /* dark-grey at 60% */
+  --text-secondary: rgba(34, 34, 34, 0.7);  /* dark-grey at 70% - improved contrast */
   --text-inverse: var(--pure-white);
   --bg-primary: var(--pure-white);
   --bg-secondary: var(--shmoo-white);
@@ -26,9 +26,6 @@
   --shadow-color: rgba(34, 34, 34, 0.1);  /* dark-grey at 10% */
   --shadow-hover: rgba(34, 34, 34, 0.15);  /* dark-grey at 15% */
   --border-accent: rgba(123, 95, 163, 0.15);  /* dark-purple at 15% */
-
-  /* Smooth theme transitions */
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /*--------------------------------------------------------------
@@ -38,7 +35,7 @@
 [data-theme="dark"] {
   /* Semantic Hierarchy (Dark Mode) */
   --text-primary: var(--shmoo-white);
-  --text-secondary: rgba(245, 245, 245, 0.6);  /* shmoo-white at 60% */
+  --text-secondary: rgba(245, 245, 245, 0.7);  /* shmoo-white at 70% - improved contrast */
   --text-inverse: var(--dark-black);
   --bg-primary: var(--dark-black);
   --bg-secondary: var(--dark-grey);
@@ -60,6 +57,10 @@
 /*--------------------------------------------------------------
 ## Default and common element definitions
 -------------------------------------------------------------- */
+html, body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .navbar a.dropdown-item,
 body {
     background-color: var(--bg-primary);
@@ -156,6 +157,47 @@ a:focus {
     transform: translateY(0);
 }
 
+/*--------------------------------------------------------------
+# Focus Styles
+# Comprehensive keyboard navigation support
+--------------------------------------------------------------*/
+/* Universal focus-visible for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Button focus uses glow effect */
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-secondary);
+}
+
+/* Location cards need more offset due to hover transform */
+.location-card:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Theme toggle focus */
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Navbar links */
+.navbar a:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Modal close button */
+.btn-close:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
 /* Exclude social links and location cards from general link hover styling */
 #footer .social-links a:hover,
 #footer .social-links a:active,
@@ -186,12 +228,33 @@ a:focus {
     font-size: 0.8125rem;
     font-weight: 500;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .button:hover {
     background-color: transparent;
     color: var(--accent-primary);
     outline: 2px solid var(--accent-primary);
+}
+
+/* Button ripple effect on click */
+.button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.button:active::after {
+    width: 300px;
+    height: 300px;
 }
 
 /*--------------------------------------------------------------
@@ -330,6 +393,28 @@ a:focus {
     top: 50px;
     z-index: 995;
     transition: opacity 1s ease, transform 1s ease, box-shadow 1s ease;
+}
+
+/* Banner attention animation - subtle pulse on page load */
+@keyframes banner-attention {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Apply animation to banner content only, not the whole banner */
+.event-banner .banner-content {
+  animation: banner-attention 1.2s ease-in-out 0.5s 2;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .event-banner .banner-content {
+    animation: none;
+  }
 }
 
 .event-banner .banner-icon {
@@ -642,6 +727,27 @@ body.archive-page .archive-container {
     right: 0;
     height: 2px;
     background: var(--accent-primary);
+    width: 100%;
+    transition: width 0.4s ease;
+    transform-origin: left;
+}
+
+/* Animate accent line on hover */
+.location-card:hover .card-logo::after {
+    animation: accent-line-pulse 0.6s ease-out;
+}
+
+@keyframes accent-line-pulse {
+    0% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.05);
+        height: 3px;
+    }
+    100% {
+        transform: scaleX(1);
+    }
 }
 
 .location-card .card-logo img {
