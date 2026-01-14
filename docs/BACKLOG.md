@@ -174,6 +174,442 @@ Applied animation to `.event-banner .banner-content` (not the whole banner) to a
 
 ## 📋 APPROVED BACKLOG (Next Up)
 
+### Task: Component Modularity - Extract Sections into Includes
+**Priority:** High
+**Effort:** 2-3 hours
+**Status:** Todo
+**Impact:** High - Makes maintenance significantly easier for non-professionals
+
+**Description:**
+Extract inline sections from `_layouts/index.html` into reusable `_includes/sections/` components, following the pattern already established with `{% include header.html %}`.
+
+**Current State:**
+All sections (hero, problem, about, impact-strip, events) are currently inline in [index.html:45-302](_layouts/index.html#L45-L302).
+
+**Proposed Structure:**
+```
+_includes/
+  sections/
+    hero.html
+    problem.html
+    about.html
+    impact-strip.html
+    events.html
+```
+
+**Implementation:**
+
+1. **Create the sections directory:**
+```bash
+mkdir -p _includes/sections
+```
+
+2. **Extract Hero Section:**
+Extract lines 42-64 from `_layouts/index.html` into `_includes/sections/hero.html`
+
+3. **Extract Problem Section:**
+Extract lines 78-99 from `_layouts/index.html` into `_includes/sections/problem.html`
+
+4. **Extract About Section:**
+Extract lines 108-148 from `_layouts/index.html` into `_includes/sections/about.html`
+
+5. **Extract Impact Strip:**
+Extract lines 159-177 from `_layouts/index.html` into `_includes/sections/impact-strip.html`
+
+6. **Extract Events Section:**
+Extract lines 191-292 from `_layouts/index.html` into `_includes/sections/events.html`
+
+7. **Update index.html:**
+Replace extracted sections with includes:
+```liquid
+<main id="top" tabindex="-1" data-aos="fade-down" data-aos-duration="800">
+  {% include sections/hero.html %}
+  {% include sections/info-bar.html %}
+  {% include sections/problem.html %}
+  {% include sections/about.html %}
+  {% include sections/impact-strip.html %}
+  {% include sections/events.html %}
+</main>
+```
+
+**Benefits:**
+- Easier to find and edit specific sections
+- Reusable components across event pages
+- Clearer file structure for non-technical maintainers
+- Better Git diffs (changes isolated to specific files)
+- Follows Jekyll best practices
+
+**Verification:**
+- [ ] Site looks identical before/after
+- [ ] All AOS animations still work
+- [ ] All analytics events still fire
+- [ ] Dark mode works correctly
+- [ ] Test all viewports (mobile/tablet/desktop)
+- [ ] No console errors
+
+---
+
+### Task: Data-Driven Event Cards with YAML
+**Priority:** High
+**Effort:** 1.5-2 hours
+**Status:** Todo
+**Impact:** Very High - Biggest maintainability win
+
+**Description:**
+Replace hardcoded event cards with a data-driven approach using `_data/events.yml` and Liquid loops. This makes adding/updating events a simple YAML edit instead of HTML manipulation.
+
+**Current State:**
+Event cards are hardcoded in [index.html:205-289](_layouts/index.html#L205-L289) with repetitive HTML for each location.
+
+**Implementation:**
+
+1. **Create `_data/events.yml`:**
+```yaml
+# Active events (displayed first)
+- title: "Colorado"
+  location: "Denver"
+  venue: "Colorado State Capitol"
+  status: "upcoming"
+  date: "February 10, 2026"
+  url: "https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform"
+  logo_light: "/assets/img/hoth-denver.svg"
+  logo_dark: "/assets/img/hoth-denver.svg"
+  cta: "Request a Seat"
+  order: 1
+
+- title: "United States"
+  location: "Washington, DC"
+  venue: "US Capitol"
+  status: "future"
+  date: "Mid-2026"
+  url: "https://us-2025.hackersonthehill.org"
+  logo_light: "/assets/img/hoth-us_lightmode.svg"
+  logo_dark: "/assets/img/hoth-us_darkmode.svg"
+  cta: "Get Notified"
+  order: 2
+
+- title: "Canada"
+  location: "Ottawa, ON"
+  venue: "Parliament Hill"
+  status: "future"
+  date: "Mid-2026"
+  url: "https://ca-2024.hackersonthehill.org"
+  logo_light: "/assets/img/hoth-ca_lightmode.svg"
+  logo_dark: "/assets/img/hoth-ca_darkmode.svg"
+  cta: "Get Notified"
+  order: 3
+
+- title: "United Kingdom"
+  location: "London"
+  venue: "UK Government"
+  status: "future"
+  date: "Mid-2026"
+  url: "https://uk-2025.hackersonthehill.org"
+  logo_light: "/assets/img/hoth-uk_lightmode.svg"
+  logo_dark: "/assets/img/hoth-uk_darkmode.svg"
+  cta: "Get Notified"
+  order: 4
+
+# Special cards (displayed after events)
+special_cards:
+  - type: "coming-soon"
+    title: "Coming Soon"
+    location: "More locations worldwide"
+    detail: "Stay tuned for announcements"
+    date: "Expanding in 2026"
+    icon: "fa-solid fa-landmark"
+
+  - type: "suggest"
+    title: "Suggest a Location"
+    location: "Help Us Expand"
+    detail: "Know a great capitol for our next event?"
+    url: "#"  # Replace with actual form URL when ready
+    cta: "Share Your Ideas"
+    icon: "fa-solid fa-lightbulb"
+```
+
+2. **Update events section template:**
+Replace hardcoded cards in `_includes/sections/events.html` (or `_layouts/index.html` if not yet modularized):
+
+```liquid
+<div class="row g-4">
+  <!-- Active Event Cards -->
+  {% assign sorted_events = site.data.events | where_exp: "item", "item.order" | sort: "order" %}
+  {% for event in sorted_events %}
+  <div class="col-12 col-md-4 mb-4">
+    <a href="{{ event.url }}" class="location-card" {% if event.url contains 'http' %}target="_blank" rel="noopener"{% endif %}>
+      <div class="card-logo">
+        <img class="event-logo logo-light" src="{{ event.logo_light }}" alt="{{ event.title }}" loading="lazy" width="120" height="120">
+        <img class="event-logo logo-dark" src="{{ event.logo_dark }}" alt="{{ event.title }}" loading="lazy" width="120" height="120">
+      </div>
+      <div class="card-body text-center">
+        <h3 class="card-title">{{ event.title }}</h3>
+        <p class="card-location">{{ event.location }}</p>
+        <p class="card-detail">{{ event.venue }}</p>
+        <p class="card-date-{{ event.status }}">{{ event.date }}</p>
+        <span class="button card-badge">{{ event.cta }}</span>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+
+  <!-- Special Cards (Coming Soon, Suggest Location) -->
+  {% for card in site.data.events.special_cards %}
+  <div class="col-12 col-md-4 mb-4">
+    {% if card.type == 'coming-soon' %}
+    <div class="location-card" aria-label="{{ card.title }}: {{ card.location }}">
+      <div class="card-logo">
+        <i class="{{ card.icon }}" aria-hidden="true"></i>
+      </div>
+      <div class="card-body text-center">
+        <h3 class="card-title">{{ card.title }}</h3>
+        <p class="card-location">{{ card.location }}</p>
+        <p class="card-detail">{{ card.detail }}</p>
+        <p class="card-date-next">{{ card.date }}</p>
+      </div>
+    </div>
+    {% else %}
+    <a href="{{ card.url }}" class="location-card" aria-label="{{ card.title }}: {{ card.detail }}">
+      <div class="card-logo">
+        <i class="{{ card.icon }}" aria-hidden="true"></i>
+      </div>
+      <div class="card-body text-center">
+        <h3 class="card-title">{{ card.title }}</h3>
+        <p class="card-location">{{ card.location }}</p>
+        <p class="card-detail">{{ card.detail }}</p>
+        <span class="button card-badge">{{ card.cta }}</span>
+      </div>
+    </a>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+```
+
+**Benefits:**
+- **Zero HTML knowledge needed** to add/update events
+- Simple YAML editing in `_data/events.yml`
+- Consistent card structure across all events
+- Easy to reorder events (change `order` value)
+- Easy to archive events (remove from YAML)
+- DRY (Don't Repeat Yourself) principle
+
+**To Add a New Event (Non-technical):**
+```yaml
+# Just copy this template and fill in the details:
+- title: "New Location"
+  location: "City Name"
+  venue: "Venue Name"
+  status: "upcoming"  # or "future"
+  date: "Month Day, Year"
+  url: "https://..."
+  logo_light: "/assets/img/..."
+  logo_dark: "/assets/img/..."
+  cta: "Register Now"
+  order: 5  # Display order
+```
+
+**Verification:**
+- [ ] All 6 cards display correctly
+- [ ] Card ordering matches YAML `order` field
+- [ ] Logos display in light/dark themes
+- [ ] Links work correctly
+- [ ] Special cards (Coming Soon, Suggest) display
+- [ ] Test adding a new event via YAML
+- [ ] Test removing an event via YAML
+
+---
+
+### Task: Enhanced Info Bar - Data-Driven Pattern
+**Priority:** Medium
+**Effort:** 30 minutes
+**Status:** Todo
+**Impact:** Medium - Quick maintainability win
+
+**Description:**
+Make the info bar data-driven and easily toggleable via YAML configuration instead of requiring HTML edits.
+
+**Current State:**
+Info bar is hardcoded in [index.html:69-77](_layouts/index.html#L69-L77).
+
+**Implementation:**
+
+1. **Create `_data/announcements.yml`:**
+```yaml
+info_bar:
+  enabled: true
+  text: "Upcoming: Denver · February 10, 2026"
+  url: "https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform"
+  analytics_location: "info_bar_top"
+```
+
+2. **Update info bar include:**
+Create `_includes/sections/info-bar.html`:
+```liquid
+{% if site.data.announcements.info_bar.enabled %}
+<aside class="info-bar">
+  <div class="container">
+    <div class="info-bar-content">
+      <div class="info-bar-text">
+        <span class="info-label">
+          <a href="{{ site.data.announcements.info_bar.url }}"
+             target="_blank"
+             rel="noopener"
+             data-analytics-event="info_bar_click"
+             data-analytics-location="{{ site.data.announcements.info_bar.analytics_location }}">
+            {{ site.data.announcements.info_bar.text }}
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</aside>
+{% endif %}
+```
+
+3. **Include in index.html:**
+```liquid
+{% include sections/info-bar.html %}
+```
+
+**Benefits:**
+- Toggle on/off by changing `enabled: false` in YAML
+- Update announcement text without touching HTML
+- No code changes needed for temporary announcements
+
+**To Update Announcement (Non-technical):**
+```yaml
+# Edit _data/announcements.yml
+info_bar:
+  enabled: true  # Set to false to hide completely
+  text: "New announcement text here"
+  url: "https://link-destination.com"
+```
+
+**Verification:**
+- [ ] Info bar displays when `enabled: true`
+- [ ] Info bar hidden when `enabled: false`
+- [ ] Link works correctly
+- [ ] Analytics event fires
+- [ ] Test updating text via YAML
+
+---
+
+### Task: CSS Table of Contents
+**Priority:** Low
+**Effort:** 15 minutes
+**Status:** Todo
+**Impact:** Low - Developer experience improvement
+
+**Description:**
+Add a comprehensive table of contents at the top of `assets/css/index_style.css` to help maintainers quickly locate styles.
+
+**Current State:**
+CSS file has 1,196 lines with scattered section comments.
+
+**Implementation:**
+
+Add to the top of `assets/css/index_style.css` (after the existing CSS variables):
+
+```css
+/**
+ * ============================================================================
+ * TABLE OF CONTENTS
+ * ============================================================================
+ *
+ * 1. THEME & VARIABLES
+ *    1.1 Color Palette
+ *    1.2 Semantic Tokens (Light Mode)
+ *    1.3 Dark Mode Overrides
+ *    1.4 Theme Toggle
+ *
+ * 2. TYPOGRAPHY
+ *    2.1 Base Styles
+ *    2.2 Headings
+ *    2.3 Links
+ *    2.4 Accessibility (Skip Links, Focus States)
+ *
+ * 3. LAYOUT & GRID
+ *    3.1 Base Layout
+ *    3.2 Container
+ *    3.3 Section Spacing
+ *
+ * 4. COMPONENTS
+ *    4.1 Buttons
+ *    4.2 Cards (Location Cards)
+ *    4.3 Modals
+ *    4.4 Banners (Info Bar, Event Banner)
+ *    4.5 Impact Strip
+ *
+ * 5. NAVIGATION
+ *    5.1 Header
+ *    5.2 Navbar
+ *    5.3 Mobile Menu
+ *    5.4 Dropdown
+ *
+ * 6. SECTIONS
+ *    6.1 Hero
+ *    6.2 Problem
+ *    6.3 About
+ *    6.4 Events
+ *
+ * 7. FOOTER
+ *    7.1 Base Styles
+ *    7.2 Social Links
+ *
+ * 8. ANIMATIONS
+ *    8.1 AOS (Animate On Scroll)
+ *    8.2 Micro-interactions
+ *    8.3 Keyframes
+ *
+ * 9. UTILITIES
+ *    9.1 Display
+ *    9.2 Print Styles
+ *    9.3 Accessibility
+ *
+ * 10. RESPONSIVE
+ *     10.1 Mobile Adjustments
+ *     10.2 Tablet Breakpoints
+ *     10.3 Desktop Overrides
+ *
+ * ============================================================================
+ */
+```
+
+**Then update existing section comments to match:**
+
+Example:
+```css
+/*--------------------------------------------------------------
+# 4.1 Buttons
+--------------------------------------------------------------*/
+.button {
+  /* ... */
+}
+
+/*--------------------------------------------------------------
+# 4.2 Cards (Location Cards)
+--------------------------------------------------------------*/
+.location-card {
+  /* ... */
+}
+```
+
+**Benefits:**
+- Quick navigation for developers
+- Clear file organization
+- Easier to locate what needs changing
+- Professional code documentation
+- Helps onboard new contributors
+
+**Verification:**
+- [ ] TOC accurately reflects file structure
+- [ ] Line numbers roughly align with sections
+- [ ] All major sections documented
+- [ ] Consistent numbering scheme
+
+---
+
 ### Task 4.1: Add Micro-interactions ✅
 **Priority:** Medium
 **Effort:** 45 minutes

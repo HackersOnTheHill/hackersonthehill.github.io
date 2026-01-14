@@ -12,14 +12,15 @@
      ========================================================================= */
 
   /* Base Palette */
-  --dark-grey: #222222;        /* Primary text color in light mode */
-  --shmoo-white: #F5F5F5;      /* Light background color */
-  --light-purple: #B59ADB;     /* Secondary accent, links */
-  --dark-purple: #6A4B9A;      /* Primary accent, buttons, highlights */
-  --pure-white: #FFFFFF;       /* Pure white for high contrast */
-  --dark-black: #121212;       /* Dark background for dark mode */
-  --buzz-gold: #EEAA00;        /* CTA buttons (Get Notified, Subscribe) */
-  --buzz-inverse: #FFBF1F;     /* Lighter gold for dark mode CTAs */
+  --dark-grey: #1A1A1A;                            /* Primary text color in light mode; background in dark mode */
+  --shmoo-white: #F5F5F5;                          /* Primary text color in dark mode; background in light mode */
+  --hamlet-grey: #2B2B2B;                          /* Accent in light mode */
+  --revolution-grey: #999999;                      /* Neutral grey */
+  --droid-grey: #D2D2D2;                           /* Accent in dark mode */
+  --light-purple: #B59ADB;                         /* Accent for important highlights in light mode */
+  --dark-purple: #6A4B9A;                          /* Accent for important highlights in light mode */
+  --pure-white: #FFFFFF;                           /* Pure white for high contrast */
+  --dark-black: #121212;                           /* Dark background for dark mode */
 
   /* ============================================================================
      Semantic Tokens (Light Mode)
@@ -27,18 +28,19 @@
      ========================================================================= */
 
   /* Text */
-  --text-primary: var(--dark-grey);              /* Body text, headings */
-  --text-secondary: rgba(34, 34, 34, 0.7);       /* Muted text, captions */
-  --text-inverse: var(--pure-white);             /* Text on dark backgrounds */
+  --text-primary: var(--dark-grey);                /* Body text, headings */
+  --text-secondary: var(--hamlet-grey);             /* Muted text, captions */
+  --link-primary: var(--dark-black);            /* Links, primary actions */
+  --link-inverse: var(--pure-white);              /* Text on dark backgrounds */
 
   /* Backgrounds */
-  --bg-primary: var(--pure-white);               /* Page background */
-  --bg-secondary: var(--shmoo-white);            /* Card backgrounds, sections */
+  --bg-primary: var(--pure-white);                 /* Page background */
+  --bg-secondary: var(--shmoo-white);              /* Card backgrounds, sections */
 
   /* Accents */
-  --accent-primary: var(--dark-purple);          /* Primary brand color */
-  --accent-secondary: var(--light-purple);       /* Hover states, secondary actions */
-  --cta-accent: var(--buzz-gold);                /* Call-to-action buttons */
+  --accent-primary: var(--hamlet-grey);            /* Primary highlight color */
+  --accent-secondary: var(--revolution-grey);         /* Hover states, secondary actions */
+  --priority-accent: var(--dark-purple);           /* High priority messages and buttons - used sparingly */
 
   /* Shadows & Borders */
   --shadow-color: rgba(34, 34, 34, 0.1);         /* Default shadow */
@@ -51,15 +53,18 @@
 # Flipped color palette and component overrides
 --------------------------------------------------------------*/
 [data-theme="dark"] {
-  /* CSS Variables */
   --text-primary: var(--shmoo-white);
-  --text-secondary: rgba(245, 245, 245, 0.7);  /* shmoo-white at 70% - improved contrast */
-  --text-inverse: var(--dark-black);
+  --text-secondary: var(--droid-grey);
+  --link-primary: var(--pure-white);
+  --link-inverse: var(--dark-black);
+
   --bg-primary: var(--dark-black);
   --bg-secondary: var(--dark-grey);
-  --accent-primary: var(--light-purple);
-  --accent-secondary: var(--dark-purple);
-  --cta-accent: var(--buzz-inverse);
+
+  --accent-primary: var(--droid-grey);
+  --accent-secondary: var(--revolution-grey);
+  --priority-accent: var(--light-purple);
+
   --shadow-color: rgba(18, 18, 18, 0.1);  /* dark black at 10% */
   --shadow-hover: rgba(18, 18, 18, 0.15);  /* dark black at 15% */
   --border-accent: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
@@ -174,19 +179,19 @@ h6 {
 }
 
 a {
-    color: var(--accent-primary);
+    color: var(--text-primary);
     transition: color 0.2s ease, background-color 0.2s ease;
     text-decoration: none;
-    font-weight: 600;
-    padding: 1px 1px;
+    font-weight: 800;
+    padding: 0 2px;
     background-color: transparent;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: var(--text-inverse);
-    background-color: var(--accent-primary);
+    color: var(--link-inverse);
+    background-color: var(--text-primary);
     text-decoration: none;
 }
 
@@ -197,7 +202,7 @@ a:focus {
     left: 12px;
     padding: 8px 12px;
     background: var(--accent-primary);
-    color: var(--text-inverse);
+    color: var(--link-inverse);
     border-radius: 6px;
     text-decoration: none;
     transform: translateY(-200%);
@@ -271,8 +276,8 @@ a:focus {
 }
 
 .button {
-    background-color: var(--cta-accent);
-    color: var(--text-inverse);
+    background-color: var(--accent-primary);
+    color: var(--link-inverse);
     border: none;
     border-radius: 1337px;
     padding: 8px 16px;
@@ -287,8 +292,19 @@ a:focus {
 
 .button:hover {
     background-color: transparent;
-    color: var(--cta-accent);
-    outline: 2px solid var(--cta-accent);
+    color: var(--accent-primary);
+    outline: 2px solid var(--accent-primary);
+}
+
+.priority {
+    background-color: var(--priority-accent);
+    color: var(--link-inverse);
+}
+
+.priority:hover {
+    background-color: transparent;
+    color: var(--priority-accent);
+    outline: 2px solid var(--priority-accent);
 }
 
 /* Button ripple effect on click */
@@ -331,15 +347,16 @@ a:focus {
     → 100% on mobile, 83% on medium (800px of 960px), 66% on large (800px of 1200px)
     → Narrower for better readability of body text
 */
-.section-padding { padding: 80px 0; }
+.section-padding-xs { padding: 20px 0; }
 .section-padding-sm { padding: 60px 0; }
+.section-padding-md { padding: 80px 0; }
 .section-padding-lg { padding: 160px 0; }
 
 /*--------------------------------------------------------------
 # Impact Strip
 --------------------------------------------------------------*/
 .impact-strip {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .impact-number {
@@ -372,7 +389,7 @@ a:focus {
 .info-bar {
   padding: 6px 0;
   background-color: var(--bg-primary);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   box-shadow: 0 2px 8px var(--shadow-color);
 }
 
@@ -388,7 +405,7 @@ a:focus {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    color: var(--pure-white);
+    color: var(--link-inverse);
 }
 
 .info-bar .info-bar-text {
@@ -399,19 +416,11 @@ a:focus {
     font-size: 0.875rem;
 }
 
-.info-bar .info-label,
-.info-bar a {
+.event-banner a:hover,
+.event-banner a:active,
+.event-banner a:focus {
     color: var(--accent-primary);
-}
-
-.event-banner a:hover {
-    color: var(--accent-primary);
-    background-color: var(--text-inverse);
-}
-
-.info-bar a:hover {
-    color: var(--text-inverse);
-    background-color: var(--accent-primary);
+    background-color: var(--link-inverse);
 }
 
 /*--------------------------------------------------------------
@@ -672,7 +681,7 @@ body.archive-page .archive-container {
 
   #footer .social-links a {
     display: inline-flex;
-    color: var(--accent-primary);
+    color: var(--priority-accent);
     line-height: 1;
     transition: transform 0.2s ease;
     align-items: center;
@@ -685,7 +694,7 @@ body.archive-page .archive-container {
   #footer .social-links a:active,
   #footer .social-links a:focus {
     transform: scale(1.15);
-    color: var(--accent-primary);
+    color: var(--priority-accent);
     background-color: transparent;
   }
   
@@ -788,6 +797,11 @@ body.archive-page .archive-container {
     object-fit: contain;
 }
 
+.location-card i {
+  font-size: 72px;
+  color: var(--accent-secondary);
+}
+
 .location-card .card-body {
     padding: 20px;
     background: var(--bg-primary);
@@ -833,9 +847,7 @@ body.archive-page .archive-container {
 
 /* The badge for upcoming events and archives should always be paired with the "button" attribute first */
 .location-card .card-badge {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 1337px;
+    padding: 6px 10px;
 }
 
   
@@ -905,18 +917,8 @@ body.archive-page .archive-container {
   }
 
 .navbar a {
-    color: var(--accent-primary);
-    text-decoration: none;
     transition: 0.3s;
-    padding: 0;
     background-color: transparent;
-}
-
-/* Ensure buttons in navbar keep their proper styling */
-.navbar a.button {
-    color: var(--text-inverse);
-    text-decoration: none;
-    padding: 10px 14px;
 }
 
 .navbar a:hover:before,
@@ -932,11 +934,11 @@ body.archive-page .archive-container {
 .navbar .active:not(.button):not(.dropdown-item),
 .navbar .active:not(.button):not(.dropdown-item):focus,
 .navbar li:hover>a:not(.button):not(.dropdown-item), 
-.navbar ul li:hover>a:not(.button):not(.dropdown-item) {
-    color: var(--accent-primary);
-    background-color: transparent;
-    text-decoration: none;
-    transform: none;
+.navbar ul li:hover>a:not(.button):not(.dropdown-item),
+.nav-link:focus {
+  background-color: transparent;
+  text-decoration: none;
+  transform: translateY(-3px);
 }
 
 /* Buttons in navbar should maintain button hover behavior */
@@ -945,11 +947,6 @@ body.archive-page .archive-container {
 .navbar a.dropdown-item:focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
-}
-
-.nav-link:focus {
-  color: var(--accent-primary);
-  transform: none;
 }
 
 /* Navbar Dropdown */
@@ -987,7 +984,7 @@ body.archive-page .archive-container {
 
 .navbar a.dropdown-item:hover {
   background-color: var(--accent-primary) !important;
-  color: var(--text-inverse);
+  color: var(--link-inverse);
   text-decoration: none;
 }
 
@@ -1023,8 +1020,6 @@ body.archive-page .archive-container {
 ## Hero Section
 --------------------------------------------------------------*/
 #hero {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
     width: 100%;
     background-size: cover;
     overflow: hidden;
@@ -1074,16 +1069,11 @@ body.archive-page .archive-container {
 #problem i {
     font-size: 3rem;
     color: var(--accent-primary);
-    margin-bottom: 12px;
-    transition: transform 0.2s ease;
-    transform-origin: center;
 }
 
-#about figure:hover i,
-#problem .col-md-4:hover i {
-    transform: scale(1.15);
+#problem i {
+    margin-bottom: 24px;
 }
-
 
 /*--------------------------------------------------------------
 # Mobile Responsive Adjustments
