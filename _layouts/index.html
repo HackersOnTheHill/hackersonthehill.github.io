@@ -49,7 +49,8 @@
             <div class="hero-container" data-aos="fade-up" data-aos-duration="800">
               <div class="row justify-content-center align-items-center">
                 <div class="col-12 col-md-5 text-center mb-4 mb-md-0">
-                  <img src="/assets/img/hoth-us_lightmode.svg" class="img-fluid" alt="Hackers on the Hill">
+                  <img class="logo-light img-fluid" src="/assets/img/hoth-us_lightmode.svg" alt="Hackers on the Hill">
+                  <img class="logo-dark img-fluid" src="/assets/img/hoth-us_darkmode.svg" alt="Hackers on the Hill">
                 </div>
                 <div class="col-12 col-md-7">
                   <h1 class="mb-4">Where technical truth meets policy power</h1>
@@ -112,7 +113,7 @@
     <section id="about" class="section-padding">
         <div class="container position-relative" data-aos="fade-up">
           <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8 text-center">
+            <div class="col-12 col-md-10 col-lg-8">
               <h2 class="section-header">What We Do</h2>
               <p>Hackers on the Hill advances effective cyber policy by building trusted spaces where policymakers and cybersecurity researchers work together on shared challenges. We forge relationships, hold events, and facilitate ongoing dialogue across stakeholder communities - rounded in shared values and principles. </p>
               <p class="mb-5">We're an all-volunteer initiative from <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a> where no one gets paid and no one's selling anything. We just think policy works better when the people making it have candid conversations with the people living it.</p>
@@ -195,7 +196,7 @@
     <section id="events" class="section-padding">
         <div class="container position-relative">
           <div class="row justify-content-center">
-            <div class="col-12 col-lg-9 text-center">
+            <div class="col-12 col-lg-9">
               <h2 class="section-header">A Global Movement</h2>
               <p class="mb-4">What started in Washington, DC has grown worldwide. Each event is organized by local cybersecurity professionals who know the local policy needs and local hacker voices.</p> 
               <p class="mb-5">We're planning even more events in more places. <a href="#" data-bs-toggle="modal" data-bs-target="#newsletterModal" data-analytics-event="newsletter_cta_click" data-analytics-location="events">Join our notification list</a> to hear when that happens.</p>
@@ -269,7 +270,7 @@
                 <div class="col-12 col-md-4 mb-4">
                   <div class="location-card" aria-label="Coming soon: More locations worldwide">
                     <div class="card-logo">
-                      <i class="fa-solid fa-landmark" style="font-size: 72px; color: var(--accent-secondary);" aria-hidden="true"></i>
+                      <i class="fa-solid fa-landmark" style="font-size: 72px; color: var(--accent-primary);" aria-hidden="true"></i>
                     </div>
                     <div class="card-body text-center">
                       <h3 class="card-title">Coming Soon</h3>
@@ -309,7 +310,8 @@
         <div class="col-12 col-lg-9">
           <div class="row align-items-center justify-content-between">
             <div class="col-12 col-md-4 text-center text-md-start logo">
-              <img src="/assets/img/hoth-us_lightmode.svg" alt="Hackers on the Hill" loading="lazy">
+              <img class="logo-light" src="/assets/img/hoth-us_lightmode.svg" alt="Hackers on the Hill" loading="lazy">
+              <img class="logo-dark" src="/assets/img/hoth-us_darkmode.svg" alt="Hackers on the Hill" loading="lazy">
             </div>
             <div class="col-12 col-md-4 text-center">
               <p class="mb-0 tagline"><strong>Non-commercial · No shilling</strong></p>
@@ -319,6 +321,7 @@
                 <a href="https://bsky.app/profile/hackersonthehill.org" class="bluesky" target="_blank" rel="noopener" aria-label="Follow us on Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a>
                 <a href="https://www.instagram.com/hillhackers?igsh=emJ3b29zbGhrOGRn" class="instagram" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                 <a href="https://www.linkedin.com/company/hackers-on-the-hill" class="linkedin" target="_blank" rel="noopener" aria-label="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://infosec.exchange/@hillhackers" class="mastodon" target="_blank" rel="noopener me" aria-label="Follow us on Mastodon"><i class="fa-brands fa-mastodon" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>
@@ -332,7 +335,7 @@
     </div>
   </footer><!-- End Footer -->
 
-  {% include newsletter_modal.html %}
+  {% include notification-list-signup.html %}
   {% include scripts.html %}
 
 </body>

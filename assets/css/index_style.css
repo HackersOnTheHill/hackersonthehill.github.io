@@ -7,33 +7,51 @@
 */
 
 :root {
-  /* Core Colors - Fun purple palette with WCAG AA compliance */
-  --dark-grey: #222222;
-  --shmoo-white: #F5F5F5;
-  --light-purple: #B59ADB;
-  --dark-purple: #6A4B9A;
-  --pure-white: #FFFFFF;
-  --dark-black: #121212;
+  /* ============================================================================
+     Core Colors - Fun purple palette with WCAG AA compliance
+     ========================================================================= */
 
-  /* Semantic Hierarchy (Light Mode) */
-  --text-primary: var(--dark-grey);
-  --text-secondary: rgba(34, 34, 34, 0.7);  /* dark-grey at 70% - improved contrast */
-  --text-inverse: var(--pure-white);
-  --bg-primary: var(--pure-white);
-  --bg-secondary: var(--shmoo-white);
-  --accent-primary: var(--dark-purple);
-  --accent-secondary: var(--light-purple);
-  --shadow-color: rgba(34, 34, 34, 0.1);  /* dark-grey at 10% */
-  --shadow-hover: rgba(34, 34, 34, 0.15);  /* dark-grey at 15% */
-  --border-accent: rgba(123, 95, 163, 0.15);  /* dark-purple at 15% */
+  /* Base Palette */
+  --dark-grey: #222222;        /* Primary text color in light mode */
+  --shmoo-white: #F5F5F5;      /* Light background color */
+  --light-purple: #B59ADB;     /* Secondary accent, links */
+  --dark-purple: #6A4B9A;      /* Primary accent, buttons, highlights */
+  --pure-white: #FFFFFF;       /* Pure white for high contrast */
+  --dark-black: #121212;       /* Dark background for dark mode */
+  --buzz-gold: #EEAA00;        /* CTA buttons (Get Notified, Subscribe) */
+  --buzz-inverse: #FFBF1F;     /* Lighter gold for dark mode CTAs */
+
+  /* ============================================================================
+     Semantic Tokens (Light Mode)
+     Use these in components instead of direct colors
+     ========================================================================= */
+
+  /* Text */
+  --text-primary: var(--dark-grey);              /* Body text, headings */
+  --text-secondary: rgba(34, 34, 34, 0.7);       /* Muted text, captions */
+  --text-inverse: var(--pure-white);             /* Text on dark backgrounds */
+
+  /* Backgrounds */
+  --bg-primary: var(--pure-white);               /* Page background */
+  --bg-secondary: var(--shmoo-white);            /* Card backgrounds, sections */
+
+  /* Accents */
+  --accent-primary: var(--dark-purple);          /* Primary brand color */
+  --accent-secondary: var(--light-purple);       /* Hover states, secondary actions */
+  --cta-accent: var(--buzz-gold);                /* Call-to-action buttons */
+
+  /* Shadows & Borders */
+  --shadow-color: rgba(34, 34, 34, 0.1);         /* Default shadow */
+  --shadow-hover: rgba(34, 34, 34, 0.15);        /* Elevated shadow on hover */
+  --border-accent: rgba(123, 95, 163, 0.15);     /* Subtle borders */
 }
 
 /*--------------------------------------------------------------
 # Dark Mode
-# Flipped color palette for dark theme
+# Flipped color palette and component overrides
 --------------------------------------------------------------*/
 [data-theme="dark"] {
-  /* Semantic Hierarchy (Dark Mode) */
+  /* CSS Variables */
   --text-primary: var(--shmoo-white);
   --text-secondary: rgba(245, 245, 245, 0.7);  /* shmoo-white at 70% - improved contrast */
   --text-inverse: var(--dark-black);
@@ -41,17 +59,52 @@
   --bg-secondary: var(--dark-grey);
   --accent-primary: var(--light-purple);
   --accent-secondary: var(--dark-purple);
+  --cta-accent: var(--buzz-inverse);
   --shadow-color: rgba(18, 18, 18, 0.1);  /* dark black at 10% */
   --shadow-hover: rgba(18, 18, 18, 0.15);  /* dark black at 15% */
   --border-accent: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
+
+  /* Component Overrides */
+  .modal-backdrop {
+    background-color: rgba(255, 255, 255, 0.5); /* --pure-white at 50% opacity */
+  }
+
+  .logo-light {
+    display: none;
+  }
+
+  .logo-dark {
+    display: block;
+  }
+
+  .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23B59ADB' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
 }
 
-/* Invert logo colors for dark mode */
-[data-theme="dark"] #header .logo img,
-[data-theme="dark"] #hero img,
-[data-theme="dark"] #footer img,
-[data-theme="dark"] .location-card .card-logo img:not(.event-logo) {
-  filter: invert(1) hue-rotate(180deg);
+/*--------------------------------------------------------------
+# Modal Backdrop
+# Base backdrop styling (dark mode overrides in Dark Mode section)
+--------------------------------------------------------------*/
+.modal-backdrop {
+  background-color: rgba(18, 18, 18, 0.5); /* --dark-black at 50% opacity */
+}
+
+/*--------------------------------------------------------------
+# Logo Switching (Light Mode Base)
+# Dark mode overrides are in Dark Mode section above
+--------------------------------------------------------------*/
+.logo-light {
+  display: block;
+}
+
+.logo-dark {
+  display: none;
 }
 
 /*--------------------------------------------------------------
@@ -218,7 +271,7 @@ a:focus {
 }
 
 .button {
-    background-color: var(--accent-primary);
+    background-color: var(--cta-accent);
     color: var(--text-inverse);
     border: none;
     border-radius: 1337px;
@@ -234,8 +287,8 @@ a:focus {
 
 .button:hover {
     background-color: transparent;
-    color: var(--accent-primary);
-    outline: 2px solid var(--accent-primary);
+    color: var(--cta-accent);
+    outline: 2px solid var(--cta-accent);
 }
 
 /* Button ripple effect on click */
@@ -533,11 +586,6 @@ body.archive-page .archive-container {
     opacity: 1;
 }
 
-[data-theme="dark"] .btn-close {
-    filter: invert(1);
-    opacity: 0.8;
-}
-
 /* Close button positioning for headerless modals */
 .modal--headerless .modal-content {
     position: relative;
@@ -684,22 +732,6 @@ body.archive-page .archive-container {
     text-decoration: none;
 }
 
-.location-card .event-logo {
-    display: block;
-}
-
-.location-card .logo-dark {
-    display: none;
-}
-
-[data-theme="dark"] .location-card .logo-light {
-    display: none;
-}
-
-[data-theme="dark"] .location-card .logo-dark {
-    display: block;
-}
-
 .location-card:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 12px 28px var(--shadow-hover);
@@ -783,7 +815,7 @@ body.archive-page .archive-container {
 
 .location-card .card-date-next {
     font-size: 0.8125rem;
-    color: var(--accent-primary);
+    color: var(--text-primary);
     font-weight: 500;
     margin-top: 8px;
     padding-top: 8px;
@@ -792,7 +824,7 @@ body.archive-page .archive-container {
 
 .location-card .card-date-last {
     font-size: 0.8125rem;
-    color: var(--accent-secondary);
+    color: var(--text-secondary);
     font-weight: 500;
     margin-top: 8px;
     padding-top: 8px;
@@ -829,10 +861,6 @@ body.archive-page .archive-container {
   display: inline-block;
   width: 24px;
   height: 24px;
-}
-
-[data-theme="dark"] .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23B59ADB' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar {
@@ -1262,6 +1290,7 @@ body.archive-page .archive-container {
 .fa-bluesky::before { content: "\e671"; }
 .fa-instagram::before { content: "\f16d"; }
 .fa-linkedin::before { content: "\f08c"; }
+.fa-mastodon::before { content: "\f4f6"; }
 
 /* Bluesky icon size adjustment (wider viewBox than other icons) */
 .fa-bluesky {
