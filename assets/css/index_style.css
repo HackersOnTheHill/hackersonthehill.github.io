@@ -15,12 +15,14 @@
   --dark-grey: #1A1A1A;                            /* Primary text color in light mode; background in dark mode */
   --shmoo-white: #F5F5F5;                          /* Primary text color in dark mode; background in light mode */
   --hamlet-grey: #2B2B2B;                          /* Accent in light mode */
-  --revolution-grey: #999999;                      /* Neutral grey */
+  --revolution-grey: #999999;                      /* Neutral grey for secondary accent in light and dark modes */
   --droid-grey: #D2D2D2;                           /* Accent in dark mode */
-  --light-purple: #B59ADB;                         /* Accent for important highlights in light mode */
+  --light-purple: #B59ADB;                         /* Accent for important highlights in dark mode */
   --dark-purple: #6A4B9A;                          /* Accent for important highlights in light mode */
   --pure-white: #FFFFFF;                           /* Pure white for high contrast */
   --dark-black: #121212;                           /* Dark background for dark mode */
+  --buzz-gold: #EEAA00;                            /* CTA buttons (Get Notified, Subscribe) */
+  --buzz-inverse: #FFBF1F;                         /* Lighter gold for dark mode CTAs */
 
   /* ============================================================================
      Semantic Tokens (Light Mode)
@@ -29,18 +31,18 @@
 
   /* Text */
   --text-primary: var(--dark-grey);                /* Body text, headings */
-  --text-secondary: var(--hamlet-grey);             /* Muted text, captions */
-  --link-primary: var(--dark-black);            /* Links, primary actions */
-  --link-inverse: var(--pure-white);              /* Text on dark backgrounds */
+  --text-secondary: var(--hamlet-grey);            /* Muted text, captions */
+  --link-primary: var(--dark-purple);               /* Links, primary actions */
+  --link-inverse: var(--pure-white);               /* Text on dark backgrounds */
 
   /* Backgrounds */
   --bg-primary: var(--pure-white);                 /* Page background */
   --bg-secondary: var(--shmoo-white);              /* Card backgrounds, sections */
 
   /* Accents */
-  --accent-primary: var(--hamlet-grey);            /* Primary highlight color */
-  --accent-secondary: var(--revolution-grey);         /* Hover states, secondary actions */
-  --priority-accent: var(--dark-purple);           /* High priority messages and buttons - used sparingly */
+  --accent-primary: var(--dark-purple);            /* Primary highlight color */
+  --accent-secondary: var(--hamlet-grey);      /* Hover states, secondary actions */
+  --priority-accent: var(--buzz-gold);             /* High priority messages and buttons - used sparingly */
 
   /* Shadows & Borders */
   --shadow-color: rgba(34, 34, 34, 0.1);         /* Default shadow */
@@ -55,15 +57,15 @@
 [data-theme="dark"] {
   --text-primary: var(--shmoo-white);
   --text-secondary: var(--droid-grey);
-  --link-primary: var(--pure-white);
+  --link-primary: var(--light-purple);
   --link-inverse: var(--dark-black);
 
   --bg-primary: var(--dark-black);
   --bg-secondary: var(--dark-grey);
 
-  --accent-primary: var(--droid-grey);
-  --accent-secondary: var(--revolution-grey);
-  --priority-accent: var(--light-purple);
+  --accent-primary: var(--light-purple);
+  --accent-secondary: var(--droid-grey);
+  --priority-accent: var(--buzz-inverse);
 
   --shadow-color: rgba(18, 18, 18, 0.1);  /* dark black at 10% */
   --shadow-hover: rgba(18, 18, 18, 0.15);  /* dark black at 15% */
@@ -179,7 +181,7 @@ h6 {
 }
 
 a {
-    color: var(--text-primary);
+    color: var(--link-primary);
     transition: color 0.2s ease, background-color 0.2s ease;
     text-decoration: none;
     font-weight: 800;
@@ -191,7 +193,7 @@ a:hover,
 a:active,
 a:focus {
     color: var(--link-inverse);
-    background-color: var(--text-primary);
+    background-color: var(--link-primary);
     text-decoration: none;
 }
 
@@ -681,7 +683,7 @@ body.archive-page .archive-container {
 
   #footer .social-links a {
     display: inline-flex;
-    color: var(--priority-accent);
+    color: var(--accent-primary);
     line-height: 1;
     transition: transform 0.2s ease;
     align-items: center;
@@ -694,8 +696,6 @@ body.archive-page .archive-container {
   #footer .social-links a:active,
   #footer .social-links a:focus {
     transform: scale(1.15);
-    color: var(--priority-accent);
-    background-color: transparent;
   }
   
   #footer .social-links a i {
@@ -1068,7 +1068,7 @@ body.archive-page .archive-container {
 #about i,
 #problem i {
     font-size: 3rem;
-    color: var(--accent-primary);
+    color: var(--accent-secondary);
 }
 
 #problem i {
