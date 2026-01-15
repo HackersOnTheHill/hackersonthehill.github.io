@@ -1,0 +1,111 @@
+<!-- Contact Form Modal -->
+<!-- Powered by Netlify Forms: https://docs.netlify.com/forms/setup/ -->
+<div class="modal fade modal--headerless" id="contactModal" tabindex="-1" aria-label="Contact us" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <div id="contactFormContainer">
+          <p>Have a question, suggestion, or want to get involved? We'd love to hear from you.</p>
+
+          <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-3">
+            <!-- Honeypot field for spam protection (hidden) -->
+            <p class="d-none">
+              <label>Don't fill this out if you're human: <input name="bot-field"></label>
+            </p>
+
+            <!-- Name field -->
+            <div class="mb-2">
+              <input type="text" class="form-control form-control-sm"
+                     name="name" placeholder="Your name" autocomplete="name"
+                     required aria-required="true" aria-label="Your name">
+            </div>
+
+            <!-- Email field -->
+            <div class="mb-2">
+              <input type="email" class="form-control form-control-sm"
+                     name="email" placeholder="Your email" autocomplete="email"
+                     required aria-required="true" aria-label="Your email">
+            </div>
+
+            <!-- Subject dropdown -->
+            <div class="mb-2">
+              <select class="form-select form-select-sm" name="subject" required aria-required="true" aria-label="Subject">
+                <option value="" disabled selected>What's this about?</option>
+                <option value="general">General inquiry</option>
+                <option value="volunteer">I want to volunteer</option>
+                <option value="location">Suggest a new location</option>
+                <option value="press">Press / Media inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <!-- Message field -->
+            <div class="mb-3">
+              <textarea class="form-control form-control-sm" name="message"
+                        rows="4" placeholder="Your message"
+                        required aria-required="true" aria-label="Your message"></textarea>
+            </div>
+
+            <!-- Submit button - centered -->
+            <div class="text-center">
+              <button type="submit" class="button">Send Message</button>
+            </div>
+          </form>
+
+          <p class="card-detail text-center mt-3">We're all volunteers, so responses may take a few days. While we prefer this contact form, you can also try DMing us on our social channels.</p>
+        </div>
+
+        <!-- Success message (hidden by default) -->
+        <div id="contactSuccessMessage" style="display: none;" class="text-center">
+          <i class="fa-solid fa-circle-check fa-3x mb-3" style="color: var(--accent-primary);" aria-hidden="true"></i>
+          <h4>Message Sent!</h4>
+          <p>Thanks for reaching out. We'll get back to you as soon as we can.</p>
+        </div>
+
+        <!-- Error message (hidden by default) -->
+        <div id="contactErrorMessage" style="display: none;" class="text-center">
+          <i class="fa-solid fa-circle-xmark fa-3x mb-3" style="color: #dc3545;" aria-hidden="true"></i>
+          <h4>Oops!</h4>
+          <p>Something went wrong. Please try reaching out on our social channels instead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        document.getElementById('contactFormContainer').style.display = 'none';
+        document.getElementById('contactSuccessMessage').style.display = 'block';
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      document.getElementById('contactFormContainer').style.display = 'none';
+      document.getElementById('contactErrorMessage').style.display = 'block';
+    }
+  });
+
+  // Reset modal when it's closed
+  document.getElementById('contactModal').addEventListener('hidden.bs.modal', function() {
+    document.getElementById('contactFormContainer').style.display = 'block';
+    document.getElementById('contactSuccessMessage').style.display = 'none';
+    document.getElementById('contactErrorMessage').style.display = 'none';
+    document.getElementById('contactForm').reset();
+  });
+</script>

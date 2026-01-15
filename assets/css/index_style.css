@@ -1275,6 +1275,9 @@ body.archive-page .archive-container {
 .fa-truck-fast::before { content: "\f48b"; }
 .fa-box-archive::before { content: "\f187"; }
 .fa-arrow-right::before { content: "\f061"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-circle-check::before { content: "\f058"; }
+.fa-circle-xmark::before { content: "\f057"; }
 
 /* Brand icons */
 .fa-bluesky::before { content: "\e671"; }
