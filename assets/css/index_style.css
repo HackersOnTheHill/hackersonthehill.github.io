@@ -12,17 +12,19 @@
      ========================================================================= */
 
   /* Base Palette */
-  --dark-grey: #1A1A1A;                            /* Primary text color in light mode; background in dark mode */
-  --shmoo-white: #F5F5F5;                          /* Primary text color in dark mode; background in light mode */
-  --hamlet-grey: #2B2B2B;                          /* Accent in light mode */
-  --revolution-grey: #999999;                      /* Neutral grey for secondary accent in light and dark modes */
-  --droid-grey: #D2D2D2;                           /* Accent in dark mode */
-  --light-purple: #B59ADB;                         /* Accent for important highlights in dark mode */
-  --dark-purple: #6A4B9A;                          /* Accent for important highlights in light mode */
-  --pure-white: #FFFFFF;                           /* Pure white for high contrast */
-  --dark-black: #121212;                           /* Dark background for dark mode */
-  --buzz-gold: #EEAA00;                            /* CTA buttons (Get Notified, Subscribe) */
-  --buzz-inverse: #FFBF1F;                         /* Lighter gold for dark mode CTAs */
+  --dark-black: #121212;                           /* Dark background for dark mode. Ma Bell I got the ill communication. */
+  --hamlet-black: #2B2B2B;                         /* Primary text color in light mode. Yorick would get a kick out of this one. */
+  --revolution-grey: #999999;                      /* Secondary text color. Number 9. Number 9. Number 9. */
+  --shmoo-white: #F5F5F5;                          /* Primary text color in dark mode; background in light mode. Refreshing. */
+  --bright-white: #FDFDFD;                         /* Bright white for high contrast. Also a great mailing list. */
+
+  /* Purple Palette - Two optimized purples for maximum contrast against backgrounds and plain text */
+  --rich-violet: #6b46a3;                          /* High contrast on light backgrounds. You're turning violet, Violet! */
+  --bright-lavender: #b794f6;                      /* High contrast on dark backgrounds. Splashes of lavender. */
+
+  /* Priority Buttons */
+  --buzz-gold: #EAAA00;                            /* CTA buttons in light mode. When you say buzz wiser you've said it all. */
+  --buzz-inverse: #FFBF1F;                         /* CTA buttons in dark mode */
 
   /* ============================================================================
      Semantic Tokens (Light Mode)
@@ -30,24 +32,26 @@
      ========================================================================= */
 
   /* Text */
-  --text-primary: var(--dark-grey);                /* Body text, headings */
-  --text-secondary: var(--hamlet-grey);            /* Muted text, captions */
-  --link-primary: var(--dark-purple);               /* Links, primary actions */
-  --link-inverse: var(--pure-white);               /* Text on dark backgrounds */
+  --text-primary: var(--hamlet-black);             /* Body text, headings */
+  --text-secondary: var(--revolution-grey);        /* Muted text, captions */
+  --link-primary: rgba(107, 70, 163, 0.8);       /* Rich Violet at 80% - default link state */
+  --link-hover: var(--rich-violet);                /* Rich Violet at 100% - hover state */
+  --link-inverse: var(--bright-white);             /* Text on dark backgrounds */
+  --priority-text: var(--hamlet-black);            /* Text on priority (gold) buttons */
 
   /* Backgrounds */
-  --bg-primary: var(--pure-white);                 /* Page background */
+  --bg-primary: var(--bright-white);               /* Page background */
   --bg-secondary: var(--shmoo-white);              /* Card backgrounds, sections */
 
   /* Accents */
-  --accent-primary: var(--dark-purple);            /* Primary highlight color */
-  --accent-secondary: var(--hamlet-grey);      /* Hover states, secondary actions */
+  --accent-primary: var(--rich-violet);            /* Primary highlight color */
+  --accent-secondary: var(--hamlet-black);         /* Hover states, secondary actions */
   --priority-accent: var(--buzz-gold);             /* High priority messages and buttons - used sparingly */
 
   /* Shadows & Borders */
   --shadow-color: rgba(34, 34, 34, 0.1);         /* Default shadow */
   --shadow-hover: rgba(34, 34, 34, 0.15);        /* Elevated shadow on hover */
-  --border-accent: rgba(123, 95, 163, 0.15);     /* Subtle borders */
+  --border-accent: rgba(107, 70, 163, 0.15);     /* Rich Violet at 15% for subtle borders */
 }
 
 /*--------------------------------------------------------------
@@ -56,24 +60,26 @@
 --------------------------------------------------------------*/
 [data-theme="dark"] {
   --text-primary: var(--shmoo-white);
-  --text-secondary: var(--droid-grey);
-  --link-primary: var(--light-purple);
+  --text-secondary: var(--revolution-grey);
+  --link-primary: rgba(182, 148, 246, 0.8);        /* Lavender at 80% - default link state */
+  --link-hover: var(--bright-lavender);            /* Lavender at 100% - hover state */
   --link-inverse: var(--dark-black);
+  --priority-text: var(--dark-black);              /* Text on priority (gold) buttons */
 
   --bg-primary: var(--dark-black);
-  --bg-secondary: var(--dark-grey);
+  --bg-secondary: var(--hamlet-black);
 
-  --accent-primary: var(--light-purple);
-  --accent-secondary: var(--droid-grey);
+  --accent-primary: var(--bright-lavender);
+  --accent-secondary: var(--shmoo-white);
   --priority-accent: var(--buzz-inverse);
 
-  --shadow-color: rgba(18, 18, 18, 0.1);  /* dark black at 10% */
-  --shadow-hover: rgba(18, 18, 18, 0.15);  /* dark black at 15% */
-  --border-accent: rgba(230, 220, 239, 0.15);  /* light-purple at 15% */
+  --shadow-color: rgba(18, 18, 18, 0.1);           /* dark black at 10% */
+  --shadow-hover: rgba(18, 18, 18, 0.15);          /* dark black at 15% */
+  --border-accent: rgba(201, 184, 227, 0.15);      /* Lavender at 15% for subtle borders */
 
   /* Component Overrides */
   .modal-backdrop {
-    background-color: rgba(255, 255, 255, 0.5); /* --pure-white at 50% opacity */
+    background-color: rgba(240, 255, 255, 0.5); /* --bright-white at 50% opacity */
   }
 
   .logo-light {
@@ -90,7 +96,7 @@
   }
 
   .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23B59ADB' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23C9B8E3' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 }
 
@@ -182,19 +188,17 @@ h6 {
 
 a {
     color: var(--link-primary);
-    transition: color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.15s ease;
     text-decoration: none;
-    font-weight: 800;
-    padding: 0 2px;
-    background-color: transparent;
+    font-weight: 600;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: var(--link-inverse);
-    background-color: var(--link-primary);
-    text-decoration: none;
+    color: var(--link-hover);
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* Skip link for keyboard users */
@@ -239,23 +243,16 @@ a:focus {
   outline-offset: 4px;
 }
 
-/* Theme toggle focus */
-.theme-toggle:focus-visible {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-/* Navbar links */
-.navbar a:focus-visible {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
-}
-
-/* Modal close button */
+/* Shared focus styles for interactive elements */
+.theme-toggle:focus-visible,
+.navbar a:focus-visible,
 .btn-close:focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
+}
+
+.theme-toggle:focus-visible {
+  border-radius: 4px;
 }
 
 /* Exclude social links and location cards from general link hover styling */
@@ -300,7 +297,7 @@ a:focus {
 
 .priority {
     background-color: var(--priority-accent);
-    color: var(--link-inverse);
+    color: var(--priority-text);
 }
 
 .priority:hover {
@@ -407,7 +404,7 @@ a:focus {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    color: var(--link-inverse);
+    color: var(--shmoo-white);
 }
 
 .info-bar .info-bar-text {
@@ -418,11 +415,19 @@ a:focus {
     font-size: 0.875rem;
 }
 
+/* Banner links - subtle opacity shift on hover (matches navbar pattern) */
+.event-banner a {
+    color: var(--shmoo-white);
+    opacity: 0.8;
+    transition: opacity 0.15s ease;
+}
+
 .event-banner a:hover,
 .event-banner a:active,
 .event-banner a:focus {
-    color: var(--accent-primary);
-    background-color: var(--link-inverse);
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /*--------------------------------------------------------------
@@ -540,17 +545,17 @@ body.archive-page .archive-container {
 .archive-warning-banner .banner-content {
     display: flex;
     justify-content: center;
-    color: var(--pure-white);
+    color: var(--bright-white);
     font-size: 0.875rem;
 }
 
 .archive-warning-banner .archive-home-link {
-    color: var(--pure-white);
+    color: var(--bright-white);
 }
 
 .archive-warning-banner .archive-home-link:hover {
     color: #dc3545;
-    background-color: var(--pure-white);
+    background-color: var(--bright-white);
 }
 
 /*--------------------------------------------------------------
@@ -696,6 +701,7 @@ body.archive-page .archive-container {
   #footer .social-links a:active,
   #footer .social-links a:focus {
     transform: scale(1.15);
+    text-decoration: none;
   }
   
   #footer .social-links a i {
@@ -705,6 +711,7 @@ body.archive-page .archive-container {
 
   #footer .logo img {
     height: 40px;
+    margin: 0 auto;
   }
 
   #footer .tagline {
@@ -733,6 +740,7 @@ body.archive-page .archive-container {
     flex-direction: column;
     color: var(--text-primary);
     height: 100%;
+    cursor: pointer;
 }
 
 .location-card:hover {
@@ -827,22 +835,22 @@ body.archive-page .archive-container {
     margin-bottom: 0;
 }
 
-.location-card .card-date-next {
+/* Shared date styles for location cards */
+.location-card .card-date-next,
+.location-card .card-date-last {
     font-size: 0.8125rem;
-    color: var(--text-primary);
     font-weight: 500;
     margin-top: 8px;
     padding-top: 8px;
     border-top: 1px solid var(--accent-secondary);
 }
 
+.location-card .card-date-next {
+    color: var(--text-primary);
+}
+
 .location-card .card-date-last {
-    font-size: 0.8125rem;
     color: var(--text-secondary);
-    font-weight: 500;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid var(--accent-secondary);
 }
 
 /* The badge for upcoming events and archives should always be paired with the "button" attribute first */
@@ -869,7 +877,7 @@ body.archive-page .archive-container {
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%236A4B9A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%234A2C7A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -916,34 +924,21 @@ body.archive-page .archive-container {
     padding: 10px 0 10px 12px;
   }
 
-.navbar a {
-    transition: 0.3s;
+/* Navbar links - subtle opacity shift on hover */
+.navbar a:not(.button):not(.dropdown-item) {
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
     background-color: transparent;
 }
 
-.navbar a:hover:before,
-.navbar li:hover>a:before,
-.navbar .active:before {
-  visibility: visible;
-  width: 80%;
-}
-
-/* No special hover styling for navbar links (Upcoming, Archive text) */
 .navbar a:not(.button):not(.dropdown-item):hover,
-.navbar a:not(.button):not(.dropdown-item):active,
-.navbar .active:not(.button):not(.dropdown-item),
-.navbar .active:not(.button):not(.dropdown-item):focus,
-.navbar li:hover>a:not(.button):not(.dropdown-item), 
-.navbar ul li:hover>a:not(.button):not(.dropdown-item),
-.nav-link:focus {
+.navbar a:not(.button):not(.dropdown-item):focus {
+  opacity: 1;
   background-color: transparent;
   text-decoration: none;
-  transform: translateY(-3px);
 }
 
-/* Buttons in navbar should maintain button hover behavior */
-
-.navbar a:focus-visible,
+/* Dropdown items inherit focus-visible from consolidated rules above */
 .navbar a.dropdown-item:focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
@@ -983,7 +978,7 @@ body.archive-page .archive-container {
 }
 
 .navbar a.dropdown-item:hover {
-  background-color: var(--accent-primary) !important;
+  background-color: var(--accent-secondary) !important;
   color: var(--link-inverse);
   text-decoration: none;
 }
@@ -1008,12 +1003,6 @@ body.archive-page .archive-container {
 .theme-toggle:hover {
   color: var(--accent-primary);
   transform: scale(1.15);
-}
-
-.theme-toggle:focus {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
 }
 
 /*--------------------------------------------------------------
@@ -1216,9 +1205,11 @@ body.archive-page .archive-container {
 }
 
 
-.fa, .fa-regular {
-  font-family: 'Font Awesome 7 Regular Free';
-  font-weight: 400;
+/* Shared Font Awesome base styles */
+.fa,
+.fa-regular,
+.fa-solid,
+.fa-brands {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -1228,28 +1219,21 @@ body.archive-page .archive-container {
   text-rendering: auto;
 }
 
-.fa, .fa-solid {
+/* Font-specific overrides */
+.fa,
+.fa-solid {
   font-family: 'Font Awesome 7 Solid Free';
   font-weight: 900;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-rendering: auto;
+}
+
+.fa-regular {
+  font-family: 'Font Awesome 7 Regular Free';
+  font-weight: 400;
 }
 
 .fa-brands {
   font-family: 'Font Awesome 7 Brands';
   font-weight: 400;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-rendering: auto;
 }
 
 .fa-2xl {
