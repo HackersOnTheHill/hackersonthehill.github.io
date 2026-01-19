@@ -67,7 +67,7 @@ permalink: /style-guide/
           <li>One clear idea per asset; clarity beats cleverness.</li>
           <li>Flat, clean, and minimal with generous whitespace.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <p>The brand should feel like civic service: modern, steady, and easy to parse for busy audiences. Aim for quiet confidence, not hype.</p>
@@ -123,7 +123,7 @@ permalink: /style-guide/
           <li>Local colors are highlight-only and used sparingly.</li>
           <li>Keep palettes tight: 1 to 2 accents max per piece.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <h3>Canonical tokens</h3>
@@ -178,7 +178,7 @@ permalink: /style-guide/
           <li>Stick to Regular, Medium, and SemiBold weights.</li>
           <li>Sentence case, normal letter spacing, readable sizes.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <p>Typography should be calm and highly readable. Treat text as the primary design element in most assets.</p>
@@ -212,7 +212,7 @@ permalink: /style-guide/
           <li>Flat, minimal, legible at small sizes.</li>
           <li>Allow variation in silhouette and one highlight, but keep the family resemblance.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <h3>The three invariants (always required)</h3>
@@ -273,7 +273,7 @@ permalink: /style-guide/
           <li>Consistent weight and clear meaning at a glance.</li>
           <li>No cliche hacker imagery or cartoon emoji style.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <div class="style-guide-callouts">
@@ -317,7 +317,7 @@ permalink: /style-guide/
           <li>Use clear hierarchy and alignment for fast scanning.</li>
           <li>One message per asset; avoid competing focal points.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <h3>Practical guidance</h3>
@@ -350,7 +350,7 @@ permalink: /style-guide/
           <li>Text-first layouts; no photos.</li>
           <li>Logo present but not dominant; date and location are clear.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <h3>Announcement</h3>
@@ -394,7 +394,7 @@ permalink: /style-guide/
           <li>Provide a monochrome variant for easy production.</li>
           <li>Limit colors and avoid fine detail.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <h3>Print constraints</h3>
@@ -426,7 +426,7 @@ permalink: /style-guide/
           <li>Include full color, 1-color black, and 1-color white.</li>
           <li>Use consistent naming with location and year.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <h3>Required files</h3>
@@ -462,7 +462,7 @@ permalink: /style-guide/
           <li>Web implementations reference the CSS tokens below.</li>
           <li>For print and social, use the hex values directly.</li>
         </ul>
-        <details class="style-guide-details">
+        <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
           <div class="style-guide-details-body">
             <p>These match the canonical palette and are used in the site CSS as single-source tokens.</p>
