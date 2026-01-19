@@ -8,7 +8,7 @@
 
 :root {
   /* ============================================================================
-     Core Colors - Fun purple palette with WCAG AA compliance
+     1.1 Color Palette
      ========================================================================= */
 
   /* Base Palette */
@@ -27,7 +27,7 @@
   --buzz-inverse: #FFBF1F;                         /* CTA buttons in dark mode */
 
   /* ============================================================================
-     Semantic Tokens (Light Mode)
+     1.2 Semantic Tokens (Light Mode)
      Use these in components instead of direct colors
      ========================================================================= */
 
@@ -54,8 +54,74 @@
   --border-accent: rgba(107, 70, 163, 0.15);     /* Rich Violet at 15% for subtle borders */
 }
 
+/**
+ * ============================================================================
+ * TABLE OF CONTENTS
+ * ============================================================================
+ *
+ * 1. THEME & VARIABLES
+ *    1.1 Color Palette
+ *    1.2 Semantic Tokens (Light Mode)
+ *    1.3 Dark Mode Overrides
+ *    1.4 Theme Toggle
+ *
+ * 2. TYPOGRAPHY
+ *    2.1 Base Styles
+ *    2.2 Headings
+ *    2.3 Links
+ *    2.4 Accessibility (Skip Links, Focus States)
+ *
+ * 3. LAYOUT & GRID
+ *    3.1 Base Layout
+ *    3.2 Container
+ *    3.3 Section Spacing
+ *
+ * 4. COMPONENTS
+ *    4.1 Buttons
+ *    4.2 Cards (Location Cards)
+ *    4.3 Modals
+ *    4.4 Banners (Info Bar, Event Banner)
+ *    4.5 Impact Strip
+ *
+ * 5. NAVIGATION
+ *    5.1 Header
+ *    5.2 Navbar
+ *    5.3 Mobile Menu
+ *    5.4 Dropdown
+ *
+ * 6. SECTIONS
+ *    6.1 Hero
+ *    6.2 Problem
+ *    6.3 About
+ *    6.4 Events
+ *    6.5 Values
+ *
+ * 7. FOOTER
+ *    7.1 Base Styles
+ *    7.2 Social Links
+ *
+ * 8. ANIMATIONS
+ *    8.1 AOS (Animate On Scroll)
+ *    8.2 Micro-interactions
+ *    8.3 Keyframes
+ *
+ * 9. UTILITIES
+ *    9.1 Display
+ *    9.2 Print Styles
+ *    9.3 Accessibility
+ *
+ * 10. RESPONSIVE
+ *     10.1 Mobile Adjustments
+ *     10.2 Tablet Breakpoints
+ *     10.3 Desktop Overrides
+ *
+ * 11. Style Guide
+ *
+ * ============================================================================
+ */
+
 /*--------------------------------------------------------------
-# Dark Mode
+# 1.3 Dark Mode Overrides
 # Flipped color palette and component overrides
 --------------------------------------------------------------*/
 [data-theme="dark"] {
@@ -101,7 +167,7 @@
 }
 
 /*--------------------------------------------------------------
-# Modal Backdrop
+# 4.3 Modals - Backdrop
 # Base backdrop styling (dark mode overrides in Dark Mode section)
 --------------------------------------------------------------*/
 .modal-backdrop {
@@ -109,7 +175,7 @@
 }
 
 /*--------------------------------------------------------------
-# Logo Switching (Light Mode Base)
+# 1.4 Theme Toggle - Logo Switching
 # Dark mode overrides are in Dark Mode section above
 --------------------------------------------------------------*/
 .logo-light {
@@ -121,7 +187,7 @@
 }
 
 /*--------------------------------------------------------------
-## Default and common element definitions
+# 2.1 Base Styles
 -------------------------------------------------------------- */
 html, body {
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -152,6 +218,9 @@ p {
     max-width: none;
 }
 
+/*--------------------------------------------------------------
+# 2.2 Headings
+--------------------------------------------------------------*/
 h1 {
     font-size: 2rem;
     font-weight: 600;
@@ -186,6 +255,9 @@ h6 {
     padding: 0;
 }
 
+/*--------------------------------------------------------------
+# 2.3 Links
+--------------------------------------------------------------*/
 a {
     color: var(--link-primary);
     transition: color 0.15s ease;
@@ -222,7 +294,7 @@ a:focus {
 }
 
 /*--------------------------------------------------------------
-# Focus Styles
+# 2.4 Accessibility (Skip Links, Focus States)
 # Comprehensive keyboard navigation support
 --------------------------------------------------------------*/
 /* Universal focus-visible for keyboard navigation */
@@ -274,6 +346,9 @@ a:focus {
     background-color: transparent;
 }
 
+/*--------------------------------------------------------------
+# 4.1 Buttons
+--------------------------------------------------------------*/
 .button {
     background-color: var(--accent-primary);
     color: var(--link-inverse);
@@ -326,7 +401,7 @@ a:focus {
 }
 
 /*--------------------------------------------------------------
-# Spacing System & Layout Patterns
+# 3.3 Section Spacing
 --------------------------------------------------------------*/
 /* 
   Section Padding Scale:
@@ -352,7 +427,7 @@ a:focus {
 .section-padding-lg { padding: 160px 0; }
 
 /*--------------------------------------------------------------
-# Impact Strip
+# 4.5 Impact Strip
 --------------------------------------------------------------*/
 .impact-strip {
     background: var(--bg-primary);
@@ -372,7 +447,7 @@ a:focus {
 }
 
 /*--------------------------------------------------------------
-# Announcement Bars
+# 4.4 Banners (Info Bar, Event Banner)
 # Shared styles for info-bar and event-banner components
 --------------------------------------------------------------*/
 .event-banner {
@@ -431,7 +506,7 @@ a:focus {
 }
 
 /*--------------------------------------------------------------
-# Header
+# 5.1 Header
 --------------------------------------------------------------*/
 #header {
     background-color: var(--bg-primary);
@@ -451,7 +526,7 @@ a:focus {
 }
 
 /*--------------------------------------------------------------
-# Event Banner
+# 4.4 Banners (Event Banner)
 # Appears below fixed header for time-sensitive announcements
 # margin-top must equal header height (50px) to prevent overlap
 --------------------------------------------------------------*/
@@ -520,7 +595,7 @@ a:focus {
 }
 
 /*--------------------------------------------------------------
-# Archive Warning Banner
+# 4.4 Banners (Archive Warning)
 # Danger-styled banner for archive pages indicating historical content
 # Follows same pattern as event-banner with red danger color
 --------------------------------------------------------------*/
@@ -540,6 +615,7 @@ body.archive-page .archive-container {
     position: sticky;
     top: 50px;
     z-index: 995;
+    margin-top: 50px;
 }
 
 .archive-warning-banner .banner-content {
@@ -549,17 +625,21 @@ body.archive-page .archive-container {
     font-size: 0.875rem;
 }
 
-.archive-warning-banner .archive-home-link {
+.archive-warning-banner a {
     color: var(--bright-white);
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
 }
 
-.archive-warning-banner .archive-home-link:hover {
-    color: #dc3545;
-    background-color: var(--bright-white);
+.archive-warning-banner a:hover,
+.archive-warning-banner a:focus {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /*--------------------------------------------------------------
-# Modal Styling
+# 4.3 Modals - Content
 # Bootstrap modal overrides for event announcements and info popups
 # Typography inherits from global styles for consistency
 --------------------------------------------------------------*/
@@ -667,7 +747,7 @@ body.archive-page .archive-container {
 }
 
 /*--------------------------------------------------------------
-# Footer
+# 7.1 Footer Base Styles
 --------------------------------------------------------------*/
 #footer {
     padding: 20px 0;
@@ -678,6 +758,7 @@ body.archive-page .archive-container {
     border-top: 1px solid var(--shadow-color);
 }
 
+  /* 7.2 Social Links */
   #footer .social-links {
     display: flex;
     justify-content: center;
@@ -725,7 +806,7 @@ body.archive-page .archive-container {
   }
 
 /*--------------------------------------------------------------
-# Event Location Cards
+# 4.2 Cards (Location Cards)
 # Display global event locations (US, Canada, UK) with logos and dates
 # Cards use flexbox to ensure consistent heights across the row
 --------------------------------------------------------------*/
@@ -860,7 +941,7 @@ body.archive-page .archive-container {
 
   
 /*--------------------------------------------------------------
-## Navbar
+# 5.2 Navbar
 -------------------------------------------------------------- */
 /* Hamburger menu button */
 .navbar-toggler {
@@ -944,7 +1025,7 @@ body.archive-page .archive-container {
   outline-offset: 2px;
 }
 
-/* Navbar Dropdown */
+/* 5.4 Dropdown */
 /* Hide dropdowns by default - using !important to override Bootstrap */
 .navbar .dropdown-menu,
 .navbar .navbar-dropdown-hoth {
@@ -984,7 +1065,7 @@ body.archive-page .archive-container {
 }
 
 /*--------------------------------------------------------------
-## Theme Toggle
+# 1.4 Theme Toggle - Button
 --------------------------------------------------------------*/
 .theme-toggle {
   background: none;
@@ -1006,7 +1087,7 @@ body.archive-page .archive-container {
 }
 
 /*--------------------------------------------------------------
-## Hero Section
+# 6.1 Hero
 --------------------------------------------------------------*/
 #hero {
     width: 100%;
@@ -1025,7 +1106,7 @@ body.archive-page .archive-container {
 
 
 /*--------------------------------------------------------------
-## Sections Header
+# 6.0 Section Headers
 --------------------------------------------------------------*/
 .section-header {
     margin-bottom: 24px;
@@ -1036,7 +1117,7 @@ body.archive-page .archive-container {
 
 
 /*--------------------------------------------------------------
-## About Section
+# 6.2-6.4 Problem, About, Events
 --------------------------------------------------------------*/
 #hero,
 #problem,
@@ -1065,10 +1146,35 @@ body.archive-page .archive-container {
 }
 
 /*--------------------------------------------------------------
-# Mobile Responsive Adjustments
+# 6.5 Values
+--------------------------------------------------------------*/
+#values .value-reveal summary {
+  cursor: pointer;
+}
+
+#values .value-reveal .value-full {
+  display: none;
+}
+
+#values .value-reveal[open] .value-summary {
+  display: none;
+}
+
+#values .value-reveal[open] .value-full {
+  display: inline;
+}
+
+#values .value-reveal summary:focus-visible {
+  outline: 2px solid var(--priority-accent);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/*--------------------------------------------------------------
+# 10. Responsive
 --------------------------------------------------------------*/
 
-/* Tablet adjustments (768px - 991px) */
+/* 10.2 Tablet Breakpoints (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
   #hero .hero-container {
     padding: 0 30px;
@@ -1092,7 +1198,7 @@ body.archive-page .archive-container {
   }
 }
 
-/* Mobile adjustments (767px and below) */
+/* 10.1 Mobile Adjustments (767px and below) */
 @media (max-width: 767px) {
   .container,
   .container-fluid {
@@ -1177,7 +1283,7 @@ body.archive-page .archive-container {
 }
 
 /*--------------------------------------------------------------
-# Font Awesome Icons
+# 9.1 Display (Font Awesome Icons)
 --------------------------------------------------------------*/
 /* Font Awesome Free 7.1.0 - https://fontawesome.com/license/free */
 @font-face {
@@ -1276,7 +1382,229 @@ body.archive-page .archive-container {
 }
 
 /*--------------------------------------------------------------
-# Print Styles
+# 11. Style Guide
+--------------------------------------------------------------*/
+.style-guide-main {
+  padding-top: 96px;
+}
+
+.style-guide-main p {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.style-guide-hero {
+  background-color: var(--bg-secondary);
+  padding: 72px 0 48px;
+}
+
+.style-guide-cheatsheet,
+.style-guide-section {
+  padding: 40px 0;
+}
+
+.style-guide-subtitle {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.style-guide-cheatsheet-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-accent);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.style-guide-cheatsheet-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.style-guide-main ul,
+.style-guide-main ol {
+  padding-left: 1.2rem;
+  margin: 0 0 16px;
+}
+
+.style-guide-summary,
+.style-guide-list,
+.style-guide-checklist {
+  margin-bottom: 16px;
+}
+
+.style-guide-summary {
+  margin-bottom: 16px;
+}
+
+.style-guide-main li {
+  margin-bottom: 8px;
+}
+
+.style-guide-note {
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--bg-primary);
+}
+
+.style-guide-details {
+  margin-top: 16px;
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+}
+
+.style-guide-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.style-guide-details summary:focus-visible {
+  outline: 2px solid var(--priority-accent);
+  outline-offset: 4px;
+}
+
+.style-guide-details[open] summary {
+  margin-bottom: 12px;
+}
+
+.style-guide-details-body h3 {
+  margin-top: 16px;
+}
+
+.style-guide-details-body h4 {
+  margin-top: 12px;
+}
+
+.style-guide-callouts {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 16px 0;
+}
+
+.style-guide-callout {
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--bg-primary);
+}
+
+.style-guide-callout h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.style-guide-color-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 16px;
+}
+
+.style-guide-color-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.style-guide-color-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.style-guide-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid var(--border-accent);
+}
+
+.style-guide-logo-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 16px 0;
+}
+
+.style-guide-logo-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.style-guide-logo-card img {
+  max-height: 96px;
+  width: auto;
+  max-width: 100%;
+}
+
+.style-guide-logo-card figcaption {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+@media (max-width: 575px) {
+  .style-guide-main {
+    padding-top: 80px;
+  }
+
+  .style-guide-hero {
+    padding: 64px 0 40px;
+  }
+
+  .style-guide-cheatsheet-card {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .style-guide-cheatsheet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .style-guide-note {
+    grid-column: 1 / -1;
+  }
+}
+
+.style-guide-checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.style-guide-checklist li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.style-guide-checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 2px;
+}
+
+/*--------------------------------------------------------------
+# 9.2 Print Styles
 --------------------------------------------------------------*/
 @media print {
   #header,
