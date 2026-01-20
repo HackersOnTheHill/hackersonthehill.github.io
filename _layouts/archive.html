@@ -1,32 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-{% include head.html %}
+---
+layout: base
+---
 
-<body class="archive-page">
-  {% include header.html %}
-
-  <!-- Archive Warning Banner -->
-  <div class="archive-warning-banner">
-    <div class="container">
-      <div class="banner-content">
-        <span class="banner-text"><i class="banner-icon fa-solid fa-box-archive" aria-hidden="true"></i> Archived Content · <a href="/" class="archive-home-link">View current <i class="banner-icon fa-solid fa-arrow-right" aria-hidden="true"></i></a></span>
-      </div>
-    </div>
-  </div>
-
-  <main id="main" class="main">
-    <div class="archive-container">
-      <iframe 
-        src="{{ page.archive_url }}" 
-        width="100%" 
-        height="100%"
-        style="border: none; display: block;"
-        title="{{ page.title }}">
-      </iframe>
-    </div>
-  </main>
-
-  {% include newsletter_modal.html %}
-  {% include scripts.html %}
-</body>
-</html>
+<div class="archive-container">
+  <div class="archive-overlay" aria-hidden="true"></div>
+  <iframe 
+    src="{{ page.archive_url }}" 
+    width="100%" 
+    height="100%"
+    style="border: none; display: block;"
+    title="{{ page.title }}">
+  </iframe>
+</div>

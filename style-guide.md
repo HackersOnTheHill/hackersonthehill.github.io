@@ -10,13 +10,13 @@ permalink: /style-guide/
       <div class="col-12 col-lg-9">
         <h1>Hackers on the Hill Style &amp; Feel Guide</h1>
         <p class="style-guide-subtitle">Modern • Clean • Minimal • Civic • Human • Neutral</p>
-        <p class="style-guide-intro">This guide helps volunteers create consistent, recognizable visuals across logos, stickers, social cards, print pieces, and web UI. Keep the system tight and the execution calm so every location feels like the same family.</p>
+        <p>This guide helps volunteers create consistent, recognizable visuals across logos, stickers, social cards, print pieces, and web UI. Keep the system tight and the execution calm so every location feels like the same family.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="style-guide-cheatsheet section-padding-sm">
+<section class="style-guide-cheatsheet section-padding-xs">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -47,7 +47,7 @@ permalink: /style-guide/
             </div>
             <div class="style-guide-note">
               <h3>When in doubt</h3>
-              <p>Choose clarity and neutrality over style flourishes. If it does not read instantly, simplify it.</p>
+              <p class="mb-0">Choose clarity and neutrality over style flourishes. If it does not read instantly, simplify it.</p>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="brand-vibe">
+<section class="section-padding-xs" id="brand-vibe">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -69,7 +69,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <p>The brand should feel like civic service: modern, steady, and easy to parse for busy audiences. Aim for quiet confidence, not hype.</p>
             <div class="style-guide-callouts">
               <div class="style-guide-callout">
@@ -112,7 +112,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="color-system">
+<section class="section-padding-xs" id="color-system">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -125,7 +125,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <h3>Canonical tokens</h3>
             <div class="style-guide-color-grid">
               <div>
@@ -168,7 +168,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="typography">
+<section class="section-padding-xs" id="typography">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -180,7 +180,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <p>Typography should be calm and highly readable. Treat text as the primary design element in most assets.</p>
             <h3>Usage</h3>
             <ul>
@@ -202,7 +202,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="logo-system">
+<section class="section-padding-xs" id="logo-system">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -214,7 +214,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <h3>The three invariants (always required)</h3>
             <ol>
               <li>Event name in arc text: "Hackers on the Hill" (or "Hackers in the House" for UK).</li>
@@ -263,7 +263,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="iconography">
+<section class="section-padding-xs" id="iconography">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -275,7 +275,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <div class="style-guide-callouts">
               <div class="style-guide-callout">
                 <h4>Do</h4>
@@ -307,7 +307,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="composition">
+<section class="section-padding-xs" id="composition">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -319,7 +319,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <h3>Practical guidance</h3>
             <ul>
               <li>Align edges and baselines; avoid visual drift.</li>
@@ -340,7 +340,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="social-cards">
+<section class="section-padding-xs" id="social-cards">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -352,7 +352,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <h3>Announcement</h3>
             <ul>
               <li>Big headline + short subhead.</li>
@@ -384,7 +384,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="stickers">
+<section class="section-padding-xs" id="stickers">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -396,7 +396,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <h3>Print constraints</h3>
             <ul>
               <li>If it fails at 1 inch, simplify it.</li>
@@ -416,7 +416,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="deliverables">
+<section class="section-padding-xs" id="deliverables">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -428,7 +428,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <h3>Required files</h3>
             <ul>
               <li>SVG (master)</li>
@@ -453,7 +453,7 @@ permalink: /style-guide/
   </div>
 </section>
 
-<section class="style-guide-section section-padding-sm" id="appendix">
+<section class="section-padding-xs" id="appendix">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -464,7 +464,7 @@ permalink: /style-guide/
         </ul>
         <details class="accordion-minimal">
           <summary>Details, rationale, checklist</summary>
-          <div class="style-guide-details-body">
+          <div class="style-guide-details-body accordion-panel">
             <p>These match the canonical palette and are used in the site CSS as single-source tokens.</p>
             <pre><code class="language-css">:root {
   --dark-black: #121212;

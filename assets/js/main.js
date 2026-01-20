@@ -274,7 +274,7 @@
     // Values: keep only one detail open and lock height on desktop.
     const valuesStack = document.querySelector('#values .value-reveal-stack');
     if (valuesStack) {
-      const valueDetails = Array.from(valuesStack.querySelectorAll('details.value-reveal'));
+      const valueDetails = Array.from(valuesStack.querySelectorAll('details.accordion-minimal'));
       let isMeasuringValues = false;
 
       valueDetails.forEach((detail) => {

@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-{% include head.html %}
+---
+layout: base
+---
 
-<body class="style-guide-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SWT2G3G"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  {% include header.html %}
-
-  <main id="main" class="style-guide-main" tabindex="-1">
-    {{ content }}
-  </main>
-
-  {% include footer.html %}
-  {% include newsletter_modal.html %}
-  {% include scripts.html %}
-</body>
-</html>
+<div class="style-guide-main">
+  {{ content }}
+</div>
