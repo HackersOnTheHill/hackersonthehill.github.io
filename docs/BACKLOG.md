@@ -50,10 +50,10 @@ Review existing Organization and Event schema.org structured data for accuracy.
 
 **Current State:**
 ✅ Organization schema exists (lines 16-29)
-✅ Event schema for Denver 2026 exists (lines 30-51)
+✅ Event schema for Colorado 2026 exists (lines 30-51)
 
 **Action:**
-- Verify Denver 2026 date is correct (Feb 10, 2026)
+- Verify Colorado 2026 date is correct (Feb 10, 2026)
 - Test with [Google Rich Results Test](https://search.google.com/test/rich-results)
 - Update event details if needed for future events
 
@@ -126,7 +126,7 @@ Replace 2 generic "Coming Soon" cards with 1 consolidated + 1 "Suggest a Locatio
 **Priority:** High
 **Effort:** 15 minutes
 **Status:** Completed (2026-01-12)
-**Files:** `assets/css/index_style.css`
+**Files:** `assets/css/main.css`
 
 **Description:**
 Add subtle pulse animation to 2026 banner on page load to draw attention.
@@ -272,8 +272,8 @@ Event cards are hardcoded in [index.html:205-289](_layouts/index.html#L205-L289)
   status: "upcoming"
   date: "February 10, 2026"
   url: "https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform"
-  logo_light: "/assets/img/hoth-denver.svg"
-  logo_dark: "/assets/img/hoth-denver.svg"
+  logo_light: "/assets/img/hoth-colorado-dome.svg"
+  logo_dark: "/assets/img/hoth-colorado-dome.svg"
   cta: "Request a Seat"
   order: 1
 
@@ -438,7 +438,7 @@ Info bar is hardcoded in [index.html:69-77](_layouts/index.html#L69-L77).
 ```yaml
 info_bar:
   enabled: true
-  text: "Upcoming: Denver · February 10, 2026"
+  text: "Upcoming: Colorado · February 10, 2026"
   url: "https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform"
   analytics_location: "info_bar_top"
 ```
@@ -502,14 +502,14 @@ info_bar:
 **Impact:** Low - Developer experience improvement
 
 **Description:**
-Add a comprehensive table of contents at the top of `assets/css/index_style.css` to help maintainers quickly locate styles.
+Add a comprehensive table of contents at the top of `assets/css/main.css` to help maintainers quickly locate styles.
 
 **Current State:**
 CSS file has 1,196 lines with scattered section comments.
 
 **Implementation:**
 
-Add to the top of `assets/css/index_style.css` (after the existing CSS variables):
+Add to the top of `assets/css/main.css` (after the existing CSS variables):
 
 ```css
 /**
@@ -614,7 +614,7 @@ Example:
 **Priority:** Medium
 **Effort:** 45 minutes
 **Status:** Completed (2026-01-12)
-**Files:** `assets/css/index_style.css`
+**Files:** `assets/css/main.css`
 
 **Description:**
 Add subtle animations to buttons and cards for enhanced interactivity.
@@ -673,7 +673,7 @@ Add subtle animations to buttons and cards for enhanced interactivity.
 **Priority:** Medium
 **Effort:** 30 minutes
 **Status:** Completed (2026-01-12)
-**Files:** `assets/css/index_style.css`
+**Files:** `assets/css/main.css`
 
 **Description:**
 Add visible focus indicators to all interactive elements for keyboard accessibility.
@@ -721,7 +721,7 @@ Add unified focus-visible style:
 **Priority:** High
 **Effort:** 20 minutes
 **Status:** Completed (2026-01-12)
-**Files:** `assets/css/index_style.css` (lines 20, 41)
+**Files:** `assets/css/main.css` (lines 20, 41)
 
 **Description:**
 Increase opacity of `--text-secondary` from 60% to 70-75% to meet WCAG AA standards.
@@ -830,7 +830,7 @@ Upgrade Bootstrap framework to latest stable version for security patches, bug f
 
 5. **Check for Style Conflicts:**
    - Bootstrap updates may override custom CSS
-   - Verify all custom styles in `index_style.css` still work
+   - Verify all custom styles in `main.css` still work
    - Check for specificity issues
 
 6. **Update Dependencies (if needed):**
@@ -895,7 +895,7 @@ Refactor monolithic 1,196-line CSS file into maintainable modules.
 **Proposed Structure:**
 ```
 assets/css/
-├── index_style.css          (main import file)
+├── main.css          (main import file)
 ├── modules/
 │   ├── _variables.css       (CSS custom properties, lines 9-32)
 │   ├── _base.css            (Typography, defaults, lines 34-121)
@@ -909,7 +909,7 @@ assets/css/
 **Jekyll Integration:**
 Option 1 - CSS @import:
 ```css
-/* index_style.css */
+/* main.css */
 @import 'modules/_variables.css';
 @import 'modules/_base.css';
 /* etc. */
@@ -939,7 +939,7 @@ Option 2 - Convert to SCSS and use Jekyll's SASS processing
 **Priority:** Medium
 **Effort:** 1-2 hours
 **Status:** Completed (2026-01-12)
-**Files:** `assets/css/index_style.css`
+**Files:** `assets/css/main.css`
 
 **Description:**
 Remove redundant declarations and consolidate scattered rules.
@@ -1111,15 +1111,15 @@ layout: default
 ```yaml
 ---
 layout: event
-title: "Hackers on the Hill - Denver 2026"
+title: "Hackers on the Hill - Colorado 2026"
 event_date: "February 10, 2026"
 location: "Denver, Colorado"
 venue: "Colorado State Capitol"
 tagline: "Our first STATE-level event alongside Wild West Hackin' Fest"
 cta_text: "Register Your Interest"
 cta_link: "https://docs.google.com/forms/..."
-event_logo: "/assets/images/events/denver-2026-logo.png"
-hero_image: "/assets/images/events/denver-hero.jpg"
+event_logo: "/assets/images/events/colorado-2026-logo.png"
+hero_image: "/assets/images/events/colorado-hero.jpg"
 overview: |
   Join us for our first STATE-level Hackers on the Hill event...
 
@@ -1129,8 +1129,8 @@ schedule:
     title: "Registration & Coffee"
   - time: "10:00 AM"
     title: "Opening Remarks"
-contact_email: "denver2026@hackersonthehill.org"
-hashtag: "#HackersOnTheHillDenver"
+contact_email: "colorado2026@hackersonthehill.org"
+hashtag: "#HackersOnTheHillColorado"
 ---
 ```
 
@@ -1155,7 +1155,7 @@ hashtag: "#HackersOnTheHillDenver"
 - `_includes/event-schedule.html` (reusable schedule component)
 
 **Example URL Structure:**
-- `/events/denver-2026/`
+- `/events/colorado-2026/`
 - `/events/dc-2026/`
 - `/events/ottawa-2026/`
 
@@ -1542,7 +1542,7 @@ docker-compose up
 - **2026-01-12 (Session Complete):** Sprint finished - 9 of 10 tasks completed! 🎉
   - **Session Summary:**
     - Total implementation time: ~2-3 hours across 3 phases
-    - Files modified: 6 (head.html, index_style.css, index.html, 2026_banner.html, BACKLOG.md, ANALYTICS.md)
+    - Files modified: 6 (head.html, main.css, index.html, 2026_banner.html, BACKLOG.md, ANALYTICS.md)
     - Zero regressions, all manual testing passed
     - User feedback: "This has all worked out well"
 

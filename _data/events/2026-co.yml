@@ -1,0 +1,60 @@
+hero:
+  title: Hackers on the Hill Colorado
+  date_label: February 10, 2026
+  location_label: Denver, Colorado
+  logo: /assets/img/hoth-colorado-dome.svg
+  logo_alt: Hackers on the Hill Colorado logo
+  description: Candid, technical policy conversations between cybersecurity researchers and state policymakers.
+  cta:
+    label: Register Interest
+    url: https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform
+    external: true
+schedule_intro: "Times are TBD. The current plan is a plenary discussion followed by small-group office briefings."
+location:
+  name: Colorado State Capitol, Old State Library
+  directions_url: https://www.google.com/maps?q=Colorado%20State%20Capitol%2C%20Denver%2C%20CO
+  address: 200 E Colfax Ave, Denver, CO 80203
+  details: |
+    Plenary discussion meets in the Old State Library. Entry details will be shared closer to the event.
+
+    For official directions, parking, and Capitol logistics, see the [Colorado General Assembly visitor information page](https://content.leg.colorado.gov/content/capitol-information).
+  map_embed_url: https://www.google.com/maps?q=Colorado%20State%20Capitol%2C%20Denver%2C%20CO&output=embed
+  map_title: Google map of the Colorado State Capitol
+schedule:
+  - time: TBD
+    title: Arrival and security check
+    description: Entry details and timing will be shared once confirmed.
+  - time: TBD
+    title: Plenary discussion
+    location: Old State Library
+    description: Opening plenary conversation for all attendees.
+    speaker_placeholder: true
+  - time: TBD
+    title: Office briefings in small groups
+    description: We will break into groups for office briefings around the Capitol.
+    speaker_placeholder: true
+  - time: TBD
+    title: Happy hour afterward
+    description: Time and location TBD.
+faq:
+  - question: What happens after I register my interest?
+    answer: |
+      Registering your interest lets us follow up with details as plans are finalized. It does not guarantee a spot.
+
+      If we can accommodate you, you'll receive a confirmation email with next steps.
+  - question: What is the photo/video policy? Do you allow press?
+    answer: |
+      Please ask before taking photos. We will announce participation guidelines at the event. Typically we hold the plenary on the record and the briefings off the record.
+
+      Press attendance is handled separately for each event. If you are a member of the press and would like to attend, please get in touch.
+  - question: Are there recommended hotels?
+    answer: |
+      We don’t have an official hotel block. If you’re visiting from out of town, most downtown Denver hotels are a short walk or ride from the Capitol - including the venue for <a href="https://wildwesthackinfest.com/wild-west-hackin-fest-mile-high-2026/" target="_blank" rel="noopener">Wild West Hackin' Fest @ Mile High</a>.
+  - question: Can I bring a guest?
+    answer: |
+      Due to venue requirements and limited capacity, each attendee must register individually. Please do not bring unregistered guests.
+  - question: What should I bring? What should I wear?
+    answer: |
+      Bring a government-issued photo ID for security screening. A notepad is useful; laptops are optional.
+
+      Dress comfortably and consider layers for February weather.

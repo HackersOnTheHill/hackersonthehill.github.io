@@ -83,7 +83,7 @@ if (newsletterModal) {
 
 **Implementation:** Automatic for all `<a>` tags within `.info-bar`
 
-**Use Case:** Track clicks on time-sensitive announcements (e.g., "Upcoming: Denver · February 10, 2026").
+**Use Case:** Track clicks on time-sensitive announcements (e.g., "Upcoming: Colorado · February 10, 2026").
 
 **Code Reference:** `assets/js/main.js` (lines 50-52)
 ```javascript

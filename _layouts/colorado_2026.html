@@ -1,0 +1,37 @@
+---
+layout: base
+---
+
+{% assign event = site.data.events[page.event_key] %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="section-padding-lg colorado-hero">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-9">
+        <div class="hero-container" data-aos="fade-in" data-aos-delay="100">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-10 col-sm-6 col-md-5 text-center mb-4 mb-md-0">
+              <img src="{{ event.hero.logo }}" class="img-fluid mb-4 hero-logo" alt="{{ event.hero.logo_alt }}">
+              <h6 class="mt-2 mb-0">{{ event.hero.date_label }}</h6>
+              <h6>{{ event.hero.location_label }}</h6>
+            </div>
+            <div class="col-12 col-md-7">
+              <h1 class="mb-3">{{ event.hero.title }}</h1>
+              <p class="mb-4">{{ event.hero.description }}</p>
+              <a class="button priority" href="{{ event.hero.cta.url }}"{% if event.hero.cta.external %} target="_blank" rel="noopener"{% endif %}>{{ event.hero.cta.label }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Hero Section -->
+
+<div class="civic-line" aria-hidden="true"></div>
+
+{% include event-location.html location=event.location section_class="section-padding-md section-bg-primary" container_class="container-fluid col-md-10 col-lg-9 col-xl-8 col-xxl-7" %}
+
+{% include event-schedule.html schedule=event.schedule intro=event.schedule_intro section_class="section-padding-md section-bg-secondary" container_class="container-fluid col-md-10 col-lg-9 col-xl-8 col-xxl-7" container_aos="fade-up" content_aos="fade-up" content_delay="200" %}
+
+{% include faq-section.html faq=event.faq title="FAQ" section_id="faq" section_class="section-padding-md section-bg-primary" title_wrap=true container_aos="fade-up" row_aos="fade-up" row_delay="100" column_classes="col-md-10 col-lg-9 col-xl-8" %}

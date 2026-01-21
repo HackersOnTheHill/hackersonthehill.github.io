@@ -1,0 +1,41 @@
+{% assign schedule = include.schedule %}
+{% if schedule %}
+<!-- ======= Schedule Section ======= -->
+<section id="{{ include.section_id | default: 'schedule' }}"{% if include.section_class %} class="{{ include.section_class }}"{% endif %}>
+  <div class="{{ include.container_class | default: 'container' }}"{% if include.container_aos %} data-aos="{{ include.container_aos }}"{% endif %}>
+    {% if include.intro %}
+    <div class="row justify-content-center mb-4">
+      <div class="col-12 col-md-10 text-center">
+        <p class="mb-0">{{ include.intro }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="tab-content row justify-content-center"{% if include.content_aos %} data-aos="{{ include.content_aos }}"{% endif %}{% if include.content_delay %} data-aos-delay="{{ include.content_delay }}"{% endif %}>
+      {% for item in schedule %}
+      <div class="row schedule-item">
+        <div class="col-3 col-md-4 row">
+          <div class="col-12 col-md-6"><time>{{ item.time }}</time></div>
+          {% if item.speaker_placeholder %}
+          <div class="col-12 col-md-6">
+            <div class="speaker speaker-placeholder" aria-hidden="true">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="col-9 col-md-8">
+          <h5>
+            {{ item.title }}
+            {% if item.location %}
+            <span>{{ item.location }}</span>
+            {% endif %}
+          </h5>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- End Schedule Section -->
+{% endif %}

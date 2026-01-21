@@ -1,0 +1,42 @@
+upcoming:
+  label: Upcoming
+  items:
+    - label: Colorado - Feb 2026
+      url: /colorado/
+archive:
+  label: Archive
+  items:
+    - label: US - DC 2025
+      url: /archives/us-2025/
+    - label: US - DC 2025 - Critical Effect
+      url: /archives/us-2025-critical-effect/
+    - label: Canada - Ottawa 2025
+      url: /archives/ca-2025/
+    - label: UK - London 2025
+      url: /archives/uk-2025/
+    - label: UK - London 2024
+      url: /archives/uk-2024/
+    - label: Canada - Ottawa 2024
+      url: /archives/ca-2024/
+    - label: US - DC 2024
+      url: /archives/us-2024/
+    - label: US - DC 2023
+      url: /archives/us-2023/
+    - label: US - DC 2022
+      url: /archives/us-2022/
+    - label: US - DC 2020
+      url: /archives/us-2020/
+resources:
+  label: Resources
+  items:
+    - label: Briefing Guide (PDF)
+      url: https://www.rapid7.com/globalassets/_pdfs/policy/an-unofficial-guide-to-meeting-with-congressional-offices---jan.-14-2020.pdf
+      external: true
+    - label: UK Tips (PDF)
+      url: /assets/uk-tips.pdf
+      external: true
+    - label: Past Plenaries (YouTube)
+      url: https://www.youtube.com/@hackersonthehill
+      external: true
+    - label: Style Guide
+      url: /style-guide/

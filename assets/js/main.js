@@ -271,15 +271,14 @@
       themeToggle.addEventListener('click', toggleTheme);
     }
 
-    // Values: keep only one detail open and lock height on desktop.
+    // Values: keep only one detail open for a lightweight accordion.
     const valuesStack = document.querySelector('#values .value-reveal-stack');
     if (valuesStack) {
       const valueDetails = Array.from(valuesStack.querySelectorAll('details.accordion-minimal'));
-      let isMeasuringValues = false;
 
       valueDetails.forEach((detail) => {
         detail.addEventListener('toggle', () => {
-          if (isMeasuringValues || !detail.open) {
+          if (!detail.open) {
             return;
           }
           valueDetails.forEach((other) => {
@@ -289,41 +288,6 @@
           });
         });
       });
-
-      const desktopQuery = window.matchMedia('(min-width: 992px)');
-      const updateValuesHeight = () => {
-        if (!desktopQuery.matches || !valueDetails.length) {
-          valuesStack.style.minHeight = '';
-          return;
-        }
-
-        isMeasuringValues = true;
-        const openStates = valueDetails.map((detail) => detail.open);
-
-        valueDetails.forEach((detail) => {
-          detail.open = false;
-        });
-        let maxHeight = valuesStack.getBoundingClientRect().height;
-
-        valueDetails.forEach((detail) => {
-          detail.open = true;
-          const height = valuesStack.getBoundingClientRect().height;
-          if (height > maxHeight) {
-            maxHeight = height;
-          }
-          detail.open = false;
-        });
-
-        valuesStack.style.minHeight = `${Math.ceil(maxHeight)}px`;
-        valueDetails.forEach((detail, index) => {
-          detail.open = openStates[index];
-        });
-        isMeasuringValues = false;
-      };
-
-      updateValuesHeight();
-      window.addEventListener('resize', updateValuesHeight);
-      desktopQuery.addEventListener('change', updateValuesHeight);
     }
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {

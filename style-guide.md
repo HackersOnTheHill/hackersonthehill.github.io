@@ -1,6 +1,6 @@
 ---
 title: Hackers on the Hill Style & Feel Guide
-layout: page
+layout: style-guide
 permalink: /style-guide/
 ---
 
@@ -246,8 +246,8 @@ permalink: /style-guide/
                 <figcaption>UK: Westminster + crown</figcaption>
               </figure>
               <figure class="style-guide-logo-card">
-                <img src="/assets/img/hoth-denver.svg" alt="Hackers on the Hill Denver logo">
-                <figcaption>Denver: local landmark</figcaption>
+                <img src="/assets/img/hoth-colorado-dome.svg" alt="Hackers on the Hill Colorado logo">
+                <figcaption>Colorado: local landmark</figcaption>
               </figure>
             </div>
             <h3>Checklist</h3>
@@ -439,7 +439,7 @@ permalink: /style-guide/
             </ul>
             <h3>Naming convention</h3>
             <p><code>hoth-[location]-logo-[variant]-[YYYY].ext</code></p>
-            <p>Example: <code>hoth-denver-logo-primary-2026.svg</code></p>
+            <p>Example: <code>hoth-colorado-logo-primary-2026.svg</code></p>
             <h3>Checklist</h3>
             <ul class="style-guide-checklist">
               <li>All required formats exported.</li>

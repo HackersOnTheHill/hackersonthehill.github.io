@@ -2,13 +2,8 @@
 <html lang="en">
 {% include head.html %}
 
-{% assign body_class = page.body_class | default: "" %}
-{% if page.layout == "archive" %}
-  {% assign body_class = body_class | append: " archive-page" %}
-{% endif %}
-
-<body{% if body_class != "" %} class="{{ body_class | strip }}"{% endif %}>
-  <a class="skip-link" href="#{{ page.main_id | default: 'top' }}">Skip to main content</a>
+<body{% if page.layout == "archive" %} class="archive-page"{% endif %}>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SWT2G3G"
@@ -18,52 +13,16 @@
   {% include header.html %}
 
   {% if page.layout == "archive" %}
-  <!-- Archive Warning Banner -->
-  <div class="archive-warning-banner">
-    <div class="container">
-      <div class="banner-content">
-        <span class="banner-text"><i class="banner-icon fa-solid fa-box-archive" aria-hidden="true"></i> Archived Content · <a href="#" class="archive-home-link" data-bs-toggle="modal" data-bs-target="#archiveLinksDisabledModal">Learn More -&gt;</a></span>
-      </div>
-    </div>
-  </div>
+    {% include archive-banner.html %}
   {% endif %}
 
-  <main id="{{ page.main_id | default: 'top' }}" tabindex="-1"{% if page.main_class %} class="{{ page.main_class }}"{% endif %}{% if page.main_aos %} data-aos="{{ page.main_aos }}"{% endif %}{% if page.main_aos_duration %} data-aos-duration="{{ page.main_aos_duration }}"{% endif %}>
+  <main id="main" tabindex="-1">
     {{ content }}
   </main>
 
   {% include footer.html %}
   {% if page.layout == "archive" %}
-  <div class="modal fade" id="archiveLinksDisabledModal" tabindex="-1" aria-label="Archive interactions disabled" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body text-center">
-          <h3>Archive interactions disabled</h3>
-          <p>Links and buttons on archived pages are disabled to avoid confusion.</p>
-          <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
-            <button type="button" class="button priority" id="archiveEnableInteractions">Enable interactions</button>
-            <a class="button" href="/">Visit the latest site</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    (function () {
-      const enableButton = document.getElementById('archiveEnableInteractions');
-      if (!enableButton) {
-        return;
-      }
-      enableButton.addEventListener('click', () => {
-        document.body.classList.add('archive-interactions-enabled');
-        const modalEl = document.getElementById('archiveLinksDisabledModal');
-        if (modalEl && window.bootstrap) {
-          const instance = window.bootstrap.Modal.getInstance(modalEl) || new window.bootstrap.Modal(modalEl);
-          instance.hide();
-        }
-      });
-    })();
-  </script>
+    {% include archive-interactions.html %}
   {% endif %}
   {% include notification-list-signup.html %}
   {% include scripts.html %}

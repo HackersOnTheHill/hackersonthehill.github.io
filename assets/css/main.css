@@ -1,0 +1,1879 @@
+/**
+* Style Name: Hackers on the Hill 2024
+* Updated: November 27, 2023 with Bootstrap v5.3.2
+* Author: Beau Woods
+* Based On: TheEvent, by BootstrapMade https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+* License: MIT
+*/
+
+:root {
+  /* ============================================================================
+     1.1 Color Palette
+     ========================================================================= */
+
+  /* Base Palette */
+  --dark-black: #121212;                           /* Dark background for dark mode. Ma Bell I got the ill communication. */
+  --hamlet-black: #2B2B2B;                         /* Primary text color in light mode. Yorick would get a kick out of this one. */
+  --revolution-grey: #999999;                      /* Secondary text color. Number 9. Number 9. Number 9. */
+  --shmoo-white: #F5F5F5;                          /* Primary text color in dark mode; background in light mode. Refreshing. */
+  --bright-white: #FDFDFD;                         /* Bright white for high contrast. Also a great mailing list. */
+
+  /* Purple Palette - Two optimized purples for maximum contrast against backgrounds and plain text */
+  --rich-violet: #6b46a3;                          /* High contrast on light backgrounds. You're turning violet, Violet! */
+  --bright-lavender: #b794f6;                      /* High contrast on dark backgrounds. Splashes of lavender. */
+
+  /* Priority Buttons */
+  --buzz-gold: #EAAA00;                            /* CTA buttons in light mode. When you say buzz wiser you've said it all. */
+  --buzz-inverse: #FFBF1F;                         /* CTA buttons in dark mode */
+
+  /* ============================================================================
+     1.2 Semantic Tokens (Light Mode)
+     Use these in components instead of direct colors
+     ========================================================================= */
+
+  /* Text */
+  --text-primary: var(--hamlet-black);             /* Body text, headings */
+  --text-secondary: var(--revolution-grey);        /* Muted text, captions */
+  --link-primary: rgba(107, 70, 163, 0.8);       /* Rich Violet at 80% - default link state */
+  --link-hover: var(--rich-violet);                /* Rich Violet at 100% - hover state */
+  --link-inverse: var(--bright-white);             /* Text on dark backgrounds */
+  --priority-text: var(--hamlet-black);            /* Text on priority (gold) buttons */
+
+  /* Backgrounds */
+  --bg-primary: var(--bright-white);               /* Page background */
+  --bg-secondary: var(--shmoo-white);              /* Card backgrounds, sections */
+
+  /* Accents */
+  --accent-primary: var(--rich-violet);            /* Primary highlight color */
+  --accent-secondary: var(--hamlet-black);         /* Hover states, secondary actions */
+  --priority-accent: var(--buzz-gold);             /* High priority messages and buttons - used sparingly */
+
+  /* Shadows & Borders */
+  --shadow-color: rgba(34, 34, 34, 0.1);         /* Default shadow */
+  --shadow-hover: rgba(34, 34, 34, 0.15);        /* Elevated shadow on hover */
+  --border-accent: rgba(107, 70, 163, 0.15);     /* Rich Violet at 15% for subtle borders */
+}
+
+/**
+ * ============================================================================
+ * TABLE OF CONTENTS
+ * ============================================================================
+ *
+ * 1. THEME & VARIABLES
+ *    1.1 Color Palette
+ *    1.2 Semantic Tokens (Light Mode)
+ *    1.3 Dark Mode Overrides
+ *    1.4 Theme Toggle
+ *
+ * 2. TYPOGRAPHY
+ *    2.1 Base Styles
+ *    2.2 Headings
+ *    2.3 Links
+ *    2.4 Accessibility (Skip Links, Focus States)
+ *
+ * 3. LAYOUT & GRID
+ *    3.1 Base Layout
+ *    3.2 Container
+ *    3.3 Section Spacing
+ *
+ * 4. COMPONENTS
+ *    4.1 Buttons
+ *    4.2 Cards (Location Cards)
+ *    4.3 Modals
+ *    4.4 Banners (Info Bar, Event Banner)
+ *    4.5 Impact Strip
+ *    4.6 Accordion (Minimal)
+ *
+ * 5. NAVIGATION
+ *    5.1 Header
+ *    5.2 Navbar
+ *    5.3 Mobile Menu
+ *    5.4 Dropdown
+ *
+ * 6. SECTIONS
+ *    6.1 Hero
+ *    6.2 Problem
+ *    6.3 About
+ *    6.4 Events
+ *    6.5 Values
+ *    6.6 Logistics (Location)
+ *    6.7 Schedule
+ *    6.8 FAQ
+ *
+ * 7. FOOTER
+ *    7.1 Base Styles
+ *    7.2 Social Links
+ *
+ * 8. ANIMATIONS
+ *    8.1 AOS (Animate On Scroll)
+ *    8.2 Micro-interactions
+ *    8.3 Keyframes
+ *
+ * 9. UTILITIES
+ *    9.1 Display
+ *    9.2 Print Styles
+ *    9.3 Accessibility
+ *
+ * 10. RESPONSIVE
+ *     10.1 Mobile Adjustments
+ *     10.2 Tablet Breakpoints
+ *     10.3 Desktop Overrides
+ *
+ * 11. Style Guide
+ *
+ * ============================================================================
+ */
+
+/*--------------------------------------------------------------
+# 1.3 Dark Mode Overrides
+# Flipped color palette and component overrides
+--------------------------------------------------------------*/
+[data-theme="dark"] {
+  --text-primary: var(--shmoo-white);
+  --text-secondary: var(--revolution-grey);
+  --link-primary: rgba(182, 148, 246, 0.8);        /* Lavender at 80% - default link state */
+  --link-hover: var(--bright-lavender);            /* Lavender at 100% - hover state */
+  --link-inverse: var(--dark-black);
+  --priority-text: var(--dark-black);              /* Text on priority (gold) buttons */
+
+  --bg-primary: var(--dark-black);
+  --bg-secondary: var(--hamlet-black);
+
+  --accent-primary: var(--bright-lavender);
+  --accent-secondary: var(--shmoo-white);
+  --priority-accent: var(--buzz-inverse);
+
+  --shadow-color: rgba(18, 18, 18, 0.1);           /* dark black at 10% */
+  --shadow-hover: rgba(18, 18, 18, 0.15);          /* dark black at 15% */
+  --border-accent: rgba(201, 184, 227, 0.15);      /* Lavender at 15% for subtle borders */
+
+  /* Component Overrides */
+  .modal-backdrop {
+    background-color: rgba(240, 255, 255, 0.5); /* --bright-white at 50% opacity */
+  }
+
+  .logo-light {
+    display: none;
+  }
+
+  .logo-dark {
+    display: block;
+  }
+
+  .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23C9B8E3' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+/*--------------------------------------------------------------
+# 4.3 Modals - Backdrop
+# Base backdrop styling (dark mode overrides in Dark Mode section)
+--------------------------------------------------------------*/
+.modal-backdrop {
+  background-color: rgba(18, 18, 18, 0.5); /* --dark-black at 50% opacity */
+}
+
+/*--------------------------------------------------------------
+# 1.4 Theme Toggle - Logo Switching
+# Dark mode overrides are in Dark Mode section above
+--------------------------------------------------------------*/
+.logo-light {
+  display: block;
+}
+
+.logo-dark {
+  display: none;
+}
+
+/*--------------------------------------------------------------
+# 2.1 Base Styles
+-------------------------------------------------------------- */
+html, body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a.dropdown-item,
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Manrope', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+p {
+    padding: 0;
+    margin: 0 auto 16px auto;
+    font-weight: 400;
+    /* letter-spacing: -0.025em; */
+    max-width: 65ch;
+}
+
+/* Exclude UI components from max-width constraint */
+.location-card p,
+.modal-body p,
+#footer p {
+    max-width: none;
+}
+
+/*--------------------------------------------------------------
+# 2.2 Headings
+--------------------------------------------------------------*/
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+
+h4 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+h5,
+h6 {
+    font-weight: 500;
+    padding: 0;
+}
+
+/*--------------------------------------------------------------
+# 2.3 Links
+--------------------------------------------------------------*/
+a {
+    color: var(--link-primary);
+    transition: color 0.15s ease;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: var(--link-hover);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    padding: 8px 12px;
+    background: var(--accent-primary);
+    color: var(--link-inverse);
+    border-radius: 6px;
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+    z-index: 2000;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+/*--------------------------------------------------------------
+# 2.4 Accessibility (Skip Links, Focus States)
+# Comprehensive keyboard navigation support
+--------------------------------------------------------------*/
+/* Universal focus-visible for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Button focus uses glow effect */
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-secondary);
+}
+
+/* Location cards need more offset due to hover transform */
+.location-card:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Shared focus styles for interactive elements */
+.theme-toggle:focus-visible,
+.navbar a:focus-visible,
+.btn-close:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.theme-toggle:focus-visible {
+  border-radius: 4px;
+}
+
+/* Exclude social links and location cards from general link hover styling */
+#footer .social-links a:hover,
+#footer .social-links a:active,
+#footer .social-links a:focus,
+#header .logo:hover,
+#header .logo:active,
+#header .logo:focus,
+.location-card:hover,
+.location-card:active,
+.location-card:focus {
+    color: var(--accent-primary);
+    background-color: var(--bg-primary);
+}
+
+#header .logo {
+    padding: 0;
+    background-color: transparent;
+}
+
+/*--------------------------------------------------------------
+# 4.1 Buttons
+--------------------------------------------------------------*/
+.button {
+    background-color: var(--accent-primary);
+    color: var(--link-inverse);
+    border: none;
+    border-radius: 1337px;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: var(--accent-primary);
+    outline: 2px solid var(--accent-primary);
+    text-decoration: none;
+}
+
+.button:focus,
+.button:active {
+    text-decoration: none;
+}
+
+.priority {
+    background-color: var(--priority-accent);
+    color: var(--priority-text);
+}
+
+.priority:hover {
+    background-color: transparent;
+    color: var(--priority-accent);
+    outline: 2px solid var(--priority-accent);
+}
+
+/* Button ripple effect on click */
+.button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.button:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/*--------------------------------------------------------------
+# 3.3 Section Spacing
+--------------------------------------------------------------*/
+/* 
+  Section Padding Scale:
+  - .section-padding-lg  = 120px (Hero, major entry points)
+  - .section-padding     = 80px  (Standard content sections)
+  - .section-padding-sm  = 60px  (Compact areas, transitions)
+  
+  Content Width Patterns:
+  All sections use proper Bootstrap structure: container → row → col-*
+  
+  Wide sections (Hero, Events, Footer):
+    .container > .row > .col-12.col-lg-9
+    → 100% on mobile/tablet, 75% on large screens (900px of 1200px)
+  
+  Standard sections (Problem, About):
+    .container > .row > .col-12.col-md-10.col-lg-8
+    → 100% on mobile, 83% on medium (800px of 960px), 66% on large (800px of 1200px)
+    → Narrower for better readability of body text
+*/
+.section-padding-xs { padding: 20px 0; }
+.section-padding-sm { padding: 60px 0; }
+.section-padding-md { padding: 80px 0; }
+.section-padding-lg { padding: 160px 0; }
+
+.section-bg-primary {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.section-bg-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.civic-line {
+  width: 96px;
+  height: 2px;
+  background: var(--accent-primary);
+  margin: 0 auto 48px;
+  opacity: 0.6;
+}
+
+/*--------------------------------------------------------------
+# 4.5 Impact Strip
+--------------------------------------------------------------*/
+.impact-strip {
+    background: var(--bg-primary);
+}
+
+.impact-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.impact-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/*--------------------------------------------------------------
+# 4.6 Accordion (Minimal)
+--------------------------------------------------------------*/
+.accordion-minimal {
+    margin: 0;
+    padding: 16px 0;
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-accent);
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.accordion-minimal summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    padding-right: 28px;
+    width: 100%;
+}
+
+.accordion-minimal summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion-minimal::after {
+    content: "+";
+    color: var(--accent-primary);
+    font-weight: 600;
+    position: absolute;
+    top: 16px;
+    right: 0;
+    pointer-events: none;
+}
+
+.accordion-minimal[open]::after {
+    content: "-";
+}
+
+.accordion-minimal[open] summary {
+    margin-bottom: 8px;
+}
+
+.accordion-minimal summary:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.accordion-minimal .accordion-panel {
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    margin-right: 28px;
+    transition: max-height 0.6s ease;
+    will-change: max-height;
+}
+
+.accordion-minimal:not([open]) > .accordion-panel {
+    display: block;
+}
+
+.accordion-minimal[open] .accordion-panel {
+    max-height: 2000px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-minimal .accordion-panel {
+      transition: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# 4.4 Banners (Info Bar, Event Banner)
+# Shared styles for info-bar and event-banner components
+--------------------------------------------------------------*/
+.event-banner {
+    background: var(--accent-primary);
+    border: none;
+    border-radius: 0;
+    padding: 18px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+/* Make this one thinner than event banner */
+.info-bar {
+  padding: 6px 0;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.info-bar .info-bar-content {
+    display: flex;
+    justify-content: center;
+}
+
+.event-banner .banner-label,
+.event-banner .banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: var(--shmoo-white);
+}
+
+.info-bar .info-bar-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+/* Banner links - subtle opacity shift on hover (matches navbar pattern) */
+.event-banner a {
+    color: var(--shmoo-white);
+    opacity: 0.8;
+    transition: opacity 0.15s ease;
+}
+
+.event-banner a:hover,
+.event-banner a:active,
+.event-banner a:focus {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/*--------------------------------------------------------------
+# 5.1 Header
+--------------------------------------------------------------*/
+#header {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 50px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    z-index: 997;
+}
+
+#header .logo img {
+    height: 40px;
+    transition: all 0.2s;
+}
+
+/*--------------------------------------------------------------
+# 4.4 Banners (Event Banner)
+# Appears below fixed header for time-sensitive announcements
+# margin-top must equal header height (50px) to prevent overlap
+--------------------------------------------------------------*/
+.event-banner {
+    margin-top: 50px !important;  /* Must match #header height */
+    margin-bottom: 0 !important;
+    position: sticky;
+    top: 50px;
+    z-index: 995;
+    transition: opacity 1s ease, transform 1s ease, box-shadow 1s ease;
+}
+
+/* Banner attention animation - subtle pulse on page load */
+@keyframes banner-attention {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Apply animation to banner content only, not the whole banner */
+.event-banner .banner-content {
+  animation: banner-attention 1.2s ease-in-out 0.5s 2;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .event-banner .banner-content {
+    animation: none;
+  }
+}
+
+.event-banner .banner-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.event-banner.is-sticky {
+    box-shadow: 0 6px 16px var(--shadow-hover);
+}
+
+.event-banner.is-hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+@media (max-width: 575px) {
+    .event-banner .banner-content,
+    .info-bar .info-bar-content {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+    .event-banner .banner-icon {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/*--------------------------------------------------------------
+# 4.4 Banners (Archive Warning)
+# Danger-styled banner for archive pages indicating historical content
+# Follows same pattern as event-banner with red danger color
+--------------------------------------------------------------*/
+body.archive-page {
+    overflow: hidden;
+    height: 100vh;
+}
+
+body.archive-page #main,
+body.archive-page .archive-container {
+    height: calc(100vh - 32px);
+}
+
+body.archive-page .archive-container {
+    position: relative;
+}
+
+body.archive-page .archive-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+body.archive-page .archive-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    z-index: 2;
+    pointer-events: all;
+    cursor: not-allowed;
+}
+
+body.archive-page.archive-interactions-enabled .archive-overlay {
+    display: none;
+}
+
+.archive-warning-banner {
+    background: #dc3545;
+    padding: 5px 0;
+    position: sticky;
+    top: 50px;
+    z-index: 995;
+    margin-top: 50px;
+}
+
+.archive-warning-banner .banner-content {
+    display: flex;
+    justify-content: center;
+    color: var(--bright-white);
+    font-size: 0.875rem;
+}
+
+.archive-warning-banner a {
+    color: var(--bright-white);
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
+}
+
+.archive-warning-banner a:hover,
+.archive-warning-banner a:focus {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/*--------------------------------------------------------------
+# 4.3 Modals - Content
+# Bootstrap modal overrides for event announcements and info popups
+# Typography inherits from global styles for consistency
+--------------------------------------------------------------*/
+.modal-content,
+.modal-header,
+.modal-body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.modal-content {
+    border: 0;
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+.modal-header {
+    border-bottom: 0;
+    padding: 28px 32px 12px;
+}
+
+.modal-header h3 {
+    color: var(--text-primary);
+    font-size: 2rem;  /* Larger than body h3 (28px) but not overwhelming */
+    font-weight: 600;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 20px 32px 32px;
+}
+
+/* Improve close-button visibility in dark mode */
+.btn-close {
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+    opacity: 1;
+}
+
+/* Close button positioning for headerless modals */
+.modal--headerless .modal-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.modal--headerless .btn-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    opacity: 1;
+}
+
+.modal--headerless .modal-body {
+    padding-top: 52px;
+}
+
+/* Newsletter modal layout adjustments */
+#newsletterModal .modal-dialog {
+    max-width: 760px;
+}
+
+#newsletterModal .modal-body {
+    padding: 52px 24px 28px;
+}
+
+#newsletterModal .modal-body p {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 575px) {
+    #newsletterModal .modal-dialog {
+        margin: 8px;
+    }
+
+    #newsletterModal .modal-body {
+        padding: 44px 8px 8px;
+    }
+
+    .modal--headerless .modal-body {
+        padding-top: 44px;
+    }
+
+    #newsletterModal .modal-body .row {
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 12px;
+    }
+
+    .modal-header {
+        padding: 22px 20px 10px;
+    }
+
+    .modal-body {
+        padding: 18px 20px 24px;
+    }
+}
+
+/* Add top margin to subsequent headings for visual separation */
+.modal-body h3:not(:first-child) {
+    margin-top: 32px;
+}
+
+/*--------------------------------------------------------------
+# 7.1 Footer Base Styles
+--------------------------------------------------------------*/
+#footer {
+    padding: 20px 0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    text-align: center;
+    border-top: 1px solid var(--shadow-color);
+}
+
+  /* 7.2 Social Links */
+  #footer .social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  #footer .social-links a {
+    display: inline-flex;
+    color: var(--accent-primary);
+    line-height: 1;
+    transition: transform 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transform-origin: center;
+  }
+  
+  #footer .social-links a:hover,
+  #footer .social-links a:active,
+  #footer .social-links a:focus {
+    transform: scale(1.15);
+    text-decoration: none;
+  }
+  
+  #footer .social-links a i {
+    line-height: 0;
+    font-size: 1.5rem;
+  }
+
+  #footer .logo img {
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  #footer .tagline {
+    font-size: 0.875rem;
+  }
+
+  #footer .attribution p {
+    font-size: 0.625rem;
+    margin: 8px 0;
+    opacity: 0.5;
+  }
+
+/*--------------------------------------------------------------
+# 4.2 Cards (Location Cards)
+# Display global event locations (US, Canada, UK) with logos and dates
+# Cards use flexbox to ensure consistent heights across the row
+--------------------------------------------------------------*/
+.location-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--shadow-color);
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+    height: 100%;
+    cursor: pointer;
+}
+
+button.location-card {
+    appearance: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    background: var(--bg-primary);
+    border: 1px solid var(--shadow-color);
+}
+
+.location-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px var(--shadow-hover);
+    text-decoration: none;
+}
+
+.location-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px var(--shadow-hover);
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 4px;
+    text-decoration: none;
+}
+
+.location-card .card-logo {
+    width: 100%;
+    height: 140px;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+}
+
+.location-card .card-logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    width: 100%;
+    transition: width 0.4s ease;
+    transform-origin: left;
+}
+
+/* Animate accent line on hover */
+.location-card:hover .card-logo::after {
+    animation: accent-line-pulse 0.6s ease-out;
+}
+
+@keyframes accent-line-pulse {
+    0% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.05);
+        height: 3px;
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.location-card .card-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.location-card i {
+  font-size: 72px;
+  color: var(--accent-secondary);
+}
+
+.location-card .card-body {
+    padding: 20px;
+    background: var(--bg-primary);
+}
+
+.location-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.location-card .card-location {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.location-card .card-detail {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+/* Shared date styles for location cards */
+.location-card .card-date-next,
+.location-card .card-date-last {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--accent-secondary);
+}
+
+.location-card .card-date-next {
+    color: var(--text-primary);
+}
+
+.location-card .card-date-last {
+    color: var(--text-secondary);
+}
+
+/* The badge for upcoming events and archives should always be paired with the "button" attribute first */
+.location-card .card-badge {
+    padding: 6px 10px;
+}
+
+  
+/*--------------------------------------------------------------
+# 5.2 Navbar
+-------------------------------------------------------------- */
+/* Hamburger menu button */
+.navbar-toggler {
+  border: 2px solid var(--accent-primary);
+  padding: 4px 8px;
+  background: transparent;
+  border-radius: 4px;
+  display: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem var(--accent-secondary);
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%234A2C7A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.navbar {
+    padding: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    font-size: 0.875rem;
+  }
+
+  /* Override Bootstrap collapse - show navbar on desktop */
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+  
+  .navbar-collapse .navbar {
+    display: block;
+  }
+  
+  .navbar-collapse .navbar ul {
+    display: flex;
+  }
+  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar>ul>li {
+    white-space: nowrap;
+    padding: 10px 0 10px 12px;
+  }
+
+/* Navbar links - subtle opacity shift on hover */
+.navbar a:not(.button):not(.dropdown-item) {
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+    background-color: transparent;
+}
+
+.navbar a:not(.button):not(.dropdown-item):hover,
+.navbar a:not(.button):not(.dropdown-item):focus {
+  opacity: 1;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* Dropdown items inherit focus-visible from consolidated rules above */
+.navbar a.dropdown-item:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* 5.4 Dropdown */
+/* Hide dropdowns by default - using !important to override Bootstrap */
+.navbar .dropdown-menu,
+.navbar .navbar-dropdown-hoth {
+  display: none !important;
+}
+
+/* Show dropdown when Bootstrap adds .show class */
+.navbar .dropdown-menu.show {
+  display: block !important;
+}
+
+/* Improved dropdown visibility with light purple background */
+.navbar .dropdown-menu {
+  background-color: var(--bg-primary) !important;
+  border: 1px solid var(--border-accent);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-hover);
+  padding: 0;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.navbar a.dropdown-item {
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  padding: 6px 16px;
+  transition: background-color 0.2s ease;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.navbar a.dropdown-item:hover {
+  background-color: var(--accent-secondary) !important;
+  color: var(--link-inverse);
+  text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# 1.4 Theme Toggle - Button
+--------------------------------------------------------------*/
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  transform-origin: center;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-primary);
+  transform: scale(1.15);
+}
+
+/*--------------------------------------------------------------
+# 6.1 Hero
+--------------------------------------------------------------*/
+#hero {
+    width: 100%;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+  }
+  
+#hero .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+.colorado-hero .hero-logo {
+    max-height: 200px;
+    width: auto;
+}
+
+@media (max-width: 575px) {
+  .colorado-hero .hero-logo {
+      max-height: 150px;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# 6.0 Section Headers
+--------------------------------------------------------------*/
+.section-header {
+    margin-bottom: 24px;
+    text-align: center;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+
+/*--------------------------------------------------------------
+# 6.2-6.4 Problem, About, Events
+--------------------------------------------------------------*/
+#hero,
+#problem,
+#about,
+#events {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+#about figcaption {
+    font-size: 0.875rem;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Icon styling for about section - unified 48px for all icons */
+#about i,
+#problem i {
+    font-size: 3rem;
+    color: var(--accent-secondary);
+}
+
+#problem i {
+    margin-bottom: 24px;
+}
+
+/*--------------------------------------------------------------
+# 6.5 Values
+--------------------------------------------------------------*/
+#values .accordion-minimal:first-child {
+  border-top: 1px solid var(--border-accent);
+}
+
+#values .accordion-minimal[open] summary {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#values .accordion-panel p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# 6.6 Logistics (Location)
+--------------------------------------------------------------*/
+#logistics {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+#logistics .section-header {
+  margin-bottom: 32px;
+}
+
+#location .location-map iframe {
+  width: 100%;
+  min-height: 320px;
+  border-radius: 16px;
+  border: 1px solid var(--border-accent);
+  box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+#location .location-info {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-accent);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 24px var(--shadow-color);
+  display: flex;
+  align-items: center;
+}
+
+#location .location-info h5 {
+  margin-bottom: 12px;
+}
+
+#location .location-info p {
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+#location .location-info p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# 6.7 Schedule
+--------------------------------------------------------------*/
+#schedule .schedule-item {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-accent);
+  border-left: none;
+  border-radius: 0;
+  padding: 16px 0;
+  margin-bottom: 0;
+}
+
+#schedule .schedule-item time {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#schedule .schedule-item .speaker {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--bg-secondary);
+  box-shadow: 0 6px 14px var(--shadow-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+#schedule .schedule-item .speaker img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#schedule .schedule-item .speaker-placeholder i {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+#schedule .schedule-item:last-child {
+  border-bottom: none;
+}
+
+/*--------------------------------------------------------------
+# 6.8 FAQ
+--------------------------------------------------------------*/
+#faq {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+#faq .faq-stack {
+  display: grid;
+  gap: 0;
+}
+
+#faq .accordion-minimal:first-child {
+  border-top: 1px solid var(--border-accent);
+}
+
+#faq p {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+#faq .faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+#faq .faq-answer ul {
+  padding-left: 20px;
+  margin: 12px 0 0;
+}
+
+#faq .faq-answer ul li {
+  margin-bottom: 8px;
+}
+
+/*--------------------------------------------------------------
+# 10. Responsive
+--------------------------------------------------------------*/
+
+/* 10.2 Tablet Breakpoints (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  #hero .hero-container {
+    padding: 0 30px;
+  }
+
+  #footer p {
+    font-size: 0.75rem !important;
+  }
+
+  #footer .social-links {
+    gap: 12px;
+  }
+
+  #footer .social-links a {
+    min-width: auto;
+    min-height: auto;
+  }
+
+  #footer .social-links a i {
+    font-size: 1.25rem;
+  }
+}
+
+/* 10.1 Mobile Adjustments (767px and below) */
+@media (max-width: 767px) {
+  .container,
+  .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  #hero .hero-container {
+    padding: 0 20px;
+  }
+
+  #hero.section-padding-lg {
+    padding: 60px 0;
+  }
+  
+  .location-card {
+    margin: 0 10px;
+  }
+
+  #location .location-info {
+    padding: 20px 18px;
+  }
+
+  #schedule .schedule-item {
+    padding: 14px 12px;
+  }
+
+  #faq .accordion-minimal {
+    padding: 12px 0;
+  }
+  
+  /* Add vertical spacing between footer sections on mobile */
+  #footer .row.align-items-center > .col-12:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  /* Show hamburger menu on mobile */
+  .navbar-toggler {
+    display: block;
+  }
+  
+  /* Hide menu by default on mobile */
+  .navbar-collapse:not(.show) {
+    display: none !important;
+  }
+
+  /* Remove Bootstrap collapse animation delay on mobile */
+  .navbar-collapse.collapsing {
+    transition: none;
+  }
+
+  /* Mobile menu dropdown styles */
+  .navbar-collapse.show {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background: var(--bg-primary);
+    border: 1px solid var(--shadow-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-hover);
+    padding: 12px 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: block !important;
+    justify-content: normal;
+  }
+  
+  .navbar-collapse.show #navbar ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navbar-collapse.show #navbar li {
+    padding: 8px 16px;
+  }
+  
+  .navbar-collapse.show #navbar a {
+    display: block;
+    width: 100%;
+  }
+  
+  .navbar-collapse.show .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    margin-top: 8px;
+    padding-left: 0;
+    background: transparent;
+  }
+  
+  .navbar-collapse.show .dropdown-menu .dropdown-item {
+    padding: 6px 16px 6px 32px;
+  }
+}
+
+/*--------------------------------------------------------------
+# 9.1 Display (Font Awesome Icons)
+--------------------------------------------------------------*/
+/* Font Awesome Free 7.1.0 - https://fontawesome.com/license/free */
+@font-face {
+  font-family: 'Font Awesome 7 Regular Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-regular-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 7 Solid Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 7 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../vendor/fontawesome/webfonts/fa-brands-400.woff2") format("woff2");
+}
+
+
+/* Shared Font Awesome base styles */
+.fa,
+.fa-regular,
+.fa-solid,
+.fa-brands {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+/* Font-specific overrides */
+.fa,
+.fa-solid {
+  font-family: 'Font Awesome 7 Solid Free';
+  font-weight: 900;
+}
+
+.fa-regular {
+  font-family: 'Font Awesome 7 Regular Free';
+  font-weight: 400;
+}
+
+.fa-brands {
+  font-family: 'Font Awesome 7 Brands';
+  font-weight: 400;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+/* Solid icons */
+.fa-brain::before { content: "\f5dc"; }
+.fa-bug::before { content: "\f188"; }
+.fa-eye-slash::before { content: "\f070"; }
+.fa-industry::before { content: "\f275"; }
+.fa-key::before { content: "\f084"; }
+.fa-landmark::before { content: "\f66f"; }
+.fa-lightbulb::before { content: "\f0eb"; }
+.fa-moon::before { content: "\f186"; }
+.fa-network-wired::before { content: "\f6ff"; }
+.fa-puzzle-piece::before { content: "\f12e"; }
+.fa-sack-dollar::before { content: "\f81d"; }
+.fa-bullhorn::before { content: "\f0a1"; }
+.fa-sun::before { content: "\f185"; }
+.fa-truck-fast::before { content: "\f48b"; }
+.fa-box-archive::before { content: "\f187"; }
+.fa-arrow-right::before { content: "\f061"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-circle-check::before { content: "\f058"; }
+.fa-circle-xmark::before { content: "\f057"; }
+.fa-user::before { content: "\f007"; }
+
+/* Brand icons */
+.fa-bluesky::before { content: "\e671"; }
+.fa-instagram::before { content: "\f16d"; }
+.fa-linkedin::before { content: "\f08c"; }
+.fa-mastodon::before { content: "\f4f6"; }
+.fa-youtube::before { content: "\f167"; }
+
+/* Bluesky icon size adjustment (wider viewBox than other icons) */
+.fa-bluesky {
+  font-size: 0.85em;
+  vertical-align: 0.05em;
+}
+
+/*--------------------------------------------------------------
+# 11. Style Guide
+--------------------------------------------------------------*/
+.style-guide-main {
+  padding-top: 96px;
+}
+
+.style-guide-main p {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.style-guide-hero {
+  background-color: var(--bg-secondary);
+  padding: 72px 0 48px;
+}
+
+.style-guide-cheatsheet {
+  padding: 40px 0;
+}
+
+.style-guide-subtitle {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.style-guide-cheatsheet-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-accent);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.style-guide-cheatsheet-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.style-guide-main ul,
+.style-guide-main ol {
+  padding-left: 1.2rem;
+}
+
+.style-guide-note {
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--bg-primary);
+}
+
+.style-guide-details-body h3 {
+  margin-top: 16px;
+}
+
+.style-guide-details-body h4 {
+  margin-top: 12px;
+}
+
+.style-guide-callouts {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 16px 0;
+}
+
+.style-guide-callout {
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--bg-primary);
+}
+
+.style-guide-callout h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.style-guide-color-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 16px;
+}
+
+.style-guide-color-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.style-guide-color-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.style-guide-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid var(--border-accent);
+}
+
+.style-guide-logo-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 16px 0;
+}
+
+.style-guide-logo-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.style-guide-logo-card img {
+  max-height: 96px;
+  width: auto;
+  max-width: 100%;
+}
+
+.style-guide-logo-card figcaption {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+@media (max-width: 575px) {
+  .style-guide-main {
+    padding-top: 80px;
+  }
+
+  .style-guide-hero {
+    padding: 64px 0 40px;
+  }
+
+  .style-guide-cheatsheet-card {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .style-guide-cheatsheet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .style-guide-note {
+    grid-column: 1 / -1;
+  }
+}
+
+.style-guide-checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.style-guide-checklist li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.style-guide-checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 2px;
+}
+
+/*--------------------------------------------------------------
+# 9.2 Print Styles
+--------------------------------------------------------------*/
+@media print {
+  #header,
+  .event-banner,
+  .info-bar,
+  #footer .social-links,
+  .theme-toggle {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .location-card {
+    page-break-inside: avoid;
+  }
+}
+
+.sender-form-field {
+    text-align: center;
+}

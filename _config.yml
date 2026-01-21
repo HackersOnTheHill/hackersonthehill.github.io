@@ -35,6 +35,17 @@ exclude:
 - Gemfile.lock
 - README.md
 - LICENSE
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: base
+  - scope:
+      path: "archives"
+      type: pages
+    values:
+      layout: archive
 _comments:
   background_image: Image shown behind the content.
   map: Update the map location and display settings.

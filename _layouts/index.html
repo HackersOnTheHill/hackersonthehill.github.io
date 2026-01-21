@@ -2,7 +2,7 @@
 layout: base
 ---
 
-{% include 2026_banner.html %}
+{% include event-banner.html banner=site.data.banners.event_banner %}
 
 <!--============================================
     HERO SECTION
@@ -32,16 +32,9 @@ layout: base
   </div>
 </section><!-- End Hero Section -->
 
+{% assign page_data = site.data.pages.index %}
 <!-- Slim info bar between hero and about -->
-<aside class="info-bar">
-  <div class="container">
-    <div class="info-bar-content">
-      <div class="info-bar-text">
-        <span class="info-label"><a href="https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform" target="_blank" rel="noopener">Upcoming: Denver · February 10, 2026</a></span>
-      </div>
-    </div>
-  </div>
-</aside>
+{% include info-bar.html info=page_data.info_bar %}
 
 <!--============================================
     PROBLEM SECTION
@@ -230,104 +223,11 @@ layout: base
           <p class="mb-5">We're planning even more events in more places. <a href="#" data-bs-toggle="modal" data-bs-target="#newsletterModal" data-analytics-event="newsletter_cta_click" data-analytics-location="events">Join our notification list</a> to hear when that happens.</p>
           
           <!-- Events Cards -->
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-4 mb-4">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform" target="_blank" rel="noopener" class="location-card" aria-label="Register for Hackers on the Hill Denver 2026">
-                <div class="card-logo">
-                  <!-- Update both logo paths when swapping event branding (light/dark). -->
-                  <img class="event-logo logo-light" src="/assets/img/hoth-denver.svg" alt="Denver Colorado logo with mountain peaks" loading="lazy">
-                  <img class="event-logo logo-dark" src="/assets/img/hoth-denver.svg" alt="Denver Colorado logo with mountain peaks" loading="lazy">
-                </div>
-                <div class="card-body text-center">
-                  <h3 class="card-title">Colorado</h3>
-                  <p class="card-location">Denver</p>
-                  <p class="card-detail">Colorado State Capitol</p>
-                  <p class="card-date-next">Next: February 10, 2026</p>
-                  <span class="button card-badge">Request a Seat</span>
-                </div>
-              </a>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="location-card" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#newsletterModal" aria-label="Get notified about Hackers on the Hill Washington, DC 2026">
-                <div class="card-logo">
-                  <!-- Update both logo paths when swapping event branding (light/dark). -->
-                  <img class="event-logo logo-light" src="/assets/img/hoth-us_lightmode.svg" alt="United States Hackers on the Hill logo" loading="lazy">
-                  <img class="event-logo logo-dark" src="/assets/img/hoth-us_darkmode.svg" alt="United States Hackers on the Hill logo" loading="lazy">
-                </div>
-                <div class="card-body text-center">
-                  <h3 class="card-title">United States</h3>
-                  <p class="card-location">Washington, DC</p>
-                  <p class="card-detail">US Capitol</p>
-                  <p class="card-date-next">Next: Mid-2026</p>
-                  <span class="button priority card-badge">Get Notified</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <a href="https://ca-2024.hackersonthehill.org/ca" target="_blank" rel="noopener" class="location-card" aria-label="View past Hackers on the Hill Ottawa 2025 event">
-                <div class="card-logo">
-                  <!-- Update both logo paths when swapping event branding (light/dark). -->
-                  <img class="event-logo logo-light" src="/assets/img/hoth-ca_lightmode.svg" alt="Canada Hackers on the Hill logo" loading="lazy">
-                  <img class="event-logo logo-dark" src="/assets/img/hoth-ca_darkmode.svg" alt="Canada Hackers on the Hill logo" loading="lazy">
-                </div>
-                <div class="card-body text-center">
-                  <h3 class="card-title">Canada</h3>
-                  <p class="card-location">Ottawa</p>
-                  <p class="card-detail">Parliament Hill</p>
-                  <p class="card-date-last">Last: November 2025</p>
-                  <span class="button card-badge">See the Archive</span>
-                </div>
-              </a>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <a href="https://uk-2025.hackersonthehill.org/uk" target="_blank" rel="noopener" class="location-card" aria-label="View past Hackers in the House London 2025 event">
-                <div class="card-logo">
-                  <!-- Update both logo paths when swapping event branding (light/dark). -->
-                  <img class="event-logo logo-light" src="/assets/img/hith-uk_lightmode.svg" alt="United Kingdom Hackers in the House logo" loading="lazy">
-                  <img class="event-logo logo-dark" src="/assets/img/hith-uk_lightmode.svg" alt="United Kingdom Hackers in the House logo" loading="lazy">
-                </div>
-                <div class="card-body text-center">
-                  <h3 class="card-title">United Kingdom</h3>
-                  <p class="card-location">London</p>
-                  <p class="card-detail">Westminster</p>
-                  <p class="card-date-last">Last: December 2025</p>
-                  <span class="button card-badge">See the Archive</span>
-                </div>
-              </a>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="location-card" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#newsletterModal" aria-label="Get notified about new Hackers on the Hill locations">
-                <div class="card-logo">
-                  <i class="fa-solid fa-landmark" aria-hidden="true"></i>
-                </div>
-                <div class="card-body text-center">
-                  <h3 class="card-title">Coming Soon</h3>
-                  <p class="card-location">More locations worldwide</p>
-                  <p class="card-detail">Stay tuned for announcements</p>
-                  <p class="card-date-next">Expanding in 2026</p>
-                  <span class="button priority card-badge">Get Notified</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="location-card" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#contactModal" aria-label="Suggest a location for Hackers on the Hill">
-                <div class="card-logo">
-                  <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
-                </div>
-                <div class="card-body text-center">
-                  <h3 class="card-title">Suggest a Location</h3>
-                  <p class="card-location">Contact us</p>
-                  <p class="card-detail">Know a great place for our next event?</p>
-                  <p class="card-date-next">We want to hear from you</p>
-                  <span class="button card-badge">Share Your Ideas</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% include event-cards.html cards=page_data.event_cards %}
           
         </div>
       </div>
     </div>
   </section><!-- End Global Events Section -->
 
-{% include index-faq.html %}
+{% include faq-section.html faq=page_data.faq title="FAQ" section_id="faq" section_class="section-padding-sm" column_classes="col-12 col-md-10 col-lg-8" %}

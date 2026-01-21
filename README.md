@@ -13,7 +13,7 @@ Stop with `Ctrl+C`. This avoids needing to install Ruby/Bundler.
 - `_includes/` → reusable pieces: `head.html` (metadata/fonts), `navbar.html`, `2026_banner.html` (announcement bar).
 - `_layouts/` → page templates. The homepage layout is `index.html`. Event-specific layouts live here too.
 - `_data/` → small YAML files (e.g., `_data/event.yml`) with dates/metadata some layouts read.
-- `assets/css/index_style.css` → main styles (colors, spacing, icons).  
+- `assets/css/main.css` → main styles (colors, spacing, icons).  
 - `assets/js/main.js` → small scripts (scroll animation, banner pause, theme toggle, sticky banner).
 - `assets/vendor/` → self-hosted libraries (Bootstrap, AOS, Font Awesome). Avoid editing unless upgrading.
 - `CNAME` → domain mapping; don’t remove.
@@ -38,7 +38,7 @@ Create a branch named `{location}-{year}` (for example, `uk-2024`) and push it. 
 ## Design/behavior notes
 - Look/feel: modern, minimal, lots of whitespace. Primary accent `#6A4B9A`, secondary `#B59ADB`. Body font: Noto Sans (loaded in `head.html`).
 - Fixed header at the top; banners sit below it. Hero, Problem, About, and Events share a light background.
-- Icons in Problem/What We Do are defined in `index_style.css` (48px size). Font Awesome glyphs are embedded there.
+- Icons in Problem/What We Do are defined in `main.css` (48px size). Font Awesome glyphs are embedded there.
 - Hover/motion: links are underlined by default (no lift). Buttons/cards use a slight lift/shadow. Animations respect “reduce motion” settings.
 - JS is minimal: no nav scroll magic or galleries—just animations, banner pause, theme toggle, and sticky banner behavior.
 

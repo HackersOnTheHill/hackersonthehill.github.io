@@ -1,0 +1,98 @@
+info_bar:
+  label: "Upcoming: Colorado - February 10, 2026"
+  url: /colorado/
+event_cards:
+  - title: Colorado
+    location: Denver
+    detail: Colorado State Capitol
+    date_label: "Next: February 10, 2026"
+    date_type: next
+    badge: Request a Seat
+    badge_class: ""
+    href: /colorado/
+    logo_light: /assets/img/hoth-colorado-dome.svg
+    logo_dark: /assets/img/hoth-colorado-dome.svg
+    logo_alt: Hackers on the Hill Colorado logo with dome
+    aria_label: Register for Hackers on the Hill Colorado 2026
+  - title: United States
+    location: Washington, DC
+    detail: US Capitol
+    date_label: "Next: Mid-2026"
+    date_type: next
+    badge: Get Notified
+    badge_class: priority
+    modal_target: "#newsletterModal"
+    logo_light: /assets/img/hoth-us_lightmode.svg
+    logo_dark: /assets/img/hoth-us_darkmode.svg
+    logo_alt: United States Hackers on the Hill logo
+    aria_label: Get notified about Hackers on the Hill Washington, DC 2026
+  - title: Canada
+    location: Ottawa
+    detail: Parliament Hill
+    date_label: "Last: November 2025"
+    date_type: last
+    badge: See the Archive
+    badge_class: ""
+    href: https://ca-2024.hackersonthehill.org/ca
+    external: true
+    logo_light: /assets/img/hoth-ca_lightmode.svg
+    logo_dark: /assets/img/hoth-ca_darkmode.svg
+    logo_alt: Canada Hackers on the Hill logo
+    aria_label: View past Hackers on the Hill Ottawa 2025 event
+  - title: United Kingdom
+    location: London
+    detail: Westminster
+    date_label: "Last: December 2025"
+    date_type: last
+    badge: See the Archive
+    badge_class: ""
+    href: https://uk-2025.hackersonthehill.org/uk
+    external: true
+    logo_light: /assets/img/hith-uk_lightmode.svg
+    logo_dark: /assets/img/hith-uk_darkmode.svg
+    logo_alt: United Kingdom Hackers in the House logo
+    aria_label: View past Hackers in the House London 2025 event
+  - title: Coming Soon
+    location: More locations worldwide
+    detail: Stay tuned for announcements
+    date_label: "Expanding in 2026"
+    date_type: next
+    badge: Get Notified
+    badge_class: priority
+    modal_target: "#newsletterModal"
+    icon_class: fa-solid fa-landmark
+    aria_label: Get notified about new Hackers on the Hill locations
+  - title: Suggest a Location
+    location: Contact us
+    detail: Know a great place for our next event?
+    date_label: "We want to hear from you"
+    date_type: next
+    badge: Share Your Ideas
+    badge_class: ""
+    modal_target: "#contactModal"
+    icon_class: fa-solid fa-lightbulb
+    aria_label: Suggest a location for Hackers on the Hill
+faq:
+  - question: Who runs Hackers on the Hill?
+    answer: |
+      Hackers on the Hill, as a whole, is run by volunteers from the <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a> initiative - a group of dedicated individuals from the cybersecurity researcher community. Our goal is to share key resources for cybersecurity knowledge, broker connections to the community's expertise, and improve understanding among policymakers and technologists.
+
+      Each location is run by locals who organize and manage their specific events to best serve their communities.
+  - question: Who are these events for?
+    answer: |
+      Hackers on the Hill is for cybersecurity researchers and practitioners who want to inform policy with real-world experience. We also welcome policy-adjacent technologists who can contribute to technical discussions. Depending on space, we may also be able to open some events to a broader audience. This is a non-commercial event with a no-shilling policy.
+  - question: What are the events like or what can I do to prepare for one? 
+    answer: |
+      Each local event is organized independently, so the format may vary. Generally, events include a plenary session with speakers from the cybersecurity and public policy communities, followed by meetings between attendees and policymakers. Check event pages for more details. Here's a little more info to help you understand what to expect and how to prepare:
+      - Watch plenary sessions from past years on the <a href="https://www.youtube.com/@hackersonthehill" target="_blank" rel="noopener">Hackers on the Hill YouTube channel</a>.
+      - Review the <a href="https://www.rapid7.com/globalassets/_pdfs/policy/an-unofficial-guide-to-meeting-with-congressional-offices---jan.-14-2020.pdf" target="_blank" rel="noopener">Guide to Meeting With Congressional Offices</a> prepared by Harley Geiger.
+      - Read the <a href="https://iamthecavalry.org/2023/02/10/i-am-the-cavalry-hosts-sixth-annual-hackers-on-the-hill-and-white-house-event/" target="_blank" rel="noopener">Hackers on the Hill 2023 overview</a> on the I Am The Cavalry blog.
+      - Explore our archives, linked in the header.
+  - question: How do you handle press?
+    answer: |
+      Press attendance is handled separately for each event. If you are a member of the press and would like to attend or speak with us, please <a data-bs-toggle="modal" href="#contactModal" aria-label="Contact Us">get in touch</a>.
+  - question: How can I be involved in this or other similar initiatives?
+    answer: |
+      You can find more from us at <a href="https://iamthecavalry.org" target="_blank" rel="noopener">I Am The Cavalry</a>. We are also fans of <a href="https://www.techcongress.io/" target="_blank" rel="noopener">TechCongress</a> and the <a href="https://aspentechpolicyhub.org" target="_blank" rel="noopener">Aspen Tech Policy Hub</a> fellowship.
+
+      If you want to volunteer to help organize Hackers on the Hill events or would like to suggest a location, please <a data-bs-toggle="modal" href="#contactModal" aria-label="Contact Us">get in touch</a>!
