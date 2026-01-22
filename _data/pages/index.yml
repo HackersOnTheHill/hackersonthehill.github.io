@@ -1,57 +1,7 @@
 info_bar:
   label: "Upcoming: Colorado - February 10, 2026"
   url: /colorado/
-event_cards:
-  - title: Colorado
-    location: Denver
-    detail: Colorado State Capitol
-    date_label: "Next: February 10, 2026"
-    date_type: next
-    badge: Request a Seat
-    badge_class: ""
-    href: /colorado/
-    logo_light: /assets/img/hoth-colorado-dome.svg
-    logo_dark: /assets/img/hoth-colorado-dome.svg
-    logo_alt: Hackers on the Hill Colorado logo with dome
-    aria_label: Register for Hackers on the Hill Colorado 2026
-  - title: United States
-    location: Washington, DC
-    detail: US Capitol
-    date_label: "Next: Mid-2026"
-    date_type: next
-    badge: Get Notified
-    badge_class: priority
-    modal_target: "#newsletterModal"
-    logo_light: /assets/img/hoth-us_lightmode.svg
-    logo_dark: /assets/img/hoth-us_darkmode.svg
-    logo_alt: United States Hackers on the Hill logo
-    aria_label: Get notified about Hackers on the Hill Washington, DC 2026
-  - title: Canada
-    location: Ottawa
-    detail: Parliament Hill
-    date_label: "Last: November 2025"
-    date_type: last
-    badge: See the Archive
-    badge_class: ""
-    href: https://ca-2024.hackersonthehill.org/ca
-    external: true
-    logo_light: /assets/img/hoth-ca_lightmode.svg
-    logo_dark: /assets/img/hoth-ca_darkmode.svg
-    logo_alt: Canada Hackers on the Hill logo
-    aria_label: View past Hackers on the Hill Ottawa 2025 event
-  - title: United Kingdom
-    location: London
-    detail: Westminster
-    date_label: "Last: December 2025"
-    date_type: last
-    badge: See the Archive
-    badge_class: ""
-    href: https://uk-2025.hackersonthehill.org/uk
-    external: true
-    logo_light: /assets/img/hith-uk_lightmode.svg
-    logo_dark: /assets/img/hith-uk_darkmode.svg
-    logo_alt: United Kingdom Hackers in the House logo
-    aria_label: View past Hackers in the House London 2025 event
+event_cards_static:
   - title: Coming Soon
     location: More locations worldwide
     detail: Stay tuned for announcements
@@ -72,6 +22,43 @@ event_cards:
     modal_target: "#contactModal"
     icon_class: fa-solid fa-lightbulb
     aria_label: Suggest a location for Hackers on the Hill
+event_cards_recent:
+  - title: United States
+    location: Washington, DC
+    detail: US Capitol
+    date_label: "Last: 2025"
+    date_type: last
+    badge: See the Archive
+    badge_class: ""
+    href: /archives/us-2025/
+    logo_light: /assets/img/hoth-us_lightmode.svg
+    logo_dark: /assets/img/hoth-us_darkmode.svg
+    logo_alt: United States Hackers on the Hill logo
+    aria_label: View the most recent Hackers on the Hill US event
+  - title: Canada
+    location: Ottawa
+    detail: Parliament Hill
+    date_label: "Last: November 2025"
+    date_type: last
+    badge: See the Archive
+    badge_class: ""
+    href: /archives/ca-2025/
+    logo_light: /assets/img/hoth-ca_lightmode.svg
+    logo_dark: /assets/img/hoth-ca_darkmode.svg
+    logo_alt: Canada Hackers on the Hill logo
+    aria_label: View the most recent Hackers on the Hill Canada event
+  - title: United Kingdom
+    location: London
+    detail: Westminster
+    date_label: "Last: December 2025"
+    date_type: last
+    badge: See the Archive
+    badge_class: ""
+    href: /archives/uk-2025/
+    logo_light: /assets/img/hith-uk_lightmode.svg
+    logo_dark: /assets/img/hith-uk_darkmode.svg
+    logo_alt: United Kingdom Hackers in the House logo
+    aria_label: View the most recent Hackers in the House UK event
 faq:
   - question: Who runs Hackers on the Hill?
     answer: |

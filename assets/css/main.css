@@ -95,7 +95,6 @@
  *    6.2 Problem
  *    6.3 About
  *    6.4 Events
- *    6.5 Values
  *    6.6 Logistics (Location)
  *    6.7 Schedule
  *    6.8 FAQ
@@ -499,6 +498,7 @@ a:focus {
     list-style: none;
     padding-right: 28px;
     width: 100%;
+    font-weight: 600;
 }
 
 .accordion-minimal summary::-webkit-details-marker {
@@ -1243,13 +1243,13 @@ button.location-card {
     text-align: center;
   }
 
-.colorado-hero .hero-logo {
+.event-hero .hero-logo {
     max-height: 200px;
     width: auto;
 }
 
 @media (max-width: 575px) {
-  .colorado-hero .hero-logo {
+  .event-hero .hero-logo {
       max-height: 150px;
   }
 }
@@ -1293,25 +1293,6 @@ button.location-card {
 
 #problem i {
     margin-bottom: 24px;
-}
-
-/*--------------------------------------------------------------
-# 6.5 Values
---------------------------------------------------------------*/
-#values .accordion-minimal:first-child {
-  border-top: 1px solid var(--border-accent);
-}
-
-#values .accordion-minimal[open] summary {
-  visibility: hidden;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-#values .accordion-panel p:last-child {
-  margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------

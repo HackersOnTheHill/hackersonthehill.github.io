@@ -1,35 +1,55 @@
-{% assign cards = include.cards %}
-{% if cards %}
-<div class="row justify-content-center">
-  {% for card in cards %}
-  <div class="col-12 col-md-4 mb-4">
-    {% if card.modal_target %}
-    <button type="button" class="location-card" data-bs-toggle="modal" data-bs-target="{{ card.modal_target }}" aria-label="{{ card.aria_label }}">
-    {% else %}
-    <a href="{{ card.href }}"{% if card.external %} target="_blank" rel="noopener"{% endif %} class="location-card" aria-label="{{ card.aria_label }}">
+{% assign static_cards = include.static_cards %}
+{% assign recent_cards = include.recent_cards %}
+{% assign now = site.time | date: "%s" | plus: 0 %}
+{% assign event_list = site.data.events %}
+{% assign has_dynamic_cards = false %}
+{% assign has_recent_cards = false %}
+{% assign has_static_cards = false %}
+
+{% if static_cards and static_cards.size > 0 %}
+  {% assign has_static_cards = true %}
+{% endif %}
+{% if recent_cards and recent_cards.size > 0 %}
+  {% assign has_recent_cards = true %}
+{% endif %}
+
+{% if event_list %}
+  {% for event_pair in event_list %}
+    {% assign event = event_pair[1] %}
+    {% if event.status == "published" and event.show_on_index != false and event.start_date and event.card %}
+      {% assign compare_date = event.end_date | default: event.start_date %}
+      {% assign event_time = compare_date | date: "%s" | plus: 0 %}
+      {% if event_time >= now %}
+        {% assign has_dynamic_cards = true %}
+        {% break %}
+      {% endif %}
     {% endif %}
-      <div class="card-logo">
-        {% if card.logo_light %}
-        <!-- Update both logo paths when swapping event branding (light/dark). -->
-        <img class="event-logo logo-light" src="{{ card.logo_light }}" alt="{{ card.logo_alt }}" loading="lazy">
-        <img class="event-logo logo-dark" src="{{ card.logo_dark }}" alt="{{ card.logo_alt }}" loading="lazy">
-        {% else %}
-        <i class="{{ card.icon_class }}" aria-hidden="true"></i>
-        {% endif %}
-      </div>
-      <div class="card-body text-center">
-        <h3 class="card-title">{{ card.title }}</h3>
-        <p class="card-location">{{ card.location }}</p>
-        <p class="card-detail">{{ card.detail }}</p>
-        <p class="card-date-{{ card.date_type }}">{{ card.date_label }}</p>
-        <span class="button{% if card.badge_class %} {{ card.badge_class }}{% endif %} card-badge">{{ card.badge }}</span>
-      </div>
-    {% if card.modal_target %}
-    </button>
-    {% else %}
-    </a>
-    {% endif %}
-  </div>
   {% endfor %}
+{% endif %}
+
+{% if has_dynamic_cards or has_recent_cards or has_static_cards %}
+<div class="row justify-content-center">
+  {% if event_list %}
+    {% for event_pair in event_list %}
+      {% assign event = event_pair[1] %}
+      {% if event.status == "published" and event.show_on_index != false and event.start_date and event.card %}
+        {% assign compare_date = event.end_date | default: event.start_date %}
+        {% assign event_time = compare_date | date: "%s" | plus: 0 %}
+        {% if event_time >= now %}
+          {% include event-card.html card=event.card event=event %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if has_recent_cards %}
+    {% for card in recent_cards %}
+      {% include event-card.html card=card %}
+    {% endfor %}
+  {% endif %}
+  {% if has_static_cards %}
+    {% for card in static_cards %}
+      {% include event-card.html card=card %}
+    {% endfor %}
+  {% endif %}
 </div>
 {% endif %}

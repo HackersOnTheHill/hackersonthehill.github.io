@@ -2,7 +2,7 @@
 {% if faq %}
 <!-- =======  F.A.Q. Section ======= -->
 <section id="{{ include.section_id | default: 'faq' }}"{% if include.section_class != nil %}{% if include.section_class != "" %} class="{{ include.section_class }}"{% endif %}{% else %} class="section-padding-sm"{% endif %}>
-  <div class="container"{% if include.container_aos %} data-aos="{{ include.container_aos }}"{% endif %}>
+  <div class="container">
     {% if include.title %}
       {% if include.title_wrap %}
       <div class="section-header">
@@ -13,7 +13,7 @@
       {% endif %}
     {% endif %}
 
-    <div class="row justify-content-center"{% if include.row_aos %} data-aos="{{ include.row_aos }}"{% endif %}{% if include.row_delay %} data-aos-delay="{{ include.row_delay }}"{% endif %}>
+    <div class="row justify-content-center">
       <div class="{{ include.column_classes | default: 'col-12 col-md-10 col-lg-8' }}">
         <div class="faq-stack">
           {% for item in faq %}

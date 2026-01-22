@@ -1,3 +1,19 @@
+status: published
+start_date: 2026-02-10
+url: /colorado/
+nav:
+  label: Colorado - Feb 2026
+card:
+  title: Colorado
+  location: Denver
+  detail: Colorado State Capitol
+  date_label: "Next: February 10, 2026"
+  date_type: next
+  badge: Request a Seat
+  badge_class: ""
+  logo_light: /assets/img/hoth-colorado-dome.svg
+  logo_alt: Hackers on the Hill Colorado logo with dome
+  aria_label: Register for Hackers on the Hill Colorado 2026
 hero:
   title: Hackers on the Hill Colorado
   date_label: February 10, 2026

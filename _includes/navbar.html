@@ -5,6 +5,9 @@
 
 <!-- Collapsible navbar content -->
 {% assign nav = site.data.nav %}
+{% assign now = site.time | date: "%s" | plus: 0 %}
+{% assign event_list = site.data.events %}
+{% assign archive_list = site.data.archives.items %}
 <div class="collapse navbar-collapse" id="navbarNav">
   <nav id="navbar" class="navbar" aria-label="Primary">
     <ul>
@@ -13,9 +16,20 @@
           {{ nav.upcoming.label }}
         </a>
         <ul class="dropdown-menu navbar-dropdown-hoth">
-          {% for item in nav.upcoming.items %}
-          <li><a class="dropdown-item" href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a></li>
-          {% endfor %}
+          {% if event_list %}
+            {% for event_pair in event_list %}
+              {% assign event = event_pair[1] %}
+              {% if event.status == "published" and event.show_in_nav != false and event.start_date %}
+                {% assign compare_date = event.end_date | default: event.start_date %}
+                {% assign event_time = compare_date | date: "%s" | plus: 0 %}
+                {% if event_time >= now %}
+                  {% assign event_label = event.nav.label | default: event.hero.title %}
+                  {% assign event_url = event.nav.url | default: event.url %}
+                  <li><a class="dropdown-item" href="{{ event_url }}">{{ event_label }}</a></li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </ul>
       </li>
       <li class="nav-item dropdown">
@@ -23,9 +37,31 @@
           {{ nav.archive.label }}
         </a>
         <ul class="dropdown-menu navbar-dropdown-hoth">
-          {% for item in nav.archive.items %}
-          <li><a class="dropdown-item" href="{{ item.url }}">{{ item.label }}</a></li>
-          {% endfor %}
+          {% if event_list %}
+            {% for event_pair in event_list %}
+              {% assign event = event_pair[1] %}
+              {% if event.show_in_nav != false and event.start_date %}
+                {% if event.status == "archived" %}
+                  {% assign event_label = event.nav.label | default: event.hero.title %}
+                  {% assign event_url = event.nav.url | default: event.url %}
+                  <li><a class="dropdown-item" href="{{ event_url }}">{{ event_label }}</a></li>
+                {% elsif event.status == "published" %}
+                  {% assign compare_date = event.end_date | default: event.start_date %}
+                  {% assign event_time = compare_date | date: "%s" | plus: 0 %}
+                  {% if event_time < now %}
+                    {% assign event_label = event.nav.label | default: event.hero.title %}
+                    {% assign event_url = event.nav.url | default: event.url %}
+                    <li><a class="dropdown-item" href="{{ event_url }}">{{ event_label }}</a></li>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if archive_list %}
+            {% for item in archive_list %}
+            <li><a class="dropdown-item" href="{{ item.url }}">{{ item.label }}</a></li>
+            {% endfor %}
+          {% endif %}
         </ul>
       </li>
       <li class="nav-item dropdown">

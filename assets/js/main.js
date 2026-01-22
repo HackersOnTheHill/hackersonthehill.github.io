@@ -1,6 +1,6 @@
 /**
  * Minimal behavior for the landing page:
- * - Initialize AOS for scroll animations
+ * - Initialize AOS for page-load animation
  * - Pause banner animation while the modal is open
  * - Handle light/dark theme toggle
  */
@@ -10,10 +10,10 @@
   document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    // Scroll animation
+    // Page-load animation
     if (window.AOS && !prefersReducedMotion.matches) {
       AOS.init({
-        duration: 1000,
+        duration: 800,
         easing: 'ease-in-out',
         once: true,
         mirror: false

@@ -1,0 +1,32 @@
+{% assign card = include.card %}
+{% assign event = include.event %}
+{% assign card_href = card.href | default: event.url %}
+{% assign card_aria_label = card.aria_label | default: card.title %}
+<div class="col-12 col-md-4 mb-4">
+  {% if card.modal_target %}
+  <button type="button" class="location-card" data-bs-toggle="modal" data-bs-target="{{ card.modal_target }}" aria-label="{{ card_aria_label }}">
+  {% else %}
+  <a href="{{ card_href }}"{% if card.external %} target="_blank" rel="noopener"{% endif %} class="location-card" aria-label="{{ card_aria_label }}">
+  {% endif %}
+    <div class="card-logo">
+      {% if card.logo_light %}
+      <!-- Update both logo paths when swapping event branding (light/dark). -->
+      <img class="event-logo logo-light" src="{{ card.logo_light }}" alt="{{ card.logo_alt | default: card.title }}" loading="lazy">
+      <img class="event-logo logo-dark" src="{{ card.logo_dark | default: card.logo_light }}" alt="{{ card.logo_alt | default: card.title }}" loading="lazy">
+      {% else %}
+      <i class="{{ card.icon_class }}" aria-hidden="true"></i>
+      {% endif %}
+    </div>
+    <div class="card-body text-center">
+      <h3 class="card-title">{{ card.title }}</h3>
+      <p class="card-location">{{ card.location }}</p>
+      <p class="card-detail">{{ card.detail }}</p>
+      <p class="card-date-{{ card.date_type }}">{{ card.date_label }}</p>
+      <span class="button{% if card.badge_class %} {{ card.badge_class }}{% endif %} card-badge">{{ card.badge }}</span>
+    </div>
+  {% if card.modal_target %}
+  </button>
+  {% else %}
+  </a>
+  {% endif %}
+</div>

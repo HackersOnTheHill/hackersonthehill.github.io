@@ -1,10 +1,9 @@
-{% assign location = include.location %}
+{% assign event = include.event %}
+{% assign location = event.location %}
 {% if location %}
 <!-- ======= Location Section ======= -->
-<section id="{{ include.section_id | default: 'location' }}"{% if include.section_class %} class="{{ include.section_class }}"{% endif %}>
-  {% if include.container_class %}
-  <div class="{{ include.container_class }}">
-  {% endif %}
+<section id="location" class="section-padding-md section-bg-primary">
+  <div class="container-fluid col-md-10 col-lg-9 col-xl-8 col-xxl-7">
   <div class="row g-4">
     <div class="col-xl-7 col-xxl-8 location-map">
       <iframe src="{{ location.map_embed_url }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="{{ location.map_title | default: location.name }}"></iframe>
@@ -20,8 +19,6 @@
       </div>
     </div>
   </div>
-  {% if include.container_class %}
   </div>
-  {% endif %}
 </section><!-- End Location Section -->
 {% endif %}
