@@ -1,4 +1,5 @@
 status: draft # draft|published|archived; only published shows in nav/index (to show under Archived nav, add the appropriate .md file in /archives/ and update _data/archives.yml)
+region: us # us|uk|ca|co; used by region stub redirects
 start_date: YYYY-MM-DD # Required; used for nav/index visibility and archive logic
 url: /[event-slug]/ # Must match the event page permalink
 show_in_nav: true # Set false to hide from the Upcoming/Archive nav

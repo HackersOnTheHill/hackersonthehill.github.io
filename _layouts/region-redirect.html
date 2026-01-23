@@ -1,0 +1,53 @@
+---
+layout: base
+---
+
+{% assign region = page.region %}
+{% assign now = site.time | date: "%s" | plus: 0 %}
+{% assign events = site.data.events %}
+{% assign redirect_url = nil %}
+{% assign redirect_label = page.title | default: "event page" %}
+
+{% if events %}
+  {% assign best_event = nil %}
+  {% assign best_time = nil %}
+  {% for event_pair in events %}
+    {% assign event = event_pair[1] %}
+    {% if event.region == region and event.status == "published" and event.start_date %}
+      {% assign event_time = event.start_date | date: "%s" | plus: 0 %}
+      {% if event_time >= now %}
+        {% if best_time == nil or event_time < best_time %}
+          {% assign best_time = event_time %}
+          {% assign best_event = event %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% if best_event %}
+    {% assign redirect_url = best_event.url %}
+    {% assign redirect_label = best_event.hero.title | default: redirect_label %}
+  {% endif %}
+{% endif %}
+
+{% if redirect_url == nil %}
+  {% assign region_config = site.data.regions[region] %}
+  {% if region_config and region_config.archive_fallback %}
+    {% assign redirect_url = region_config.archive_fallback %}
+    {% assign redirect_label = region_config.label | default: redirect_label %}
+  {% endif %}
+{% endif %}
+
+{% if redirect_url == nil %}
+  {% assign redirect_url = "/" %}
+{% endif %}
+
+<section class="section-padding-sm">
+  <div class="container col-md-10 col-lg-8 text-center">
+    <h1 class="section-header">Redirecting...</h1>
+    <p>If you are not redirected, <a href="{{ redirect_url }}">continue to {{ redirect_label }}</a>.</p>
+  </div>
+</section>
+
+<script>
+  window.location.replace("{{ redirect_url }}");
+</script>
