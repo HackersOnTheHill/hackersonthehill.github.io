@@ -1,49 +1,35 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="dark-bg">
-    <div class="footer-top">
       <div class="container">
-        <div class="row justify-content-center">
-
-          <div class="row col-md-10 col-lg-9 col-xl-8 col-xxl-7 footer-info align-items-center">
-            <div class="col-3 col-lg-2 text-center g-0 ps-2"><img src="/assets/img/logo.png" class="img-fluid" alt="Hackers on the Hill"></div><div class="row col col-sm-9 justify-content-center align-items-center">
-              
-                
-              <p class="my-0 px-2">Hackers on the Hill is a non-commercial event with a strict <em><b>no shilling</b></em> policy.</p>
-                
+        <div class="row justify-content-center align-items-center">
+          <div class="col-12 col-lg-9">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-12 col-md-4 text-center text-md-start logo">
+                <img class="logo-light" src="/assets/img/hoth-us_lightmode.svg" alt="Hackers on the Hill" loading="lazy">
+                <img class="logo-dark" src="/assets/img/hoth-us_darkmode.svg" alt="Hackers on the Hill" loading="lazy">
+              </div>
+              <div class="col-12 col-md-4 text-center">
+                <p class="mb-1 tagline"><strong>Non-commercial · No shilling</strong></p>
+                <p class="mb-1"><a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></p>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="social-links d-flex justify-content-center justify-content-md-end">
+                  <a href="https://bsky.app/profile/hackersonthehill.org" class="bluesky" target="_blank" rel="noopener" aria-label="Follow us on Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a>
+                  <a href="https://www.instagram.com/hillhackers?igsh=emJ3b29zbGhrOGRn" class="instagram" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/company/hackers-on-the-hill" class="linkedin" target="_blank" rel="noopener" aria-label="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="https://infosec.exchange/@hillhackers" class="mastodon" target="_blank" rel="noopener me" aria-label="Follow us on Mastodon"><i class="fa-brands fa-mastodon" aria-hidden="true"></i></a>
+                  <a href="https://www.youtube.com/@hackersonthehill" class="youtube" target="_blank" rel="noopener" aria-label="Watch us on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                </div>
+              </div>
             </div>
-
-            <div class="container p-4 attribution">
-              <p>© Copyright <strong>Hackers on the Hill</strong>. All Rights Reserved.</p>
-              <p>
-                <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-              -->
-                Original design, <a href="https://bootstrapmade.com/theevent-conference-event-bootstrap-template/" target="_blank">TheEvent</a> by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
-            </p>
+            <div class="row">
+              <div class="col-12 text-center attribution">
+                <p>© <strong>Hackers on the Hill</strong>. Original design <a href="https://bootstrapmade.com/theevent-conference-event-bootstrap-template/" target="_blank" rel="noopener">TheEvent</a> by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a>.</p>
+              </div>
             </div>
-
           </div>
-
-
-
         </div>
       </div>
-    </div>
-
-    
-  <a href="#" class="button back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="/assets/vendor/aos/aos.js"></script>
-  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="/assets/js/main.js"></script>
-
-
   </footer><!-- End Footer -->
+
+  {% include contact-form.html %}

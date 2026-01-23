@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body{% if page.layout == "archive" %} class="archive-page"{% endif %}>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SWT2G3G"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  {% include header.html %}
+
+  {% if page.layout == "archive" %}
+    {% include archive-banner.html %}
+  {% endif %}
+
+  <main id="main" tabindex="-1"{% if page.layout == "index" or page.layout == "event" %} data-aos="fade-up" data-aos-duration="800"{% endif %}>
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+  {% if page.layout == "archive" %}
+    {% include archive-interactions.html %}
+  {% endif %}
+  {% include notification-list-signup.html %}
+  {% include scripts.html %}
+</body>
+</html>

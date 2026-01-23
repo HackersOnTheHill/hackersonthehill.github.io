@@ -1,0 +1,42 @@
+{% assign event = include.event %}
+{% assign schedule = event.schedule %}
+{% if schedule %}
+<!-- ======= Schedule Section ======= -->
+<section id="schedule" class="section-padding-md section-bg-secondary">
+  <div class="container-fluid col-md-10 col-lg-9 col-xl-8 col-xxl-7">
+    {% if event.schedule_intro %}
+    <div class="row justify-content-center mb-4">
+      <div class="col-12 col-md-10 text-center">
+        <p class="mb-0">{{ event.schedule_intro }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="tab-content row justify-content-center">
+      {% for item in schedule %}
+      <div class="row schedule-item">
+        <div class="col-3 col-md-4 row">
+          <div class="col-12 col-md-6"><time>{{ item.time }}</time></div>
+          {% if item.speaker_placeholder %}
+          <div class="col-12 col-md-6">
+            <div class="speaker speaker-placeholder" aria-hidden="true">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="col-9 col-md-8">
+          <h5>
+            {{ item.title }}
+            {% if item.location %}
+            <span>{{ item.location }}</span>
+            {% endif %}
+          </h5>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- End Schedule Section -->
+{% endif %}

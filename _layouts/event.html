@@ -1,0 +1,46 @@
+---
+layout: base
+---
+
+{% assign event = site.data.events[page.event_key] %}
+{% assign page_content = content | strip %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="section-padding-lg event-hero">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-9">
+        <div class="hero-container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-10 col-sm-6 col-md-5 text-center mb-4 mb-md-0">
+              <img src="{{ event.hero.logo }}" class="img-fluid mb-4 hero-logo" alt="{{ event.hero.logo_alt }}">
+              <h6 class="mt-2 mb-0">{{ event.hero.date_label }}</h6>
+              <h6>{{ event.hero.location_label }}</h6>
+            </div>
+            <div class="col-12 col-md-7">
+              <h1 class="mb-3">{{ event.hero.title }}</h1>
+              <p class="mb-4">{{ event.hero.description }}</p>
+              <a class="button priority" href="{{ event.hero.cta.url }}"{% if event.hero.cta.external %} target="_blank" rel="noopener"{% endif %}>{{ event.hero.cta.label }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Hero Section -->
+
+<div class="civic-line" aria-hidden="true"></div>
+
+{% if page_content != "" %}
+<section id="event-about" class="section-padding-md section-bg-primary event-about">
+  <div class="container col-md-10 col-lg-9 col-xl-8 col-xxl-7">
+    {{ content }}
+  </div>
+</section>
+{% endif %}
+
+{% include event-location.html event=event %}
+
+{% include event-schedule.html event=event %}
+
+{% include event-faq.html event=event %}

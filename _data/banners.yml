@@ -1,0 +1,25 @@
+event_banner:
+  enabled: true
+  label: "What's New for 2026?"
+  icon_class: "fa-solid fa-bullhorn"
+  modal_id: "updates2026Modal"
+  modal_aria_label: "2026 updates"
+  modal_size: "modal-lg"
+  modal_body_html: |
+    <h3>Looking Ahead to 2026</h3>
+    <ul>
+      <li><strong>Colorado, February 10</strong> We will hold our first STATE-level Hackers on the Hill alongside Wild West Hackin' Fest. <a href="/colorado/">Learn more on the Colorado page.</a></li>
+      <li><strong>By popular demand</strong> We will return to Washington, DC later in 2026, as well as Ottawa, Canada and London, UK.</li>
+      <li><strong>Stay tuned...</strong> We're working with friends around the US and the globe to bring you even more Hackers on more Hills in 2026. <a href="#" data-bs-toggle="modal" data-bs-target="#newsletterModal" data-analytics-event="newsletter_cta_click" data-analytics-location="updates2026Modal">Join our notification list</a> to learn more!</li>
+    </ul>
+    <h3>Looking Back on 2025</h3>
+    <p>2025 was our biggest year yet, with three full Hackers on the Hill events in as many countries — debugging democracy globally.</p>
+    <ul>
+      <li><strong>Washington, DC</strong> alongside the final Shmoocon (we'll miss the moose!)</li>
+      <li><strong>Ottawa, Canada</strong> meeting Members of Canadian Parliament</li>
+      <li><strong>London, UK</strong> with UK Government policymakers</li>
+    </ul>
+    <p>Plus we brought policy engagement directly to the hacker community: Policy Village at BSides Ottawa gave attendees hands-on policy workshops, while the Cyber Policy Shark Tank took center stage in the last session at Critical Effect where researchers pitched policy solutions to a panel of experts.</p>
+    <p>Hundreds of hackers. Three dozen policymakers. Our biggest year yet.</p>
+    <h4>Why the DC Timing Change?</h4>
+    <p style="margin-bottom: 0;">January is typically one of the most chaotic periods on the Hill. Starting in 2026, we're working WITH the Congressional calendar not against it. This means more productive conversations with more policymakers at a more opportune time. (Plus, less frostbite!)</p>

@@ -1,0 +1,33 @@
+{% assign banner = include.banner | default: site.data.banners.event_banner %}
+{% if banner and banner.enabled %}
+<div class="alert alert-info event-banner" role="alert" aria-live="polite">
+  <div class="container">
+    <div class="banner-content">
+      {% if banner.modal_id %}
+      <a class="banner-label" href="#" data-bs-toggle="modal" data-bs-target="#{{ banner.modal_id }}">
+        {% if banner.icon_class %}<i class="banner-icon {{ banner.icon_class }}" aria-hidden="true"></i>{% endif %}
+        {{ banner.label }}
+      </a>
+      {% else %}
+      <span class="banner-label">
+        {% if banner.icon_class %}<i class="banner-icon {{ banner.icon_class }}" aria-hidden="true"></i>{% endif %}
+        {{ banner.label }}
+      </span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if banner.modal_id and banner.modal_body_html %}
+<div class="modal fade modal--headerless" id="{{ banner.modal_id }}" tabindex="-1" aria-label="{{ banner.modal_aria_label | default: banner.label }}" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered{% if banner.modal_size %} {{ banner.modal_size }}{% endif %}">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        {{ banner.modal_body_html }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endif %}

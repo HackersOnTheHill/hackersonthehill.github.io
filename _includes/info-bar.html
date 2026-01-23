@@ -1,0 +1,14 @@
+{% assign info = include.info %}
+{% if info %}
+<aside class="info-bar">
+  <div class="container">
+    <div class="info-bar-content">
+      <div class="info-bar-text">
+        <span class="info-label">
+          <a href="{{ info.url }}"{% if info.external %} target="_blank" rel="noopener"{% endif %}>{{ info.label }}</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</aside>
+{% endif %}

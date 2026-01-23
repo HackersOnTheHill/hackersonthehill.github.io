@@ -1,0 +1,55 @@
+{% assign static_cards = include.static_cards %}
+{% assign recent_cards = include.recent_cards %}
+{% assign now = site.time | date: "%s" | plus: 0 %}
+{% assign event_list = site.data.events %}
+{% assign has_dynamic_cards = false %}
+{% assign has_recent_cards = false %}
+{% assign has_static_cards = false %}
+
+{% if static_cards and static_cards.size > 0 %}
+  {% assign has_static_cards = true %}
+{% endif %}
+{% if recent_cards and recent_cards.size > 0 %}
+  {% assign has_recent_cards = true %}
+{% endif %}
+
+{% if event_list %}
+  {% for event_pair in event_list %}
+    {% assign event = event_pair[1] %}
+    {% if event.status == "published" and event.show_on_index != false and event.start_date and event.card %}
+      {% assign compare_date = event.end_date | default: event.start_date %}
+      {% assign event_time = compare_date | date: "%s" | plus: 0 %}
+      {% if event_time >= now %}
+        {% assign has_dynamic_cards = true %}
+        {% break %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if has_dynamic_cards or has_recent_cards or has_static_cards %}
+<div class="row justify-content-center">
+  {% if event_list %}
+    {% for event_pair in event_list %}
+      {% assign event = event_pair[1] %}
+      {% if event.status == "published" and event.show_on_index != false and event.start_date and event.card %}
+        {% assign compare_date = event.end_date | default: event.start_date %}
+        {% assign event_time = compare_date | date: "%s" | plus: 0 %}
+        {% if event_time >= now %}
+          {% include event-card.html card=event.card event=event %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if has_recent_cards %}
+    {% for card in recent_cards %}
+      {% include event-card.html card=card %}
+    {% endfor %}
+  {% endif %}
+  {% if has_static_cards %}
+    {% for card in static_cards %}
+      {% include event-card.html card=card %}
+    {% endfor %}
+  {% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,77 @@
+status: draft # draft|published|archived; only published shows in nav/index (to show under Archived nav, add the appropriate .md file in /archives/ and update _data/archives.yml)
+region: us # us|uk|ca|co; used by region stub redirects
+start_date: YYYY-MM-DD # Required; used for nav/index visibility and archive logic
+url: /[event-slug]/ # Must match the event page permalink
+show_in_nav: true # Set false to hide from the Upcoming/Archive nav
+show_on_index: true # Set false to hide from index cards
+nav: # Optional overrides for nav labels
+  label: "[Location] - Month Year" # Text shown in nav dropdowns (omit to use hero.title)
+card: # Optional index card data (omit to skip this card)
+  title: [Location] # Card title
+  location: City, State/Country # Short location line
+  detail: Venue Name # Venue detail line
+  date_label: "Next: Month Day, Year" # Card date line
+  date_type: next # next or last (controls date styling)
+  badge: Request a Seat # CTA text on the card
+  badge_class: "" # Optional CSS class, e.g., "priority"
+  logo_light: /assets/img/hoth-[location].svg # Light-mode card logo
+  logo_alt: Hackers on the Hill [Location] logo # Logo alt text
+  aria_label: Register for Hackers on the Hill [Location] # Accessible link label
+hero: # Hero section content for the event page
+  title: Hackers on the Hill [Location] # Page H1
+  date_label: Month Day, Year # Hero date line
+  location_label: City, State/Country # Hero location line
+  logo: /assets/img/hoth-[location].svg # Hero logo image
+  logo_alt: Hackers on the Hill [Location] logo # Hero logo alt text
+  description: One short sentence describing the event. # Hero description
+  cta: # Primary call-to-action button
+    label: Register Interest # Button text
+    url: https://example.com/register # Button link (use full URL if external)
+    external: true # true if the link leaves this site
+schedule_intro: "Times are TBD. The current plan is a plenary discussion followed by small-group office briefings." # One-line schedule intro
+location: # Venue section content
+  name: Venue Name, Room Name # Venue name line
+  directions_url: https://maps.google.com/ # External directions link
+  address: Street Address, City, State ZIP # Address line
+  details: | # Longer logistics note (markdown allowed)
+    Short logistics note about the venue.
+
+    Add an official link for directions or parking if needed.
+  map_embed_url: https://www.google.com/maps?q=Venue&output=embed # Map iframe URL
+  map_title: Google map of [Venue] # Iframe title for accessibility
+schedule: # Schedule list (ordered)
+  - time: TBD # Start time label
+    title: Arrival and security check # Item title
+    description: Entry details and timing will be shared once confirmed. # Item description
+  - time: TBD # Start time label
+    title: Plenary discussion # Item title
+    location: Room Name # Optional room/venue line
+    description: Opening plenary conversation for all attendees. # Item description
+    speaker_placeholder: true # true to show speaker placeholder icon
+  - time: TBD # Start time label
+    title: Office briefings in small groups # Item title
+    description: We will break into groups for office briefings around the venue. # Item description
+    speaker_placeholder: true # true to show speaker placeholder icon
+  - time: TBD # Start time label
+    title: Happy hour afterward # Item title
+    description: Time and location TBD. # Item description
+faq: # FAQ list
+  - question: What happens after I register my interest? # FAQ question
+    answer: | # FAQ answer (markdown allowed)
+      Registering your interest lets us follow up with details as plans are finalized. It does not guarantee a spot.
+
+      If we can accommodate you, you'll receive a confirmation email with next steps.
+  - question: Do you allow press? # FAQ question
+    answer: | # FAQ answer (markdown allowed)
+      Press attendance is handled separately for each event. If you are a member of the press and would like to attend, please get in touch.
+  - question: Are there recommended hotels? # FAQ question
+    answer: | # FAQ answer (markdown allowed)
+      We don’t have an official hotel block yet. If you’re visiting from out of town, choose a nearby hotel for easy access.
+  - question: Can I bring a guest? # FAQ question
+    answer: | # FAQ answer (markdown allowed)
+      Due to venue requirements and limited capacity, each attendee must register individually. Please do not bring unregistered guests.
+  - question: What should I bring? What should I wear? # FAQ question
+    answer: | # FAQ answer (markdown allowed)
+      Bring a government-issued photo ID for security screening. A notepad is useful; laptops are optional.
+
+      Dress comfortably and consider the weather.

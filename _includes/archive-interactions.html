@@ -1,0 +1,31 @@
+<div class="modal fade modal--headerless" id="archiveLinksDisabledModal" tabindex="-1" aria-label="Archive interactions disabled" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body text-center">
+        <h3>Archive interactions disabled</h3>
+        <p>Links and buttons on archived pages are disabled to avoid confusion.</p>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+          <button type="button" class="button priority" id="archiveEnableInteractions">Enable interactions</button>
+          <a class="button" href="/">Visit the latest site</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    const enableButton = document.getElementById('archiveEnableInteractions');
+    if (!enableButton) {
+      return;
+    }
+    enableButton.addEventListener('click', () => {
+      document.body.classList.add('archive-interactions-enabled');
+      const modalEl = document.getElementById('archiveLinksDisabledModal');
+      if (modalEl && window.bootstrap) {
+        const instance = window.bootstrap.Modal.getInstance(modalEl) || new window.bootstrap.Modal(modalEl);
+        instance.hide();
+      }
+    });
+  })();
+</script>

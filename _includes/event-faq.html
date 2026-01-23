@@ -1,0 +1,27 @@
+{% assign event = include.event %}
+{% assign faq = event.faq %}
+{% if faq %}
+<!-- =======  F.A.Q. Section ======= -->
+<section id="faq" class="section-padding-md section-bg-primary">
+  <div class="container">
+    <div class="section-header">
+      <h2>FAQ</h2>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-9 col-xl-8">
+        <div class="faq-stack">
+          {% for item in faq %}
+          <details class="accordion-minimal faq-item">
+            <summary>{{ item.question }}</summary>
+            <div class="faq-answer accordion-panel">
+              {{ item.answer | markdownify }}
+            </div>
+          </details>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End  F.A.Q. Section -->
+{% endif %}

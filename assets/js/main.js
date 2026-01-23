@@ -1,232 +1,347 @@
 /**
-* Template Name: TheEvent
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * Minimal behavior for the landing page:
+ * - Initialize AOS for page-load animation
+ * - Pause banner animation while the modal is open
+ * - Handle light/dark theme toggle
+ */
 (function() {
   "use strict";
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+    // Page-load animation
+    if (window.AOS && !prefersReducedMotion.matches) {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    }
+
+    const pushAnalytics = (payload) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(payload);
+    };
+
+    // Usage insights: CTA clicks, modal opens/closes, and outbound links
+    document.addEventListener('click', (event) => {
+      const target = event.target.closest('a, button');
+      if (!target) {
+        return;
+      }
+
+      const analyticsTarget = target.closest('[data-analytics-event]');
+      if (analyticsTarget) {
+        const { analyticsEvent, analyticsLocation, analyticsLabel } = analyticsTarget.dataset;
+        if (analyticsEvent) {
+          const payload = { event: analyticsEvent };
+          if (analyticsLocation) {
+            payload.location = analyticsLocation;
+          }
+          if (analyticsLabel) {
+            payload.label = analyticsLabel;
+          }
+          pushAnalytics(payload);
+        }
+      }
+
+      if (target.closest('.info-bar') && target.tagName === 'A') {
+        pushAnalytics({ event: 'info_bar_click', link_url: target.href });
+      }
+
+      if (target.tagName === 'A') {
+        const href = target.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+          return;
+        }
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) {
+          const label = (target.textContent || '').trim().slice(0, 100);
+          pushAnalytics({ event: 'outbound_click', link_url: url.href, link_text: label });
+        }
+      }
+    });
+
+    // Newsletter modal open/close tracking
+    const newsletterModal = document.getElementById('newsletterModal');
+    if (newsletterModal) {
+      newsletterModal.addEventListener('show.bs.modal', () => {
+        pushAnalytics({ event: 'newsletter_modal_open' });
+      });
+      newsletterModal.addEventListener('hidden.bs.modal', () => {
+        pushAnalytics({ event: 'newsletter_modal_close' });
+      });
+    }
+
+    // Show the archive modal on load and on page taps for archive pages
+    const archiveModal = document.getElementById('archiveLinksDisabledModal');
+    const showArchiveModal = () => {
+      if (!archiveModal || !document.body.classList.contains('archive-page')) {
+        return;
+      }
+      if (document.body.classList.contains('archive-interactions-enabled')) {
+        return;
+      }
+      if (!window.bootstrap || !window.bootstrap.Modal) {
+        return;
+      }
+      if (archiveModal.classList.contains('show')) {
+        return;
+      }
+      const instance = window.bootstrap.Modal.getInstance(archiveModal) || new window.bootstrap.Modal(archiveModal);
+      instance.show();
+    };
+
+    showArchiveModal();
+
+    const archiveContainer = document.querySelector('.archive-container');
+    if (archiveContainer) {
+      archiveContainer.addEventListener('click', (event) => {
+        if (event.target.closest('#archiveLinksDisabledModal')) {
+          return;
+        }
+        showArchiveModal();
+      });
+    }
+
+    // Scroll depth tracking
+    const scrollThresholds = [25, 50, 75, 100];
+    const seenScrollDepth = new Set();
+    let scrollTicking = false;
+    const reportScrollDepth = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) {
+        if (!seenScrollDepth.has(100)) {
+          pushAnalytics({ event: 'scroll_depth', percent: 100 });
+          seenScrollDepth.add(100);
+        }
+        return;
+      }
+      const percent = Math.round((window.scrollY / scrollable) * 100);
+      scrollThresholds.forEach((threshold) => {
+        if (percent >= threshold && !seenScrollDepth.has(threshold)) {
+          pushAnalytics({ event: 'scroll_depth', percent: threshold });
+          seenScrollDepth.add(threshold);
+        }
+      });
+    };
+    const onScroll = () => {
+      if (scrollTicking) {
+        return;
+      }
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        reportScrollDepth();
+        scrollTicking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    reportScrollDepth();
+
+    // Section visibility tracking
+    const seenSections = new Set();
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionName = entry.target.dataset.analyticsSection || entry.target.id;
+            if (sectionName && !seenSections.has(sectionName)) {
+              pushAnalytics({ event: 'section_view', section: sectionName });
+              seenSections.add(sectionName);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('main section[id], main aside[id]').forEach((section) => {
+        sectionObserver.observe(section);
+      });
+    }
+
+    // Impact strip count-up
+    const countupEls = document.querySelectorAll('[data-countup]');
+    if (countupEls.length) {
+      const setFinalCount = (el) => {
+        const target = Number.parseInt(el.dataset.target, 10);
+        if (!Number.isFinite(target)) {
+          return;
+        }
+        const suffix = el.dataset.suffix || '';
+        el.textContent = `${target}${suffix}`;
+        el.dataset.counted = 'true';
+      };
+
+      const animateCount = (el) => {
+        if (el.dataset.counted === 'true') {
+          return;
+        }
+        const target = Number.parseInt(el.dataset.target, 10);
+        if (!Number.isFinite(target)) {
+          return;
+        }
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const startTime = performance.now();
+
+        const step = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = Math.round(eased * target);
+          el.textContent = `${value}${suffix}`;
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            el.dataset.counted = 'true';
+          }
+        };
+
+        window.requestAnimationFrame(step);
+      };
+
+      if (prefersReducedMotion.matches) {
+        countupEls.forEach(setFinalCount);
+      } else if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+
+        countupEls.forEach((el) => observer.observe(el));
       } else {
-        selectEl.addEventListener(type, listener)
+        countupEls.forEach(animateCount);
       }
     }
-  }
 
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
-
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let header = select('#header')
-    let offset = header.offsetHeight
-
-    if (!header.classList.contains('header-scrolled')) {
-      offset -= 20
+    // Pause banner animation when modal opens, resume when closed
+    const modal2026 = document.getElementById('updates2026Modal');
+    if (modal2026) {
+      modal2026.addEventListener('show.bs.modal', () => {
+        const banner = document.querySelector('.event-banner');
+        if (banner) {
+          banner.style.animationPlayState = 'paused';
+        }
+      });
+      
+      modal2026.addEventListener('hidden.bs.modal', () => {
+        const banner = document.querySelector('.event-banner');
+        if (banner) {
+          banner.style.animationPlayState = 'running';
+        }
+      });
     }
 
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos - offset,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Toggle .header-scrolled class to #header when page is scrolled
-   */
-  let selectHeader = select('#header')
-  if (selectHeader) {
-    const headerScrolled = () => {
-      if (window.scrollY > 100) {
-        selectHeader.classList.add('header-scrolled')
-      } else {
-        selectHeader.classList.remove('header-scrolled')
-      }
+    // Make banner sticky on load and release after initial scroll
+    // Skip fade behavior on archive pages (keeps banner visible)
+    const banner = document.querySelector('.event-banner');
+    const isArchivePage = document.querySelector('.archive-container');
+    
+    if (banner && !isArchivePage) {
+      const releaseThreshold = Math.max(window.innerHeight * 0.5, 320);
+      const header = document.getElementById('header');
+      const headerHeight = header?.offsetHeight || 0;
+      
+      const updateBanner = () => {
+        const scrolled = window.scrollY >= releaseThreshold;
+        banner.classList.toggle('is-hidden', scrolled);
+        banner.classList.toggle('is-sticky', !scrolled);
+        if (!scrolled) {
+          banner.style.top = `${headerHeight}px`;
+        }
+      };
+      
+      updateBanner();
+      window.addEventListener('scroll', updateBanner, { passive: true });
+      window.addEventListener('resize', updateBanner);
     }
-    window.addEventListener('load', headerScrolled)
-    onscroll(document, headerScrolled)
-  }
 
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+
+    const getPreferredTheme = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme;
       }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
 
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Mobile nav dropdowns activate
-   */
-  on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
-    }
-  }, true)
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
-
-      let navbar = select('#navbar')
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+    const setTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeIcon) {
+        if (theme === 'dark') {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          themeToggle.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+        }
       }
-      scrollto(this.hash)
-    }
-  }, true)
+    };
 
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
+    const toggleTheme = () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    };
+
+    if (themeToggle) {
+      setTheme(getPreferredTheme());
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Values: keep only one detail open for a lightweight accordion.
+    const valuesStack = document.querySelector('#values .value-reveal-stack');
+    if (valuesStack) {
+      const valueDetails = Array.from(valuesStack.querySelectorAll('details.accordion-minimal'));
+
+      valueDetails.forEach((detail) => {
+        detail.addEventListener('toggle', () => {
+          if (!detail.open) {
+            return;
+          }
+          valueDetails.forEach((other) => {
+            if (other !== detail) {
+              other.open = false;
+            }
+          });
+        });
+      });
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
       }
+    });
+
+    // Close mobile nav when tapping outside the menu
+    const navbarCollapse = document.getElementById('navbarNav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    if (navbarCollapse && window.bootstrap && window.bootstrap.Collapse) {
+      const collapseInstance = window.bootstrap.Collapse.getOrCreateInstance(navbarCollapse, { toggle: false });
+      document.addEventListener('click', (event) => {
+        if (!navbarCollapse.classList.contains('show')) {
+          return;
+        }
+        const target = event.target;
+        if (navbarCollapse.contains(target) || navbarToggler?.contains(target)) {
+          return;
+        }
+        collapseInstance.hide();
+      });
     }
   });
-
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Gallery Slider
-   */
-  new Swiper('.gallery-slider', {
-    speed: 400,
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-      575: {
-        slidesPerView: 2,
-        spaceBetween: 20
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      },
-      992: {
-        slidesPerView: 5,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
-   * Initiate gallery lightbox 
-   */
-  const galleryLightbox = GLightbox({
-    selector: '.gallery-lightbox'
-  });
-
-  /**
-   * Buy tickets select the ticket type on click
-   */
-  on('show.bs.modal', '#buy-ticket-modal', function(event) {
-    select('#buy-ticket-modal #ticket-type').value = event.relatedTarget.getAttribute('data-ticket-type')
-  })
-
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
-
-})()
+})();

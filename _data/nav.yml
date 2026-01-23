@@ -1,0 +1,18 @@
+upcoming:
+  label: Upcoming
+archive:
+  label: Archive
+resources:
+  label: Resources
+  items:
+    - label: Briefing Guide (PDF)
+      url: https://www.rapid7.com/globalassets/_pdfs/policy/an-unofficial-guide-to-meeting-with-congressional-offices---jan.-14-2020.pdf
+      external: true
+    - label: UK Tips (PDF)
+      url: /assets/uk-tips.pdf
+      external: true
+    - label: Past Plenaries (YouTube)
+      url: https://www.youtube.com/@hackersonthehill
+      external: true
+    - label: Style Guide
+      url: /style-guide/

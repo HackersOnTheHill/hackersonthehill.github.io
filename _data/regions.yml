@@ -1,0 +1,12 @@
+us:
+  label: United States
+  archive_fallback: /archives/us-2025/
+uk:
+  label: United Kingdom
+  archive_fallback: /archives/uk-2025/
+ca:
+  label: Canada
+  archive_fallback: /archives/ca-2025/
+co:
+  label: Colorado
+  archive_fallback: /colorado-2026/

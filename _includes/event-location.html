@@ -1,0 +1,24 @@
+{% assign event = include.event %}
+{% assign location = event.location %}
+{% if location %}
+<!-- ======= Location Section ======= -->
+<section id="location" class="section-padding-md section-bg-primary">
+  <div class="container-fluid col-md-10 col-lg-9 col-xl-8 col-xxl-7">
+  <div class="row g-4">
+    <div class="col-xl-7 col-xxl-8 location-map">
+      <iframe src="{{ location.map_embed_url }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="{{ location.map_title | default: location.name }}"></iframe>
+    </div>
+
+    <div class="col-xl-5 col-xxl-4 location-info">
+      <div class="row justify-content-center">
+        <div class="col-11 position-relative px-3 align-self-center text-center text-xl-start">
+          <h5>{{ location.name }} (<a href="{{ location.directions_url }}" target="_blank" rel="noopener">Directions</a>)</h5>
+          <p>{{ location.address }}</p>
+          {{ location.details | markdownify }}
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section><!-- End Location Section -->
+{% endif %}
