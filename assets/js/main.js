@@ -75,6 +75,15 @@
       });
     }
 
+    // Show the archive modal on load for archive pages
+    const archiveModal = document.getElementById('archiveLinksDisabledModal');
+    if (archiveModal && document.body.classList.contains('archive-page')) {
+      if (window.bootstrap && window.bootstrap.Modal && !document.body.classList.contains('archive-interactions-enabled')) {
+        const instance = window.bootstrap.Modal.getInstance(archiveModal) || new window.bootstrap.Modal(archiveModal);
+        instance.show();
+      }
+    }
+
     // Scroll depth tracking
     const scrollThresholds = [25, 50, 75, 100];
     const seenScrollDepth = new Set();

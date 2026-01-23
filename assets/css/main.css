@@ -710,13 +710,13 @@ body.archive-page {
     height: 100vh;
 }
 
-body.archive-page #main,
-body.archive-page .archive-container {
-    height: calc(100vh - 32px);
+body.archive-page #main {
+    height: 100vh;
 }
 
 body.archive-page .archive-container {
-    position: relative;
+    position: fixed;
+    inset: 0;
 }
 
 body.archive-page .archive-container iframe {
@@ -731,6 +731,13 @@ body.archive-page .archive-overlay {
     z-index: 2;
     pointer-events: all;
     cursor: not-allowed;
+}
+body.archive-page #footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 996;
 }
 
 body.archive-page.archive-interactions-enabled .archive-overlay {
