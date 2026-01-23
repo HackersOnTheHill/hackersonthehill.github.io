@@ -75,13 +75,35 @@
       });
     }
 
-    // Show the archive modal on load for archive pages
+    // Show the archive modal on load and on page taps for archive pages
     const archiveModal = document.getElementById('archiveLinksDisabledModal');
-    if (archiveModal && document.body.classList.contains('archive-page')) {
-      if (window.bootstrap && window.bootstrap.Modal && !document.body.classList.contains('archive-interactions-enabled')) {
-        const instance = window.bootstrap.Modal.getInstance(archiveModal) || new window.bootstrap.Modal(archiveModal);
-        instance.show();
+    const showArchiveModal = () => {
+      if (!archiveModal || !document.body.classList.contains('archive-page')) {
+        return;
       }
+      if (document.body.classList.contains('archive-interactions-enabled')) {
+        return;
+      }
+      if (!window.bootstrap || !window.bootstrap.Modal) {
+        return;
+      }
+      if (archiveModal.classList.contains('show')) {
+        return;
+      }
+      const instance = window.bootstrap.Modal.getInstance(archiveModal) || new window.bootstrap.Modal(archiveModal);
+      instance.show();
+    };
+
+    showArchiveModal();
+
+    const archiveContainer = document.querySelector('.archive-container');
+    if (archiveContainer) {
+      archiveContainer.addEventListener('click', (event) => {
+        if (event.target.closest('#archiveLinksDisabledModal')) {
+          return;
+        }
+        showArchiveModal();
+      });
     }
 
     // Scroll depth tracking
