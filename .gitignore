@@ -8,3 +8,4 @@
 **/.prettierrc
 **/Dockerfile
 **/.github/
+Caddyfile
