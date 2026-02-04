@@ -4,9 +4,20 @@
   <div class="container">
     <div class="info-bar-content">
       <div class="info-bar-text">
-        <span class="info-label">
-          <a href="{{ info.url }}"{% if info.external %} target="_blank" rel="noopener"{% endif %}>{{ info.label }}</a>
-        </span>
+        {% if info.items %}
+          {% for item in info.items %}
+          <span class="info-label">
+            <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a>
+          </span>
+          {% unless forloop.last %}
+          <span class="info-separator" aria-hidden="true">•</span>
+          {% endunless %}
+          {% endfor %}
+        {% else %}
+          <span class="info-label">
+            <a href="{{ info.url }}"{% if info.external %} target="_blank" rel="noopener"{% endif %}>{{ info.label }}</a>
+          </span>
+        {% endif %}
       </div>
     </div>
   </div>
