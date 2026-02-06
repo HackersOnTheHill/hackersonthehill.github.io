@@ -13,7 +13,8 @@ layout: base
         <div class="hero-container">
           <div class="row justify-content-center align-items-center">
             <div class="col-10 col-sm-6 col-md-5 text-center mb-4 mb-md-0">
-              <img src="{{ event.hero.logo }}" class="img-fluid mb-4 hero-logo" alt="{{ event.hero.logo_alt }}">
+              <img class="img-fluid mb-4 hero-logo logo-light" src="{{ event.hero.logo }}" alt="{{ event.hero.logo_alt }}">
+              <img class="img-fluid mb-4 hero-logo logo-dark" src="{{ event.hero.logo_dark | default: event.hero.logo }}" alt="{{ event.hero.logo_alt }}">
               {% if event.hero.date_label %}
               <h6 class="mt-2 mb-0">{{ event.hero.date_label }}</h6>
               {% endif %}
@@ -25,7 +26,7 @@ layout: base
               <h1 class="mb-3">{{ event.hero.title }}</h1>
               <p class="mb-4">{{ event.hero.description }}</p>
               {% if event.hero.notice %}
-              <p class="mb-0"><strong>{{ event.hero.notice }}</strong></p>
+              <p><strong>{{ event.hero.notice }}</strong></p>
               {% endif %}
               {% if event.hero.cta %}
               {% if event.hero.cta.modal_target %}

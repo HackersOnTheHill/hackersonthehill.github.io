@@ -159,6 +159,14 @@
     display: block;
   }
 
+  .event-hero .hero-logo.logo-light {
+    display: none;
+  }
+
+  .event-hero .hero-logo.logo-dark {
+    display: inline;
+  }
+
   .btn-close {
     filter: invert(1);
     opacity: 0.8;
@@ -1259,6 +1267,14 @@ button.location-card {
 .event-hero .hero-logo {
     max-height: 200px;
     width: auto;
+}
+
+.event-hero .hero-logo.logo-light {
+    display: inline;
+}
+
+.event-hero .hero-logo.logo-dark {
+    display: none;
 }
 
 @media (max-width: 575px) {
