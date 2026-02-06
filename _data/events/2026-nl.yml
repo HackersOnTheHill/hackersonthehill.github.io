@@ -25,10 +25,7 @@ hero: # Hero section content for the event page
   logo: /assets/img/hath-nl-2026.svg # Hero logo image (replace when logo is available)
   logo_alt: Hackers at the Hof logo # Hero logo alt text
   description: Candid, technical policy conversations between cybersecurity researchers and policymakers in the Netherlands. # Hero description
-  cta: # Primary call-to-action button
-    label: Register Interest # Button text
-    url: https://example.com/register # Button link (replace with the real form)
-    external: true # true if the link leaves this site
+  notice: "Applications coming soon." # Shown in place of CTA button when no signup form exists yet
 schedule_intro: "Times are TBD. The current plan is a plenary discussion followed by small-group briefings." # One-line schedule intro
 location: # Venue section content
   name: Johan de Witthuis # Venue name line

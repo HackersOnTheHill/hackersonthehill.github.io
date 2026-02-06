@@ -22,10 +22,10 @@ hero:
   logo: /assets/img/hoth-colorado-dome.svg
   logo_alt: Hackers on the Hill Colorado logo
   description: Candid, technical policy conversations between cybersecurity researchers and state policymakers.
+  notice: "Applications are closed."
   cta:
-    label: Register Interest
-    url: https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform
-    external: true
+    label: Get Notified
+    modal_target: "#newsletterModal"
 schedule_intro: "The day begins with a plenary at the State Services Building, followed by a House Gallery visit, small-group office briefings, lunch, and happy hour."
 location:
   name: State Services Building

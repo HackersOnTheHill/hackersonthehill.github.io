@@ -24,7 +24,16 @@ layout: base
             <div class="col-12 col-md-7">
               <h1 class="mb-3">{{ event.hero.title }}</h1>
               <p class="mb-4">{{ event.hero.description }}</p>
+              {% if event.hero.notice %}
+              <p class="mb-0"><strong>{{ event.hero.notice }}</strong></p>
+              {% endif %}
+              {% if event.hero.cta %}
+              {% if event.hero.cta.modal_target %}
+              <button type="button" class="button priority" data-bs-toggle="modal" data-bs-target="{{ event.hero.cta.modal_target }}">{{ event.hero.cta.label }}</button>
+              {% else %}
               <a class="button priority" href="{{ event.hero.cta.url }}"{% if event.hero.cta.external %} target="_blank" rel="noopener"{% endif %}>{{ event.hero.cta.label }}</a>
+              {% endif %}
+              {% endif %}
             </div>
           </div>
         </div>
