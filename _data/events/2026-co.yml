@@ -7,7 +7,7 @@ nav:
 card:
   title: Colorado
   location: Denver
-  detail: Colorado State Capitol
+  detail: State Services Building
   date_label: "Next: February 10, 2026"
   date_type: next
   badge: Request a Seat
@@ -22,37 +22,54 @@ hero:
   logo: /assets/img/hoth-colorado-dome.svg
   logo_alt: Hackers on the Hill Colorado logo
   description: Candid, technical policy conversations between cybersecurity researchers and state policymakers.
+  notice: "Applications are closed."
   cta:
-    label: Register Interest
-    url: https://docs.google.com/forms/d/e/1FAIpQLScIJV3gkbFDIo4vydaepGDzo1an9LwtXcA-dkGu2Lq-YSv_Lw/viewform
-    external: true
-schedule_intro: "Times are TBD. The current plan is a plenary discussion followed by small-group office briefings."
+    label: Get Notified
+    modal_target: "#newsletterModal"
+schedule_intro: "The day begins with a plenary at the State Services Building, followed by a House Gallery visit, small-group office briefings, lunch, and happy hour."
 location:
-  name: Colorado State Capitol, Old State Library
-  directions_url: https://www.google.com/maps?q=Colorado%20State%20Capitol%2C%20Denver%2C%20CO
-  address: 200 E Colfax Ave, Denver, CO 80203
+  name: State Services Building
+  directions_url: https://www.google.com/maps?q=1525+Sherman+St%2C+Denver%2C+CO+80203
+  address: 1525 Sherman St, Denver, CO 80203
   details: |
-    Plenary discussion meets in the Old State Library. Entry details will be shared closer to the event.
+    The plenary meets in the ground floor conference room. The building is just across E. Colfax from the north side of the Capitol. Enter through the security entrance on the ground level at Colfax and Sherman.
 
     For official directions, parking, and Capitol logistics, see the [Colorado General Assembly visitor information page](https://content.leg.colorado.gov/content/capitol-information).
-  map_embed_url: https://www.google.com/maps?q=Colorado%20State%20Capitol%2C%20Denver%2C%20CO&output=embed
-  map_title: Google map of the Colorado State Capitol
+  map_embed_url: https://www.google.com/maps?q=1525+Sherman+St%2C+Denver%2C+CO+80203&output=embed
+  map_title: Google map of the State Services Building
 schedule:
-  - time: TBD
-    title: Arrival and security check
-    description: Entry details and timing will be shared once confirmed.
-  - time: TBD
-    title: Plenary discussion
-    location: Old State Library
-    description: Opening plenary conversation for all attendees.
-    speaker_placeholder: true
-  - time: TBD
-    title: Office briefings in small groups
-    description: We will break into groups for office briefings around the Capitol.
-    speaker_placeholder: true
-  - time: TBD
-    title: Happy hour afterward
-    description: Time and location TBD.
+  - time: 8:45 AM
+    title: Doors open
+    location: State Services Building
+    description: Arrive, clear security, and check in. Bring a government-issued photo ID.
+  - time: 9:00 AM
+    title: Plenary session
+    location: State Services Building
+    description: Welcome and kickoff, cyber policy overview, and discussion.
+  - time: 10:30 AM
+    title: Group photo
+    location: West Steps of the Capitol
+    description: Weather permitting; interior rotunda stairs as backup.
+  - time: 10:45 AM
+    title: House Gallery visit
+    location: State Capitol, Floor 3
+    description: Visit the House of Representatives Gallery as a group.
+  - time: 11:30 AM
+    title: Office briefings
+    location: State Capitol
+    description: Small-group briefings with legislative offices.
+  - time: 1:00 PM
+    title: Lunch
+    location: Torchy's Tacos, 1085 Broadway
+    description: Debrief and discussion over lunch.
+  - time: 3:30 PM
+    title: Capitol tour
+    location: State Capitol, ground floor
+    description: Optional guided tour of the Capitol.
+  - time: 5:00 PM
+    title: Happy hour
+    location: Pints Pub, 221 W. 13th Ave.
+    description: Socialize with aides, reporters, and other attendees.
 faq:
   - question: What happens after I register my interest?
     answer: |

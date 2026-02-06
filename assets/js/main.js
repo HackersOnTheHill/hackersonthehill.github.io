@@ -25,7 +25,7 @@
       window.dataLayer.push(payload);
     };
 
-    // Usage insights: CTA clicks, modal opens/closes, and outbound links
+    // Usage insights: CTA clicks, modal opens/closes, and link/button interactions
     document.addEventListener('click', (event) => {
       const target = event.target.closest('a, button');
       if (!target) {
@@ -33,35 +33,49 @@
       }
 
       const analyticsTarget = target.closest('[data-analytics-event]');
-      if (analyticsTarget) {
-        const { analyticsEvent, analyticsLocation, analyticsLabel } = analyticsTarget.dataset;
-        if (analyticsEvent) {
-          const payload = { event: analyticsEvent };
-          if (analyticsLocation) {
-            payload.location = analyticsLocation;
-          }
-          if (analyticsLabel) {
-            payload.label = analyticsLabel;
-          }
-          pushAnalytics(payload);
+      const { analyticsEvent, analyticsLocation, analyticsLabel } = analyticsTarget ? analyticsTarget.dataset : {};
+      const isLink = target.tagName === 'A';
+      const href = isLink ? target.getAttribute('href') : null;
+      const url = isLink && href ? new URL(href, window.location.href) : null;
+      const isExternal = !!(url && url.origin !== window.location.origin);
+      const linkText = (target.textContent || '').trim().slice(0, 100);
+
+      let eventName = analyticsEvent;
+      if (!eventName) {
+        if (target.closest('.info-bar') && isLink) {
+          eventName = 'info_bar_click';
+        } else if (isLink) {
+          eventName = isExternal ? 'outbound_click' : 'link_click';
+        } else {
+          eventName = 'button_click';
         }
       }
 
-      if (target.closest('.info-bar') && target.tagName === 'A') {
-        pushAnalytics({ event: 'info_bar_click', link_url: target.href });
+      const payload = {
+        event: eventName,
+        page_path: window.location.pathname,
+        page_title: document.title
+      };
+
+      if (analyticsLocation) {
+        payload.location = analyticsLocation;
+      }
+      if (analyticsLabel) {
+        payload.label = analyticsLabel;
       }
 
-      if (target.tagName === 'A') {
-        const href = target.getAttribute('href');
-        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
-          return;
-        }
-        const url = new URL(href, window.location.href);
-        if (url.origin !== window.location.origin) {
-          const label = (target.textContent || '').trim().slice(0, 100);
-          pushAnalytics({ event: 'outbound_click', link_url: url.href, link_text: label });
-        }
+      payload.element_type = isLink ? 'link' : 'button';
+      if (linkText) {
+        payload.link_text = linkText;
       }
+      if (isLink) {
+        if (href) {
+          payload.link_url = url ? url.href : href;
+        }
+        payload.link_external = isExternal;
+      }
+
+      pushAnalytics(payload);
     });
 
     // Newsletter modal open/close tracking

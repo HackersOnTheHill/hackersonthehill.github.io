@@ -159,6 +159,14 @@
     display: block;
   }
 
+  .event-hero .hero-logo.logo-light {
+    display: none;
+  }
+
+  .event-hero .hero-logo.logo-dark {
+    display: inline;
+  }
+
   .btn-close {
     filter: invert(1);
     opacity: 0.8;
@@ -594,6 +602,12 @@ a:focus {
     gap: 8px;
     font-weight: 500;
     font-size: 0.875rem;
+    flex-wrap: wrap;
+}
+
+.info-bar .info-separator {
+    color: var(--text-secondary);
+    opacity: 0.6;
 }
 
 /* Banner links - subtle opacity shift on hover (matches navbar pattern) */
@@ -1255,6 +1269,14 @@ button.location-card {
     width: auto;
 }
 
+.event-hero .hero-logo.logo-light {
+    display: inline;
+}
+
+.event-hero .hero-logo.logo-dark {
+    display: none;
+}
+
 @media (max-width: 575px) {
   .event-hero .hero-logo {
       max-height: 150px;
@@ -1348,6 +1370,20 @@ button.location-card {
 /*--------------------------------------------------------------
 # 6.7 Schedule
 --------------------------------------------------------------*/
+#event-about h2,
+#event-about h3,
+#event-about h4 {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#event-about p {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
 #schedule .schedule-item {
   background: transparent;
   border: none;
@@ -1360,6 +1396,12 @@ button.location-card {
 
 #schedule .schedule-item time {
   font-family: 'Courier New', Courier, monospace;
+}
+
+#schedule .schedule-item p {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
 }
 
 #schedule .schedule-item .speaker {
@@ -1485,6 +1527,16 @@ button.location-card {
 
   #faq .accordion-minimal {
     padding: 12px 0;
+  }
+
+  .info-bar .info-bar-text {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .info-bar .info-separator {
+    display: none;
   }
   
   /* Add vertical spacing between footer sections on mobile */

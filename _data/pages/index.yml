@@ -1,6 +1,9 @@
 info_bar:
-  label: "Upcoming: Colorado - February 10, 2026"
-  url: /colorado/
+  items:
+    - label: "Upcoming: Colorado - February 10, 2026"
+      url: /colorado/
+    - label: "Upcoming: Netherlands - May 8, 2026"
+      url: /netherlands/
 event_cards_static:
   - title: Coming Soon
     location: More locations worldwide

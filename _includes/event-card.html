@@ -21,7 +21,9 @@
       <h3 class="card-title">{{ card.title }}</h3>
       <p class="card-location">{{ card.location }}</p>
       <p class="card-detail">{{ card.detail }}</p>
+      {% if card.date_label %}
       <p class="card-date-{{ card.date_type }}">{{ card.date_label }}</p>
+      {% endif %}
       <span class="button{% if card.badge_class %} {{ card.badge_class }}{% endif %} card-badge">{{ card.badge }}</span>
     </div>
   {% if card.modal_target %}
