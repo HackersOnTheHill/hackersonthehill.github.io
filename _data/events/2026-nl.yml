@@ -1,6 +1,6 @@
 status: published # draft|published|archived; only published shows in nav/index (to show under Archived nav, add the appropriate .md file in /archives/ and update _data/archives.yml)
 region: nl # us|uk|ca|co|nl; used by region stub redirects if added
-start_date: 2026-05-08 # Update once the date is confirmed
+start_date: 2026-05-08 # Update once the date is confirmed (used for ordering, not shown if date_label is blank)
 url: /netherlands/ # Must match the event page permalink
 show_in_nav: true # Set true when ready to appear in nav
 show_on_index: true # Set true when ready to appear on index
@@ -10,19 +10,20 @@ card: # Optional index card data (omit to skip this card)
   title: Netherlands # Card title
   location: The Hague # Short location line
   detail: Johan de Witthuis # Venue detail line
-  date_label: "Next: May 8, 2026" # Card date line
+  date_label: "May 8, 2026" # Card date line
   date_type: next # next or last (controls date styling)
   badge: Get Notified # CTA text on the card
   badge_class: priority # Optional CSS class, e.g., "priority"
-  logo_light: /assets/img/hidh-nl.png # Light-mode card logo (replace when logo is available)
-  logo_alt: Hackers in de Hof logo # Logo alt text
-  aria_label: Get notified about Hackers in de Hof
+  logo_light: /assets/img/hath-nl-2026.svg # Light-mode card logo (replace when logo is available)
+  logo_dark: /assets/img/hath-nl-2026.svg # Dark-mode card logo (replace when logo is available)
+  logo_alt: Hackers at the Hof logo # Logo alt text
+  aria_label: Get notified about Hackers at the Hof
 hero: # Hero section content for the event page
-  title: Hackers in de Hof # Page H1
-  date_label: May 8, 2026 # Hero date line
+  title: Hackers at the Hof # Page H1
+  date_label: "May 8, 2026" # Hero date line
   location_label: The Hague, Netherlands # Hero location line
-  logo: /assets/img/hidh-nl.png # Hero logo image (replace when logo is available)
-  logo_alt: Hackers in de Hof logo # Hero logo alt text
+  logo: /assets/img/hath-nl-2026.svg # Hero logo image (replace when logo is available)
+  logo_alt: Hackers at the Hof logo # Hero logo alt text
   description: Candid, technical policy conversations between cybersecurity researchers and policymakers in the Netherlands. # Hero description
   cta: # Primary call-to-action button
     label: Register Interest # Button text
@@ -36,7 +37,7 @@ location: # Venue section content
   details: | # Longer logistics note (markdown allowed)
     Logistics and entry details will be shared closer to the event.
 
-    Tentative venue details: [Johan de Witthuis](https://nl.wikipedia.org/wiki/Johan_de_Witthuis_(Den_Haag)).
+    Venue details: [Johan de Witthuis](https://nl.wikipedia.org/wiki/Johan_de_Witthuis_(Den_Haag)).
   map_embed_url: https://www.google.com/maps?q=Johan%20de%20Witthuis%2C%20Den%20Haag&output=embed # Map iframe URL
   map_title: Google map of Johan de Witthuis, Den Haag # Iframe title for accessibility
 schedule: # Schedule list (ordered)
