@@ -2,6 +2,7 @@
 layout: event
 title: Hackers at the Hof
 permalink: /netherlands/
+region: nl
 event_key: 2026-nl
 ---
 
@@ -11,8 +12,7 @@ Then update the front matter (title, permalink, event_key) and remove published:
 Pair it with _data/events/2026-nl.yml.
 -->
 
-## About this event
+## Over het Evenement
 
-Hackers at the Hof brings cybersecurity researchers and policymakers together for candid, technical discussions focused on the Dutch and European policy landscape. Topics are likely to include the EU Cyber Resilience Act (CRA), the NIS2 Directive, sector-specific implementation guidance, and practical paths to strengthen coordinated vulnerability disclosure and critical infrastructure resilience in the Netherlands.
+Hackers at the Hof brengt cybersecurity onderzoekers en beleidsmedewerkers bij elkaar voor eerlijke, technische discussie gericht op het Nederlandse en Europese beleidslandschap. Onderwerpen kunnen bijvoorbeeld de EU Cyber Resilience Act (CRA), de Cyberbeveiligingswet/NIS2, sector-specifieke implementatie richtlijnen, ransomware en verzekeringen en andere onderwerpen gerelateerd aan de weerbare vitale infrastructuur in Nederland.
 
-This page will be updated as the program, venue, and registration details are finalized.

@@ -5,14 +5,14 @@ url: /netherlands/ # Must match the event page permalink
 show_in_nav: true # Set true when ready to appear in nav
 show_on_index: true # Set true when ready to appear on index
 nav: # Optional overrides for nav labels
-  label: "Netherlands - May 2026" # Text shown in nav dropdowns (omit to use hero.title)
+  label: "Nederland - Mei 2026" # Text shown in nav dropdowns (omit to use hero.title)
 card: # Optional index card data (omit to skip this card)
-  title: Netherlands # Card title
-  location: The Hague # Short location line
+  title: Nederland # Card title
+  location: Den Haag # Short location line
   detail: Johan de Witthuis # Venue detail line
-  date_label: "May 8, 2026" # Card date line
+  date_label: "8 mei 2026" # Card date line
   date_type: next # next or last (controls date styling)
-  badge: Get Notified # CTA text on the card
+  badge: Abonneer # CTA text on the card
   badge_class: priority # Optional CSS class, e.g., "priority"
   logo_light: /assets/img/hath-nl-2026.svg # Light-mode card logo (replace when logo is available)
   logo_dark: /assets/img/hath-nl-2026.svg # Dark-mode card logo (replace when logo is available)
@@ -21,58 +21,75 @@ card: # Optional index card data (omit to skip this card)
 hero: # Hero section content for the event page
   title: Hackers at the Hof # Page H1
   date_label: "May 8, 2026" # Hero date line
-  location_label: The Hague, Netherlands # Hero location line
+  location_label: Den Haag, Nederland # Hero location line
   logo: /assets/img/hath-nl-2026.svg # Hero logo image (replace when logo is available)
   logo_alt: Hackers at the Hof logo # Hero logo alt text
-  description: Candid, technical policy conversations between cybersecurity researchers and policymakers in the Netherlands. # Hero description
+  description: Eerlijke, Technische beleidsdiscussies tussen cybersecurity onderzoekers en beleidsambtenaren in Nederland. # Hero description
   cta: # Primary call-to-action button
-    label: Register Interest # Button text
+    label: Inschrijven # Button text
     url: https://example.com/register # Button link (replace with the real form)
     external: true # true if the link leaves this site
-schedule_intro: "Times are TBD. The current plan is a plenary discussion followed by small-group briefings." # One-line schedule intro
+schedule_intro: "Tijden zijn nog indiciatief." # One-line schedule intro
 location: # Venue section content
   name: Johan de Witthuis # Venue name line
   directions_url: https://www.google.com/maps?q=Johan%20de%20Witthuis%2C%20Den%20Haag # External directions link
-  address: Den Haag, Netherlands # Address line
+  address: Den Haag, Nederland # Address line
   details: | # Longer logistics note (markdown allowed)
-    Logistics and entry details will be shared closer to the event.
+    Toegang is alleen mogelijk op basis van inschrijving. Legitimatie is verplicht. Zonder legitimatie geen toegang!
 
-    Venue details: [Johan de Witthuis](https://nl.wikipedia.org/wiki/Johan_de_Witthuis_(Den_Haag)).
+    Details: [Johan de Witthuis](https://nl.wikipedia.org/wiki/Johan_de_Witthuis_(Den_Haag)).
   map_embed_url: https://www.google.com/maps?q=Johan%20de%20Witthuis%2C%20Den%20Haag&output=embed # Map iframe URL
   map_title: Google map of Johan de Witthuis, Den Haag # Iframe title for accessibility
 schedule: # Schedule list (ordered)
   - time: TBD # Start time label
-    title: Arrival and security check # Item title
-    description: Entry details and timing will be shared once confirmed. # Item description
+    title: Welkom en koffie # Item title
+    description: Legitimatie check, inloop, koffie.
   - time: TBD # Start time label
-    title: Plenary discussion # Item title
-    location: Main hall # Optional room/venue line
-    description: Opening plenary conversation for all attendees. # Item description
+    title: Opening # Item title
+    location: Begane grond # Optional room/venue line
+    description: Opening en toelichting van de rest van de dag. # Item description
+    time: TBD # Start time label
+    title: Plenaire presentatie # Item title
+    location: Begane grond # Optional room/venue line
+    description: Kort welkomstwoord door beleidsdirecteur.
     speaker_placeholder: true # true to show speaker placeholder icon
   - time: TBD # Start time label
-    title: Office briefings in small groups # Item title
-    description: We will break into groups for office briefings around the venue. # Item description
+    title: Een dag in het leven van een beleidsambtenaar # Item title
+    description: Een beleidsambtenaar neemt je mee door een typische dag aan het werk op het cybersecurity werkveld op een ministerie.
     speaker_placeholder: true # true to show speaker placeholder icon
   - time: TBD # Start time label
-    title: Happy hour afterward # Item title
-    description: Time and location TBD. # Item description
+    title: Panel-discussie
+    description: Toelichting volgt
+  - time: TBD # Start time label
+    title: lunch
+    description: Toevoeging volgt
+  - time: TBD # Start time label
+    title: interactief middagprogramma
+    description: Toevoeging volgt
+  - time: 16:30 # Start time label
+    title: Afsluiting
+    description: Toevoeging volgt
+  - time: 17:30 # Start time label
+    title: Borrel om de hoek
+    description: (op eigen kosten))
+
 faq: # FAQ list
-  - question: What happens after I register my interest? # FAQ question
+  - question: Wat gebeurt er als ik me inschrijf?
     answer: | # FAQ answer (markdown allowed)
-      Registering your interest lets us follow up with details as plans are finalized. It does not guarantee a spot.
+      Als je je inschrijft, zullen we je op de hoogte houden van de planning. Het geeft geen garantie op deelname
 
-      If we can accommodate you, you'll receive a confirmation email with next steps.
-  - question: Do you allow press? # FAQ question
+      Als we een plek voor je hebben, zul je een bevestigingsmail krijgen met meer details.
+  - question: Is er ook toegang mogelijk voor journalisten?
     answer: | # FAQ answer (markdown allowed)
-      Press attendance is handled separately for each event. If you are a member of the press and would like to attend, please get in touch.
-  - question: Are there recommended hotels? # FAQ question
+      Nee.
+  - question: Kan ik iemand meenemen?
     answer: | # FAQ answer (markdown allowed)
-      We don’t have an official hotel block yet. If you’re visiting from out of town, choose a nearby hotel for easy access.
-  - question: Can I bring a guest? # FAQ question
+      Vanwege beperkte capaciteit in dit overheidsgebouw, kunnen we niet zomaar mensen toelaten. Alle deelnemers moeten zich inschrijven en legitimeren.
+  - question: Wat moet ik meenemen?
     answer: | # FAQ answer (markdown allowed)
-      Due to venue requirements and limited capacity, each attendee must register individually. Please do not bring unregistered guests.
-  - question: What should I bring? What should I wear? # FAQ question
-    answer: | # FAQ answer (markdown allowed)
-      Bring a government-issued photo ID for security screening. A notepad is useful; laptops are optional.
+      Neem een geldig identificatiebewijs mee (rijbewijs, paspoort, identiteitskaart, verblijfsvergunning)
+      Neem iets mee om aantekeningen te maken voor jezelf. Laptop is niet nodig, mag wel.
 
-      Dress comfortably and consider the weather.
+  - question: Is er een dresscode?
+    answer: | # FAQ answer (markdown allowed)
+      Draag iets waar je je comfortabel en prettig in voelt.
