@@ -66,17 +66,6 @@ schedule: # Schedule list (ordered)
   - time: TBD # Start time label
     title: interactief middagprogramma
     description: Interactieve breakout discussie sessies over verschillende onderwerpen.
-    
-        Voorbeelden van mogelijke onderwerpen:
-            
-        * NL AI-diplomatie strategie
-        * Het gebruik van open source binnen de overheid
-        * Verzekeringen, ransomware en betalingen
-        * Implementatie NIS2
-        * Cyber Resilience Act
-        * EU – Access to Data proces
-        * Netcentrisch Werken
-
   - time: 16:30 # Start time label
     title: Afsluiting
     description: Samenvatting van de verschillende sessies

@@ -16,3 +16,12 @@ Pair it with _data/events/2026-nl.yml.
 
 Hackers at the Hof brengt cybersecurity onderzoekers en beleidsmedewerkers bij elkaar voor eerlijke, technische discussie gericht op het Nederlandse en Europese beleidslandschap. Onderwerpen kunnen bijvoorbeeld de EU Cyber Resilience Act (CRA), de Cyberbeveiligingswet/NIS2, sector-specifieke implementatie richtlijnen, ransomware en verzekeringen en andere onderwerpen gerelateerd aan de weerbare vitale infrastructuur in Nederland.
 
+Voorbeelden van mogelijke onderwerpen:
+    
+* NL AI-diplomatie strategie
+* Het gebruik van open source binnen de overheid
+* Verzekeringen, ransomware en betalingen
+* Implementatie NIS2
+* Cyber Resilience Act
+* EU – Access to Data proces
+* Netcentrisch Werken
