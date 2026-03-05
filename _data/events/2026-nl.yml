@@ -14,15 +14,15 @@ card: # Optional index card data (omit to skip this card)
   date_type: next # next or last (controls date styling)
   badge: Abonneer # CTA text on the card
   badge_class: priority # Optional CSS class, e.g., "priority"
-  logo_light: /assets/img/hath-nl-2026_light.svg
-  logo_dark: /assets/img/hath-nl-2026_dark.svg
+  logo_light: /assets/img/hath-nl-2026_lightmode.svg
+  logo_dark: /assets/img/hath-nl-2026_darkmode.svg
   logo_alt: Hackers at the Hof logo # Logo alt text
   aria_label: Get notified about Hackers at the Hof
 hero: # Hero section content for the event page
   title: Hackers at the Hof # Page H1
   date_label: "May 8, 2026" # Hero date line
   location_label: Den Haag, Nederland # Hero location line
-  logo: /assets/img/hath-nl-2026.svg # Hero logo image (replace when logo is available)
+  logo: /assets/img/hath-nl-2026_lightmode.svg # Hero logo image (replace when logo is available)
   logo_alt: Hackers at the Hof logo # Hero logo alt text
   description: Eerlijke, Technische beleidsdiscussies tussen cybersecurity onderzoekers en beleidsambtenaren in Nederland. # Hero description
   cta: # Primary call-to-action button
