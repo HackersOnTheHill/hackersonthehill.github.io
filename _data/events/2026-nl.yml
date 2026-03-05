@@ -27,7 +27,7 @@ hero: # Hero section content for the event page
   description: Eerlijke, Technische beleidsdiscussies tussen cybersecurity onderzoekers en beleidsambtenaren in Nederland. # Hero description
   cta: # Primary call-to-action button
     label: Inschrijven # Button text
-    url: https://example.com/register # Button link (replace with the real form)
+    url: https://tally.so/r/LZdqRO # Button link (replace with the real form)
     external: true # true if the link leaves this site
 schedule_intro: "Tijden zijn nog indiciatief." # One-line schedule intro
 location: # Venue section content
