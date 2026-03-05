@@ -14,5 +14,7 @@ resources:
     - label: Past Plenaries (YouTube)
       url: https://www.youtube.com/@hackersonthehill
       external: true
+    - label: Policymaker Briefing
+      url: /briefing/
     - label: Style Guide
       url: /style-guide/
