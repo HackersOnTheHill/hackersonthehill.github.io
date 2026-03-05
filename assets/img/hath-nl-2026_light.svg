@@ -1,4 +1,43 @@
 <svg width="12500" height="12500" viewBox="0 0 12500 12500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clipPath id="clip0_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(1965.97 7266.02)"/>
+</clipPath>
+<clipPath id="clip1_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(1317.99 7266)"/>
+</clipPath>
+<clipPath id="clip2_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(670 7265.99)"/>
+</clipPath>
+<clipPath id="clip3_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(2289.97 8105.23)"/>
+</clipPath>
+<clipPath id="clip4_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(1641.99 8105.2)"/>
+</clipPath>
+<clipPath id="clip5_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(993.992 8105.2)"/>
+</clipPath>
+<clipPath id="clip6_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(10493 7266.07)"/>
+</clipPath>
+<clipPath id="clip7_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(9845.01 7266.04)"/>
+</clipPath>
+<clipPath id="clip8_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(9197.02 7266.03)"/>
+</clipPath>
+<clipPath id="clip9_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(10169 8105.16)"/>
+</clipPath>
+<clipPath id="clip10_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(9521.05 8105.13)"/>
+</clipPath>
+<clipPath id="clip11_40_24">
+<rect width="1337" height="1337" fill="white" transform="translate(8873.05 8105.12)"/>
+</clipPath>
+</defs>
+
 <mask id="mask0_40_24" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12500" height="12500">
 <circle cx="6250" cy="6250" r="6250" fill="#D9D9D9"/>
 </mask>
@@ -168,42 +207,5 @@
 <path d="M6249.61 8339.8C6089.65 8339.8 5960 8469.28 5960 8629.02V10183.2H6539.22V8629.02C6539.22 8469.28 6409.56 8339.8 6249.61 8339.8Z" fill="#F5F5F5"/>
 <path d="M6249.61 8339.8C6089.65 8339.8 5960 8469.28 5960 8629.02V10183.2H6539.22V8629.02C6539.22 8469.28 6409.56 8339.8 6249.61 8339.8Z" stroke="#999999" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round"/>
 </g>
-<defs>
-<clipPath id="clip0_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(1965.97 7266.02)"/>
-</clipPath>
-<clipPath id="clip1_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(1317.99 7266)"/>
-</clipPath>
-<clipPath id="clip2_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(670 7265.99)"/>
-</clipPath>
-<clipPath id="clip3_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(2289.97 8105.23)"/>
-</clipPath>
-<clipPath id="clip4_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(1641.99 8105.2)"/>
-</clipPath>
-<clipPath id="clip5_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(993.992 8105.2)"/>
-</clipPath>
-<clipPath id="clip6_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(10493 7266.07)"/>
-</clipPath>
-<clipPath id="clip7_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(9845.01 7266.04)"/>
-</clipPath>
-<clipPath id="clip8_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(9197.02 7266.03)"/>
-</clipPath>
-<clipPath id="clip9_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(10169 8105.16)"/>
-</clipPath>
-<clipPath id="clip10_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(9521.05 8105.13)"/>
-</clipPath>
-<clipPath id="clip11_40_24">
-<rect width="1337" height="1337" fill="white" transform="translate(8873.05 8105.12)"/>
-</clipPath>
-</defs>
+
 </svg>
