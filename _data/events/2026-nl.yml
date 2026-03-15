@@ -29,7 +29,7 @@ hero: # Hero section content for the event page
     label: Inschrijven # Button text
     url: https://tally.so/r/LZdqRO # Button link (replace with the real form)
     external: true # true if the link leaves this site
-schedule_intro: "Tijden zijn nog indiciatief." # One-line schedule intro
+schedule_intro: "Tijden in het programma hieronder zijn nog indiciatief." # One-line schedule intro
 location: # Venue section content
   name: Johan de Witthuis # Venue name line
   directions_url: https://www.google.com/maps?q=Johan%20de%20Witthuis%2C%20Den%20Haag # External directions link
