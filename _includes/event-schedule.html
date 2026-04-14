@@ -28,13 +28,25 @@
               {% endif %}
             </div>
             <div class="col-9 col-md-8">
+              {% if item.tracks %}
+              <div class="row schedule-tracks">
+                {% for track in item.tracks %}
+                <div class="col-12 col-sm-6 schedule-track">
+                  <span class="track-badge">Track {{ track.track }}</span>
+                  <h5>{{ track.title }}</h5>
+                  {% if track.description %}<p>{{ track.description }}</p>{% endif %}
+                </div>
+                {% endfor %}
+              </div>
+              {% else %}
               <h5>
                 {{ item.title }}
                 {% if item.location %}
                 <span>{{ item.location }}</span>
                 {% endif %}
               </h5>
-              <p>{{ item.description }}</p>
+              {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+              {% endif %}
             </div>
           </div>
           {% endfor %}
