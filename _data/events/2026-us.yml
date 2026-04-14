@@ -1,0 +1,72 @@
+status: draft
+region: us
+start_date: 2026-06-16
+url: /us-2026/
+show_in_nav: false
+show_on_index: false
+nav:
+  label: "US - Jun 2026"
+card:
+  title: United States
+  location: Washington, DC
+  detail: TBD
+  date_label: "Next: June 16, 2026"
+  date_type: next
+  badge: Get Notified
+  badge_class: ""
+  logo_light: /assets/img/hoth-us_lightmode.svg
+  logo_dark: /assets/img/hoth-us_darkmode.svg
+  logo_alt: Hackers on the Hill US logo
+  aria_label: Get notified about Hackers on the Hill US 2026
+hero:
+  title: Hackers on the Hill US
+  date_label: "June 16, 2026"
+  location_label: Washington, DC
+  logo: /assets/img/hoth-us_lightmode.svg
+  logo_dark: /assets/img/hoth-us_darkmode.svg
+  logo_alt: Hackers on the Hill US logo
+  description: Candid, technical policy conversations between cybersecurity researchers and policymakers on Capitol Hill. This year's event runs ahead of Critical Effect 2026.
+  cta:
+    label: Get Notified
+    modal_target: "#newsletterModal"
+schedule_intro: "Times are TBD. The current plan is a plenary discussion followed by small-group office briefings."
+location:
+  name: TBD
+  address: Washington, DC
+  details: |
+    Venue details will be shared once confirmed. Previous US events have taken place in Congressional office buildings on Capitol Hill.
+schedule:
+  - time: TBD
+    title: Arrival and security check
+    description: Entry details and timing will be shared once confirmed.
+  - time: TBD
+    title: Plenary discussion
+    description: Opening plenary conversation for all attendees.
+    speaker_placeholder: true
+  - time: TBD
+    title: Office briefings in small groups
+    description: We will break into groups for briefings with Congressional offices.
+    speaker_placeholder: true
+  - time: TBD
+    title: Happy hour afterward
+    description: Time and location TBD.
+faq:
+  - question: What happens after I register my interest?
+    answer: |
+      Registering your interest lets us follow up with details as plans are finalized. It does not guarantee a spot.
+
+      If we can accommodate you, you'll receive a confirmation email with next steps.
+  - question: Do you allow press?
+    answer: |
+      Press attendance is handled separately for each event. If you are a member of the press and would like to attend, please get in touch.
+  - question: Are there recommended hotels?
+    answer: |
+      We don't have an official hotel block yet. If you're visiting from out of town, choose a hotel near Capitol Hill for easy access.
+  - question: Can I bring a guest?
+    answer: |
+      Due to venue requirements and limited capacity, each attendee must register individually. Please do not bring unregistered guests.
+  - question: What should I bring? What should I wear?
+    answer: |
+      Bring a government-issued photo ID for security screening. A notepad is useful; laptops are optional.
+
+      Dress comfortably and consider the weather.
