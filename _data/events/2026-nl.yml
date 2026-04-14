@@ -41,36 +41,36 @@ location: # Venue section content
   map_embed_url: https://www.google.com/maps?q=Johan%20de%20Witthuis%2C%20Den%20Haag&output=embed # Map iframe URL
   map_title: Google map of Johan de Witthuis, Den Haag # Iframe title for accessibility
 schedule: # Schedule list (ordered)
-- time: 10:30
-  title: Inloop
-  description: Legitimatie check, inloop, koffie.
-- time: 11:00
-  title:  Opening 
-  description: keynote en uitleg programma
-- time: 11:30
-  title:  Rondetafelgesprek
-  description: BZK, EZK, BZ (en evt. andere ministeries) – overzicht van rol van ieder ministerie en overzicht teams – casus ODIDO + Q&A
-- time: 12:30
-  title:  Lunch
-  description: (provided for you)
-- time: 13:30
-  title: 1) AI en cybersecurity  2) Cyber Resilience Act
-  description: breakout sessions, you will be assigned to one.
-- time: 14:30
-  title:  Verplaatsen
-  description: koffie en dergelijke
-- time: 14:45
-  title:  1) AI en cybersecurity 2) Open Source binnen de overheid
-  description: breakout sessions, you will be assigned to one.
-- time: 15:45
-  title:  Ruimte voor uitloop + terug naar plenaire zaal
-    description: breakout sessions, you will be assigned to one.
-- time: 15:50
-  title:  Plenaire afsluiting
-    description: breakout sessions, you will be assigned to one.
-  - time: 16:30 # Start time label
-    title: Borrel om de hoek
-    description: (op eigen kosten))
+    - time: 10:30
+      title: Inloop
+      description: Legitimatie check, inloop, koffie.
+    - time: 11:00
+      title:  Opening 
+      description: keynote en uitleg programma
+    - time: 11:30
+      title:  Rondetafelgesprek
+      description: BZK, EZK, BZ (en evt. andere ministeries) – overzicht van rol van ieder ministerie en overzicht teams – casus ODIDO + Q&A
+    - time: 12:30
+      title:  Lunch
+      description: (provided for you)
+    - time: 13:30
+      title: 1) AI en cybersecurity  2) Cyber Resilience Act
+      description: breakout sessions, you will be assigned to one.
+    - time: 14:30
+      title:  Verplaatsen
+      description: koffie en dergelijke
+    - time: 14:45
+      title:  1) AI en cybersecurity 2) Open Source binnen de overheid
+      description: breakout sessions, you will be assigned to one.
+    - time: 15:45
+      title:  Ruimte voor uitloop + terug naar plenaire zaal
+      description: breakout sessions, you will be assigned to one.
+    - time: 15:50
+      title:  Plenaire afsluiting
+      description: breakout sessions, you will be assigned to one.
+    - time: 16:30 # Start time label
+      title: Borrel om de hoek
+      description: (op eigen kosten))
 
 faq: # FAQ list
   - question: Wat gebeurt er als ik me inschrijf?
