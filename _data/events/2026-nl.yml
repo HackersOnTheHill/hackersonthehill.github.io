@@ -41,35 +41,28 @@ location: # Venue section content
   map_embed_url: https://www.google.com/maps?q=Johan%20de%20Witthuis%2C%20Den%20Haag&output=embed # Map iframe URL
   map_title: Google map of Johan de Witthuis, Den Haag # Iframe title for accessibility
 schedule: # Schedule list (ordered)
-  - time: TBD # Start time label
-    title: Welkom en koffie # Item title
-    description: Legitimatie check, inloop, koffie.
-  - time: TBD # Start time label
-    title: Opening # Item title
-    location: Begane grond # Optional room/venue line
-    description: Opening en toelichting van de rest van de dag. # Item description
-    time: TBD # Start time label
-    title: Plenaire presentatie # Item title
-    location: Begane grond # Optional room/venue line
-    description: Kort welkomstwoord
-    speaker_placeholder: true # true to show speaker placeholder icon
-  - time: TBD # Start time label
-    title: Een dag in het leven van een beleidsambtenaar # Item title
-    description: Een beleidsambtenaar neemt je mee door een typische dag aan het werk op het cybersecurity werkveld op een ministerie.
-    speaker_placeholder: true # true to show speaker placeholder icon
-  - time: TBD # Start time label
-    title: Cybersecurity, het kabinetsbeleid en verdeling over ministeries.
-    description: Toelichting volgt
-  - time: TBD # Start time label
-    title: lunch
-    description: Lunch op locatie
-  - time: TBD # Start time label
-    title: interactief middagprogramma
-    description: Interactieve breakout discussie sessies over verschillende onderwerpen.
+- time: 10:30 – 11:00
+  title: Inloop
+  description: Legitimatie check, inloop, koffie.
+- time: 11:00 – 11:15
+  title:  Opening 
+  description: keynote en uitleg programma
+- time: 11:30 – 12:30
+  title:  Rondetafelgesprek
+  description: BZK, EZK, BZ (en evt. andere ministeries) – overzicht van rol van ieder ministerie en overzicht teams – casus ODIDO + Q&A
+- time: 12:30 – 13:30
+  title:  Lunch
+- time: 13:30 – 14:30
+  title: 1) AI en cybersecurity  2) Cyber Resilience Act
+- time: 14:30 – 14:45
+  title:  Verplaatsen + koffie
+- time: 14:45 – 15:45
+  title:  1) AI en cybersecurity 2) Open Source binnen de overheid
+- time: 15:45 – 15:50
+  title:  Ruimte voor uitloop + terug naar plenaire zaal
+- time: 15:50 – 16:15
+  title:  Plenaire afsluiting
   - time: 16:30 # Start time label
-    title: Afsluiting
-    description: Samenvatting van de verschillende sessies
-  - time: 17:30 # Start time label
     title: Borrel om de hoek
     description: (op eigen kosten))
 
