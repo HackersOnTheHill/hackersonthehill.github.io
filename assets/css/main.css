@@ -1433,6 +1433,40 @@ button.location-card {
   border-bottom: none;
 }
 
+#schedule .schedule-tracks {
+  margin: 0;
+}
+
+#schedule .schedule-track {
+  padding-top: 0;
+  padding-bottom: 4px;
+}
+
+#schedule .schedule-track + .schedule-track {
+  border-left: 2px solid var(--border-accent);
+}
+
+@media (max-width: 575.98px) {
+  #schedule .schedule-track + .schedule-track {
+    border-left: none;
+    border-top: 2px solid var(--border-accent);
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+}
+
+#schedule .track-badge {
+  display: inline-block;
+  background-color: var(--bg-secondary);
+  color: var(--accent-primary);
+  border: 1px solid var(--border-accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
 /*--------------------------------------------------------------
 # 6.8 FAQ
 --------------------------------------------------------------*/
