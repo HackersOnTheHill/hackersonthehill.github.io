@@ -52,15 +52,15 @@ schedule: # Schedule list (ordered)
       description: BZK, EZK, BZ (en evt. andere ministeries) – overzicht van rol van ieder ministerie en overzicht teams – casus ODIDO + Q&A
     - time: "12:30"
       title: Lunch
-      description: (provided for you)
+      description: (aangeboden door MinEZK)
     - time: "13:30"
       tracks:
         - track: A
           title: AI en cybersecurity
-          description: breakout session – you will be assigned to one.
+          description: breakout sessie, we delen je in.
         - track: B
           title: Cyber Resilience Act
-          description: breakout session – you will be assigned to one.
+          description: breakout sessie, we delen je in.
     - time: "14:30"
       title: Verplaatsen
       description: koffie en dergelijke
@@ -68,10 +68,10 @@ schedule: # Schedule list (ordered)
       tracks:
         - track: A
           title: AI en cybersecurity
-          description: breakout session – you will be assigned to one.
+          description: breakout sessie, we delen je in.
         - track: B
           title: Open Source binnen de overheid
-          description: breakout session – you will be assigned to one.
+          description: breakout sessie, we delen je in.
     - time: "15:45"
       title: Ruimte voor uitloop + terug naar plenaire zaal
     - time: "15:50"
