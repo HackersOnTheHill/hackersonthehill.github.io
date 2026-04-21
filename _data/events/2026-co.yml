@@ -2,15 +2,16 @@ status: published
 region: co
 start_date: 2026-02-10
 url: /colorado-2026/
+show_in_nav: false
 nav:
   label: Colorado - Feb 2026
 card:
   title: Colorado
   location: Denver
   detail: State Services Building
-  date_label: "Next: February 10, 2026"
-  date_type: next
-  badge: Request a Seat
+  date_label: "Last: February 10, 2026"
+  date_type: last
+  badge: Visit Page
   badge_class: ""
   logo_light: /assets/img/hoth-colorado-dome.svg
   logo_alt: Hackers on the Hill Colorado logo with dome
