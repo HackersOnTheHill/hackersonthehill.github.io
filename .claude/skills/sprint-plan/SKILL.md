@@ -27,56 +27,108 @@ immediate request.
 ## What makes a good sprint
 
 A sprint is a focused chunk of work with one clear goal and a clear
-finish line. The term comes from Scrum; the Scrum Guide
-(scrumguides.org) is the short, free, canonical source and is worth
-skimming once. No other skill in this repo teaches these principles —
-apply them explicitly.
+finish line. The idea comes from a software-planning method called
+Scrum; its canonical description lives at scrumguides.org and is short
+(around 14 pages) and free. No other skill in this repo teaches these
+principles, so apply them explicitly. The seven rules below are the
+ones that matter for a small volunteer-run site.
 
-1. **The site stays working, always.** Between any two commits —
-   including the ones inside a sprint — `main` should be deployable.
-   No half-finished event pages, no broken nav, no dangling links. If
-   a change can't ship on its own, break it into smaller steps that
-   can.
+### 1. The site never goes half-broken
 
-2. **One theme per sprint.** A sprint adds one event, *or* cleans up
-   the CSS, *or* improves accessibility — not all three. If the tasks
-   don't share an obvious one-sentence goal, it's probably two sprints
-   pretending to be one. Split it.
+Every commit should leave hackersonthehill.github.io in a state where
+you could hand the URL to a congressional staffer without blushing. No
+menu link pointing at a page that doesn't exist yet. No event card
+showing a date that was just deleted from the data file. No
+registration button that leads to a 404.
 
-3. **Decide what finished looks like before starting.** The
-   `## Definition of good` section in the plan is that list. Make it
-   specific and testable — "Netherlands 2026 page is live at
-   `/netherlands/`, linked from the nav and the homepage card,
-   registration button opens Eventbrite" — not aspirational ("site
-   feels modern"). If you can't write that list, you don't have a
-   sprint yet; go back to Phase 2.
+If a change has to land in stages — for example, building a new event
+page before linking to it from the homepage — plan the stages so every
+intermediate state is still safe to ship. Publish the page first,
+*then* link to it, not the other way around.
 
-4. **Order tasks so each one stands on its own.** If a sprint stops
-   halfway (the organizer disappears, the session runs out, the user
-   has to step away), the tasks that already shipped should still
-   deliver value. Put the highest-value, independently-useful tasks
-   first.
+### 2. One theme per sprint
 
-5. **Narrow beats broad.** Three tasks done well is a better sprint
-   than nine half-finished. When in doubt, move the last few items to
-   a follow-up — the "Out of scope" section exists for exactly this.
+A good sprint has a goal you can say in one sentence: *"Launch the
+Netherlands 2026 event page."* Not two sentences. Not *"and also."* If
+the plan covers launching an event AND refreshing the homepage AND
+fixing some accessibility issues, that's three sprints, not one — pick
+the most important and defer the rest.
 
-6. **If scope grows, split — don't stretch.** New work that surfaces
-   during execution goes into `docs/BACKLOG.md` or a new plan file,
-   not silently bolted onto the current sprint. Stretching is how
-   sprints quietly fail.
+### 3. Decide what "finished" looks like before you start
 
-7. **Finished means finished.** A task moves to `✅ Completed` only
-   when its verification step actually passes. "Mostly working, we'll
-   fix it later" is not finished — file a follow-up task and leave
-   the original open.
+Write it down in the plan's `## Definition of good` section as a
+checklist someone else could tick off by looking at the live site:
 
-**Where these apply in the workflow:**
+- *"A page for Netherlands 2026 exists at `/netherlands/`."*
+- *"A card for the event appears on the homepage events grid."*
+- *"The registration button opens the correct Eventbrite page in a
+  new tab."*
 
-- **Phase 3 (draft):** check items 2, 3, and 5 before writing the plan.
-  If any fail, loop back to Phase 2.
-- **Phase 4 (sign-off):** re-check items 1, 3, and 4 before accepting.
-- **Phase 5 (execute):** hold to items 1, 6, and 7 after each task.
+Avoid aspirational items like *"page feels modern"* or *"site is
+compelling"* — those aren't a finish line, they're opinions, and two
+people will disagree on whether they've been met. If you can't write a
+concrete checklist, the sprint isn't ready yet. Go back to Phase 2 and
+keep asking questions until you can.
+
+### 4. Order tasks so each one is worth shipping on its own
+
+Sprints get interrupted all the time: the organizer gets pulled into
+work, the Claude session runs out of room, someone has to travel.
+Don't save the most valuable work for the last task — do it first.
+
+Example order for a new event: publish the event page first, then add
+the homepage banner, then add the nice-to-haves (sponsor logos,
+speaker photo grid, etc.). If the sprint stops after the first task,
+the site is still better than it was. If you'd put the nice-to-haves
+first, stopping halfway would mean you spent time without giving
+visitors anything to click.
+
+### 5. Fewer, finished tasks beat many half-done ones
+
+Three tasks done well is a better sprint than nine tasks left in a
+messy state. If the plan feels long, move the less-essential items
+into the plan's "Out of scope" section. Those can become a second
+sprint later; they don't have to be done now to matter.
+
+### 6. When new work appears, write it down — don't quietly add it in
+
+Halfway through almost any sprint, you'll spot other things worth
+doing: *"while we're in here, we should also update the speaker
+photos."* Resist. Add those to `docs/BACKLOG.md` or a new plan file,
+and keep the current sprint focused on the goal it started with.
+Sprints that quietly grow tend to never end — the finish line keeps
+moving, and the original goal gets buried.
+
+### 7. "Finished" really means finished, not almost-finished
+
+A task gets marked `✅ Completed` only when its verification step
+*actually passes* — the page loads, the link works, the banner shows
+correctly on both phones and laptops, and anything else the task's
+verification section listed. Saying *"it's mostly working, we'll fix
+that last bit later"* and marking it done is the single most damaging
+habit on a small site, because those half-finished pieces accumulate
+silently and make the whole site feel sloppy over time.
+
+When you notice a small issue while finishing a task, write it down
+as a new task (either in this sprint or in `docs/BACKLOG.md`) and
+leave the original task open until the real thing genuinely works.
+A longer sprint with everything finished is always better than a
+shorter sprint with quiet loose ends.
+
+---
+
+**Where to apply these during the workflow:**
+
+- **When drafting the plan (Phase 3):** check rules 2, 3, and 5. If
+  any fails — the goal covers more than one theme, the "finished"
+  checklist is vague, or the task list is too long — loop back to
+  Phase 2 and ask more questions before writing the plan.
+- **At sign-off (Phase 4):** re-check rules 1, 3, and 4 before
+  accepting. Does the order of tasks make sense if the sprint gets
+  interrupted? Is every commit shippable?
+- **While executing (Phase 5):** hold to rules 1, 6, and 7 after
+  every task. Don't merge in unrelated work; don't mark half-finished
+  things as done.
 
 ---
 

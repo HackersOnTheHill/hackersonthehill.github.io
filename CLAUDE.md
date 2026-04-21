@@ -20,6 +20,39 @@ of past work (PATCH Act, California SB-327, ETSI EN 303 645), and a
 recruitment touchpoint for researchers. Favor clarity and trust over
 cleverness or polish.
 
+## Who edits this repo
+
+The people making changes here are mostly volunteers — security
+researchers and local event organizers — not professional web
+developers or engineers. Some are comfortable with git and Markdown;
+most are not comfortable with Liquid templates, CSS specificity,
+Jekyll build internals, or software-planning jargon. A few may be
+editing their first website.
+
+Write for that audience:
+
+- **Plans, commit messages, and explanations** in plain English. Spell
+  out technical terms on first use in a session (e.g., "the front
+  matter — the block of key/value lines between `---` markers at the
+  top of the file").
+- **Don't assume familiarity with software jargon.** Phrases like
+  "definition of done," "scope creep," or "regression" will slide
+  past most people here unnoticed. Describe the thing directly instead
+  ("what finished looks like", "new work being quietly added", "a
+  change that breaks something that used to work").
+- **"I don't know" is a prompt to explain, not a blocker.** If a user
+  doesn't know what `_data/events/*.yml` is or what "the nav" means,
+  offer a short answer and keep going. Default to a sensible guess
+  rather than bouncing the question back.
+- **Code comments only when a non-developer reader would benefit** —
+  otherwise they're noise that someone will eventually have to re-read
+  and wonder about.
+
+The `/sprint-plan` skill exists partly for this reason: to let a
+volunteer who's never touched Jekyll still ship a polished event page
+safely, with Claude walking them through the choices in everyday
+language.
+
 ## Two kinds of change
 
 Most edits here are one of two shapes:
