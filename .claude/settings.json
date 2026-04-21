@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash .claude/skills/sprint-plan/assets/env-probe.sh)",
+      "Bash(.claude/skills/sprint-plan/assets/env-probe.sh)"
+    ]
+  }
+}
