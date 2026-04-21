@@ -24,6 +24,62 @@ immediate request.
 
 ---
 
+## What makes a good sprint
+
+A sprint is a focused chunk of work with one clear goal and a clear
+finish line. The term comes from Scrum; the Scrum Guide
+(scrumguides.org) is the short, free, canonical source and is worth
+skimming once. No other skill in this repo teaches these principles —
+apply them explicitly.
+
+1. **The site stays working, always.** Between any two commits —
+   including the ones inside a sprint — `main` should be deployable.
+   No half-finished event pages, no broken nav, no dangling links. If
+   a change can't ship on its own, break it into smaller steps that
+   can.
+
+2. **One theme per sprint.** A sprint adds one event, *or* cleans up
+   the CSS, *or* improves accessibility — not all three. If the tasks
+   don't share an obvious one-sentence goal, it's probably two sprints
+   pretending to be one. Split it.
+
+3. **Decide what finished looks like before starting.** The
+   `## Definition of good` section in the plan is that list. Make it
+   specific and testable — "Netherlands 2026 page is live at
+   `/netherlands/`, linked from the nav and the homepage card,
+   registration button opens Eventbrite" — not aspirational ("site
+   feels modern"). If you can't write that list, you don't have a
+   sprint yet; go back to Phase 2.
+
+4. **Order tasks so each one stands on its own.** If a sprint stops
+   halfway (the organizer disappears, the session runs out, the user
+   has to step away), the tasks that already shipped should still
+   deliver value. Put the highest-value, independently-useful tasks
+   first.
+
+5. **Narrow beats broad.** Three tasks done well is a better sprint
+   than nine half-finished. When in doubt, move the last few items to
+   a follow-up — the "Out of scope" section exists for exactly this.
+
+6. **If scope grows, split — don't stretch.** New work that surfaces
+   during execution goes into `docs/BACKLOG.md` or a new plan file,
+   not silently bolted onto the current sprint. Stretching is how
+   sprints quietly fail.
+
+7. **Finished means finished.** A task moves to `✅ Completed` only
+   when its verification step actually passes. "Mostly working, we'll
+   fix it later" is not finished — file a follow-up task and leave
+   the original open.
+
+**Where these apply in the workflow:**
+
+- **Phase 3 (draft):** check items 2, 3, and 5 before writing the plan.
+  If any fail, loop back to Phase 2.
+- **Phase 4 (sign-off):** re-check items 1, 3, and 4 before accepting.
+- **Phase 5 (execute):** hold to items 1, 6, and 7 after each task.
+
+---
+
 ## Phase 1 — Archetype
 
 **First action in every invocation.** Call `AskUserQuestion` with the
