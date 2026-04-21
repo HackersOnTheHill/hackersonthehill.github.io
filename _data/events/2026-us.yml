@@ -1,0 +1,91 @@
+status: draft
+region: us
+start_date: 2026-06-16
+url: /us-2026/
+show_in_nav: true
+show_on_index: true
+nav:
+  label: US - Jun 2026
+card:
+  title: United States
+  location: Washington, DC
+  detail: US Capitol
+  date_label: "Next: June 16, 2026"
+  date_type: next
+  badge: Get Notified
+  badge_class: ""
+  logo_light: /assets/img/hoth-us_lightmode.svg
+  logo_dark: /assets/img/hoth-us_darkmode.svg
+  logo_alt: Hackers on the Hill United States logo
+  aria_label: Register for Hackers on the Hill US 2026
+hero:
+  title: Hackers on the Hill Washington, DC
+  date_label: June 16, 2026
+  location_label: Washington, DC
+  logo: /assets/img/hoth-us_lightmode.svg
+  logo_alt: Hackers on the Hill United States logo
+  description: Cybersecurity researchers and Congressional staff, in the same room, making policy smarter together.
+  notice: "Registration opens around May 1. Sign up for our notification list to hear when it drops."
+  cta:
+    label: Get Notified
+    modal_target: "#newsletterModal"
+schedule_intro: "The day runs from Capitol Hill to the Critical Effect stage. We're also adding something new to the format this year. We're not ready to share all the details yet, but stay tuned."
+location:
+  name: US Capitol
+  directions_url: https://www.google.com/maps?q=US+Capitol+Washington+DC
+  address: East Capitol St NE & First St SE, Washington, DC 20004
+  details: |
+    The Capitol is accessible by Metro (Capitol South on the Blue/Orange/Silver lines, or Union Station on the Red line). Entry requires a government-issued photo ID and security screening.
+
+    Specific room assignments and entry points will be shared with confirmed attendees.
+  map_embed_url: https://www.google.com/maps?q=US+Capitol+Washington+DC&output=embed
+  map_title: Google map of the US Capitol
+schedule:
+  - time: TBD
+    title: Arrival and security check
+    description: Arrive at the Capitol and clear security screening. Bring a government-issued photo ID.
+  - time: TBD
+    title: Cyber Policy 101
+    location: US Capitol
+    description: A grounding session on what is moving on the Hill right now, what makes policy change, and where the security research community fits in.
+    speaker_placeholder: true
+  - time: TBD
+    title: A Day in the Life of a Staffer
+    location: US Capitol
+    description: Straight talk from Hill staff on how they receive and use technical input, and what actually makes a difference.
+    speaker_placeholder: true
+  - time: TBD
+    title: Office briefings
+    location: Congressional offices
+    description: Small-group meetings with Congressional offices around the Capitol. Something new is happening alongside the briefings this year. Details to come.
+    speaker_placeholder: true
+  - time: TBD
+    title: "Cyber Policy Shark Tank: Live Finale"
+    location: "Critical Effect (June 17-18)"
+    description: Researchers pitch cybersecurity policy solutions to a panel of current and former Congressional staffers. The final round is the closing session of <a href="https://securityandtechnology.org/event/critical-effect-2026/" target="_blank" rel="noopener">Critical Effect 2026</a> (June 17-18).
+faq:
+  - question: When does registration open?
+    answer: |
+      Registration is expected to open around May 1, 2026. <a data-bs-toggle="modal" href="#newsletterModal" aria-label="notification list">Sign up for our notification list</a> to hear as soon as it does.
+  - question: What happens after I register my interest?
+    answer: |
+      Registering your interest lets us follow up with details as plans are finalized. It does not guarantee a spot.
+
+      If we can accommodate you, you will receive a confirmation email with next steps.
+  - question: Is this event connected to Critical Effect?
+    answer: |
+      Yes. The Cyber Policy Shark Tank finale is the closing session of <a href="https://securityandtechnology.org/event/critical-effect-2026/" target="_blank" rel="noopener">Critical Effect 2026</a> (June 17-18). If you plan to attend Critical Effect, make sure you stick around for the last session.
+  - question: Do you allow press?
+    answer: |
+      Press attendance is handled separately. If you are a member of the press and would like to attend or speak with us, please <a data-bs-toggle="modal" href="#contactModal" aria-label="Contact Us">get in touch</a>.
+  - question: Are there recommended hotels?
+    answer: |
+      We do not have an official hotel block. Capitol Hill has several options within walking distance of the Capitol, and Dupont Circle and downtown DC are easy Metro rides away.
+  - question: What should I bring? What should I wear?
+    answer: |
+      Bring a government-issued photo ID for security screening. A notepad is useful; laptops are optional.
+
+      Business casual is comfortable and appropriate for the Hill.
+  - question: Can I bring a guest?
+    answer: |
+      Due to venue requirements and limited capacity, each attendee must register individually. Please do not bring unregistered guests.

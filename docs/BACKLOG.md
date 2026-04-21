@@ -18,6 +18,8 @@ This backlog tracks planned improvements, enhancements, and technical debt for h
 
 ## 🎯 CURRENT SPRINT (Ready to Implement)
 
+**Active:** [US/DC 2026 Event Launch](./../.claude/plans/us-dc-2026-launch.md) — 3 tasks, content sprint, launch-by 2026-04-25
+
 ### Task 1.1: Add GTM Preconnect Hint ✅
 **Priority:** High
 **Effort:** 5 minutes
@@ -757,6 +759,24 @@ Increase opacity of `--text-secondary` from 60% to 70-75% to meet WCAG AA standa
 ---
 
 ## 🔧 TECHNICAL DEBT
+
+### Task: Fix Local Dev HTTPS via Caddy
+**Priority:** Medium
+**Effort:** 30 minutes
+**Status:** Todo
+**Files:** `docker-compose.yml`, `Caddyfile`
+
+**Description:**
+The local dev setup (docker-compose) routes traffic through Caddy as a reverse proxy so the site is reachable over HTTPS on the Tailscale hostname (`ntel.gibbon-blues.ts.net`). This breaks when port 80/443 is already taken by another Caddy container on the same host. As a workaround, `docker-compose.yml` was changed to expose Jekyll on port 4000 directly (HTTP only). The proper fix is to make the Caddy setup coexist with other containers, for example by binding to the Tailscale interface only rather than 0.0.0.0, or by assigning Caddy a different host port when not in production.
+
+**Implementation:**
+- Investigate binding Caddy to the Tailscale interface IP only (avoids port conflicts with other containers on 0.0.0.0:80/443)
+- Or use Tailscale serve on the host rather than running Caddy inside Docker
+- Caddyfile already has the correct `ntel.gibbon-blues.ts.net` site block; the fix is in how the container binds ports
+
+**Verification:**
+- `docker-compose up` succeeds even when another Caddy is running on the host
+- `https://ntel.gibbon-blues.ts.net/` loads the site with a valid TLS cert
 
 ### Task 8.1: Upgrade Bootstrap to Latest Version
 **Priority:** Medium
