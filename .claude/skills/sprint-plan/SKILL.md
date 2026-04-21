@@ -77,11 +77,11 @@ work, the Claude session runs out of room, someone has to travel.
 Don't save the most valuable work for the last task — do it first.
 
 Example order for a new event: publish the event page first, then add
-the homepage banner, then add the nice-to-haves (sponsor logos,
-speaker photo grid, etc.). If the sprint stops after the first task,
-the site is still better than it was. If you'd put the nice-to-haves
-first, stopping halfway would mean you spent time without giving
-visitors anything to click.
+the homepage banner, then add the nice-to-haves (speaker photo grid,
+a link to last year's archive, venue map, etc.). If the sprint stops
+after the first task, the site is still better than it was. If you'd
+put the nice-to-haves first, stopping halfway would mean you spent
+time without giving visitors anything to click.
 
 ### 5. Fewer, finished tasks beat many half-done ones
 
