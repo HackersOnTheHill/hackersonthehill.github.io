@@ -16,5 +16,7 @@ resources:
       external: true
     - label: Policymaker Briefing
       url: /briefing/
+    - label: Cyber Policy Shark Tank
+      url: /cyber-policy-shark-tank/
     - label: Style Guide
       url: /style-guide/
