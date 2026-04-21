@@ -18,7 +18,8 @@ This backlog tracks planned improvements, enhancements, and technical debt for h
 
 ## 🎯 CURRENT SPRINT (Ready to Implement)
 
-**Active:** [US/DC 2026 Event Launch](./../.claude/plans/us-dc-2026-launch.md) — 3 tasks, content sprint, launch-by 2026-04-25
+**Active:** [US/DC 2026 Event Launch](./../.claude/plans/us-dc-2026-launch.md) — 3 tasks, content sprint, launch-by 2026-04-25 ✅
+**Active:** [Cyber Policy Shark Tank Reference Page](./../.claude/plans/shark-tank-page.md) — 2 tasks, content sprint, launch-by 2026-04-25
 
 ### Task 1.1: Add GTM Preconnect Hint ✅
 **Priority:** High
@@ -1592,6 +1593,41 @@ docker-compose up
     1. Allocate 2-3 hour block for CSS modularization (Task 6.1)
     2. Consider starting Resources page (high user priority)
     3. Breadcrumb implementation for archives (SEO benefit)
+
+- **2026-04-21 (Session Complete):** US/DC 2026 Event Launch — 3 of 3 tasks completed.
+  - **Session Summary:**
+    - Total implementation time: ~1 hour
+    - Files modified: 5 (`_data/events/2026-us.yml`, `us-2026.md`, `_data/pages/index.yml`, `_data/banners.yml`, `_data/events/2026-co.yml`)
+    - No regressions; all verification passed via Jekyll build inspection
+  - **Completed Tasks:**
+    - ✅ Task 1.1: Create US/DC 2026 event data file and event page (draft)
+    - ✅ Task 1.2: Publish event (nav + events card live)
+    - ✅ Task 1.3: Update homepage surfaces (info-bar, banner modal, Colorado past-event cleanup)
+  - **Key Improvements Delivered:**
+    - New event page live at `/us-2026/` for June 16 at the US Capitol
+    - Cyber Policy Shark Tank at Critical Effect (June 17-18) advertised as closing session
+    - Subtle teaser for new format addition in schedule and About section
+    - Colorado removed from upcoming surfaces now that event has passed
+  - **Next Session Recommendations:**
+    1. Sprint 2: Cyber Policy Shark Tank standalone reference page (plan context saved in memory)
+    2. Proper Colorado archive entry once archive content is ready
+    3. Fix local dev HTTPS via Caddy (backlog item added under Technical Debt)
+
+- **2026-04-21 (Session Complete):** Cyber Policy Shark Tank Reference Page — 2 of 2 tasks completed.
+  - **Session Summary:**
+    - Total implementation time: ~30 minutes
+    - Files modified: 2 (`cyber-policy-shark-tank.md`, `_data/nav.yml`)
+    - No regressions; verified via Jekyll build
+  - **Completed Tasks:**
+    - ✅ Task 1.1: Create Cyber Policy Shark Tank reference page at /cyber-policy-shark-tank/
+    - ✅ Task 1.2: Add to Resources nav dropdown
+  - **Key Improvements Delivered:**
+    - Evergreen reference page for the Shark Tank format, ported verbatim from the 2025 Critical Effect page
+    - Past instances documented (January 2025, June 2025 archive, June 2026 upcoming)
+    - Accessible from Resources nav on every page
+  - **Next Session Recommendations:**
+    1. Update DC 2026 event page when registration opens (~May 1) and times/speakers are confirmed
+    2. Proper Colorado archive entry once archive content is ready
 
 ---
 
