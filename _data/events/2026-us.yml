@@ -25,11 +25,11 @@ hero:
   logo: /assets/img/hoth-us_lightmode.svg
   logo_alt: Hackers on the Hill United States logo
   description: Cybersecurity researchers and Congressional staff, in the same room, making policy smarter together.
-  notice: "Registration opens around May 1. Sign up for our notification list to hear when it drops."
+  notice: "Registration opens June 1."
   cta:
     label: Get Notified
     modal_target: "#newsletterModal"
-schedule_intro: "The day runs from Capitol Hill to the Critical Effect stage. We're also adding something new to the format this year. We're not ready to share all the details yet, but stay tuned."
+schedule_intro: "This year's event runs from Capitol Hill to the Critical Effect stage (Friday pm). We're also adding something new to the format this year: a mock Congressional hearing. You won't want to miss it!"
 location:
   name: US Capitol
   directions_url: https://www.google.com/maps?q=US+Capitol+Washington+DC
@@ -45,28 +45,21 @@ schedule:
     title: Arrival and security check
     description: Arrive at the Capitol and clear security screening. Bring a government-issued photo ID.
   - time: TBD
-    title: Cyber Policy 101
+    title: Mock Congressional Hearing
     location: US Capitol
-    description: A grounding session on what is moving on the Hill right now, what makes policy change, and where the security research community fits in.
-    speaker_placeholder: true
-  - time: TBD
-    title: A Day in the Life of a Staffer
-    location: US Capitol
-    description: Straight talk from Hill staff on how they receive and use technical input, and what actually makes a difference.
-    speaker_placeholder: true
+    description: Congressional stand-ins (former Congressional staffers) will have the opportunity to grill a distinguished panel of invited experts on hot topics and torn-from-the headlines events.
   - time: TBD
     title: Office briefings
     location: Congressional offices
     description: Small-group meetings with Congressional offices around the Capitol. Something new is happening alongside the briefings this year. Details to come.
-    speaker_placeholder: true
   - time: TBD
-    title: "Cyber Policy Shark Tank: Live Finale"
-    location: "Critical Effect (June 17-18)"
+    title: Happy Hour
+    location: TBD
     description: Researchers pitch cybersecurity policy solutions to a panel of current and former Congressional staffers. The final round is the closing session of <a href="https://securityandtechnology.org/event/critical-effect-2026/" target="_blank" rel="noopener">Critical Effect 2026</a> (June 17-18).
 faq:
   - question: When does registration open?
     answer: |
-      Registration is expected to open around May 1, 2026. <a data-bs-toggle="modal" href="#newsletterModal" aria-label="notification list">Sign up for our notification list</a> to hear as soon as it does.
+      Registration is expected to open Monday, June 1, 2026. <a data-bs-toggle="modal" href="#newsletterModal" aria-label="notification list">Sign up for our notification list</a> to hear as soon as it does.
   - question: What happens after I register my interest?
     answer: |
       Registering your interest lets us follow up with details as plans are finalized. It does not guarantee a spot.
