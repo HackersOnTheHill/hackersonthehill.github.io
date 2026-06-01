@@ -23,6 +23,7 @@ hero:
   date_label: June 16, 2026
   location_label: Washington, DC
   logo: /assets/img/hoth-us_lightmode.svg
+  logo_dark: /assets/img/hoth-us_darkmode.svg
   logo_alt: Hackers on the Hill United States logo
   description: Cybersecurity researchers and Congressional staff, in the same room, making policy smarter together.
   cta:
