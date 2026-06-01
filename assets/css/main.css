@@ -6,6 +6,13 @@
 * License: MIT
 */
 
+/* Safety net: AOS sets [data-aos] to opacity:0 at paint time and only
+   reveals content once AOS.init() runs. If AOS never initializes, content
+   would stay invisible. Allow the hidden state only after AOS has taken
+   ownership of a node (indicated by the aos-init class it adds). */
+[data-aos] { opacity: 1; }
+.aos-init[data-aos] { opacity: 0; }
+
 :root {
   /* ============================================================================
      1.1 Color Palette
