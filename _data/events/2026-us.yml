@@ -29,6 +29,10 @@ hero:
     label: Register
     url: https://forms.gle/5miohB6NoPCL64Te7
     external: true
+  cta_secondary:
+    label: Cyber Policy Shark Tank
+    url: https://forms.gle/NVQcZ376SutUUWeB7
+    external: true
 schedule_intro: "This year's event runs from Capitol Hill to the Critical Effect stage (Friday pm). We're also adding something new to the format this year: a mock Congressional hearing. You won't want to miss it!"
 location:
   name: US Capitol
