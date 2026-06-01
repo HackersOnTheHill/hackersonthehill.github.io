@@ -10,6 +10,7 @@ permalink: /cyber-policy-shark-tank/
       <div class="col-12 col-lg-9">
         <h1>Cyber Policy Shark Tank</h1>
         <p class="briefing-tagline">Pitch your policy idea. Defend it to the people who can make it happen.</p>
+        <a class="button priority mt-3" href="https://forms.gle/NVQcZ376SutUUWeB7" target="_blank" rel="noopener">Sign up for DC 2026</a>
       </div>
     </div>
   </div>
