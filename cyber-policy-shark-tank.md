@@ -56,7 +56,7 @@ permalink: /cyber-policy-shark-tank/
         <p>Three finalists will be notified after the preliminary rounds are completed. Innovators can incorporate feedback and polish the pitch so it is stage-ready.</p>
         <p>The final round of the three top pitches from preliminaries will be conducted live as the last session of the event. The format will be similar to the preliminary round, with different Sharks and a little additional time provided for the pitch and Sharks' response if possible. The session will conclude with an announcement of results and presentation of fabulous prizes to the winner.</p>
         <p>While you are free to submit a pitch on any topic you'd like, ideas centered on cybersecurity impacts to life, safety, and national security are most likely to move forward.</p>
-        <p><a data-bs-toggle="modal" href="#newsletterModal" aria-label="Sign up for notifications">Sign up for our notification list</a> to hear when the next submission window opens.</p>
+        <p><a href="https://forms.gle/NVQcZ376SutUUWeB7" target="_blank" rel="noopener">Sign up for the Cyber Policy Shark Tank</a> for the upcoming DC 2026 event.</p>
       </div>
     </div>
   </div>
