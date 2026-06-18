@@ -36,6 +36,18 @@ event_cards_recent:
     logo_dark: /assets/img/hoth-us_darkmode.svg
     logo_alt: United States Hackers on the Hill logo
     aria_label: View the most recent Hackers on the Hill US event
+  - title: Colorado
+    location: Denver
+    detail: State Services Building
+    date_label: "Last: February 2026"
+    date_type: last
+    badge: Visit Page
+    badge_class: ""
+    href: /colorado-2026/
+    logo_light: /assets/img/hoth-colorado-dome.svg
+    logo_dark: /assets/img/hoth-colorado-dome.svg
+    logo_alt: Hackers on the Hill Colorado logo
+    aria_label: View the most recent Hackers on the Hill Colorado event
   - title: Canada
     location: Ottawa
     detail: Parliament Hill
