@@ -23,6 +23,7 @@ hero: # Hero section content for the event page
   date_label: "May 8, 2026" # Hero date line
   location_label: Den Haag, Nederland # Hero location line
   logo: /assets/img/hath-nl-2026_lightmode.svg # Hero logo image (replace when logo is available)
+  logo_dark: /assets/img/hath-nl-2026_darkmode.svg
   logo_alt: Hackers at the Hof logo # Hero logo alt text
   description: Eerlijke, Technische beleidsdiscussies tussen cybersecurity onderzoekers en beleidsambtenaren in Nederland. # Hero description
   cta: # Primary call-to-action button

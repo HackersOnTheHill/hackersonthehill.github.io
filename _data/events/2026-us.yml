@@ -12,8 +12,8 @@ card:
   detail: US Capitol
   date_label: "Next: June 16, 2026"
   date_type: next
-  badge: Get Notified
-  badge_class: ""
+  badge: Register
+  badge_class: priority
   logo_light: /assets/img/hoth-us_lightmode.svg
   logo_dark: /assets/img/hoth-us_darkmode.svg
   logo_alt: Hackers on the Hill United States logo
@@ -23,16 +23,16 @@ hero:
   date_label: June 16, 2026
   location_label: Washington, DC
   logo: /assets/img/hoth-us_lightmode.svg
+  logo_dark: /assets/img/hoth-us_darkmode.svg
   logo_alt: Hackers on the Hill United States logo
   description: Cybersecurity researchers and Congressional staff, in the same room, making policy smarter together.
-  notice: "Registration is now open!"
   cta:
     label: Register
-    url: "https://forms.gle/Xe2sjFReTvXkHiHN7"
+    url: https://forms.gle/5miohB6NoPCL64Te7
     external: true
   cta_secondary:
-    label: Submit a Shark Tank idea
-    url: "https://forms.gle/M5WcMdFQT5LyT4V79"
+    label: Cyber Policy Shark Tank
+    url: https://forms.gle/NVQcZ376SutUUWeB7
     external: true
 schedule_intro: "This year's event runs from Capitol Hill to the Critical Effect stage (Friday pm). We're also adding something new to the format this year: a mock Congressional hearing. You won't want to miss it!"
 location:
@@ -60,14 +60,14 @@ schedule:
   - time: TBD
     title: Happy Hour
     location: TBD
-    description: Researchers pitch cybersecurity policy solutions to a panel of current and former Congressional staffers. The final round is the closing session of <a href="https://securityandtechnology.org/event/critical-effect-2026/" target="_blank" rel="noopener">Critical Effect 2026</a> (June 17-18).
+    description: Researchers pitch cybersecurity policy solutions to a panel of current and former Congressional staffers. The final round is the closing session of <a href="https://securityandtechnology.org/event/critical-effect-2026/" target="_blank" rel="noopener">Critical Effect 2026</a> (June 17-18). <a href="https://forms.gle/NVQcZ376SutUUWeB7" target="_blank" rel="noopener">Sign up for Cyber Policy Shark Tank</a>.
 faq:
-  - question: When does registration open?
+  - question: How do I register?
     answer: |
-      Registration is expected to open Monday, June 1, 2026. <a data-bs-toggle="modal" href="#newsletterModal" aria-label="notification list">Sign up for our notification list</a> to hear as soon as it does.
-  - question: What happens after I register my interest?
+      <a href="https://forms.gle/5miohB6NoPCL64Te7" target="_blank" rel="noopener">Register for the main session here</a>. If you'd like to participate in the Cyber Policy Shark Tank, <a href="https://forms.gle/NVQcZ376SutUUWeB7" target="_blank" rel="noopener">sign up separately here</a>.
+  - question: What happens after I register?
     answer: |
-      Registering your interest lets us follow up with details as plans are finalized. It does not guarantee a spot.
+      Submitting the form lets us follow up with details as plans are finalized. It does not guarantee a spot.
 
       If we can accommodate you, you will receive a confirmation email with next steps.
   - question: Is this event connected to Critical Effect?

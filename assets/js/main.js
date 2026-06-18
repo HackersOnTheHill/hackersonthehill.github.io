@@ -11,12 +11,13 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     // Page-load animation
-    if (window.AOS && !prefersReducedMotion.matches) {
+    if (window.AOS) {
       AOS.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true,
-        mirror: false
+        mirror: false,
+        disable: prefersReducedMotion.matches
       });
     }
 
