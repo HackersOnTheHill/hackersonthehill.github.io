@@ -3,16 +3,6 @@ info_bar:
     - label: "Upcoming: Netherlands - May 8, 2026"
       url: /netherlands/
 event_cards_static:
-  - title: Coming Soon
-    location: More locations worldwide
-    detail: Stay tuned for announcements
-    date_label: "Expanding in 2026"
-    date_type: next
-    badge: Get Notified
-    badge_class: priority
-    modal_target: "#newsletterModal"
-    icon_class: fa-solid fa-landmark
-    aria_label: Get notified about new Hackers on the Hill locations
   - title: Suggest a Location
     location: Contact us
     detail: Know a great place for our next event?
@@ -27,7 +17,7 @@ event_cards_recent:
   - title: United States
     location: Washington, DC
     detail: US Capitol
-    date_label: "Last: 2026"
+    date_label: "Last: June 2026"
     date_type: last
     badge: See the Archive
     badge_class: ""
@@ -36,6 +26,18 @@ event_cards_recent:
     logo_dark: /assets/img/hoth-us_darkmode.svg
     logo_alt: United States Hackers on the Hill logo
     aria_label: View the most recent Hackers on the Hill US event
+  - title: Nederland
+    location: Den Haag
+    detail: Johan de Witthuis
+    date_label: "Last: May 2026"
+    date_type: last
+    badge: Visit Page
+    badge_class: ""
+    href: /netherlands/
+    logo_light: /assets/img/hath-nl-2026_lightmode.svg
+    logo_dark: /assets/img/hath-nl-2026_darkmode.svg
+    logo_alt: Hackers at the Hof logo
+    aria_label: View the most recent Hackers at the Hof event
   - title: Colorado
     location: Denver
     detail: State Services Building
