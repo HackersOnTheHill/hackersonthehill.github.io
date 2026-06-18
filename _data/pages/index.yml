@@ -31,7 +31,7 @@ event_cards_recent:
     detail: Johan de Witthuis
     date_label: "Last: May 2026"
     date_type: last
-    badge: Visit Page
+    badge: See the Archive
     badge_class: ""
     href: /netherlands/
     logo_light: /assets/img/hath-nl-2026_lightmode.svg
