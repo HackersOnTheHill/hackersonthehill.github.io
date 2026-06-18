@@ -1,7 +1,5 @@
 info_bar:
-  items:
-    - label: "Upcoming: Netherlands - May 8, 2026"
-      url: /netherlands/
+  items: []
 event_cards_static:
   - title: Suggest a Location
     location: Contact us

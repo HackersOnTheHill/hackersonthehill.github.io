@@ -1,5 +1,5 @@
 event_banner:
-  enabled: true
+  enabled: false
   label: "What's New for 2026?"
   icon_class: "fa-solid fa-bullhorn"
   modal_id: "updates2026Modal"
