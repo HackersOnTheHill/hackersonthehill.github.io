@@ -1,9 +1,9 @@
-status: published
+status: archived
 region: us
 start_date: 2026-06-16
 url: /us-2026/
-show_in_nav: true
-show_on_index: true
+show_in_nav: false
+show_on_index: false
 nav:
   label: US - Jun 2026
 card:

@@ -1,5 +1,9 @@
 items:
   # Order newest to oldest.
+  - label: US - DC 2026
+    url: /archives/us-2026/
+  - label: Nederland - Mei 2026
+    url: /archives/nl-2026/
   - label: US - DC 2025
     url: /archives/us-2025/
   - label: US - DC 2025 - Critical Effect

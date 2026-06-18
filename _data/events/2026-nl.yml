@@ -1,9 +1,9 @@
-status: published # draft|published|archived; only published shows in nav/index (to show under Archived nav, add the appropriate .md file in /archives/ and update _data/archives.yml)
+status: archived # draft|published|archived; only published shows in nav/index (to show under Archived nav, add the appropriate .md file in /archives/ and update _data/archives.yml)
 region: nl # us|uk|ca|co|nl; used by region stub redirects if added
 start_date: 2026-05-08 # Update once the date is confirmed (used for ordering, not shown if date_label is blank)
 url: /netherlands/ # Must match the event page permalink
-show_in_nav: true # Set true when ready to appear in nav
-show_on_index: true # Set true when ready to appear on index
+show_in_nav: false # Set true when ready to appear in nav
+show_on_index: false # Set true when ready to appear on index
 nav: # Optional overrides for nav labels
   label: "Nederland - Mei 2026" # Text shown in nav dropdowns (omit to use hero.title)
 card: # Optional index card data (omit to skip this card)

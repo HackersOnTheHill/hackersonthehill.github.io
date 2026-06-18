@@ -27,20 +27,42 @@ permalink: /cyber-policy-shark-tank/
   </div>
 </section>
 
-<section class="briefing-section">
+<section class="briefing-section briefing-bg-alt">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
         <h2>The rules are simple, the impacts can be meaningful</h2>
-        <p>You have 3-4 minutes to touch on the problem, a specific step that can address it, what to expect if successful, and what you need from the Sharks to make it happen. Sharks have 7-8 minutes to ask questions, suggest tweaks, and offer to invest their time, energy, and political capital alongside you (the cyber policy innovator) to make it happen.</p>
-        <p>The primary goals of the event are to help the cybersecurity researcher and practitioner community exercise their practical understanding of how to use public policy to achieve desired effects. The time constraints and Q&amp;A from Sharks is meant to ensure participants can articulate the value of their ideas to public policy decision-makers quickly and clearly. The investments the Sharks are willing to make give participants the best chance to see their idea put into action. Drawing from a diverse pool of Sharks offers participants the ability to find at least one willing to invest, as long as they are focused on achievable goals using authorities, levers, and targets that Congressional staffers have at hand.</p>
-        <p>In addition, the Sharks will award points for each pitch, with prizes given for the best idea and the one most likely to end in disaster (as judged by the Sharks). Ideas will be evaluated for bestness with the following scoring system, which is also a good guide for what the Sharks will look for in order to figure out who they want to work with.</p>
-        <ul class="briefing-bullets">
-          <li>4 points for using the right levers, targets, and authorities of the Legislative branch (formal or informal)</li>
-          <li>3 points for how likely the idea is to address the problem it sets out to</li>
-          <li>3 points for its feasibility or likelihood to be implementable</li>
-          <li>1 point for creativity (yes, this event goes to 11 &#x1F60E;)</li>
-        </ul>
+        <p>You have 3-4 minutes to touch on the problem, a specific step that can address it, what to expect if successful, and what you need from the Sharks to make it happen. Sharks have 7-8 minutes to ask questions, suggest tweaks, and offer to invest their time, energy, and political capital alongside you to make it happen.</p>
+        <p>The primary goals of the event are to help the cybersecurity researcher and practitioner community exercise their practical understanding of how to use public policy to achieve desired effects. The time constraints and Q&amp;A from Sharks ensure participants can articulate the value of their ideas to public policy decision-makers quickly and clearly.</p>
+        <p>Sharks award points for each pitch, with prizes given for the best idea and the one most likely to end in disaster. Ideas are evaluated on the following scoring system (yes, this goes to 11 &#x1F60E;):</p>
+        <div class="briefing-table-wrap">
+          <table class="briefing-table">
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Using the right levers, targets, and authorities of the Legislative branch (formal or informal)</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Likelihood to address the problem it sets out to solve</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Feasibility and likelihood to be implementable</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Creativity</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -51,14 +73,53 @@ permalink: /cyber-policy-shark-tank/
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
         <h2>How to enter and what to expect</h2>
-        <p>All are welcome to enter. When submissions open, we will announce via social media and email. Submitters will be required to provide their name (or handle/alias), contact information, title of the idea, a brief description, and a 1-page (no more than 600 words) decision brief covering the relevant information. More details on each of these sections will be provided in the form.</p>
-        <p>Selected cyber policy innovators will be notified in advance of the event. Further detail on the format of the pitch sessions, names of some of the Sharks, and timing of next steps will be sent at this time. Selected innovators can then practice their pitch, refine the 1-pager if necessary, and research the Sharks they may be pitching.</p>
-        <p>Preliminary rounds will be held (virtually or in person, depending on the event) before the final. Each innovator will present their ideas to Sharks in a preliminary round. This provides Sharks and organizers the opportunity to downselect the best candidates, and gives innovators the opportunity to get feedback on their ideas, whether they are selected for the final round or not.</p>
-        <p>Three finalists will be notified after the preliminary rounds are completed. Innovators can incorporate feedback and polish the pitch so it is stage-ready.</p>
-        <p>The final round of the three top pitches from preliminaries will be conducted live as the last session of the event. The format will be similar to the preliminary round, with different Sharks and a little additional time provided for the pitch and Sharks' response if possible. The session will conclude with an announcement of results and presentation of fabulous prizes to the winner.</p>
-        <p>While you are free to submit a pitch on any topic you'd like, ideas centered on cybersecurity impacts to life, safety, and national security are most likely to move forward.</p>
-        <p>Submissions are open now for the June 2026 Shark Tank. <a href="https://forms.gle/M5WcMdFQT5LyT4V79" target="_blank" rel="noopener">Submit your idea</a> to enter.</p>
-        <p>Not ready to submit? <a data-bs-toggle="modal" href="#newsletterModal" aria-label="Sign up for notifications">Sign up for our notification list</a> to hear about future submission windows.</p>
+        <p>All are welcome to enter. When a submission window opens we announce via social media and email. Ideas centered on cybersecurity impacts to life, safety, and national security are most likely to move forward, but we welcome all perspectives.</p>
+        <div class="briefing-steps">
+          <div class="briefing-step">
+            <div class="briefing-step-number">1</div>
+            <div class="briefing-step-content">
+              <strong>Submit your idea.</strong> Provide your name, contact information, a title, a brief description, and a one-page decision brief (no more than 600 words). The form guides you through each section. See the sample submissions below for examples of what a strong brief looks like.
+            </div>
+          </div>
+          <div class="briefing-step">
+            <div class="briefing-step-number">2</div>
+            <div class="briefing-step-content">
+              <strong>Preliminary round.</strong> Selected innovators are notified in advance and invited to pitch in a preliminary round (virtual or in-person, depending on the event). Every participant receives feedback from the Sharks, whether or not they advance.
+            </div>
+          </div>
+          <div class="briefing-step">
+            <div class="briefing-step-number">3</div>
+            <div class="briefing-step-content">
+              <strong>Final round.</strong> Three finalists pitch live as the closing session of the event. The format mirrors the preliminary round with a bit more time. Winners are announced on stage.
+            </div>
+          </div>
+        </div>
+        <p><a data-bs-toggle="modal" href="#newsletterModal" aria-label="Sign up for notifications">Sign up for our notification list</a> to hear when the next submission window opens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="briefing-section briefing-bg-alt">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-9">
+        <h2>Sample submissions</h2>
+        <p>These are real pitches from past events. Use them as a guide for structure, scope, and tone when drafting your own decision brief.</p>
+        <div class="briefing-resource-grid">
+          <a class="briefing-resource-card" href="/assets/Right%20to%20Reboot%20Act.pdf" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            <span>Right to Reboot Act</span>
+          </a>
+          <a class="briefing-resource-card" href="/assets/Fighting%20Cyber%20Hackers%20with%20Hacking.pdf" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            <span>Fighting Cyber Hackers with Hacking</span>
+          </a>
+          <a class="briefing-resource-card" href="/assets/AI%20Liability%20Clarity%20Act.pdf" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            <span>AI Liability Clarity Act</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -76,7 +137,7 @@ permalink: /cyber-policy-shark-tank/
   </div>
 </section>
 
-<section class="briefing-section">
+<section class="briefing-section briefing-bg-alt">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-9">
@@ -84,7 +145,7 @@ permalink: /cyber-policy-shark-tank/
         <ul class="briefing-bullets">
           <li><strong>Washington, DC, January 2025</strong> The first ever Cyber Policy Shark Tank was held at Hackers on the Hill, with five innovators pitching five experienced Sharks. The ideas were bold and innovative, with the Sharks providing helpful and candid feedback. The presentations sparked further collaboration between public policymakers and the cybersecurity researcher community.</li>
           <li><strong>Washington, DC, June 2025</strong> The Shark Tank returned as the closing session of <a href="/archives/us-2025-critical-effect/">Hackers on the Hill at Critical Effect 2025</a>.</li>
-          <li><strong>Washington, DC, June 2026</strong> The next Shark Tank is the closing session of <a href="https://securityandtechnology.org/event/critical-effect-2026/" target="_blank" rel="noopener">Critical Effect 2026</a> (June 17-18). <a href="/us-2026/">Learn more about Hackers on the Hill DC 2026.</a></li>
+          <li><strong>Washington, DC, June 2026</strong> The Shark Tank returned as the closing session of <a href="https://securityandtechnology.org/event/critical-effect-2026/" target="_blank" rel="noopener">Critical Effect 2026</a> (June 17-18). <a href="/archives/us-2026/">See the archive for Hackers on the Hill DC 2026.</a></li>
         </ul>
       </div>
     </div>

@@ -2,8 +2,6 @@ info_bar:
   items:
     - label: "Upcoming: Netherlands - May 8, 2026"
       url: /netherlands/
-    - label: "Upcoming: US/DC - June 16, 2026"
-      url: /us-2026/
 event_cards_static:
   - title: Coming Soon
     location: More locations worldwide
@@ -29,11 +27,11 @@ event_cards_recent:
   - title: United States
     location: Washington, DC
     detail: US Capitol
-    date_label: "Last: 2025"
+    date_label: "Last: 2026"
     date_type: last
     badge: See the Archive
     badge_class: ""
-    href: /archives/us-2025/
+    href: /archives/us-2026/
     logo_light: /assets/img/hoth-us_lightmode.svg
     logo_dark: /assets/img/hoth-us_darkmode.svg
     logo_alt: United States Hackers on the Hill logo

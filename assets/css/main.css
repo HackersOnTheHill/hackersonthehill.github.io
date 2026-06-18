@@ -738,24 +738,12 @@ body.archive-page .archive-container iframe {
     height: 100%;
 }
 
-body.archive-page .archive-overlay {
-    position: absolute;
-    inset: 0;
-    background: transparent;
-    z-index: 2;
-    pointer-events: all;
-    cursor: not-allowed;
-}
 body.archive-page #footer {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 996;
-}
-
-body.archive-page.archive-interactions-enabled .archive-overlay {
-    display: none;
 }
 
 .archive-warning-banner {
@@ -1731,6 +1719,7 @@ button.location-card {
 .fa-linkedin::before { content: "\f08c"; }
 .fa-mastodon::before { content: "\f4f6"; }
 .fa-youtube::before { content: "\f167"; }
+.fa-file-pdf::before { content: "\f1c1"; }
 
 /* Bluesky icon size adjustment (wider viewBox than other icons) */
 .fa-bluesky {
@@ -2198,6 +2187,47 @@ button.location-card {
 
 .briefing-footnotes p {
   margin-bottom: 0;
+}
+
+/* PDF resource cards */
+.briefing-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 20px 0 8px;
+}
+
+.briefing-resource-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-accent);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.briefing-resource-card:hover {
+  box-shadow: 0 4px 14px var(--shadow-hover);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.briefing-resource-card i {
+  color: var(--accent-primary);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.briefing-resource-card span {
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 @media (max-width: 767px) {
