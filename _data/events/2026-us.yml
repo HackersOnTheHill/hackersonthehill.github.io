@@ -25,10 +25,15 @@ hero:
   logo: /assets/img/hoth-us_lightmode.svg
   logo_alt: Hackers on the Hill United States logo
   description: Cybersecurity researchers and Congressional staff, in the same room, making policy smarter together.
-  notice: "Registration opens June 1."
+  notice: "Registration is now open!"
   cta:
-    label: Get Notified
-    modal_target: "#newsletterModal"
+    label: Register
+    url: "https://forms.gle/Xe2sjFReTvXkHiHN7"
+    external: true
+  cta_secondary:
+    label: Submit a Shark Tank idea
+    url: "https://forms.gle/M5WcMdFQT5LyT4V79"
+    external: true
 schedule_intro: "This year's event runs from Capitol Hill to the Critical Effect stage (Friday pm). We're also adding something new to the format this year: a mock Congressional hearing. You won't want to miss it!"
 location:
   name: US Capitol

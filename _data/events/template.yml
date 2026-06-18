@@ -28,6 +28,10 @@ hero: # Hero section content for the event page
     label: Register Interest # Button text
     url: https://example.com/register # Button link (use full URL if external)
     external: true # true if the link leaves this site
+  cta_secondary: # Optional second button, shown next to the primary one (omit if not needed)
+    label: Submit an idea # Button text
+    url: https://example.com/submit # Button link (use full URL if external)
+    external: true # true if the link leaves this site
 schedule_intro: "Times are TBD. The current plan is a plenary discussion followed by small-group office briefings." # One-line schedule intro
 location: # Venue section content
   name: Venue Name, Room Name # Venue name line

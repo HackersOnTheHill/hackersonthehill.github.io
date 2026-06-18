@@ -10,6 +10,7 @@ permalink: /cyber-policy-shark-tank/
       <div class="col-12 col-lg-9">
         <h1>Cyber Policy Shark Tank</h1>
         <p class="briefing-tagline">Pitch your policy idea. Defend it to the people who can make it happen.</p>
+        <p class="mt-4 mb-0"><a class="button priority" href="https://forms.gle/M5WcMdFQT5LyT4V79" target="_blank" rel="noopener">Submit your idea</a></p>
       </div>
     </div>
   </div>
@@ -56,7 +57,8 @@ permalink: /cyber-policy-shark-tank/
         <p>Three finalists will be notified after the preliminary rounds are completed. Innovators can incorporate feedback and polish the pitch so it is stage-ready.</p>
         <p>The final round of the three top pitches from preliminaries will be conducted live as the last session of the event. The format will be similar to the preliminary round, with different Sharks and a little additional time provided for the pitch and Sharks' response if possible. The session will conclude with an announcement of results and presentation of fabulous prizes to the winner.</p>
         <p>While you are free to submit a pitch on any topic you'd like, ideas centered on cybersecurity impacts to life, safety, and national security are most likely to move forward.</p>
-        <p><a data-bs-toggle="modal" href="#newsletterModal" aria-label="Sign up for notifications">Sign up for our notification list</a> to hear when the next submission window opens.</p>
+        <p>Submissions are open now for the June 2026 Shark Tank. <a href="https://forms.gle/M5WcMdFQT5LyT4V79" target="_blank" rel="noopener">Submit your idea</a> to enter.</p>
+        <p>Not ready to submit? <a data-bs-toggle="modal" href="#newsletterModal" aria-label="Sign up for notifications">Sign up for our notification list</a> to hear about future submission windows.</p>
       </div>
     </div>
   </div>
