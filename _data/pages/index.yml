@@ -60,18 +60,6 @@ event_cards_recent:
     logo_dark: /assets/img/hoth-ca_darkmode.svg
     logo_alt: Canada Hackers on the Hill logo
     aria_label: View the most recent Hackers on the Hill Canada event
-  - title: United Kingdom
-    location: London
-    detail: Westminster
-    date_label: "Last: December 2025"
-    date_type: last
-    badge: See the Archive
-    badge_class: ""
-    href: /archives/uk-2025/
-    logo_light: /assets/img/hith-uk_lightmode.svg
-    logo_dark: /assets/img/hith-uk_darkmode.svg
-    logo_alt: United Kingdom Hackers in the House logo
-    aria_label: View the most recent Hackers in the House UK event
 faq:
   - question: Who runs Hackers on the Hill?
     answer: |
