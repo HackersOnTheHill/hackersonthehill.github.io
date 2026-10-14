@@ -1,0 +1,37 @@
+status: published # draft|published|archived; only published shows in nav/index
+region: uk
+start_date: 2026-12-11
+url: /uk/ # Must match the event page permalink in uk.md
+show_in_nav: true
+show_on_index: true
+nav:
+  label: UK - Dec 2026
+card:
+  title: United Kingdom
+  location: London
+  detail: Westminster
+  date_label: "Next: December 11, 2026"
+  date_type: next
+  badge: Register
+  badge_class: priority
+  logo_light: /assets/img/hith-uk_lightmode.svg
+  logo_dark: /assets/img/hith-uk_darkmode.svg
+  logo_alt: United Kingdom Hackers in the House logo
+  aria_label: Register for Hackers in the House UK 2026
+hero:
+  title: Hackers in the House
+  date_label: Friday, December 11, 2026
+  location_label: London, UK
+  logo: /assets/img/hith-uk_lightmode.svg
+  logo_dark: /assets/img/hith-uk_darkmode.svg
+  logo_alt: United Kingdom Hackers in the House logo
+  description: Where cyber meets policy. UK security professionals meet the civil servants shaping UK cyber policy.
+  cta:
+    label: Register
+    url: https://forms.gle/5zzJ8CYsAcB7MwmY6
+    external: true
+schedule_intro: "The event runs for most of the work day (with a late start to support travel needs), and afterwards, participants are invited to join us for the unofficial debriefing at a self-funded happy hour. Whether you continue to engage with policymakers and shape policy outcomes after that is up to you!"
+schedule: # Placeholder until timings are confirmed. Replace with the real list when ready.
+  - time: TBD
+    title: Full schedule coming soon
+    description: Timings for check-in, orientation sessions, government briefings and the happy hour will be posted here once confirmed.
